@@ -7,7 +7,7 @@ export function CeoSection() {
   const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#0a1628] py-16 lg:py-24">
+    <section ref={ref} className="relative overflow-hidden bg-[#0a1628] pt-10 pb-16 lg:pt-16 lg:pb-32">
       {/* Background tech pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0066ff]/20 to-transparent" />

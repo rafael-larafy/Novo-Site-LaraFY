@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
 import { StatsSection } from "@/components/sections/stats-section"
 import { ReformaTributariaSection } from "@/components/sections/reforma-tributaria-section"
-import { MetodoSection } from "@/components/sections/metodo-section"
 import { CeoSection } from "@/components/sections/ceo-section"
 import { BlindagemSection } from "@/components/sections/blindagem-section"
 import { DiferencialSection } from "@/components/sections/diferencial-section"
@@ -43,7 +42,6 @@ export default function Home() {
         <HeroSection />
         <StatsSection />
         <ReformaTributariaSection />
-        <MetodoSection />
         <CeoSection />
         <BlindagemSection />
         <DiferencialSection />
