@@ -1,6 +1,7 @@
 "use client"
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { PainelLarafy } from "./painel-larafy"
 
 export function TransparenciaSection() {
   const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.15)
@@ -40,11 +41,14 @@ export function TransparenciaSection() {
             <p className="text-[#8ba3c0] text-lg leading-relaxed">
               Nosso Planejamento Tributario nao e um documento de gaveta. E um plano
               de acao completo e implementado com um processo claro, focado em
-              resultado e com metodo validado:
+              resultado e com metodo validado:S
             </p>
           </div>
         </div>
       </div>
+
+      {/* Painel interativo LaraFy dentro da mesma section */}
+      <PainelLarafy />
     </section>
   )
 }
