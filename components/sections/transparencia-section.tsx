@@ -28,20 +28,24 @@ export function TransparenciaSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-8">
           {/* Left - Title */}
           <div className={`flex-1 ${isVisible ? 'animate-slide-left animate-visible' : 'animate-slide-left'}`}>
-            <h2 className="text-3xl font-extrabold leading-tight text-[#00e5ff] lg:text-5xl text-balance">
-              Transparencia e Metodo: um processo claro para ir da estrategia a ação.
+            <h2 className="mt-1 mb-1 text-2xl font-extrabold leading-tight text-[#00e5ff] lg:text-4xl text-balance max-w-xl">
+              Transparência e Método:
+              <br />
+              um processo claro para ir
+              <br />
+              da estratégia à ação.
             </h2>
           </div>
 
           {/* Right - Description */}
           <div className={`flex-1 ${isVisible ? 'animate-slide-right animate-visible' : 'animate-slide-right'}`}>
-            <p className="text-[#8ba3c0] text-lg leading-relaxed">
-              Nosso Planejamento Tributario nao e um documento de gaveta. E um plano
-              de acao completo e implementado com um processo claro, focado em
-              resultado e com metodo validado:S
+            <p className="text-white text-base lg:text-lg leading-relaxed max-w-md lg:ml-auto">
+              Nosso Planejamento Tributário não é um documento de gaveta. É um plano
+              de ação completo e implementado com um processo claro, focado em
+              resultado e com método validado:
             </p>
           </div>
         </div>
