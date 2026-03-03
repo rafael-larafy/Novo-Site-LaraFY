@@ -1,6 +1,7 @@
 "use client"
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import Background2 from "../../lib/Background 2.png"
 
 export function ConfiancaSection() {
   const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
@@ -10,7 +11,8 @@ export function ConfiancaSection() {
       ref={ref}
       className="relative overflow-hidden bg-[#020c18]"
       style={{
-        backgroundImage: "url('/background-2.png')",
+        // Next/Image import gives { src, height, width }
+        backgroundImage: `url(${(Background2 as any).src ?? Background2})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
