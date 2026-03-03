@@ -145,63 +145,6 @@ export function PainelLarafy() {
 
   return (
     <div className={styles.panel}>
-      <div className={styles.grid} />
-      <svg
-        className={styles.circuit}
-        viewBox="0 0 1100 850"
-        preserveAspectRatio="none"
-      >
-        <line
-          x1={100}
-          y1={0}
-          x2={100}
-          y2={850}
-          stroke="#22b8c9"
-          strokeWidth={0.5}
-          opacity={0.2}
-        />
-        <line
-          x1={1000}
-          y1={0}
-          x2={1000}
-          y2={850}
-          stroke="#22b8c9"
-          strokeWidth={0.5}
-          opacity={0.2}
-        />
-        <line
-          x1={0}
-          y1={425}
-          x2={1100}
-          y2={425}
-          stroke="#22b8c9"
-          strokeWidth={0.5}
-          opacity={0.1}
-        />
-        <circle cx={100} cy={425} r={3} fill="#22b8c9" opacity={0.3} />
-        <circle cx={1000} cy={425} r={3} fill="#22b8c9" opacity={0.3} />
-        <line
-          x1={100}
-          y1={200}
-          x2={260}
-          y2={200}
-          stroke="#22b8c9"
-          strokeWidth={0.5}
-          opacity={0.15}
-        />
-        <circle cx={260} cy={200} r={2} fill="#22b8c9" opacity={0.25} />
-        <line
-          x1={840}
-          y1={650}
-          x2={1000}
-          y2={650}
-          stroke="#22b8c9"
-          strokeWidth={0.5}
-          opacity={0.15}
-        />
-        <circle cx={840} cy={650} r={2} fill="#22b8c9" opacity={0.25} />
-      </svg>
-
       <div className={styles.wrap}>
         <div
           className={styles.wheel}
