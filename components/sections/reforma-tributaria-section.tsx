@@ -57,15 +57,24 @@ export function ReformaTributariaSection() {
                 </div>
 
                 {/* Tags */}
-                <div className={`flex flex-wrap gap-3 ${isVisible ? 'animate-on-scroll animate-visible stagger-3' : 'animate-on-scroll'}`}>
-                  {tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="rounded-lg border border-[#1e3a5f] bg-[#0d1d33] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/50 hover:bg-[#132a45]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div
+                  className={`mt-6 rounded-2xl border border-[#1e3a5f] bg-[#0a1628]/60 p-4 sm:p-5 shadow-[0_18px_40px_rgba(0,0,0,0.55)] ${isVisible ? 'animate-on-scroll animate-visible stagger-3' : 'animate-on-scroll'}`}
+                >
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8ba3c0]">
+                    Como geralmente funcionam os projetos tradicionais:
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    {tags.map((tag, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-center justify-center rounded-full border border-[#1e3a5f] bg-[#0d1d33] px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
+                          tag === "PLANILHAS" ? "sm:col-span-2" : ""
+                        }`}
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -73,7 +82,7 @@ export function ReformaTributariaSection() {
         </div>
 
         {/* Bottom dark band */}
-        <div className="bg-[#0a1628] py-12">
+        <div className="bg-[#0a1628] pt-16 pb-[0px]">
           <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
             <p className={`text-[#8ba3c0] text-sm leading-relaxed ${isVisible ? 'animate-on-scroll animate-visible stagger-4' : 'animate-on-scroll'}`}>
               O mercado tradicional de consultoria opera de forma limitada

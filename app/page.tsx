@@ -3,13 +3,12 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
 import { StatsSection } from "@/components/sections/stats-section"
+import { ConfiancaSection } from "@/components/sections/confianca-section"
 import { ReformaTributariaSection } from "@/components/sections/reforma-tributaria-section"
-import { MetodoSection } from "@/components/sections/metodo-section"
 import { CeoSection } from "@/components/sections/ceo-section"
 import { BlindagemSection } from "@/components/sections/blindagem-section"
 import { DiferencialSection } from "@/components/sections/diferencial-section"
 import { TransparenciaSection } from "@/components/sections/transparencia-section"
-import { PainelLarafy } from "@/components/sections/painel-larafy"
 import { ZeroRiscoSection } from "@/components/sections/zero-risco-section"
 import { ReformaCardSection } from "@/components/sections/reforma-card-section"
 import { useEffect } from "react"
@@ -41,16 +40,15 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <StatsSection />
+        <StatsSection />  
         <ReformaTributariaSection />
-        <MetodoSection />
         <CeoSection />
         <BlindagemSection />
         <DiferencialSection />
         <TransparenciaSection />
-        <PainelLarafy />
         <ZeroRiscoSection />
         <ReformaCardSection />
+        <ConfiancaSection />  
       </main>
     </>
   )
