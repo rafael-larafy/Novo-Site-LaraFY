@@ -59,12 +59,12 @@ export function CeoSection() {
             transition={scrollTransition}
           >
             <div className="relative flex items-end justify-center">
-              <div className="relative w-72 h-96 lg:w-[520px] lg:h-[620px] overflow-hidden">
+              <div className="relative w-full max-w-[560px]">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent z-10" />
                 <img
                   src={WaldirImg.src || WaldirImg}
                   alt="Waldir de Lara - Founder e CEO da LaraFy"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
