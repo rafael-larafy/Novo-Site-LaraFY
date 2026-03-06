@@ -4,7 +4,7 @@
 
 .panel {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: transparent;
+  background: #0a1628;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -18,9 +18,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 15% 25%, rgba(34,184,201,0.05) 0%, transparent 50%),
-    radial-gradient(circle at 85% 75%, rgba(34,184,201,0.03) 0%, transparent 50%);
+  background: transparent;
   pointer-events: none;
 }
 
