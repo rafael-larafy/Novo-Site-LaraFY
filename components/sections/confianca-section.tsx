@@ -13,14 +13,12 @@ import Background2 from "../../lib/Background 2.png"
 
 export function ConfiancaSection() {
   return (
-    <section
-      className="relative overflow-hidden bg-[#020c18]"
-      style={{
-        backgroundImage: `url(${(Background2 as any).src ?? Background2})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="relative overflow-hidden bg-[#020c18]">
+      <img
+        src={typeof Background2 === "string" ? Background2 : (Background2 as { src?: string }).src ?? ""}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
