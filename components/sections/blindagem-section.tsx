@@ -90,9 +90,6 @@ export function BlindagemSection() {
               />
               <circle cx="40" cy="51" r="2.5" fill="#8ba3c0" />
             </svg>
-            <div className="absolute -bottom-2 -left-2 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-[#e8a838] flex items-center justify-center shadow-lg">
-              <span className="text-white text-sm lg:text-base font-extrabold">3</span>
-            </div>
           </div>
 
           {/* Text */}
