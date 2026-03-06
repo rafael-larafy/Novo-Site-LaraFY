@@ -145,6 +145,15 @@ export function PainelLarafy() {
 
   return (
     <div className={styles.panel}>
+      <video
+        className={styles.bgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        src="/Video LP (V2).mp4"
+      />
+      <div className={styles.bgOverlay} />
       <div className={styles.wrap}>
         <div
           className={styles.wheel}
