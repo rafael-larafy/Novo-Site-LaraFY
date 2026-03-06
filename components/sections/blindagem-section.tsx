@@ -1,6 +1,12 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import { Search, FileText, Scale, Users } from "lucide-react"
 
 const features = [
@@ -30,10 +36,8 @@ const features = [
 ]
 
 export function BlindagemSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
-
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden bg-[#e8f4f8]">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#e8f4f8]">
       {/* Background network pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
@@ -59,46 +63,60 @@ export function BlindagemSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header with shield */}
-        <div className={`flex flex-col items-center text-center mb-16 ${isVisible ? 'animate-on-scroll animate-visible' : 'animate-on-scroll'}`}>
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-10 mb-16 text-center sm:text-left"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={scrollTransition}
+        >
           {/* Shield icon */}
-          <div className="mb-6 float-effect">
-            <div className="relative w-20 h-24">
-              <svg viewBox="0 0 80 96" fill="none" className="w-full h-full">
-                <path
-                  d="M40 4L8 20V48C8 72 40 92 40 92C40 92 72 72 72 48V20L40 4Z"
-                  fill="#0d1d33"
-                  stroke="#1e3a5f"
-                  strokeWidth="2"
-                />
-                {/* Lock icon */}
-                <rect x="30" y="44" width="20" height="16" rx="3" fill="#1e3a5f" />
-                <path
-                  d="M34 44V38C34 34 36 32 40 32C44 32 46 34 46 38V44"
-                  stroke="#8ba3c0"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <circle cx="40" cy="52" r="2" fill="#8ba3c0" />
-              </svg>
+          <div className="relative flex-shrink-0 w-28 h-32 lg:w-36 lg:h-40 float-effect">
+            <svg viewBox="0 0 80 96" fill="none" className="w-full h-full drop-shadow-xl">
+              <path
+                d="M40 4L8 20V48C8 72 40 92 40 92C40 92 72 72 72 48V20L40 4Z"
+                fill="#0d1d33"
+                stroke="#1e3a5f"
+                strokeWidth="1.5"
+              />
+              <rect x="30" y="42" width="20" height="18" rx="3" fill="#1e3a5f" />
+              <path
+                d="M34 42V36C34 32 36 30 40 30C44 30 46 32 46 36V42"
+                stroke="#8ba3c0"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <circle cx="40" cy="51" r="2.5" fill="#8ba3c0" />
+            </svg>
+            <div className="absolute -bottom-2 -left-2 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-[#e8a838] flex items-center justify-center shadow-lg">
+              <span className="text-white text-sm lg:text-base font-extrabold">3</span>
             </div>
           </div>
 
-          <h2 className="text-3xl font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-2xl">
-            Seu negocio blindado em todos os cenarios possiveis.
-          </h2>
-          <p className="mt-4 text-lg text-[#4a6080] max-w-xl">
-            Nossa atuacao e desenhada para blindar o seu caixa, aliando:
-          </p>
-        </div>
+          {/* Text */}
+          <div className="flex flex-col items-center sm:items-start">
+            <h2 className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl">
+              Seu negócio blindado em todos os cenários possíveis.
+            </h2>
+            <p className="mt-3 text-base lg:text-lg text-[#4a6080] max-w-xl">
+              Nossa atuação é desenhada para blindar o seu caixa, aliando:
+            </p>
+          </div>
+        </motion.div>
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#00e5ff]/10 ${
-                isVisible ? `animate-on-scroll animate-visible stagger-${i + 1}` : 'animate-on-scroll'
-              }`}
+              className="group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#00e5ff]/10"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(i + 1) }}
             >
               {/* Icon */}
               <div className="-mt-10 mb-4 flex justify-center">
@@ -113,7 +131,7 @@ export function BlindagemSection() {
               <p className="text-center text-sm text-[#4a6080] leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

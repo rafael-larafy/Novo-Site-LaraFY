@@ -1,6 +1,12 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import { useEffect, useState, useRef } from "react"
 import BrasilImg from "../../lib/Brasil.png"
 
@@ -46,26 +52,24 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 export function StatsSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.2)
-
   return (
     <section
-      ref={ref}
-      className="relative py-16 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #0a1628 0%)",
-      }}
+      className="relative py-16 overflow-hidden bg-[#0a1628]"
     >
-      {/* Subtle blue glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#0066ff]/15 blur-[100px] rounded-full" />
+      <div className="absolute inset-0">
+        <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/10 blur-[150px] rounded-full" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
           {/* Stat 1 */}
-          <div
-            className={`flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20 ${
-              isVisible ? 'animate-on-scroll animate-visible stagger-1' : 'animate-on-scroll'
-            }`}
+          <motion.div
+            className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={fadeUpVariants}
+            transition={{ ...scrollTransition, delay: staggerDelay(1) }}
           >
             <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
               +<AnimatedCounter target={5} />
@@ -73,13 +77,16 @@ export function StatsSection() {
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
               Anos de<br />Mercado
             </span>
-          </div>
+          </motion.div>
 
           {/* Stat 2 */}
-          <div
-            className={`flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20 ${
-              isVisible ? 'animate-on-scroll animate-visible stagger-2' : 'animate-on-scroll'
-            }`}
+          <motion.div
+            className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={fadeUpVariants}
+            transition={{ ...scrollTransition, delay: staggerDelay(2) }}
           >
             <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
               +<AnimatedCounter target={100} />
@@ -87,20 +94,23 @@ export function StatsSection() {
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
               Especialistas
             </span>
-          </div>
+          </motion.div>
 
           {/* Stat 3 */}
-          <div
-            className={`flex-1 flex items-center justify-center gap-3 text-center ${
-              isVisible ? 'animate-on-scroll animate-visible stagger-3' : 'animate-on-scroll'
-            }`}
+          <motion.div
+            className="flex-1 flex items-center justify-center gap-3 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={fadeUpVariants}
+            transition={{ ...scrollTransition, delay: staggerDelay(3) }}
           >
             {/* Brazil map icon */}
             <img src={BrasilImg.src || BrasilImg} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
               Atuacao<br />Nacional
             </span>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

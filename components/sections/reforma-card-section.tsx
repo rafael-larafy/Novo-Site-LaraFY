@@ -1,20 +1,26 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  scaleVariants,
+} from "@/lib/scroll-motion"
 
 export function ReformaCardSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.15)
-
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden bg-[#00e5ff]/10">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#00e5ff]/10">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00e5ff]/5 via-transparent to-[#0a1628]/10" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div
-          className={`flex flex-col lg:flex-row items-stretch rounded-3xl overflow-hidden shadow-2xl ${
-            isVisible ? 'animate-scale animate-visible' : 'animate-scale'
-          }`}
+        <motion.div
+          className="flex flex-col lg:flex-row items-stretch rounded-3xl overflow-hidden shadow-2xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={scaleVariants}
+          transition={scrollTransition}
         >
           {/* Left - Reforma Tributaria */}
           <div className="relative flex-1 bg-[#ffffff] p-10 lg:p-14 flex flex-col justify-center overflow-hidden">
@@ -79,7 +85,7 @@ export function ReformaCardSection() {
               Quem antecipa, lidera.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

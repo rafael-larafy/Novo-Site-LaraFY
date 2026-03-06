@@ -1,12 +1,19 @@
 "use client"
 
 import { useMemo, useState, useCallback } from "react"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+} from "@/lib/scroll-motion"
 import styles from "./painel-larafy.module.css"
 
 const CX = 290
 const CY = 290
 const R = 280
-const IR = 160
+const IR = 140
 const GAP_DEG = 4
 const SEG = 72
 const OFF = -72
@@ -118,7 +125,7 @@ export function PainelLarafy() {
       const sa = OFF + i * SEG
       const ea = OFF + (i + 1) * SEG
       const mid = (sa + ea) / 2
-      const labelRadius = (R + IR) / 2 - 5
+      const labelRadius = (R + IR) / 2
       const pos = p2c(CX, CY, labelRadius, mid)
       return {
         step: i + 1,
@@ -145,6 +152,52 @@ export function PainelLarafy() {
 
   return (
     <div className={styles.panel}>
+      <video
+        className={styles.bgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        src="/Video LP (V2).mp4"
+      />
+      <div className={styles.bgOverlay} />
+
+      {/* Texto introdutório */}
+      <div className={styles.header}>
+        <div className={styles.headerInner}>
+          <motion.div
+            className={styles.headerLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
+            <h2 className={styles.headerTitle}>
+              Transparência e Método:
+              <br />
+              um processo claro para ir
+              <br />
+              da estratégia à ação.
+            </h2>
+          </motion.div>
+          <motion.div
+            className={styles.headerRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
+            <p className={styles.headerDesc}>
+              Nosso Planejamento Tributário não é um documento de gaveta. É um plano
+              de ação completo e implementado com um processo claro, focado em
+              resultado e com método validado:
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       <div className={styles.wrap}>
         <div
           className={styles.wheel}
@@ -515,12 +568,13 @@ export function PainelLarafy() {
           </div>
 
           <svg className={styles.connSvg} viewBox="0 0 580 580">
+            {/* Etapa 1 – superior esquerda → tooltip esquerda */}
             <line
               className={`${styles.conn} ${activeStep === 1 ? styles.active : ""}`}
-              x1={150}
-              y1={155}
-              x2={-5}
-              y2={70}
+              x1={125}
+              y1={63}
+              x2={-15}
+              y2={25}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -528,17 +582,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 1 ? styles.active : ""}`}
-              cx={-5}
-              cy={70}
+              cx={-15}
+              cy={25}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 2 – superior direita → tooltip direita */}
             <line
               className={`${styles.conn} ${activeStep === 2 ? styles.active : ""}`}
-              x1={425}
-              y1={145}
-              x2={595}
-              y2={55}
+              x1={455}
+              y1={63}
+              x2={600}
+              y2={25}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -546,17 +601,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 2 ? styles.active : ""}`}
-              cx={595}
-              cy={55}
+              cx={600}
+              cy={25}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 3 – direita → tooltip direita meio */}
             <line
               className={`${styles.conn} ${activeStep === 3 ? styles.active : ""}`}
-              x1={465}
-              y1={365}
-              x2={595}
-              y2={380}
+              x1={556}
+              y1={377}
+              x2={605}
+              y2={345}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -564,17 +620,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 3 ? styles.active : ""}`}
-              cx={595}
-              cy={380}
+              cx={605}
+              cy={345}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 4 – inferior centro → tooltip abaixo */}
             <line
               className={`${styles.conn} ${activeStep === 4 ? styles.active : ""}`}
               x1={290}
-              y1={510}
+              y1={570}
               x2={290}
-              y2={600}
+              y2={620}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -583,16 +640,17 @@ export function PainelLarafy() {
             <circle
               className={`${styles.cdot} ${activeStep === 4 ? styles.active : ""}`}
               cx={290}
-              cy={600}
+              cy={620}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 5 – esquerda → tooltip esquerda meio */}
             <line
               className={`${styles.conn} ${activeStep === 5 ? styles.active : ""}`}
-              x1={115}
-              y1={385}
-              x2={-5}
-              y2={405}
+              x1={24}
+              y1={377}
+              x2={-25}
+              y2={365}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -600,8 +658,8 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 5 ? styles.active : ""}`}
-              cx={-5}
-              cy={405}
+              cx={-25}
+              cy={365}
               r={3}
               fill="#22b8c9"
             />
