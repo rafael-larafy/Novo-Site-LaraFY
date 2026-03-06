@@ -68,18 +68,21 @@ export function ConfiancaSection() {
         </div>
 
         {/* Bottom pill */}
-        <div className="mt-12 flex justify-center">
-          <motion.div
-            className="inline-flex items-center justify-center rounded-full bg-[#00e5ff] px-8 sm:px-12 py-3.5 sm:py-5 text-center text-lg sm:text-xl font-bold tracking-[0.02em] text-[#002335] shadow-[0_18px_40px_rgba(0,229,255,0.55)]"
-            initial="hidden"
-            whileInView="visible"
-            viewport={scrollViewport}
-            variants={fadeUpVariants}
-            transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+        <motion.div
+          className="mt-12 flex justify-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+        >
+          <a
+            href="#contato"
+            className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 sm:px-12 py-3.5 sm:py-5 text-center text-lg sm:text-xl font-bold tracking-[0.02em] text-[#0a1628]"
           >
             E a CONFIANÇA que se conquista através da seriedade e eficiência:
-          </motion.div>
-        </div>
+          </a>
+        </motion.div>
       </div>
     </section>
   )
