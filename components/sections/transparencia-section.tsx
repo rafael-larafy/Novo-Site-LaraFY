@@ -11,7 +11,7 @@ import { PainelLarafy } from "./painel-larafy"
 
 export function TransparenciaSection() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#0a1628]">
+    <section className="relative py-16 lg:py-20 overflow-hidden bg-[#0a1628]">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 right-10 w-2 h-2 bg-[#00e5ff] rounded-full" />
@@ -31,9 +31,9 @@ export function TransparenciaSection() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-8">
-          {/* Left - Title */}
+      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8 mb-16 lg:mb-24">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Title */}
           <motion.div
             className="flex-1"
             initial="hidden"
@@ -42,7 +42,7 @@ export function TransparenciaSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="mt-1 mb-1 text-2xl font-extrabold leSading-tight text-[#00e5ff] lg:text-4xl text-balance max-w-xl">
+            <h2 className="mt-1 mb-1 text-2xl font-extrabold leading-tight text-[#00e5ff] lg:text-4xl text-balance max-w-xl">
               Transparência e Método:
               <br />
               um processo claro para ir
@@ -51,7 +51,7 @@ export function TransparenciaSection() {
             </h2>
           </motion.div>
 
-          {/* Right - Description */}
+          {/* Description */}
           <motion.div
             className="flex-1"
             initial="hidden"
@@ -60,7 +60,7 @@ export function TransparenciaSection() {
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <p className="text-white text-base lg:text-lg leading-relaxed max-w-md lg:ml-auto">
+            <p className="text-white text-base lg:text-lg leading-relaxed max-w-md text-left">
               Nosso Planejamento Tributário não é um documento de gaveta. É um plano
               de ação completo e implementado com um processo claro, focado em
               resultado e com método validado:
