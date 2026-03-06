@@ -10,8 +10,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  padding: 80px 20px;
+  overflow: visible;
+  padding: 80px 20px 200px;
 }
 
 .panel::before {
@@ -261,7 +261,7 @@
 .tip3 { top: 260px; right: -370px; }
 .tip3.active { transform: translateX(8px); }
 
-.tip4 { bottom: -130px; left: 50%; transform: translateX(-50%); max-width: 600px; min-width: 550px; text-align: center; }
+.tip4 { bottom: -220px; left: 50%; transform: translateX(-50%); max-width: 600px; min-width: 550px; text-align: center; }
 .tip4.active { transform: translateX(-50%) translateY(8px); }
 
 .tip5 { top: 260px; left: -360px; }
