@@ -1,12 +1,18 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 
 export function ZeroRiscoSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
-
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden bg-[#061120]">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#061120]">
       {/* Background tech dots */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
@@ -30,17 +36,31 @@ export function ZeroRiscoSection() {
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           {/* Left - ZERO headline */}
-          <div className={`flex-1 ${isVisible ? 'animate-slide-left animate-visible' : 'animate-slide-left'}`}>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
             <h2 className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl">
               ZERO
             </h2>
             <p className="mt-4 text-2xl font-bold text-[#ffffff] lg:text-4xl leading-tight">
               risco de investir<br />sem retorno
             </p>
-          </div>
+          </motion.div>
 
           {/* Right - Description */}
-          <div className={`flex-1 space-y-6 ${isVisible ? 'animate-slide-right animate-visible' : 'animate-slide-right'}`}>
+          <motion.div
+            className="flex-1 space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
             <p className="text-[#8ba3c0] text-lg leading-relaxed">
               Nosso modelo de remuneracao e baseado no Exito
               (Success Fee). Isso significa que nossos interesses
@@ -57,11 +77,18 @@ export function ZeroRiscoSection() {
             <p className="text-[#00e5ff] font-bold uppercase text-lg tracking-wide">
               Trabalhamos com resultado comprovado.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* CTA */}
-        <div className={`mt-16 flex flex-col items-center text-center ${isVisible ? 'animate-on-scroll animate-visible stagger-3' : 'animate-on-scroll'}`}>
+        <motion.div
+          className="mt-16 flex flex-col items-center text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={{ ...scrollTransition, delay: staggerDelay(3) }}
+        >
           <a
             href="#contato"
             className="cta-button inline-block rounded-full border-2 border-[#00e5ff]/30 bg-[#00e5ff] px-10 py-5 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
@@ -71,7 +98,7 @@ export function ZeroRiscoSection() {
           <p className="mt-8 text-xl font-bold text-[#ffffff] lg:text-2xl text-balance">
             Recuperar o passado e obrigacao. Planejar o futuro e vantagem competitiva.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

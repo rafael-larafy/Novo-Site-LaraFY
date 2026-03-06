@@ -1,12 +1,15 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  scaleVariants,
+} from "@/lib/scroll-motion"
 
 export function DiferencialSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.2)
-
   return (
-    <section ref={ref} className="relative py-12 overflow-hidden bg-[#e8f4f8]">
+    <section className="relative py-12 overflow-hidden bg-[#e8f4f8]">
       {/* Background network pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1200 200" fill="none">
@@ -37,10 +40,13 @@ export function DiferencialSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div
-          className={`flex flex-col lg:flex-row items-stretch rounded-2xl overflow-hidden shadow-xl ${
-            isVisible ? 'animate-scale animate-visible' : 'animate-scale'
-          }`}
+        <motion.div
+          className="flex flex-col lg:flex-row items-stretch rounded-2xl overflow-hidden shadow-xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={scaleVariants}
+          transition={scrollTransition}
         >
           {/* Left - Title */}
           <div className="bg-[#0d1d33] px-10 py-8 flex items-center justify-center lg:min-w-[280px]">
@@ -57,7 +63,7 @@ export function DiferencialSection() {
               operacao esta 100% adequada.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

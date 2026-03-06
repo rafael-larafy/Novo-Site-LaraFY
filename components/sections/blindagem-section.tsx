@@ -1,6 +1,12 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import { Search, FileText, Scale, Users } from "lucide-react"
 
 const features = [
@@ -30,10 +36,8 @@ const features = [
 ]
 
 export function BlindagemSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
-
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden bg-[#e8f4f8]">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#e8f4f8]">
       {/* Background network pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
@@ -59,7 +63,14 @@ export function BlindagemSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header with shield */}
-        <div className={`flex flex-col items-center text-center mb-16 ${isVisible ? 'animate-on-scroll animate-visible' : 'animate-on-scroll'}`}>
+        <motion.div
+          className="flex flex-col items-center text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={scrollTransition}
+        >
           {/* Shield icon */}
           <div className="mb-6 float-effect">
             <div className="relative w-20 h-24">
@@ -89,16 +100,19 @@ export function BlindagemSection() {
           <p className="mt-4 text-lg text-[#4a6080] max-w-xl">
             Nossa atuacao e desenhada para blindar o seu caixa, aliando:
           </p>
-        </div>
+        </motion.div>
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#00e5ff]/10 ${
-                isVisible ? `animate-on-scroll animate-visible stagger-${i + 1}` : 'animate-on-scroll'
-              }`}
+              className="group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#00e5ff]/10"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(i + 1) }}
             >
               {/* Icon */}
               <div className="-mt-10 mb-4 flex justify-center">
@@ -113,7 +127,7 @@ export function BlindagemSection() {
               <p className="text-center text-sm text-[#4a6080] leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,20 +1,23 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+} from "@/lib/scroll-motion"
 
 export function MetodoSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.3)
-
   return (
-    <section
-      ref={ref}
-      className="relative py-12 bg-[#061120]"
-    >
+    <section className="relative py-12 bg-[#061120]">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 ${
-            isVisible ? 'animate-on-scroll animate-visible' : 'animate-on-scroll'
-          }`}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={scrollTransition}
         >
           <h2 className="text-2xl font-extrabold text-[#00e5ff] lg:text-4xl">
             Entenda nosso metodo
@@ -25,7 +28,7 @@ export function MetodoSection() {
           >
             O METODO
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

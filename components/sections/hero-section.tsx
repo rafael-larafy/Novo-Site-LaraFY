@@ -1,17 +1,20 @@
 "use client"
 
 import { useState } from "react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+} from "@/lib/scroll-motion"
 import LogoGptw from "../../lib/GPTW.png"
+
 export function HeroSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen overflow-hidden bg-[#0a1628]"
-    >
+    <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
       {/* Background glow effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0066ff]/20 blur-[120px] rounded-full" />
@@ -21,7 +24,14 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left content */}
-          <div className={`flex-1 space-y-8 ${isVisible ? 'animate-slide-left animate-visible' : 'animate-slide-left'}`}>
+          <motion.div
+            className="flex-1 space-y-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
             <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-balance lg:text-7xl">
               <span className="text-[#00e5ff]">REDUZIMOS</span>
               <br />
@@ -42,10 +52,17 @@ export function HeroSection() {
             >
               Solicitar Diagnostico Tributario Estrategico
             </a>
-          </div>
+          </motion.div>
 
           {/* Right content - Tablet mockup */}
-          <div className={`flex-1 relative ${isVisible ? 'animate-slide-right animate-visible' : 'animate-slide-right'}`}>
+          <motion.div
+            className="flex-1 relative"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
             <div
               className="relative group cursor-pointer"
               onMouseEnter={() => setIsHovered(true)}
@@ -137,7 +154,7 @@ export function HeroSection() {
                 className="w-20 h-auto lg:w-24"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

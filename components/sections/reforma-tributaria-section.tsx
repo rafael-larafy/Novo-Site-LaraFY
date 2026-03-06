@@ -1,6 +1,14 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import PessoaImg from "../../lib/Pessoa-preocupada.png"
 
 const tags = [
@@ -12,10 +20,8 @@ const tags = [
 ]
 
 export function ReformaTributariaSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.1)
-
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#0d1d33]">
+    <section className="relative overflow-hidden bg-[#0d1d33]">
         {/* Top part - lighter */}
         <div className="relative">
           {/* Background pattern */}
@@ -26,26 +32,46 @@ export function ReformaTributariaSection() {
           <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
               {/* Left - person image area */}
-              <div className={`flex-shrink-0 ${isVisible ? 'animate-slide-left animate-visible' : 'animate-slide-left'}`}>
+              <motion.div
+                className="flex-shrink-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={scrollViewport}
+                variants={slideLeftVariants}
+                transition={scrollTransition}
+              >
                 <div className="relative w-64 h-80 lg:w-140 lg:h-98 rounded-xl overflow-hidden bg-[]">
                   <img
-                    src={PessoaImg.src || PessoaImg}
+                    src={typeof PessoaImg === "string" ? PessoaImg : (PessoaImg as { src?: string }).src ?? ""}
                     alt="Pessoa preocupada"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1d33] via-transparent to-transparent" />
                 </div>
-              </div>
+              </motion.div>
 
               {/* Right content */}
               <div className="flex-1 space-y-6">
-                <div className={`${isVisible ? 'animate-slide-right animate-visible' : 'animate-slide-right'}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={scrollViewport}
+                  variants={slideRightVariants}
+                  transition={scrollTransition}
+                >
                   <h2 className="text-3xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance">
                     A Reforma Tributaria tem tirado o seu sono?
                   </h2>
-                </div>
+                </motion.div>
 
-                <div className={`max-w-lg ${isVisible ? 'animate-on-scroll animate-visible stagger-2' : 'animate-on-scroll'}`}>
+                <motion.div
+                  className="max-w-lg"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={scrollViewport}
+                  variants={fadeUpVariants}
+                  transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+                >
                   <p className="text-[#8ba3c0] leading-relaxed">
                     O Brasil esta entre os paises mais complexos do mundo para fazer negocios,
                     e a transicao da Reforma Tributaria tem agravado esse cenario.
@@ -54,11 +80,16 @@ export function ReformaTributariaSection() {
                     Se voce pensa em fazer uma consultoria tributaria para se adequar, e importante
                     frisar que a maioria desses projetos segue o mesmo padrao:
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Tags */}
-                <div
-                  className={`mt-6 rounded-2xl border border-[#1e3a5f] bg-[#0a1628]/60 p-4 sm:p-5 shadow-[0_18px_40px_rgba(0,0,0,0.55)] ${isVisible ? 'animate-on-scroll animate-visible stagger-3' : 'animate-on-scroll'}`}
+                <motion.div
+                  className="mt-6 rounded-2xl border border-[#1e3a5f] bg-[#0a1628]/60 p-4 sm:p-5 shadow-[0_18px_40px_rgba(0,0,0,0.55)]"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={scrollViewport}
+                  variants={fadeUpVariants}
+                  transition={{ ...scrollTransition, delay: staggerDelay(3) }}
                 >
                   <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8ba3c0]">
                     Como geralmente funcionam os projetos tradicionais:
@@ -75,24 +106,38 @@ export function ReformaTributariaSection() {
                       </div>
                     ))}
                   </div>
-                </div>
-              </div>
+              </motion.div>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Bottom dark band */}
         <div className="bg-[#0a1628] pt-16 pb-[0px]">
           <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
-            <p className={`text-[#8ba3c0] text-sm leading-relaxed ${isVisible ? 'animate-on-scroll animate-visible stagger-4' : 'animate-on-scroll'}`}>
+            <motion.p
+              className="text-[#8ba3c0] text-sm leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(4) }}
+            >
               O mercado tradicional de consultoria opera de forma limitada
               diante dessa complexidade tributaria.
-            </p>
-            <h3 className={`mt-4 text-2xl font-extrabold text-[#00e5ff] lg:text-4xl text-balance ${isVisible ? 'animate-on-scroll animate-visible stagger-5' : 'animate-on-scroll'}`}>
+            </motion.p>
+            <motion.h3
+              className="mt-4 text-2xl font-extrabold text-[#00e5ff] lg:text-4xl text-balance"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(5) }}
+            >
               Nos operamos com inteligencia,
               <br />
               tecnologia e precisao cirurgica.
-            </h3>
+            </motion.h3>
           </div>
         </div>
     </section>

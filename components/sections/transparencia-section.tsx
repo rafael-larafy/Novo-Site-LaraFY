@@ -1,13 +1,17 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+} from "@/lib/scroll-motion"
 import { PainelLarafy } from "./painel-larafy"
 
 export function TransparenciaSection() {
-  const [ref, isVisible] = useScrollAnimation<HTMLElement>(0.15)
-
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden bg-[#0a1628]">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#0a1628]">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 right-10 w-2 h-2 bg-[#00e5ff] rounded-full" />
@@ -30,24 +34,38 @@ export function TransparenciaSection() {
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-8">
           {/* Left - Title */}
-          <div className={`flex-1 ${isVisible ? 'animate-slide-left animate-visible' : 'animate-slide-left'}`}>
-            <h2 className="mt-1 mb-1 text-2xl font-extrabold leading-tight text-[#00e5ff] lg:text-4xl text-balance max-w-xl">
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
+            <h2 className="mt-1 mb-1 text-2xl font-extrabold leSading-tight text-[#00e5ff] lg:text-4xl text-balance max-w-xl">
               Transparência e Método:
               <br />
               um processo claro para ir
               <br />
               da estratégia à ação.
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right - Description */}
-          <div className={`flex-1 ${isVisible ? 'animate-slide-right animate-visible' : 'animate-slide-right'}`}>
+          <motion.div
+            className="flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
             <p className="text-white text-base lg:text-lg leading-relaxed max-w-md lg:ml-auto">
               Nosso Planejamento Tributário não é um documento de gaveta. É um plano
               de ação completo e implementado com um processo claro, focado em
               resultado e com método validado:
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
