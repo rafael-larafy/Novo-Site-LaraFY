@@ -21,7 +21,6 @@ export function ConfiancaSection() {
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020c18]/90 via-[#020c18]/75 to-[#020c18]/85" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
