@@ -14,25 +14,25 @@ export function ZeroRiscoSection() {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden bg-[#061120]">
       {/* Background circuit board pattern */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-20">
         <svg className="w-full h-full" viewBox="-400 0 2200 700" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
           {/* Horizontal traces from left */}
-          <path d="M-300 120 H180 L220 80 H420 L460 80" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M-250 160 H140 L180 200 H350 L490 160 H520" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M-350 220 H100 L140 260 H300 L340 220 H480 L520 260 H600" stroke="#00e5ff" strokeWidth="0.8" />
-          <path d="M-200 300 H200 L240 340 H400" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M-280 360 H160 L200 320 H360 L400 360 H550 L590 320 H700" stroke="#00e5ff" strokeWidth="0.8" />
-          <path d="M-320 420 H120 L160 460 H320 L360 420 H500" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M-400 500 H80 L120 540 H280 L320 500 H460 L500 540 H620" stroke="#00e5ff" strokeWidth="0.8" />
-          <path d="M-250 560 H200 L240 520 H380" stroke="#00e5ff" strokeWidth="0.6" />
-          <path d="M-300 620 H140 L180 660 H340 L380 620 H520" stroke="#00e5ff" strokeWidth="0.6" />
+          <path d="M-800 120 H180 L220 80 H420 L460 80" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M-850 160 H140 L180 200 H350 L490 160 H520" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M-850 220 H100 L140 260 H300 L340 220 H480 L520 260 H600" stroke="#00e5ff" strokeWidth="0.8" />
+          <path d="M-800 300 H200 L240 340 H400" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M-880 360 H160 L200 320 H360 L400 360 H550 L590 320 H700" stroke="#00e5ff" strokeWidth="0.8" />
+          <path d="M-820 420 H120 L160 460 H320 L360 420 H500" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M-800 500 H80 L120 540 H280 L320 500 H460 L500 540 H620" stroke="#00e5ff" strokeWidth="0.8" />
+          <path d="M-850 560 H200 L240 520 H380" stroke="#00e5ff" strokeWidth="0.6" />
+          <path d="M-800 620 H140 L180 660 H340 L380 620 H520" stroke="#00e5ff" strokeWidth="0.6" />
 
           {/* Horizontal traces from right */}
-          <path d="M1700 100 H1200 L1160 140 H1000 L960 100 H800" stroke="#00e5ff" strokeWidth="0.8" />
-          <path d="M1650 200 H1250 L1210 240 H1050 L1010 200 H860" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M1750 320 H1180 L1140 280 H980 L940 320 H780" stroke="#00e5ff" strokeWidth="0.8" />
-          <path d="M1680 440 H1220 L1180 480 H1020 L980 440 H820" stroke="#00e5ff" strokeWidth="1" />
-          <path d="M1600 560 H1260 L1220 520 H1060 L1020 560 H880" stroke="#00e5ff" strokeWidth="0.6" />
+          <path d="M2800 100 H1200 L1160 140 H1000 L960 100 H800" stroke="#00e5ff" strokeWidth="0.8" />
+          <path d="M2950 200 H1250 L1210 240 H1050 L1010 200 H860" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M2950 320 H1180 L1140 280 H980 L940 320 H780" stroke="#00e5ff" strokeWidth="0.8" />
+          <path d="M2980 440 H1220 L1180 480 H1020 L980 440 H820" stroke="#00e5ff" strokeWidth="1" />
+          <path d="M2900 560 H1260 L1220 520 H1060 L1020 560 H880" stroke="#00e5ff" strokeWidth="0.6" />
 
           {/* Junction nodes on left traces */}
           <circle cx="180" cy="120" r="3" fill="none" stroke="#00e5ff" strokeWidth="1" />
