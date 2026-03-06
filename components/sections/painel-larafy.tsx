@@ -1,6 +1,13 @@
 "use client"
 
 import { useMemo, useState, useCallback } from "react"
+import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  slideLeftVariants,
+  slideRightVariants,
+} from "@/lib/scroll-motion"
 import styles from "./painel-larafy.module.css"
 
 const CX = 290
@@ -154,6 +161,43 @@ export function PainelLarafy() {
         src="/Video LP (V2).mp4"
       />
       <div className={styles.bgOverlay} />
+
+      {/* Texto introdutório */}
+      <div className={styles.header}>
+        <div className={styles.headerInner}>
+          <motion.div
+            className={styles.headerLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
+            <h2 className={styles.headerTitle}>
+              Transparência e Método:
+              <br />
+              um processo claro para ir
+              <br />
+              da estratégia à ação.
+            </h2>
+          </motion.div>
+          <motion.div
+            className={styles.headerRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
+            <p className={styles.headerDesc}>
+              Nosso Planejamento Tributário não é um documento de gaveta. É um plano
+              de ação completo e implementado com um processo claro, focado em
+              resultado e com método validado:
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       <div className={styles.wrap}>
         <div
           className={styles.wheel}

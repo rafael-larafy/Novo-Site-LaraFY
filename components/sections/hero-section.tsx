@@ -16,9 +16,9 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
       {/* Background glow effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0066ff]/20 blur-[120px] rounded-full" />
+      <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-[200px] h-[200px] bg-[#00e5ff]/5 blur-[80px] rounded-full" />
+        <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/10 blur-[150px] rounded-full" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 lg:px-8">
