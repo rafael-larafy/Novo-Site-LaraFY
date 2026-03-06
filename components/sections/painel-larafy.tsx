@@ -6,7 +6,7 @@ import styles from "./painel-larafy.module.css"
 const CX = 290
 const CY = 290
 const R = 280
-const IR = 160
+const IR = 140
 const GAP_DEG = 4
 const SEG = 72
 const OFF = -72
@@ -118,7 +118,7 @@ export function PainelLarafy() {
       const sa = OFF + i * SEG
       const ea = OFF + (i + 1) * SEG
       const mid = (sa + ea) / 2
-      const labelRadius = (R + IR) / 2 - 5
+      const labelRadius = (R + IR) / 2
       const pos = p2c(CX, CY, labelRadius, mid)
       return {
         step: i + 1,
