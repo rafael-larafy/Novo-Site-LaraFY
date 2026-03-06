@@ -39,7 +39,7 @@ export function DiferencialSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8 -mt-[50px]">
         <motion.div
           className="flex flex-col lg:flex-row items-stretch rounded-2xl overflow-hidden shadow-xl"
           initial="hidden"

@@ -34,7 +34,7 @@ export function ZeroRiscoSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-20">
           {/* Left - ZERO headline */}
           <motion.div
             className="flex-1"
@@ -44,45 +44,48 @@ export function ZeroRiscoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl">
+            <h2 className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl tracking-tight">
               ZERO
             </h2>
-            <p className="mt-4 text-2xl font-bold text-[#ffffff] lg:text-4xl leading-tight">
-              risco de investir<br />sem retorno
+            <p className="mt-4 text-2xl font-light italic text-[#ffffff] lg:text-4xl leading-tight">
+              risco de investir
+              <br />
+              sem retorno
             </p>
           </motion.div>
 
           {/* Right - Description */}
           <motion.div
-            className="flex-1 space-y-6"
+            className="flex-1 space-y-5"
             initial="hidden"
             whileInView="visible"
             viewport={scrollViewport}
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <p className="text-[#8ba3c0] text-lg leading-relaxed">
-              Nosso modelo de remuneracao e baseado no Exito
+            <p className="text-[#8ba3c0] text-base lg:text-lg leading-relaxed">
+              Nosso modelo de remuneração é baseado no Êxito
               (Success Fee). Isso significa que nossos interesses
-              estao 100% alinhados.
+              estão 100% alinhados.
             </p>
-            <p className="text-[#00e5ff] font-bold uppercase text-lg tracking-wide">
-              Se nao encontrarmos oportunidades reais e seguras, voce nao paga nada.
+            <p className="text-[#00e5ff] font-bold uppercase text-sm lg:text-base tracking-wide leading-snug">
+              SE NÃO ENCONTRARMOS OPORTUNIDADES REAIS
+              E SEGURAS, VOCÊ NÃO PAGA NADA.
             </p>
-            <p className="text-[#8ba3c0] text-lg leading-relaxed">
-              Nossos honorarios sao um percentual sobre valores
-              recuperados e a economia tributaria efetiva gerada.
-              Nao trabalhamos com promessas.
+            <p className="text-[#8ba3c0] text-base lg:text-lg leading-relaxed">
+              Nossos honorários são um percentual sobre valores
+              recuperados e a economia tributária efetiva gerada.
+              Não trabalhamos com promessas.
             </p>
-            <p className="text-[#00e5ff] font-bold uppercase text-lg tracking-wide">
-              Trabalhamos com resultado comprovado.
+            <p className="text-[#00e5ff] font-bold uppercase text-sm lg:text-base tracking-wide">
+              TRABALHAMOS COM RESULTADO COMPROVADO.
             </p>
           </motion.div>
         </div>
 
         {/* CTA */}
         <motion.div
-          className="mt-16 flex flex-col items-center text-center"
+          className="mt-14 flex flex-col items-center text-center"
           initial="hidden"
           whileInView="visible"
           viewport={scrollViewport}
@@ -91,12 +94,12 @@ export function ZeroRiscoSection() {
         >
           <a
             href="#contato"
-            className="cta-button inline-block rounded-full border-2 border-[#00e5ff]/30 bg-[#00e5ff] px-10 py-5 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+            className="inline-block rounded-full border-2 border-[#00e5ff]/40 bg-transparent px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#ffffff] transition-all duration-300 hover:bg-[#00e5ff]/10 hover:border-[#00e5ff]/70 hover:shadow-[0_0_25px_rgba(0,229,255,0.2)]"
           >
-            Solicitar Diagnostico Tributario Estrategico
+            Solicitar Diagnóstico Tributário Estratégico
           </a>
-          <p className="mt-8 text-xl font-bold text-[#ffffff] lg:text-2xl text-balance">
-            Recuperar o passado e obrigacao. Planejar o futuro e vantagem competitiva.
+          <p className="mt-8 text-lg font-bold italic text-[#ffffff] lg:text-xl text-balance">
+            Recuperar o passado é obrigação. Planejar o futuro é vantagem competitiva.
           </p>
         </motion.div>
       </div>
