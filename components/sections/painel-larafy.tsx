@@ -515,12 +515,13 @@ export function PainelLarafy() {
           </div>
 
           <svg className={styles.connSvg} viewBox="0 0 580 580">
+            {/* Etapa 1 – superior esquerda → tooltip esquerda */}
             <line
               className={`${styles.conn} ${activeStep === 1 ? styles.active : ""}`}
-              x1={150}
-              y1={155}
-              x2={-5}
-              y2={70}
+              x1={125}
+              y1={63}
+              x2={-15}
+              y2={25}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -528,17 +529,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 1 ? styles.active : ""}`}
-              cx={-5}
-              cy={70}
+              cx={-15}
+              cy={25}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 2 – superior direita → tooltip direita */}
             <line
               className={`${styles.conn} ${activeStep === 2 ? styles.active : ""}`}
-              x1={425}
-              y1={145}
-              x2={595}
-              y2={55}
+              x1={455}
+              y1={63}
+              x2={600}
+              y2={25}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -546,17 +548,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 2 ? styles.active : ""}`}
-              cx={595}
-              cy={55}
+              cx={600}
+              cy={25}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 3 – direita → tooltip direita meio */}
             <line
               className={`${styles.conn} ${activeStep === 3 ? styles.active : ""}`}
-              x1={465}
-              y1={365}
-              x2={595}
-              y2={380}
+              x1={556}
+              y1={377}
+              x2={605}
+              y2={345}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -564,17 +567,18 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 3 ? styles.active : ""}`}
-              cx={595}
-              cy={380}
+              cx={605}
+              cy={345}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 4 – inferior centro → tooltip abaixo */}
             <line
               className={`${styles.conn} ${activeStep === 4 ? styles.active : ""}`}
               x1={290}
-              y1={510}
+              y1={570}
               x2={290}
-              y2={600}
+              y2={620}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -583,16 +587,17 @@ export function PainelLarafy() {
             <circle
               className={`${styles.cdot} ${activeStep === 4 ? styles.active : ""}`}
               cx={290}
-              cy={600}
+              cy={620}
               r={3}
               fill="#22b8c9"
             />
+            {/* Etapa 5 – esquerda → tooltip esquerda meio */}
             <line
               className={`${styles.conn} ${activeStep === 5 ? styles.active : ""}`}
-              x1={115}
-              y1={385}
-              x2={-5}
-              y2={405}
+              x1={24}
+              y1={377}
+              x2={-25}
+              y2={365}
               stroke="rgba(34,184,201,0.30)"
               strokeWidth={1.2}
               fill="none"
@@ -600,8 +605,8 @@ export function PainelLarafy() {
             />
             <circle
               className={`${styles.cdot} ${activeStep === 5 ? styles.active : ""}`}
-              cx={-5}
-              cy={405}
+              cx={-25}
+              cy={365}
               r={3}
               fill="#22b8c9"
             />
