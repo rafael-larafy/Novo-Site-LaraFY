@@ -86,14 +86,12 @@ export function ContatoSection() {
                 rows={3}
                 className="w-full px-3 py-2.5 rounded-md border border-[#e5e7eb] bg-white text-[#0a1628] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#00e5ff] focus:border-transparent text-sm resize-none"
               />
-              <motion.button
+              <button
                 type="submit"
-                className="w-full h-11 rounded-md bg-[#00e5ff] text-white font-bold uppercase tracking-wider text-sm hover:bg-[#00cce6] transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="cta-button w-full rounded-full bg-[#00e5ff] px-8 sm:px-12 py-3.5 sm:py-5 text-center text-lg sm:text-xl font-bold tracking-[0.02em] text-[#0a1628]"
               >
                 Enviar
-              </motion.button>
+              </button>
             </form>
           </div>
         </motion.div>
