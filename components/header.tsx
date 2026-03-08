@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
-import LogoImg from "../lib/Logo.png"
+import LogoImg from "@/lib/Logo.png"
 
 const navLinks = [
   { label: "Sobre nos", href: "#sobre" },
