@@ -8,8 +8,6 @@ import {
   slideLeftVariants,
   slideRightVariants,
 } from "@/lib/scroll-motion"
-import LogoGptw from "../../lib/GPTW.png"
-
 export function HeroSection() {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -144,15 +142,6 @@ export function HeroSection() {
               </div>
               {/* Glow under tablet */}
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full transition-all duration-700 group-hover:bg-[#00e5ff]/50 group-hover:w-[90%] group-hover:h-6" />
-            </div>
-
-            {/* GPTW Badge */}
-            <div className="absolute -right-4 top-0 lg:right-0">
-              <img
-                src={LogoGptw.src || LogoGptw}
-                alt="Great Place To Work - Certificada 2025 Brasil"
-                className="w-20 h-auto lg:w-24"
-              />
             </div>
           </motion.div>
         </div>
