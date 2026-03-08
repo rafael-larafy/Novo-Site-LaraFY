@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="w-full bg-[#0a1628] px-6 py-8 lg:px-[60px] lg:py-10 text-white font-sans">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-16 flex-wrap">
-        {/* COLUNA 1: LOGO + TAGLINE */}
+        {/* COLUNA 1: LOGO */}
         <div className="flex-shrink-0">
           <a href="/" className="block">
             <img
@@ -16,9 +16,6 @@ export function Footer() {
               className="max-h-[38px] w-auto"
             />
           </a>
-          <p className="mt-3 text-sm text-white font-normal tracking-wide">
-            INTELIGÊNCIA QUE TRANSFORMA O FUTURO
-          </p>
         </div>
 
         {/* COLUNA 2: MENUS EM 2 COLUNAS */}
