@@ -1,8 +1,6 @@
 "use client"
 
-import Image from "next/image"
 import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
-
 export function Footer() {
   return (
     <footer className="w-full bg-[#0a1628] px-6 py-[26px] lg:px-[60px] text-white text-[13px] font-sans">
@@ -10,11 +8,9 @@ export function Footer() {
         {/* COLUNA 1: LOGO */}
         <div className="flex-shrink-0">
           <a href="/" className="block">
-            <Image
-              src="/images/larafy-logo.png"
+            <img
+              src="/images/larafy-logo-light.svg"
               alt="LaraFy"
-              width={180}
-              height={35}
               className="max-h-[35px] w-auto"
             />
           </a>
