@@ -1,7 +1,7 @@
 "use client"
 
 import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
-import Image from "next/image"
+import GPTWImg from "@/lib/GPTW.png"
 
 export function Footer() {
   return (
@@ -108,26 +108,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* COLUNA 4: BADGES + REDES SOCIAIS */}
+        {/* COLUNA 4: GPTW + REDES SOCIAIS */}
         <div className="flex flex-col items-start lg:items-end gap-4">
-          <div className="flex flex-col sm:flex-row items-start gap-3">
-            {/* Great Place To Work */}
-            <Image
-              src="/images/gptw-badge.png"
-              alt="Great Place To Work"
-              width={70}
-              height={90}
-              className="object-contain"
-            />
-            {/* Certificado 2025 Brasil */}
-            <div className="bg-[#0046b5] rounded-lg px-4 py-3 text-center min-w-[100px]">
-              <p className="text-white text-xs font-semibold leading-tight">
-                Certificado
-                <br />
-                2025 Brasil
-              </p>
-            </div>
-          </div>
+          <img
+            src={GPTWImg.src || GPTWImg}
+            alt="Great Place To Work - Certificada 2025 Brasil"
+            className="max-h-[100px] w-auto object-contain"
+          />
           <div className="flex flex-col items-start lg:items-end">
             <div className="flex gap-3 mb-2">
               <a
