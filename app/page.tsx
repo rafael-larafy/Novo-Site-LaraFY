@@ -14,6 +14,7 @@ import { ReformaCardSection } from "@/components/sections/reforma-card-section"
 import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
 import { DiagnosticoSection } from "@/components/sections/diagnostico-section"
 import { ContatoSection } from "@/components/sections/contato-section"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         <DiagnosticoSection />
         <ContatoSection />
       </main>
+      <Footer />
     </>
   )
 }
