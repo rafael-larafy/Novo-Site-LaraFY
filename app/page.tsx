@@ -11,6 +11,7 @@ import { DiferencialSection } from "@/components/sections/diferencial-section"
 import { TransparenciaSection } from "@/components/sections/transparencia-section"
 import { ZeroRiscoSection } from "@/components/sections/zero-risco-section"
 import { ReformaCardSection } from "@/components/sections/reforma-card-section"
+import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
 
 export default function Home() {
   return (
@@ -26,7 +27,8 @@ export default function Home() {
         <TransparenciaSection />
         <ZeroRiscoSection />
         <ReformaCardSection />
-        <ConfiancaSection />  
+        <ConfiancaSection />
+        <LogosCarouselSection />
       </main>
     </>
   )
