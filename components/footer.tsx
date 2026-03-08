@@ -5,27 +5,27 @@ import GPTWImg from "@/lib/GPTW.png"
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#0a1628] px-6 py-8 lg:px-[60px] lg:py-10 text-white font-sans">
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-16 flex-wrap">
+    <footer className="w-full bg-[#0a1628] px-6 py-6 lg:px-12 lg:py-8 text-white font-sans">
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 flex-wrap">
         {/* COLUNA 1: LOGO */}
         <div className="flex-shrink-0">
           <a href="/" className="block">
             <img
               src="/images/larafy-logo-light.svg"
               alt="LaraFy"
-              className="max-h-[38px] w-auto"
+              className="max-h-[32px] lg:max-h-[40px] w-auto"
             />
           </a>
         </div>
 
         {/* COLUNA 2: MENUS EM 2 COLUNAS */}
-        <div className="flex gap-16 text-white">
+        <div className="flex gap-12 lg:gap-16 text-white">
           <div>
-            <ul className="list-none m-0 p-0 space-y-2">
+            <ul className="list-none m-0 p-0 space-y-1.5">
               <li>
                 <a
                   href="#sobre"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   Sobre
                 </a>
@@ -33,7 +33,7 @@ export function Footer() {
               <li>
                 <a
                   href="#solucoes"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   Soluções
                 </a>
@@ -41,7 +41,7 @@ export function Footer() {
               <li>
                 <a
                   href="#como-funciona"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   Como funciona
                 </a>
@@ -49,11 +49,11 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <ul className="list-none m-0 p-0 space-y-2">
+            <ul className="list-none m-0 p-0 space-y-1.5">
               <li>
                 <a
                   href="#cases"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   Cases
                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
               <li>
                 <a
                   href="#grupo"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   O Grupo
                 </a>
@@ -69,7 +69,7 @@ export function Footer() {
               <li>
                 <a
                   href="#contato"
-                  className="text-white no-underline text-[15px] hover:text-[#77e4ff] transition-colors"
+                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
                 >
                   Contato
                 </a>
@@ -79,13 +79,13 @@ export function Footer() {
         </div>
 
         {/* COLUNA 3: CONTATOS */}
-        <div className="text-white leading-relaxed text-[15px]">
-          <div className="flex items-start gap-2.5 mb-2">
-            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-white" />
+        <div className="text-white leading-relaxed text-[13px] lg:text-[14px]">
+          <div className="flex items-start gap-2 mb-1.5">
+            <Phone className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
             <span>Telefone: (41) 3146-5868</span>
           </div>
-          <div className="flex items-start gap-2.5 mb-2">
-            <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-white" />
+          <div className="flex items-start gap-2 mb-1.5">
+            <Mail className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
             <span>
               <a
                 href="mailto:contato@larafy.com.br"
@@ -95,8 +95,8 @@ export function Footer() {
               </a>
             </span>
           </div>
-          <div className="flex items-start gap-2.5">
-            <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-white" />
+          <div className="flex items-start gap-2">
+            <MapPin className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
             <span>
               Av. Rocha Pombo, 1977 - São Cristovão
               <br />
@@ -106,14 +106,14 @@ export function Footer() {
         </div>
 
         {/* COLUNA 4: GPTW + REDES SOCIAIS */}
-        <div className="flex flex-col items-start lg:items-end gap-4">
+        <div className="flex flex-row items-center gap-4 lg:gap-6">
           <img
             src={GPTWImg.src || GPTWImg}
             alt="Great Place To Work - Certificada 2025 Brasil"
-            className="max-h-[100px] w-auto object-contain"
+            className="max-h-[70px] lg:max-h-[80px] w-auto object-contain"
           />
-          <div className="flex flex-col items-start lg:items-end">
-            <div className="flex gap-3 mb-2">
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-2">
               <a
                 href="https://www.linkedin.com/company/laratax/"
                 target="_blank"
@@ -121,7 +121,7 @@ export function Footer() {
                 aria-label="LinkedIn"
                 className="text-white hover:text-[#77e4ff] transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="https://www.facebook.com/share/1BjiDNA8Nf/?mibextid=wwXIfr"
@@ -130,7 +130,7 @@ export function Footer() {
                 aria-label="Facebook"
                 className="text-white hover:text-[#77e4ff] transition-colors"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="https://www.instagram.com/laratax/"
@@ -139,10 +139,10 @@ export function Footer() {
                 aria-label="Instagram"
                 className="text-white hover:text-[#77e4ff] transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
-            <p className="text-sm text-white/90">Siga nossas redes sociais</p>
+            <p className="text-[11px] lg:text-xs text-white/90">Siga nossas redes sociais</p>
           </div>
         </div>
       </div>
