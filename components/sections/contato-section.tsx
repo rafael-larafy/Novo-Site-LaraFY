@@ -4,8 +4,6 @@ import { motion } from "framer-motion"
 import {
   scrollViewport,
   scrollTransition,
-  slideLeftVariants,
-  slideRightVariants,
   fadeUpVariants,
 } from "@/lib/scroll-motion"
 import Image from "next/image"
@@ -14,54 +12,29 @@ export function ContatoSection() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden border-y-2 border-[#0a1628]"
+      className="relative overflow-hidden min-h-[600px] lg:min-h-[620px]"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr_1.2fr] min-h-[550px] lg:min-h-[580px]">
-        {/* Left: Waldir - White background */}
-        <motion.div
-          className="relative flex flex-col justify-end items-end lg:items-end pb-6 lg:pb-8 pt-8 lg:pt-10 px-6 lg:px-10 bg-white"
-          initial="hidden"
-          whileInView="visible"
-          viewport={scrollViewport}
-          variants={slideLeftVariants}
-          transition={scrollTransition}
-        >
-          <div className="absolute bottom-6 left-6 w-8 h-8 rounded-full bg-[#facc15] flex items-center justify-center text-[#0a1628] font-bold text-sm z-10">
-            1
-          </div>
-          <div className="relative w-[160px] lg:w-[220px]">
-            <Image
-              src="/images/Waldir Form.png"
-              alt="Waldir de Lara - Founder & CEO"
-              width={220}
-              height={300}
-              className="w-full h-auto object-contain object-bottom"
-            />
-          </div>
-        </motion.div>
+      {/* Única imagem de background */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/Empresario de Costas.jpg"
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </div>
 
-        {/* Center: CTA - Dark overlay */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
         <motion.div
-          className="relative flex flex-col justify-center p-6 lg:p-10 overflow-hidden"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 p-10 lg:p-16 bg-[#0a1628]/85 backdrop-blur-sm"
           initial="hidden"
           whileInView="visible"
           viewport={scrollViewport}
           variants={fadeUpVariants}
           transition={scrollTransition}
         >
-          <div className="absolute inset-0">
-            <Image
-              src="/images/Empresario de Costas.jpg"
-              alt=""
-              fill
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0 bg-[#0a1628]/75"
-              aria-hidden
-            />
-          </div>
-          <div className="relative z-10 max-w-[320px]">
+          {/* CTA text */}
+          <div className="flex-1 max-w-[340px] order-2 lg:order-1">
             <h2 className="text-xl lg:text-2xl font-black text-white leading-tight">
               Tenha acesso direto a um estrategista sênior.
             </h2>
@@ -71,46 +44,9 @@ export function ContatoSection() {
               construímos decisões junto com você.
             </p>
           </div>
-        </motion.div>
 
-        {/* Right: Form - Empresario with dark overlay */}
-        <motion.div
-          className="relative flex flex-col justify-center p-6 lg:p-10 overflow-hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={scrollViewport}
-          variants={slideRightVariants}
-          transition={scrollTransition}
-        >
-          {/* Background: Empresario + dark overlay + subtle pattern */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/Empresario de Costas.jpg"
-              alt=""
-              fill
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0 bg-[#0a1628]/88"
-              aria-hidden
-            />
-            {/* Subtle diagonal lines pattern */}
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage: `repeating-linear-gradient(
-                  45deg,
-                  transparent,
-                  transparent 20px,
-                  white 20px,
-                  white 21px
-                )`,
-              }}
-              aria-hidden
-            />
-          </div>
-
-          <div className="relative z-10 w-full max-w-[380px]">
+          {/* Form */}
+          <div className="flex-1 w-full max-w-[380px] order-1 lg:order-2">
             <form
               className="space-y-2.5"
               onSubmit={(e) => e.preventDefault()}
