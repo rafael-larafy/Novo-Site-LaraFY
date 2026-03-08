@@ -78,7 +78,7 @@ export function DiagnosticoSection() {
               </p>
               <a
                 href="#contato"
-                className="cta-button inline-block w-fit rounded-xl bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-transform duration-300 hover:scale-105"
+                className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 sm:px-12 py-3.5 sm:py-5 text-center text-lg sm:text-xl font-bold tracking-[0.02em] text-[#0a1628]"
               >
                 Solicitar diagnóstico estratégico
               </a>
