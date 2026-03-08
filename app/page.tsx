@@ -13,6 +13,7 @@ import { ZeroRiscoSection } from "@/components/sections/zero-risco-section"
 import { ReformaCardSection } from "@/components/sections/reforma-card-section"
 import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
 import { DiagnosticoSection } from "@/components/sections/diagnostico-section"
+import { ContatoSection } from "@/components/sections/contato-section"
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <ConfiancaSection />
         <LogosCarouselSection />
         <DiagnosticoSection />
+        <ContatoSection />
       </main>
     </>
   )
