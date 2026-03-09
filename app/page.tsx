@@ -2,7 +2,6 @@
 
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
-import { StatsSection } from "@/components/sections/stats-section"
 import { ConfiancaSection } from "@/components/sections/confianca-section"
 import { ReformaTributariaSection } from "@/components/sections/reforma-tributaria-section"
 import { CeoSection } from "@/components/sections/ceo-section"
@@ -22,7 +21,6 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <StatsSection />  
         <ReformaTributariaSection />
         <CeoSection />
         <BlindagemSection />
