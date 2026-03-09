@@ -1,23 +1,67 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import {
   scrollViewport,
   scrollTransition,
   slideLeftVariants,
   slideRightVariants,
+  fadeUpVariants,
+  staggerDelay,
 } from "@/lib/scroll-motion"
+import BrasilImg from "../../lib/Brasil.png"
+
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
+  const ref = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) setHasStarted(true)
+      },
+      { threshold: 0.5 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasStarted])
+
+  useEffect(() => {
+    if (!hasStarted) return
+    const duration = 2000
+    const steps = 60
+    const increment = target / steps
+    let current = 0
+    const timer = setInterval(() => {
+      current += increment
+      setCount(current >= target ? target : Math.floor(current))
+      if (current >= target) clearInterval(timer)
+    }, duration / steps)
+    return () => clearInterval(timer)
+  }, [hasStarted, target])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
+
 export function HeroSection() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
-      {/* Background glow effect */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-[200px] h-[200px] bg-[#00e5ff]/5 blur-[80px] rounded-full" />
-        <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/10 blur-[150px] rounded-full" />
-      </div>
+      {/* Video background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        src="/Video LP (V2).mp4"
+      />
+      <div className="absolute inset-0 bg-[#0a1628]/80 z-[1]" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -144,6 +188,55 @@ export function HeroSection() {
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full transition-all duration-700 group-hover:bg-[#00e5ff]/50 group-hover:w-[90%] group-hover:h-6" />
             </div>
           </motion.div>
+        </div>
+
+        {/* Stats - conectado ao hero */}
+        <div className="relative z-10 mx-auto max-w-5xl px-6 pt-8 pb-12 lg:px-8 lg:pt-12 lg:pb-16 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
+            <motion.div
+              className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
+            >
+              <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
+                +<AnimatedCounter target={5} />
+              </span>
+              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+                Anos de<br />Mercado
+              </span>
+            </motion.div>
+            <motion.div
+              className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+            >
+              <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
+                +<AnimatedCounter target={100} />
+              </span>
+              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+                Especialistas
+              </span>
+            </motion.div>
+            <motion.div
+              className="flex-1 flex items-center justify-center gap-3 text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(3) }}
+            >
+              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
+              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+                Atuacao<br />Nacional
+              </span>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
