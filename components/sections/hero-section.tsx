@@ -49,8 +49,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
 export function HeroSection() {
   const animationVideoRef = useRef<HTMLVideoElement>(null)
+  const [isVideoHovered, setIsVideoHovered] = useState(false)
 
   const handleVideoMouseEnter = () => {
+    setIsVideoHovered(true)
     const video = animationVideoRef.current
     if (!video) return
     video.currentTime = 0
@@ -58,6 +60,7 @@ export function HeroSection() {
   }
 
   const handleVideoMouseLeave = () => {
+    setIsVideoHovered(false)
     const video = animationVideoRef.current
     if (!video) return
     video.pause()
@@ -119,19 +122,34 @@ export function HeroSection() {
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <div className="relative w-full" style={{ isolation: "isolate" }}>
+            <div
+              className="relative w-full cursor-pointer"
+              style={{ isolation: "isolate" }}
+              onMouseEnter={handleVideoMouseEnter}
+              onMouseLeave={handleVideoMouseLeave}
+            >
+              {/* Imagem estática - visível sem hover */}
+              <img
+                src="/Tablet-mockup.png"
+                alt="LaraTAX Dashboard"
+                className="w-full h-auto scale-[1.7] origin-center transition-opacity duration-300"
+                style={{ opacity: isVideoHovered ? 0 : 1 }}
+              />
+              {/* Vídeo - visível no hover */}
               <video
                 ref={animationVideoRef}
-                className="w-full h-auto scale-[1.7] origin-center cursor-pointer"
-                style={{ mixBlendMode: "lighten", background: "transparent" }}
+                className="absolute inset-0 w-full h-auto scale-[1.7] origin-center transition-opacity duration-300"
+                style={{
+                  mixBlendMode: "lighten",
+                  background: "transparent",
+                  opacity: isVideoHovered ? 1 : 0,
+                }}
                 loop
                 muted
                 playsInline
                 src="/Site Larafy animations.webm"
-                onMouseEnter={handleVideoMouseEnter}
-                onMouseLeave={handleVideoMouseLeave}
               />
-              {/* Glow under video */}
+              {/* Glow under */}
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full" />
             </div>
           </motion.div>
