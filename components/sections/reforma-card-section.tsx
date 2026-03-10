@@ -57,32 +57,30 @@ export function ReformaCardSection() {
           {/* Right - Description */}
           <div className="flex-1 bg-[#0d1d33] p-10 lg:p-14 flex flex-col justify-center">
             <h3 className="text-2xl font-extrabold text-[#00e5ff] lg:text-3xl leading-tight text-balance">
-              A Reforma Tributaria nao e um evento. E um processo.
+            A Reforma Tributária não é um evento isolado, é um processo.
             </h3>
             <div className="mt-6 space-y-4">
-              <p className="text-[#8ba3c0] leading-relaxed">
-                Empresas que tratam a <span className="text-[#ffffff] font-semibold">Reforma Tributaria</span> como uma mera
-                atualizacao, ou &ldquo;jogo do governo&rdquo;, estarao sempre reagindo (e
-                perdendo dinheiro). A <span className="text-[#ffffff] font-semibold">LaraFy</span> opera com leitura ativa do cenario:
+              <p className="text-[#ffffff] leading-relaxed">
+              Há quem vai correr atrás do lucro e quem vai ficar observando a concorrência ganhar. De qual lado você quer estar?
               </p>
+              <p><strong>Com a LaraFy, você recebe:</strong> </p>
               <ul className="space-y-2 text-[#8ba3c0]">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Simulacoes constantes de impacto (IVA Dual).
+                  Simulações constantes de impacto (IVA Dual).
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Ajustes estrategicos em tempo real.
+                  Ajustes estratégicos em tempo real.
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Protecao da margem e dos contratos.
+                  Proteção da margem e dos contratos.
                 </li>
               </ul>
             </div>
             <p className="mt-8 text-xl font-bold uppercase text-[#00e5ff] tracking-wide leading-tight">
-              Quem reage depois, paga mais.<br />
-              Quem antecipa, lidera.
+              Trabalhe com quem entende do cenário.
             </p>
           </div>
         </motion.div>
