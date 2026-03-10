@@ -156,53 +156,38 @@ export function HeroSection() {
         </div>
 
         {/* Stats - conectado ao hero */}
-        <div className="relative z-10 mx-auto max-w-5xl px-6 pt-30 pb-12 lg:px-8 lg:pt-16 lg:pb-16 border-t border-white/10">
+        <motion.div
+          className="relative z-10 mx-auto max-w-5xl px-6 pt-30 pb-12 lg:px-8 lg:pt-16 lg:pb-16 border-t border-white/10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={scrollViewport}
+          transition={scrollTransition}
+        >
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
-            <motion.div
-              className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
-            >
+            <div className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20">
               <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
                 +<AnimatedCounter target={5} />
               </span>
               <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
                 Anos de<br />Mercado
               </span>
-            </motion.div>
-            <motion.div
-              className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(2) }}
-            >
+            </div>
+            <div className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20">
               <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
                 +<AnimatedCounter target={100} />
               </span>
               <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
                 Especialistas
               </span>
-            </motion.div>
-            <motion.div
-              className="flex-1 flex items-center justify-center gap-3 text-center"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(3) }}
-            >
+            </div>
+            <div className="flex-1 flex items-center justify-center gap-3 text-center">
               <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
               <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
                 Atuacao<br />Nacional
               </span>
-            </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
