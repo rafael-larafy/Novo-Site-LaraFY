@@ -108,7 +108,7 @@ export function StatsSection() {
             {/* Brazil map icon */}
             <img src={BrasilImg.src || BrasilImg} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
-              Atuacao<br />Nacional
+              Atuação<br />Nacional
             </span>
           </motion.div>
         </div>

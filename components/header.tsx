@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react"
 import LogoImg from "@/lib/Logo.png"
 
 const navLinks = [
-  { label: "Sobre nos", href: "#sobre" },
-  { label: "Solucoes", href: "#solucoes" },
-  { label: "O Metodo", href: "#metodo" },
+  { label: "Sobre nós", href: "#sobre" },
+  { label: "Soluções", href: "#solucoes" },
+  { label: "O Método", href: "#metodo" },
   { label: "Cases", href: "#cases" },
   { label: "O Grupo", href: "#grupo" },
   { label: "Carreiras", href: "#carreiras" },

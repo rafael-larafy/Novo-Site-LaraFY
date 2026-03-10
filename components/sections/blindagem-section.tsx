@@ -72,34 +72,15 @@ export function BlindagemSection() {
           transition={scrollTransition}
         >
           {/* Shield icon */}
-          <div className="relative flex-shrink-0 w-28 h-32 lg:w-36 lg:h-40 float-effect">
-            <svg viewBox="0 0 80 96" fill="none" className="w-full h-full drop-shadow-xl">
-              <path
-                d="M40 4L8 20V48C8 72 40 92 40 92C40 92 72 72 72 48V20L40 4Z"
-                fill="#0d1d33"
-                stroke="#1e3a5f"
-                strokeWidth="1.5"
-              />
-              <rect x="30" y="42" width="20" height="18" rx="3" fill="#1e3a5f" />
-              <path
-                d="M34 42V36C34 32 36 30 40 30C44 30 46 32 46 36V42"
-                stroke="#8ba3c0"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <circle cx="40" cy="51" r="2.5" fill="#8ba3c0" />
-            </svg>
+          <div className="relative flex-shrink-0 w-28 h-28 lg:w-36 lg:h-36 float-effect">
+            <img src="/security.png" alt="Segurança" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Text */}
           <div className="flex flex-col items-center sm:items-start">
             <h2 className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl">
-              Seu negócio blindado em todos os cenários possíveis.
+            O seu negócio é blindado em todos os cenários possíveis.
             </h2>
-            <p className="mt-3 text-base lg:text-lg text-[#4a6080] max-w-xl">
-              Nossa atuação é desenhada para blindar o seu caixa, aliando:
-            </p>
           </div>
         </motion.div>
 

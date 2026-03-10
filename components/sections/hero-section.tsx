@@ -180,7 +180,7 @@ export function HeroSection() {
             <div className="flex-1 flex items-center justify-center gap-3 text-center">
               <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
               <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
-                Atuacao<br />Nacional
+                Atuação<br />Nacional
               </span>
             </div>
           </div>
