@@ -80,7 +80,7 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-[#0a1628]/80 z-[1]" aria-hidden />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-20 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-20 lg:px-2">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left content */}
           <motion.div
@@ -92,24 +92,21 @@ export function HeroSection() {
             transition={scrollTransition}
           >
             <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-balance lg:text-7xl">
-              <span className="text-[#00e5ff]">REDUZIMOS</span>
+              <span className="text-[#00e5ff]">REDUZA</span>
               <br />
               <span className="text-[#00e5ff]">IMPOSTOS</span>
               <br />
-              <span className="text-[#00e5ff]">COM PRECISAO</span>
+              <span className="text-[#00e5ff]">COM PRECISÃO</span>
               <br />
-              <span className="text-[#00e5ff]">CIRURGICA</span>
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-[#8ba3c0]">
-              A decisao tributaria que seu negocio precisa, com resultados e ZERO riscos.
-              Decisoes sustentadas por tecnologia exclusiva e execucao orientada a
-              exito financeiro.
+            Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.
             </p>
             <a
               href="#contato"
               className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
             >
-              Solicitar Diagnostico Tributario Estrategico
+              Quero receber um diagnóstico
             </a>
           </motion.div>
 
@@ -157,7 +154,7 @@ export function HeroSection() {
 
         {/* Stats - conectado ao hero */}
         <motion.div
-          className="relative z-10 mx-auto max-w-5xl px-6 pt-30 pb-12 lg:px-8 lg:pt-16 lg:pb-16 border-t border-white/10"
+          className="relative z-10 mx-auto max-w-5xl px-6 pt-30 pb-12 lg:px-6 lg:pt-30 lg:pb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={scrollViewport}
