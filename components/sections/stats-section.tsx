@@ -54,7 +54,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 export function StatsSection() {
   return (
     <section
-      className="relative py-16 overflow-hidden bg-[#0a1628]"
+      className="relative py-20 overflow-hidden bg-[#0a1628]"
     >
       <div className="absolute inset-0">
         <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/10 blur-[150px] rounded-full" />
@@ -108,7 +108,7 @@ export function StatsSection() {
             {/* Brazil map icon */}
             <img src={BrasilImg.src || BrasilImg} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
-              Atuacao<br />Nacional
+              Atuação<br />Nacional
             </span>
           </motion.div>
         </div>

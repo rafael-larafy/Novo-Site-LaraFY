@@ -60,7 +60,7 @@ export function ReformaTributariaSection() {
                   transition={scrollTransition}
                 >
                   <h2 className="text-3xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance">
-                    A Reforma Tributaria tem tirado o seu sono?
+                  Está com medo de perder dinheiro com a Reforma Tributária?
                   </h2>
                 </motion.div>
 
@@ -72,13 +72,13 @@ export function ReformaTributariaSection() {
                   variants={fadeUpVariants}
                   transition={{ ...scrollTransition, delay: staggerDelay(2) }}
                 >
-                  <p className="text-[#8ba3c0] leading-relaxed">
-                    O Brasil esta entre os paises mais complexos do mundo para fazer negocios,
-                    e a transicao da Reforma Tributaria tem agravado esse cenario.
+                  <p className="text-[#ffffff] leading-relaxed">
+                  Se o seu projeto tributário te entrega somente:
                   </p>
-                  <p className="mt-4 text-[#8ba3c0] leading-relaxed">
-                    Se voce pensa em fazer uma consultoria tributaria para se adequar, e importante
-                    frisar que a maioria desses projetos segue o mesmo padrao:
+                  <p className="mt-4 text-[#ffffff] leading-relaxed">
+                  Análises Pontuais •  Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
+                  <br />
+                  Esteja pronto para a Reforma Tributária engolir o seu negócio.
                   </p>
                 </motion.div>
 
@@ -91,14 +91,14 @@ export function ReformaTributariaSection() {
                   variants={fadeUpVariants}
                   transition={{ ...scrollTransition, delay: staggerDelay(3) }}
                 >
-                  <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#8ba3c0]">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#ffffff]">
                     Como geralmente funcionam os projetos tradicionais:
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {tags.map((tag, i) => (
                       <div
                         key={i}
-                        className={`flex items-center justify-center rounded-full border border-[#1e3a5f] bg-[#0d1d33] px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
+                        className={`flex items-center justify-center rounded-lg border border-[#1e3a5f] bg-[#0d1d33] px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
                           tag === "PLANILHAS" ? "sm:col-span-2" : ""
                         }`}
                       >
@@ -123,8 +123,7 @@ export function ReformaTributariaSection() {
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(4) }}
             >
-              O mercado tradicional de consultoria opera de forma limitada
-              diante dessa complexidade tributaria.
+             O mercado tradicional de consultoria limita o seu ganho
             </motion.p>
             <motion.h3
               className="mt-4 text-2xl font-extrabold text-[#00e5ff] lg:text-4xl text-balance"
@@ -134,9 +133,9 @@ export function ReformaTributariaSection() {
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(5) }}
             >
-              Nos operamos com inteligencia,
+             Com tecnologia e método exclusivo,
               <br />
-              tecnologia e precisao cirurgica.
+              a LaraFy potencializa o seu lucro.
             </motion.h3>
           </div>
         </div>

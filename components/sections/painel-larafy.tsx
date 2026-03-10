@@ -667,45 +667,45 @@ export function PainelLarafy() {
 
           <div className={`${styles.tip} ${styles.tip1} ${activeStep === 1 ? styles.active : ""}`}>
             <p>
-              Realizamos um diagnóstico profundo da operação, com apoio da nossa tecnologia exclusiva.
+            Receba um diagnóstico profundo da sua operação, sem custo e com método e tecnologia exclusivos.
             </p>
             <p>
-              <strong>Esse processo não tem<br />custo para você.</strong>
+              <strong>Diagnóstico profundo.<br />Custo zero.</strong>
             </p>
           </div>
           <div className={`${styles.tip} ${styles.tip2} ${activeStep === 2 ? styles.active : ""}`}>
             <ul>
-              <li>Oportunidades reais de recuperação tributária</li>
-              <li>Um planejamento tributário estratégico com foco em redução do imposto pago mês a mês</li>
+              <p>Receba um estudo detalhado de oportunidades de recuperação tributária com um planejamento estratégico sob medida para reduzir os seus impostos.</p>
+              <p>
+                <strong>Menos imposto. 
+                  <br />Mais caixa.</strong></p>
             </ul>
           </div>
           <div className={`${styles.tip} ${styles.tip3} ${activeStep === 3 ? styles.active : ""}`}>
             <p>
-              A LaraFy só é remunerada quando você decide aproveitar as oportunidades apresentadas.
+            A LaraFy é remunerada <strong> somente</strong> quando você decide aproveitar as oportunidades.
             </p>
             <p>
-              <em>Se não houver ganho,<br />não há remuneração.</em>
+              <strong>Sem ganho,<br /> sem remuneração.</strong>
             </p>
           </div>
           <div className={`${styles.tip} ${styles.tip4} ${activeStep === 4 ? styles.active : ""}`}>
             <p>
-              Em função da complexidade das estratégias aplicadas, pode ser necessária uma reestruturação contábil para garantir a segurança e a conformidade das operações.
+            Receba uma reestruturação contábil do seu negócio para garantir máxima segurança, conformidade e sustentabilidade dos resultados a longo prazo.
+            </p>
+            <p>
+              <strong>Lucro com blindagem.</strong>
             </p>
             <p className={styles.small}>
-              *Os serviços desta etapa são projetos independentes, com contratação específica e cobrança pela execução do trabalho, conforme complexidade e objetivos definidos em conjunto com o cliente.
+              *Essa etapa é conduzida como um projeto independente, com contratação específica e honorários definidos conforme o nível de complexidade e os objetivos estratégicos traçados em conjunto com o cliente, sempre com foco em performance, segurança jurídica e eficiência tributária.
             </p>
           </div>
           <div className={`${styles.tip} ${styles.tip5} ${activeStep === 5 ? styles.active : ""}`}>
             <p>
-              Com a empresa estruturada, torna-se possível avançar para projetos estratégicos de longo prazo, como:
+            Receba projetos de alto impacto e geração de patrimônio a longo prazo, como estruturação de holding patrimonial para proteção e eficiência fiscal, e transação tributária estratégica e negociação inteligente de débitos fiscais.
             </p>
-            <ul>
-              <li>Estruturação de holding patrimonial</li>
-              <li>Transação tributária e negociação de débitos fiscais</li>
-            </ul>
-            <p className={styles.small}>
-              *Os serviços desta etapa são projetos independentes, com contratação específica e cobrança pela execução do trabalho, conforme complexidade e objetivos definidos em conjunto com o cliente.
-            </p>
+            <p><strong>Patrimônio protegido. 
+              <br />Crescimento planejado.</strong></p>
           </div>
         </div>
       </div>

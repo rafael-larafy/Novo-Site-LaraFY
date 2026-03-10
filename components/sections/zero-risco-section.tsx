@@ -113,22 +113,8 @@ export function ZeroRiscoSection() {
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <p className="text-[#ffffff] text-base lg:text-lg leading-relaxed">
-              Nosso modelo de remuneração é baseado no Êxito
-              (Success Fee). Isso significa que nossos interesses
-              estão 100% alinhados.
-            </p>
-            <p className="text-[#00e5ff] font-bold uppercase text-sm lg:text-base tracking-wide leading-snug">
-              SE NÃO ENCONTRARMOS OPORTUNIDADES REAIS
-              E SEGURAS, VOCÊ NÃO PAGA NADA.
-            </p>
-            <p className="text-[#ffffff] text-base lg:text-lg leading-relaxed">
-              Nossos honorários são um percentual sobre valores
-              recuperados e a economia tributária efetiva gerada.
-              Não trabalhamos com promessas.
-            </p>
-            <p className="text-[#00e5ff] font-bold uppercase text-sm lg:text-base tracking-wide">
-              TRABALHAMOS COM RESULTADO COMPROVADO.
+            <p className="text-[#ffffff] text-lg lg:text-4xl leading-relaxed text-left">
+            Não encontramos oportunidades reais e seguras para o seu negócio? Você não paga nada por isso.
             </p>
           </motion.div>
         </div>
