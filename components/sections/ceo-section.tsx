@@ -29,18 +29,8 @@ export function CeoSection() {
             transition={scrollTransition}
           >
             <h2 className="text-3xl font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance">
-              A linha tenue entre o erro e o acerto esta em como foi analisado.
+            “A linha tênue entre o erro e o acerto está em como foi analisado.”
             </h2>
-            <div className="space-y-4">
-              <p className="text-[#8ba3c0] leading-relaxed">
-                <span className="text-[#ffffff] font-semibold">
-                  Na LaraFy, a tecnologia proprietaria e o sistema nervoso
-                  invisivel que processa bilhoes de dados.
-                </span>{" "}
-                Mas quem toma a decisao, desenha a estrategia e assina a responsabilidade
-                e o nosso time de especialistas.
-              </p>
-            </div>
             <a
               href="#contato"
               className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628]"

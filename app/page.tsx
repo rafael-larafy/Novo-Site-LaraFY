@@ -24,7 +24,6 @@ export default function Home() {
         <ReformaTributariaSection />
         <CeoSection />
         <BlindagemSection />
-        <DiferencialSection />
         <TransparenciaSection />
         <ZeroRiscoSection />
         <ReformaCardSection />

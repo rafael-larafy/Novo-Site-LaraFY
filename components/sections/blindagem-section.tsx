@@ -14,24 +14,24 @@ const features = [
     icon: Search,
     title: "Varredura Total",
     description:
-      "Uma analise estrategica do historico tributario, que transforma dados em oportunidades e orienta decisoes com confianca.",
+      "Uma análise estratégica do seu histórico tributário, que transforma dados em oportunidades e orienta decisões com confiança.",
   },
   {
     icon: FileText,
-    title: "Fundamentacao Tecnica",
+    title: "Fundamentação Técnica",
     description: "Cada centavo recuperado possui lastro legal e documental.",
   },
   {
     icon: Scale,
-    title: "Seguranca Juridica",
+    title: "Segurança Jurídica",
     description:
-      "O Raio-X que encontra oportunidades de recuperacao administrativa e otimizacao de caixa que seu ERP ignora.",
+      "O raio-x que encontra oportunidades de recuperação administrativa e otimização de caixa que o seu ERP ignora.",
   },
   {
     icon: Users,
-    title: "A Inteligencia Humana",
+    title: "Inteligência Humana",
     description:
-      "A nossa equipe humana, altamente especializada, analisa dados, traca estrategias, valida a tatica e implementa acoes, 100% baseados em inteligencia e dados.",
+      "A nossa equipe humana, altamente especializada, analisa dados, traça estratégias, valida a tática e implementa ações, 100% baseados em inteligência e dados.",
   },
 ]
 
