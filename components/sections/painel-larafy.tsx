@@ -1,7 +1,7 @@
 "use client"
 
-import { useMemo, useState, useCallback } from "react"
-import { motion } from "framer-motion"
+import { useMemo, useState, useCallback, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   scrollViewport,
   scrollTransition,
@@ -117,8 +117,54 @@ const LABELS = [
   { step: 5, num: "ETAPA 5", title: "Expansão e\nProteção\nPatrimonial*" },
 ] as const
 
+const TIP_CONTENT: Record<number, React.ReactNode> = {
+  1: (
+    <>
+      <p>Receba um diagnóstico profundo da sua operação, sem custo e com método e tecnologia exclusivos.</p>
+      <p><strong>Diagnóstico profundo.<br />Custo zero.</strong></p>
+    </>
+  ),
+  2: (
+    <>
+      <p>Receba um estudo detalhado de oportunidades de recuperação tributária com um planejamento estratégico sob medida para reduzir os seus impostos.</p>
+      <p><strong>Menos imposto.<br />Mais caixa.</strong></p>
+    </>
+  ),
+  3: (
+    <>
+      <p>A LaraFy é remunerada <strong>somente</strong> quando você decide aproveitar as oportunidades.</p>
+      <p><strong>Sem ganho,<br />sem remuneração.</strong></p>
+    </>
+  ),
+  4: (
+    <>
+      <p>Receba uma reestruturação contábil do seu negócio para garantir máxima segurança, conformidade e sustentabilidade dos resultados a longo prazo.</p>
+      <p><strong>Lucro com blindagem.</strong></p>
+      <p className={styles.small}>*Essa etapa é conduzida como um projeto independente, com contratação específica e honorários definidos conforme o nível de complexidade e os objetivos estratégicos traçados em conjunto com o cliente, sempre com foco em performance, segurança jurídica e eficiência tributária.</p>
+    </>
+  ),
+  5: (
+    <>
+      <p>Receba projetos de alto impacto e geração de patrimônio a longo prazo, como estruturação de holding patrimonial para proteção e eficiência fiscal, e transação tributária estratégica e negociação inteligente de débitos fiscais.</p>
+      <p><strong>Patrimônio protegido.<br />Crescimento planejado.</strong></p>
+    </>
+  ),
+}
+
 export function PainelLarafy() {
   const [activeStep, setActiveStep] = useState<number | null>(null)
+  const [mobilePopupStep, setMobilePopupStep] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (mobilePopupStep) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobilePopupStep])
 
   const segments = useMemo(() => {
     return Array.from({ length: 5 }, (_, i) => {
@@ -198,6 +244,63 @@ export function PainelLarafy() {
         </div>
       </div>
 
+      {/* Mobile: lista de etapas clicáveis */}
+      <div className={styles.mobileSteps}>
+        {LABELS.map((lab) => (
+          <button
+            key={lab.step}
+            type="button"
+            className={`${styles.mobileStepCard} ${mobilePopupStep === lab.step ? styles.mobileStepActive : ""}`}
+            onClick={() => setMobilePopupStep(mobilePopupStep === lab.step ? null : lab.step)}
+          >
+            <span className={styles.mobileStepNum}>{lab.num}</span>
+            <span className={styles.mobileStepTitle}>
+              {lab.title.split("\n").join(" ")}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* Mobile: popup ao clicar na etapa */}
+      <AnimatePresence>
+        {mobilePopupStep && (
+          <motion.div
+            key="mobile-popup"
+            className={styles.mobilePopupOverlay}
+            onClick={() => setMobilePopupStep(null)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Escape" && setMobilePopupStep(null)}
+            aria-label="Fechar"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            <motion.div
+              className={styles.mobilePopup}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <button
+                type="button"
+                className={styles.mobilePopupClose}
+                onClick={() => setMobilePopupStep(null)}
+                aria-label="Fechar"
+              >
+                ×
+              </button>
+              <div className={styles.mobilePopupContent}>
+                {TIP_CONTENT[mobilePopupStep]}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className={styles.wrap}>
         <div
           className={styles.wheel}
@@ -242,6 +345,7 @@ export function PainelLarafy() {
                       : "translate(0,0)",
                   }}
                   onMouseEnter={() => setStep(seg.step)}
+                  onClick={() => setStep(seg.step)}
                 />
               )
             })}
@@ -266,6 +370,7 @@ export function PainelLarafy() {
                     : "none",
                 }}
                 onMouseEnter={() => setStep(lab.step)}
+                onClick={() => setStep(lab.step)}
               >
                 <div className={styles.lblNum}>{lab.num}</div>
                 <div className={styles.lblTitle}>
