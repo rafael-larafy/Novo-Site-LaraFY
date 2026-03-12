@@ -73,7 +73,7 @@ export function BlindagemSection() {
         >
           {/* Shield icon */}
           <div className="relative flex-shrink-0 w-28 h-28 lg:w-36 lg:h-36 float-effect">
-            <img src="/security.png" alt="Segurança" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src="/security.png" alt="Segurança" className="w-full h-full object-contain drop-shadow-xl" loading="lazy" />
           </div>
 
           {/* Text */}

@@ -55,6 +55,7 @@ export function CeoSection() {
                   src={WaldirImg.src || WaldirImg}
                   alt="Waldir de Lara - Founder e CEO da LaraFy"
                   className="w-full h-auto object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>

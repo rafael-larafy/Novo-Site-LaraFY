@@ -48,6 +48,7 @@ export function ReformaTributariaSection() {
                     src={typeof PessoaImg === "string" ? PessoaImg : (PessoaImg as { src?: string }).src ?? ""}
                     alt="Pessoa preocupada"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0d1d33] via-transparent to-transparent" />
                 </div>
