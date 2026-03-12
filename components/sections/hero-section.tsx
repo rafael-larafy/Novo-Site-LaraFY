@@ -82,20 +82,18 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-20 lg:px-2">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Left content */}
+          {/* Left content - no mobile aparece abaixo da imagem */}
           <motion.div
-            className="flex-1 space-y-8"
+            className="flex-1 space-y-4 order-2 lg:order-1"
             initial="hidden"
             whileInView="visible"
             viewport={scrollViewport}
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-balance lg:text-7xl">
-              <span className="text-[#00e5ff]">REDUZA</span>
-              <br />
-              <span className="text-[#00e5ff]">IMPOSTOS</span>
-              <br />
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance sm:text-4xl lg:text-7xl">
+              <span className="text-[#00e5ff]">REDUZA </span>
+              <span className="text-[#00e5ff]">IMPOSTOS </span>
               <span className="text-[#00e5ff]">COM PRECISÃO</span>
               <br />
             </h1>
@@ -104,15 +102,15 @@ export function HeroSection() {
             </p>
             <a
               href="#contato"
-              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
             >
               Quero receber um diagnóstico
             </a>
           </motion.div>
 
-          {/* Right content - Video */}
+          {/* Right content - Video - no mobile aparece acima do texto */}
           <motion.div
-            className="flex-1 relative"
+            className="flex-1 relative order-1 lg:order-2"
             initial="hidden"
             whileInView="visible"
             viewport={scrollViewport}
@@ -129,13 +127,13 @@ export function HeroSection() {
               <img
                 src="/Tablet-mockup.png"
                 alt="LaraTAX Dashboard"
-                className="w-full h-auto scale-100 lg:scale-[1.7] origin-center transition-opacity duration-300"
+                className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{ opacity: isVideoHovered ? 0 : 1 }}
               />
               {/* Vídeo - visível no hover */}
               <video
                 ref={animationVideoRef}
-                className="absolute inset-0 w-full h-auto scale-100 lg:scale-[1.7] origin-center transition-opacity duration-300"
+                className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{
                   mixBlendMode: "lighten",
                   background: "transparent",
