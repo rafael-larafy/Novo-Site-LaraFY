@@ -50,6 +50,23 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 export function HeroSection() {
   const animationVideoRef = useRef<HTMLVideoElement>(null)
   const [isVideoHovered, setIsVideoHovered] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1024px)")
+    setIsMobile(mq.matches)
+    const handler = () => setIsMobile(mq.matches)
+    mq.addEventListener("change", handler)
+    return () => mq.removeEventListener("change", handler)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile && !mobileVideoEnded && animationVideoRef.current) {
+      animationVideoRef.current.currentTime = 0
+      animationVideoRef.current.play()
+    }
+  }, [isMobile, mobileVideoEnded])
 
   const handleVideoMouseEnter = () => {
     setIsVideoHovered(true)
@@ -66,6 +83,13 @@ export function HeroSection() {
     video.pause()
     video.currentTime = 0
   }
+
+  const handleVideoEnded = () => {
+    if (isMobile) setMobileVideoEnded(true)
+  }
+
+  const showVideo = isMobile ? !mobileVideoEnded : isVideoHovered
+  const showImage = isMobile ? mobileVideoEnded : !isVideoHovered
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
@@ -123,26 +147,27 @@ export function HeroSection() {
               onMouseEnter={handleVideoMouseEnter}
               onMouseLeave={handleVideoMouseLeave}
             >
-              {/* Imagem estática - visível sem hover */}
+              {/* Imagem estática - no mobile após o vídeo terminar, no desktop sem hover */}
               <img
                 src="/Tablet-mockup.png"
                 alt="LaraTAX Dashboard"
                 className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
-                style={{ opacity: isVideoHovered ? 0 : 1 }}
+                style={{ opacity: showImage ? 1 : 0 }}
               />
-              {/* Vídeo - visível no hover */}
+              {/* Vídeo - no mobile roda primeiro, no desktop visível no hover */}
               <video
                 ref={animationVideoRef}
                 className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{
                   mixBlendMode: "lighten",
                   background: "transparent",
-                  opacity: isVideoHovered ? 1 : 0,
+                  opacity: showVideo ? 1 : 0,
                 }}
-                loop
+                loop={!isMobile}
                 muted
                 playsInline
                 src="/Site Larafy animations.webm"
+                onEnded={handleVideoEnded}
               />
               {/* Glow under */}
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full" />
