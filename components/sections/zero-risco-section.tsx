@@ -130,8 +130,8 @@ export function ZeroRiscoSection() {
         >
           <a
             href="#contato"
-            className="inline-block rounded-full border-2 border-[#00e5ff]/40 bg-[#00e5ff] px-10 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#0a1628] transition-all duration-300 hover:bg-transparent hover:text-[#00e5ff] hover:border-[#00e5ff]/70 hover:shadow-[0_0_25px_rgba(0,229,255,0.2)]"
-           >
+            className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
+          >
             Solicitar Diagnóstico Tributário Estratégico
           </a>
           <p className="mt-8 text-lg font-bold text-[#ffffff] lg:text-xl text-balance">
