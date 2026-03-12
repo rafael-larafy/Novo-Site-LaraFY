@@ -12,3 +12,10 @@
   animation: marquee 30s linear infinite;
   will-change: transform;
 }
+
+/* Mobile: animação mais rápida */
+@media (max-width: 768px) {
+  .marquee {
+    animation-duration: 15s;
+  }
+}
