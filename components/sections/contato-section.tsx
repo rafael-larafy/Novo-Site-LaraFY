@@ -12,7 +12,7 @@ export function ContatoSection() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden min-h-[600px] lg:min-h-[620px]"
+      className="relative overflow-hidden min-h-[900px] pt-20 pb-20 lg:min-h-[620px] lg:pt-0 lg:pb-0"
     >
       {/* Única imagem de background */}
       <div className="absolute inset-0">
@@ -26,7 +26,7 @@ export function ContatoSection() {
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <motion.div
-          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 p-10 lg:p-16 bg-[#0a1628]/85 backdrop-blur-sm"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 py-12 sm:px-6 sm:py-16 lg:p-16 bg-[#0a1628]/85 backdrop-blur-sm"
           initial="hidden"
           whileInView="visible"
           viewport={scrollViewport}
