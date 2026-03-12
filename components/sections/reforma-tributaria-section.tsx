@@ -62,7 +62,7 @@ export function ReformaTributariaSection() {
                   variants={slideRightVariants}
                   transition={scrollTransition}
                 >
-                  <h2 className="text-3xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance">
+                  <h2 className="text-2xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance">
                   Está com medo de perder dinheiro com a Reforma Tributária?
                   </h2>
                 </motion.div>
@@ -75,8 +75,8 @@ export function ReformaTributariaSection() {
                   variants={fadeUpVariants}
                   transition={{ ...scrollTransition, delay: staggerDelay(2) }}
                 >
-                  <p className="text-[#ffffff] leading-relaxed">
-                  Se o seu projeto tributário te entrega somente:
+                  <p className="text-[#ffffff] leading-tight">
+                  Se o seu projeto tributário <br/> te entrega somente:
                   </p>
                   <ul className="mt-4 text-[#ffffff] leading-relaxed list-disc list-inside list-none space-y-1 md:hidden">
                     <strong>
@@ -87,10 +87,10 @@ export function ReformaTributariaSection() {
                     <li>Planilhas.</li>
                     </strong>
                   </ul>
-                  <p className="mt-4 text-[#ffffff] leading-relaxed hidden md:block">
+                  <p className="mt-4 text-[#ffffff] leading-tight hidden md:block">
                     Análises Pontuais • Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
                   </p>
-                  <p className="mt-4 text-[#ffffff] leading-relaxed">
+                  <p className="mt-4 text-[#ffffff] leading-tight">
                     Esteja pronto para a Reforma Tributária engolir o seu negócio.
                   </p>
                 </motion.div>
@@ -135,7 +135,7 @@ export function ReformaTributariaSection() {
         <div className="bg-[#0a1628] pt-16 pb-[0px]">
           <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
-              className="text-[#8ba3c0] text-sm leading-relaxed"
+              className="text-[#77e4ff] text-sm leading-relaxed"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -145,7 +145,7 @@ export function ReformaTributariaSection() {
              O mercado tradicional de consultoria limita o seu ganho
             </motion.p>
             <motion.h3
-              className="mt-4 text-2xl font-extrabold text-[#00e5ff] lg:text-4xl text-balance"
+              className="mt-4 text-1xl text-center lg:text-left font-extrabold text-[#00e5ff] lg:text-4xl text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

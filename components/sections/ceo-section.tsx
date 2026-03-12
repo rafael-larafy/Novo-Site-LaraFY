@@ -28,14 +28,14 @@ export function CeoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="text-3xl font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance">
+            <h2 className="text-2x1 text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance">
             “A linha tênue entre o erro e o acerto está em como foi analisado.”
             </h2>
             <a
               href="#contato"
-              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628]"
+              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
             >
-              Solicitar Diagnostico Tributario Estrategico
+              Solicitar Diagnóstico Tributário Estratégico
             </a>
           </motion.div>
 

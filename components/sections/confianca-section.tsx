@@ -74,9 +74,9 @@ export function ConfiancaSection() {
           transition={{ ...scrollTransition, delay: staggerDelay(2) }}
         >
           <a
-            href="#contato"
-            className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 sm:px-12 py-3.5 sm:py-5 text-center text-lg sm:text-xl font-bold tracking-[0.02em] text-[#0a1628]"
-          >
+           href="#contato"
+           className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
+         >
             E a CONFIANÇA que se conquista através da seriedade e eficiência:
           </a>
         </motion.div>
