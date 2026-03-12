@@ -88,6 +88,16 @@ export function HeroSection() {
     if (isMobile) setMobileVideoEnded(true)
   }
 
+  const handleMobileClick = () => {
+    if (!isMobile) return
+    setMobileVideoEnded(false)
+    const video = animationVideoRef.current
+    if (video) {
+      video.currentTime = 0
+      video.play()
+    }
+  }
+
   const showVideo = isMobile ? !mobileVideoEnded : isVideoHovered
   const showImage = isMobile ? mobileVideoEnded : !isVideoHovered
 
@@ -146,6 +156,7 @@ export function HeroSection() {
               style={{ isolation: "isolate" }}
               onMouseEnter={handleVideoMouseEnter}
               onMouseLeave={handleVideoMouseLeave}
+              onClick={handleMobileClick}
             >
               {/* Imagem estática - no mobile após o vídeo terminar, no desktop sem hover */}
               <img
