@@ -91,18 +91,18 @@ export function HeroSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance sm:text-4xl lg:text-7xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance sm:text-5xl lg:text-7xl">
               <span className="text-[#00e5ff]">REDUZA </span>
               <span className="text-[#00e5ff]">IMPOSTOS </span>
               <span className="text-[#00e5ff]">COM PRECISÃO</span>
               <br />
             </h1>
-            <p className="max-w-lg text-lg leading-relaxed text-[#8ba3c0]">
+            <p className="max-w-lg text-lg leading-justify text-[#ffffff]">
             Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.
             </p>
             <a
               href="#contato"
-              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
+              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
             >
               Quero receber um diagnóstico
             </a>
@@ -152,32 +152,32 @@ export function HeroSection() {
 
         {/* Stats - conectado ao hero */}
         <motion.div
-          className="relative z-10 mx-auto max-w-5xl px-6 pt-30 pb-12 lg:px-6 lg:pt-30 lg:pb-16"
+          className="relative z-10 mx-auto max-w-5xl px-4 pt-30 pb-12 lg:px-6 lg:pt-30 lg:pb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={scrollViewport}
           transition={scrollTransition}
         >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
-            <div className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20">
-              <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-10">
+            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">
+              <span className="text-5xl font-extrabold text-[#ffffff] md:text-4xl lg:text-5xl">
                 +<AnimatedCounter target={5} />
               </span>
-              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
                 Anos de<br />Mercado
               </span>
             </div>
-            <div className="flex-1 flex items-center justify-center gap-3 text-center md:border-r md:border-[#ffffff]/20">
-              <span className="text-4xl font-extrabold text-[#ffffff] lg:text-5xl">
+            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">
+              <span className="text-5xl font-extrabold text-[#ffffff] md:text-4xl lg:text-5xl">
                 +<AnimatedCounter target={100} />
               </span>
-              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
                 Especialistas
               </span>
             </div>
-            <div className="flex-1 flex items-center justify-center gap-3 text-center">
-              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
-              <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
+            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 pb-0 min-w-0 w-full">
+              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-25 h-auto md:w-20 lg:w-20" />
+              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
                 Atuação<br />Nacional
               </span>
             </div>
