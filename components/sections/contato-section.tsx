@@ -12,7 +12,7 @@ export function ContatoSection() {
   return (
     <section
       id="contato"
-      className="relative overflow-hidden min-h-[900px] pt-20 pb-20 lg:min-h-[620px] lg:pt-0 lg:pb-0"
+      className="relative overflow-hidden min-h-[700px] pt-20 pb-20 lg:min-h-[620px] lg:pt-0 lg:pb-0"
     >
       {/* Única imagem de background */}
       <div className="absolute inset-0">
@@ -34,7 +34,7 @@ export function ContatoSection() {
           transition={scrollTransition}
         >
           {/* CTA text */}
-          <div className="flex-1 max-w-[340px] order-2 lg:order-1">
+          <div className="flex-1 max-w-[340px] order-1 lg:order-1">
             <h2 className="text-xl lg:text-2xl font-black text-white leading-tight">
               Tenha acesso direto a um estrategista sênior.
             </h2>
@@ -46,7 +46,7 @@ export function ContatoSection() {
           </div>
 
           {/* Form */}
-          <div className="flex-1 w-full max-w-[380px] order-1 lg:order-2">
+          <div className="flex-1 w-full max-w-[380px] order-2 lg:order-2">
             <form
               className="space-y-2.5"
               onSubmit={(e) => e.preventDefault()}
@@ -73,7 +73,7 @@ export function ContatoSection() {
               />
               <input
                 type="text"
-                placeholder="Faturamento Anual"
+                placeholder="Escalabilidade"
                 className="w-full h-10 px-3 rounded-md border border-[#e5e7eb] bg-white text-[#0a1628] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#00e5ff] focus:border-transparent text-sm"
               />
               <input
@@ -88,7 +88,7 @@ export function ContatoSection() {
               />
               <button
                 type="submit"
-                className="cta-button inline-block rounded-full bg-[#00e5ff] px-26 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-center"
+                className="cta-button inline-block rounded-full bg-[#00e5ff] px-32 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-center"
               >
                 Enviar
               </button>
