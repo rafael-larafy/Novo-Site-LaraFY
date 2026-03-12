@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   scrollViewport,
   scrollTransition,
@@ -44,9 +45,12 @@ export function ReformaTributariaSection() {
                 transition={scrollTransition}
               >
                 <div className="relative w-64 h-80 lg:w-140 lg:h-98 rounded-xl overflow-hidden bg-[]">
-                  <img
-                    src={typeof PessoaImg === "string" ? PessoaImg : (PessoaImg as { src?: string }).src ?? ""}
+                  <Image
+                    src={PessoaImg}
                     alt="Pessoa preocupada"
+                    width={560}
+                    height={392}
+                    sizes="(max-width: 1024px) 256px, 560px"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

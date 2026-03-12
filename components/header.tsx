@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import LogoImg from "@/lib/Logo.png"
 
@@ -37,7 +38,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src={LogoImg.src || LogoImg} alt="LaraFy" className="h-8 w-auto lg:h-10" />
+            <Image src={LogoImg} alt="LaraFy" width={80} height={81} sizes="(max-width: 1024px) 32px, 40px" className="h-8 w-auto lg:h-10" priority />
           </a>
 
           {/* Desktop Nav */}

@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   scrollViewport,
   scrollTransition,
@@ -49,11 +50,14 @@ export function CeoSection() {
             transition={scrollTransition}
           >
             <div className="relative flex items-end justify-center">
-              <div className="relative w-full max-w-[560px]">
+              <div className="relative w-full max-w-[560px] aspect-square">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent z-10" />
-                <img
-                  src={WaldirImg.src || WaldirImg}
+                <Image
+                  src={WaldirImg}
                   alt="Waldir de Lara - Founder e CEO da LaraFy"
+                  width={560}
+                  height={560}
+                  sizes="(max-width: 1024px) 100vw, 560px"
                   className="w-full h-auto object-contain"
                   loading="lazy"
                 />
