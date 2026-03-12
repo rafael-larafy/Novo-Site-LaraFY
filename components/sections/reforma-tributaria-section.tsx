@@ -150,7 +150,7 @@ export function ReformaTributariaSection() {
              O mercado tradicional de consultoria limita o seu ganho
             </motion.p>
             <motion.h3
-              className="mt-4 text-1xl text-center lg:text-left font-extrabold text-[#00e5ff] lg:text-4xl text-balance"
+              className="mt-4 text-1xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
