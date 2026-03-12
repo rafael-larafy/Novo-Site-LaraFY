@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 .panel * { margin: 0; padding: 0; box-sizing: border-box; }
 
 .panel {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), 'Inter', 'Segoe UI', sans-serif;
   background: #0a1628;
   color: #fff;
   display: flex;
@@ -250,7 +248,7 @@
   z-index: 15;
   box-shadow: 0 4px 18px rgba(212,149,43,0.5);
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
 }
 
 .tip {
@@ -271,7 +269,7 @@
   min-width: 300px;
   max-width: 340px;
   box-shadow: 0 0 25px rgba(34,184,201,0.10), 0 14px 45px rgba(0,0,0,0.45);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   text-align: center;
 }
 
