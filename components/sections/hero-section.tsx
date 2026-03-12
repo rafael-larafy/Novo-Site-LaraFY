@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   scrollViewport,
   scrollTransition,
@@ -159,9 +160,12 @@ export function HeroSection() {
               onClick={handleMobileClick}
             >
               {/* Imagem estática - no mobile após o vídeo terminar, no desktop sem hover */}
-              <img
+              <Image
                 src="/Tablet-mockup.png"
                 alt="LaraTAX Dashboard"
+                width={600}
+                height={338}
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{ opacity: showImage ? 1 : 0 }}
               />
@@ -212,7 +216,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 pb-0 min-w-0 w-full">
-              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-25 h-auto md:w-20 lg:w-20" />
+              <Image src={BrasilImg} alt="Mapa do Brasil" width={144} height={144} sizes="100px" className="w-25 h-auto md:w-20 lg:w-20" loading="lazy" />
               <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
                 Atuação<br />Nacional
               </span>

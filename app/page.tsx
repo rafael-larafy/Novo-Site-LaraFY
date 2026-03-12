@@ -1,19 +1,61 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
-import { ConfiancaSection } from "@/components/sections/confianca-section"
-import { ReformaTributariaSection } from "@/components/sections/reforma-tributaria-section"
-import { CeoSection } from "@/components/sections/ceo-section"
-import { BlindagemSection } from "@/components/sections/blindagem-section"
-import { DiferencialSection } from "@/components/sections/diferencial-section"
-import { TransparenciaSection } from "@/components/sections/transparencia-section"
-import { ZeroRiscoSection } from "@/components/sections/zero-risco-section"
-import { ReformaCardSection } from "@/components/sections/reforma-card-section"
-import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
-import { DiagnosticoSection } from "@/components/sections/diagnostico-section"
-import { ContatoSection } from "@/components/sections/contato-section"
 import { Footer } from "@/components/footer"
+
+const SectionPlaceholder = () => <div className="min-h-[300px] bg-[#0a1628]" />
+
+const ReformaTributariaSection = dynamic(
+  () => import("@/components/sections/reforma-tributaria-section").then((mod) => ({ default: mod.ReformaTributariaSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const CeoSection = dynamic(
+  () => import("@/components/sections/ceo-section").then((mod) => ({ default: mod.CeoSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const BlindagemSection = dynamic(
+  () => import("@/components/sections/blindagem-section").then((mod) => ({ default: mod.BlindagemSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const TransparenciaSection = dynamic(
+  () => import("@/components/sections/transparencia-section").then((mod) => ({ default: mod.TransparenciaSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const ZeroRiscoSection = dynamic(
+  () => import("@/components/sections/zero-risco-section").then((mod) => ({ default: mod.ZeroRiscoSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const ReformaCardSection = dynamic(
+  () => import("@/components/sections/reforma-card-section").then((mod) => ({ default: mod.ReformaCardSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const ConfiancaSection = dynamic(
+  () => import("@/components/sections/confianca-section").then((mod) => ({ default: mod.ConfiancaSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const LogosCarouselSection = dynamic(
+  () => import("@/components/sections/logos-carousel-section").then((mod) => ({ default: mod.LogosCarouselSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const DiagnosticoSection = dynamic(
+  () => import("@/components/sections/diagnostico-section").then((mod) => ({ default: mod.DiagnosticoSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
+
+const ContatoSection = dynamic(
+  () => import("@/components/sections/contato-section").then((mod) => ({ default: mod.ContatoSection })),
+  { ssr: true, loading: SectionPlaceholder }
+)
 
 export default function Home() {
   return (

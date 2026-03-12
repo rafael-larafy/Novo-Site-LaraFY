@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   scrollViewport,
   scrollTransition,
@@ -73,7 +74,7 @@ export function BlindagemSection() {
         >
           {/* Shield icon */}
           <div className="relative flex-shrink-0 w-28 h-28 lg:w-36 lg:h-36 float-effect">
-            <img src="/security.png" alt="Segurança" className="w-full h-full object-contain drop-shadow-xl" />
+            <Image src="/security.png" alt="Segurança" width={144} height={144} sizes="(max-width: 1024px) 112px, 144px" className="w-full h-full object-contain drop-shadow-xl" loading="lazy" />
           </div>
 
           {/* Text */}

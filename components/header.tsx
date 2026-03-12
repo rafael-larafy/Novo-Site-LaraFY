@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import LogoImg from "@/lib/Logo.png"
 
@@ -20,11 +21,20 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    let rafId: number | null = null
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      if (rafId !== null) return
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20)
+        rafId = null
+      })
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (rafId !== null) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
@@ -37,7 +47,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src={LogoImg.src || LogoImg} alt="LaraFy" className="h-8 w-auto lg:h-10" />
+            <Image src={LogoImg} alt="LaraFy" width={80} height={81} sizes="(max-width: 1024px) 32px, 40px" className="h-8 w-auto lg:h-10" priority />
           </a>
 
           {/* Desktop Nav */}

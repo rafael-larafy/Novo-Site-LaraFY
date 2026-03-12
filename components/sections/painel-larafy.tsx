@@ -221,9 +221,7 @@ export function PainelLarafy() {
           >
             <h2 className={styles.headerTitle}>
               Transparência e Método:
-              <br />
               um processo claro para ir
-              <br />
               da estratégia à ação.
             </h2>
           </motion.div>
