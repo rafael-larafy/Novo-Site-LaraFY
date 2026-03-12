@@ -40,15 +40,14 @@ export function LogosCarouselSection() {
           {[...LOGOS, ...LOGOS].map((logo, i) => (
             <div
               key={`${logo.alt}-${i}`}
-              className="flex-shrink-0 mx-8 lg:mx-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
-              style={{ minWidth: 160 }}
+              className="flex-shrink-0 mx-4 lg:mx-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 min-w-[80px] lg:min-w-[160px]"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={160}
                 height={80}
-                className="h-12 w-auto object-contain lg:h-14"
+                className="h-8 w-auto object-contain lg:h-14"
               />
             </div>
           ))}
