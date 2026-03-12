@@ -52,8 +52,9 @@ export function LogosCarouselSection() {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={160}
+                width={188}
                 height={80}
+                sizes="(max-width: 1024px) 80px, 160px"
                 className="h-8 w-auto object-contain lg:h-14"
               />
             </button>

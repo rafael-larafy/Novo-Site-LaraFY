@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
 import GPTWImg from "@/lib/GPTW.png"
 
@@ -107,9 +108,12 @@ export function Footer() {
 
         {/* COLUNA 4: GPTW + REDES SOCIAIS */}
         <div className="flex flex-row items-center gap-4 lg:gap-6">
-          <img
-            src={GPTWImg.src || GPTWImg}
+          <Image
+            src={GPTWImg}
             alt="Great Place To Work - Certificada 2025 Brasil"
+            width={188}
+            height={80}
+            sizes="(max-width: 1024px) 70px, 80px"
             className="max-h-[70px] lg:max-h-[80px] w-auto object-contain"
             loading="lazy"
           />
