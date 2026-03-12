@@ -3,12 +3,14 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
 .marquee {
   display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
   animation: marquee 30s linear infinite;
   will-change: transform;
 }
@@ -16,6 +18,6 @@
 /* Mobile: animação mais rápida */
 @media (max-width: 768px) {
   .marquee {
-    animation-duration: 15s;
+    animation-duration: 30s;
   }
 }
