@@ -22,6 +22,7 @@
   padding: 140px 0 20px;
 }
 
+
 .headerInner {
   display: flex;
   gap: 48px;
@@ -55,6 +56,9 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 60px 0 24px;
+  }
   .headerInner {
     flex-direction: column;
     gap: 20px;
@@ -452,7 +456,136 @@
 @media (max-width: 900px) {
   .wrap { transform: scale(0.75); }
 }
+/* Mobile: lista de etapas */
+.mobileSteps {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.mobileStepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 20px;
+  background: rgba(26, 58, 92, 0.6);
+  border: 2px solid rgba(34, 184, 201, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.mobileStepCard:hover,
+.mobileStepCard.mobileStepActive {
+  background: rgba(34, 184, 201, 0.15);
+  border-color: #22b8c9;
+  box-shadow: 0 0 20px rgba(34, 184, 201, 0.2);
+}
+
+.mobileStepNum {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #00e5ff;
+}
+
+.mobileStepTitle {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Mobile: popup */
+.mobilePopupOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.mobilePopup {
+  position: relative;
+  background: rgba(8, 18, 35, 0.98);
+  border: 2.5px solid #22b8c9;
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(34, 184, 201, 0.2), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.mobilePopupClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.mobilePopupClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mobilePopupContent {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mobilePopupContent p {
+  margin-bottom: 14px;
+}
+
+.mobilePopupContent p:last-child {
+  margin-bottom: 0;
+}
+
+.mobilePopupContent strong {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .mobileSteps {
+    display: flex;
+  }
+
+  .wrap {
+    display: none !important;
+  }
+
+  .mobilePopupOverlay {
+    display: flex;
+  }
+}
+
 @media (max-width: 600px) {
-  .wrap { transform: scale(0.55); }
-  .panel { padding: 30px 10px; }
+  .panel { padding: 30px 10px 80px; }
 }
