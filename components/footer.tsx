@@ -111,6 +111,7 @@ export function Footer() {
             src={GPTWImg.src || GPTWImg}
             alt="Great Place To Work - Certificada 2025 Brasil"
             className="max-h-[70px] lg:max-h-[80px] w-auto object-contain"
+            loading="lazy"
           />
           <div className="flex flex-col gap-1">
             <div className="flex gap-2">

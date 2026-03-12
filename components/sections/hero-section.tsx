@@ -212,7 +212,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 pb-0 min-w-0 w-full">
-              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-25 h-auto md:w-20 lg:w-20" />
+              <img src={typeof BrasilImg === "string" ? BrasilImg : (BrasilImg as { src?: string }).src ?? ""} alt="Mapa do Brasil" className="w-25 h-auto md:w-20 lg:w-20" loading="lazy" />
               <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
                 Atuação<br />Nacional
               </span>
