@@ -40,7 +40,7 @@ export function LogosCarouselSection() {
       {/* Marquee container */}
       <div className="relative w-full overflow-hidden">
         <div className={styles.marquee}>
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
+          {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
             <button
               key={`${logo.alt}-${i}`}
               type="button"
