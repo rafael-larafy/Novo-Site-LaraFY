@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import {
   scrollViewport,
@@ -20,6 +21,8 @@ const tags = [
 ]
 
 export function ReformaTributariaSection() {
+  const [tappedIndex, setTappedIndex] = useState<number | null>(null)
+
   return (
     <section className="relative overflow-hidden bg-[#0d1d33]">
         {/* Top part - lighter */}
@@ -30,10 +33,10 @@ export function ReformaTributariaSection() {
           </div>
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
-            <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
               {/* Left - person image area */}
               <motion.div
-                className="flex-shrink-0"
+                className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto"
                 initial="hidden"
                 whileInView="visible"
                 viewport={scrollViewport}
@@ -51,7 +54,7 @@ export function ReformaTributariaSection() {
               </motion.div>
 
               {/* Right content */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-6 w-full text-center lg:text-left">
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
@@ -65,7 +68,7 @@ export function ReformaTributariaSection() {
                 </motion.div>
 
                 <motion.div
-                  className="max-w-lg"
+                  className="max-w-lg mx-auto lg:mx-0"
                   initial="hidden"
                   whileInView="visible"
                   viewport={scrollViewport}
@@ -75,10 +78,20 @@ export function ReformaTributariaSection() {
                   <p className="text-[#ffffff] leading-relaxed">
                   Se o seu projeto tributário te entrega somente:
                   </p>
+                  <ul className="mt-4 text-[#ffffff] leading-relaxed list-disc list-inside list-none space-y-1 md:hidden">
+                    <strong>
+                    <li>Análises Pontuais</li>
+                    <li>Amostragens</li>
+                    <li>Cruzamentos manuais</li>
+                    <li>Teses genéricas</li>
+                    <li>Planilhas.</li>
+                    </strong>
+                  </ul>
+                  <p className="mt-4 text-[#ffffff] leading-relaxed hidden md:block">
+                    Análises Pontuais • Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
+                  </p>
                   <p className="mt-4 text-[#ffffff] leading-relaxed">
-                  Análises Pontuais •  Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
-                  <br />
-                  Esteja pronto para a Reforma Tributária engolir o seu negócio.
+                    Esteja pronto para a Reforma Tributária engolir o seu negócio.
                   </p>
                 </motion.div>
 
@@ -96,14 +109,20 @@ export function ReformaTributariaSection() {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {tags.map((tag, i) => (
-                      <div
+                      <button
                         key={i}
-                        className={`flex items-center justify-center rounded-lg border border-[#1e3a5f] bg-[#0d1d33] px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
+                        type="button"
+                        onClick={() => setTappedIndex(tappedIndex === i ? null : i)}
+                        className={`flex items-center justify-center rounded-lg border px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
                           tag === "PLANILHAS" ? "sm:col-span-2" : ""
+                        } ${
+                          tappedIndex === i
+                            ? "border-[#00e5ff]/60 bg-[#132a45] shadow-[0_0_18px_rgba(0,229,255,0.28)]"
+                            : "border-[#1e3a5f] bg-[#0d1d33]"
                         }`}
                       >
                         {tag}
-                      </div>
+                      </button>
                     ))}
                   </div>
               </motion.div>
