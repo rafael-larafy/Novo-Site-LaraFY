@@ -129,13 +129,13 @@ export function HeroSection() {
               <img
                 src="/Tablet-mockup.png"
                 alt="LaraTAX Dashboard"
-                className="w-full h-auto scale-[1.7] origin-center transition-opacity duration-300"
+                className="w-full h-auto scale-100 lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{ opacity: isVideoHovered ? 0 : 1 }}
               />
               {/* Vídeo - visível no hover */}
               <video
                 ref={animationVideoRef}
-                className="absolute inset-0 w-full h-auto scale-[1.7] origin-center transition-opacity duration-300"
+                className="absolute inset-0 w-full h-auto scale-100 lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{
                   mixBlendMode: "lighten",
                   background: "transparent",
