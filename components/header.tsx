@@ -21,11 +21,20 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    let rafId: number | null = null
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      if (rafId !== null) return
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20)
+        rafId = null
+      })
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (rafId !== null) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
