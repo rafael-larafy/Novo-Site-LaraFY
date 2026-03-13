@@ -50,6 +50,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
 export function HeroSection() {
   const animationVideoRef = useRef<HTMLVideoElement>(null)
+  const backgroundVideoRef = useRef<HTMLVideoElement>(null)
   const [isVideoHovered, setIsVideoHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
@@ -63,7 +64,6 @@ export function HeroSection() {
     return () => mq.removeEventListener("change", handler)
   }, [])
 
-  //isso aqui não existe cara mds O.o, que aberração 
   useEffect(() => {
     const isApple =
       /iPad|iPhone|iPod/.test(navigator.userAgent) ||
@@ -77,6 +77,13 @@ export function HeroSection() {
       animationVideoRef.current.play()
     }
   }, [isMobile, isIOS, mobileVideoEnded])
+
+  useEffect(() => {
+    const video = backgroundVideoRef.current
+    if (!video) return
+    const playPromise = video.play()
+    if (playPromise?.catch) playPromise.catch(() => {})
+  }, [])
 
   const handleVideoMouseEnter = () => {
     if (isIOS) return
@@ -116,11 +123,13 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
       <video
+        ref={backgroundVideoRef}
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         src="/Video LP (V2).mp4"
       />
       <div className="absolute inset-0 bg-[#0a1628]/80 z-[1]" aria-hidden />
@@ -177,7 +186,7 @@ export function HeroSection() {
                 style={{ opacity: showImage ? 1 : 0 }}
               />
               <div
-                className="absolute inset-0 overflow-hidden"
+                className="absolute inset-0 overflow-visible"
                 style={{
                   mixBlendMode: "lighten",
                   opacity: showVideo ? 1 : 0,
