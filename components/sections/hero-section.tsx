@@ -53,6 +53,7 @@ export function HeroSection() {
   const [isVideoHovered, setIsVideoHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
+  const [isIOS, setIsIOS] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1024px)")
@@ -62,14 +63,23 @@ export function HeroSection() {
     return () => mq.removeEventListener("change", handler)
   }, [])
 
+  //isso aqui não existe cara mds O.o, que aberração 
   useEffect(() => {
-    if (isMobile && !mobileVideoEnded && animationVideoRef.current) {
+    const isApple =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent))
+    setIsIOS(isApple)
+  }, [])
+
+  useEffect(() => {
+    if ((isMobile || isIOS) && !mobileVideoEnded && animationVideoRef.current) {
       animationVideoRef.current.currentTime = 0
       animationVideoRef.current.play()
     }
-  }, [isMobile, mobileVideoEnded])
+  }, [isMobile, isIOS, mobileVideoEnded])
 
   const handleVideoMouseEnter = () => {
+    if (isIOS) return
     setIsVideoHovered(true)
     const video = animationVideoRef.current
     if (!video) return
@@ -86,11 +96,11 @@ export function HeroSection() {
   }
 
   const handleVideoEnded = () => {
-    if (isMobile) setMobileVideoEnded(true)
+    if (isMobile || isIOS) setMobileVideoEnded(true)
   }
 
   const handleMobileClick = () => {
-    if (!isMobile) return
+    if (!isMobile && !isIOS) return
     setMobileVideoEnded(false)
     const video = animationVideoRef.current
     if (video) {
@@ -99,12 +109,12 @@ export function HeroSection() {
     }
   }
 
-  const showVideo = isMobile ? !mobileVideoEnded : isVideoHovered
-  const showImage = isMobile ? mobileVideoEnded : !isVideoHovered
+  // TENEBROSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+  const showVideo = isIOS ? false : (isMobile || isIOS ? !mobileVideoEnded : isVideoHovered)
+  const showImage = isIOS ? true : (isMobile || isIOS ? mobileVideoEnded : !isVideoHovered)
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
-      {/* Video background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -117,7 +127,6 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-20 lg:px-2">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Left content - no mobile aparece abaixo da imagem */}
           <motion.div
             className="flex-1 space-y-4 order-2 lg:order-1"
             initial="hidden"
@@ -143,7 +152,6 @@ export function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Right content - Video - no mobile aparece acima do texto */}
           <motion.div
             className="flex-1 relative order-1 lg:order-2"
             initial="hidden"
@@ -153,44 +161,55 @@ export function HeroSection() {
             transition={scrollTransition}
           >
             <div
-              className="relative w-full cursor-pointer"
+              className="relative w-full cursor-pointer overflow-visible"
               style={{ isolation: "isolate" }}
               onMouseEnter={handleVideoMouseEnter}
               onMouseLeave={handleVideoMouseLeave}
               onClick={handleMobileClick}
             >
-              {/* Imagem estática - no mobile após o vídeo terminar, no desktop sem hover */}
               <Image
                 src="/Tablet-mockup.png"
                 alt="LaraTAX Dashboard"
-                width={600}
-                height={338}
-                sizes="(max-width: 1024px) 100vw, 600px"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 1024px) 100vw, 1020px"
                 className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{ opacity: showImage ? 1 : 0 }}
               />
-              {/* Vídeo - no mobile roda primeiro, no desktop visível no hover */}
-              <video
-                ref={animationVideoRef}
-                className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
+              <div
+                className="absolute inset-0 overflow-hidden"
                 style={{
                   mixBlendMode: "lighten",
-                  background: "transparent",
                   opacity: showVideo ? 1 : 0,
+                  transform: isIOS ? "translateZ(0)" : undefined,
+                  WebkitBackfaceVisibility: "hidden" as const,
                 }}
-                loop={!isMobile}
-                muted
-                playsInline
-                src="/Site Larafy animations.webm"
-                onEnded={handleVideoEnded}
-              />
-              {/* Glow under */}
+              >
+                <video
+                  ref={animationVideoRef}
+                  className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
+                  style={{
+                    background: "transparent",
+                    transform: isIOS ? "translateZ(0)" : undefined,
+                  }}
+                  autoPlay={isMobile || isIOS}
+                  loop={!(isMobile || isIOS)}
+                  muted
+                  playsInline
+                  onEnded={handleVideoEnded}
+                >
+                  {isIOS ? (
+                    <source src="/Site Larafy animations.mov" type="video/quicktime; codecs=hvc1" />
+                  ) : (
+                    <source src="/Site Larafy animations.webm" type="video/webm" />
+                  )}
+                </video>
+              </div>
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full" />
             </div>
           </motion.div>
         </div>
 
-        {/* Stats - conectado ao hero */}
         <motion.div
           className="relative z-10 mx-auto max-w-5xl px-4 pt-30 pb-12 lg:px-6 lg:pt-30 lg:pb-16"
           initial={{ opacity: 0, y: 40 }}

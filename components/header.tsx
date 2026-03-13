@@ -45,12 +45,10 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a href="/" className="flex items-center">
             <Image src={LogoImg} alt="LaraFy" width={600} height={128} sizes="(max-width: 1024px) 150px, 188px" className="h-8 w-auto lg:h-10" priority />
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
@@ -63,7 +61,6 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Social icons */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="https://www.linkedin.com/company/laratax/"
@@ -94,7 +91,6 @@ export function Header() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-[#012e43] p-2"
@@ -105,7 +101,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed inset-x-0 top-[60px] bg-white transition-all duration-300 ${
           isMobileMenuOpen

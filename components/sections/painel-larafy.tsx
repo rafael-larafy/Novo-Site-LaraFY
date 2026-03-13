@@ -208,7 +208,6 @@ export function PainelLarafy() {
       />
       <div className={styles.bgOverlay} />
 
-      {/* Texto introdutório */}
       <div className={styles.header}>
         <div className={styles.headerInner}>
           <motion.div
@@ -242,7 +241,6 @@ export function PainelLarafy() {
         </div>
       </div>
 
-      {/* Mobile: lista de etapas clicáveis */}
       <div className={styles.mobileSteps}>
         {LABELS.map((lab) => (
           <button
@@ -259,7 +257,6 @@ export function PainelLarafy() {
         ))}
       </div>
 
-      {/* Mobile: popup ao clicar na etapa */}
       <AnimatePresence>
         {mobilePopupStep && (
           <motion.div
@@ -386,7 +383,6 @@ export function PainelLarafy() {
           <div className={styles.tablet}>
             <div className={styles.tabFrame}>
               <div className={styles.tabScreen}>
-                {/* Tela 1 */}
                 <div
                   className={`${styles.scr} ${displayStep === 1 ? styles.active : ""}`}
                 >
@@ -431,7 +427,6 @@ export function PainelLarafy() {
                   </div>
                 </div>
 
-                {/* Tela 2 */}
                 <div
                   className={`${styles.scr} ${displayStep === 2 ? styles.active : ""}`}
                 >
@@ -469,7 +464,6 @@ export function PainelLarafy() {
                   </table>
                 </div>
 
-                {/* Tela 3 */}
                 <div
                   className={`${styles.scr} ${displayStep === 3 ? styles.active : ""}`}
                 >
@@ -519,7 +513,6 @@ export function PainelLarafy() {
                   </div>
                 </div>
 
-                {/* Tela 4 */}
                 <div
                   className={`${styles.scr} ${displayStep === 4 ? styles.active : ""}`}
                 >
@@ -588,7 +581,6 @@ export function PainelLarafy() {
                   </div>
                 </div>
 
-                {/* Tela 5 */}
                 <div
                   className={`${styles.scr} ${displayStep === 5 ? styles.active : ""}`}
                 >
@@ -671,7 +663,6 @@ export function PainelLarafy() {
           </div>
 
           <svg className={styles.connSvg} viewBox="0 0 580 580">
-            {/* Etapa 1 – superior esquerda → tooltip esquerda */}
             <line
               className={`${styles.conn} ${activeStep === 1 ? styles.active : ""}`}
               x1={125}
@@ -690,7 +681,6 @@ export function PainelLarafy() {
               r={3}
               fill="#22b8c9"
             />
-            {/* Etapa 2 – superior direita → tooltip direita */}
             <line
               className={`${styles.conn} ${activeStep === 2 ? styles.active : ""}`}
               x1={455}
@@ -709,7 +699,6 @@ export function PainelLarafy() {
               r={3}
               fill="#22b8c9"
             />
-            {/* Etapa 3 – direita → tooltip direita meio */}
             <line
               className={`${styles.conn} ${activeStep === 3 ? styles.active : ""}`}
               x1={556}
@@ -728,7 +717,6 @@ export function PainelLarafy() {
               r={3}
               fill="#22b8c9"
             />
-            {/* Etapa 4 – inferior centro → tooltip abaixo */}
             <line
               className={`${styles.conn} ${activeStep === 4 ? styles.active : ""}`}
               x1={290}
@@ -747,7 +735,6 @@ export function PainelLarafy() {
               r={3}
               fill="#22b8c9"
             />
-            {/* Etapa 5 – esquerda → tooltip esquerda meio */}
             <line
               className={`${styles.conn} ${activeStep === 5 ? styles.active : ""}`}
               x1={24}

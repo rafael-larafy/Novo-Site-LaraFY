@@ -37,7 +37,6 @@ export function LogosCarouselSection() {
         </motion.h2>
       </div>
 
-      {/* Marquee container */}
       <div className="relative w-full overflow-hidden">
         <div className={styles.marquee}>
           {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (

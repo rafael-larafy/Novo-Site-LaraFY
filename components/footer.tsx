@@ -8,7 +8,6 @@ export function Footer() {
   return (
     <footer className="w-full bg-[#0a1628] px-6 py-6 lg:px-12 lg:py-8 text-white font-sans">
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 flex-wrap">
-        {/* COLUNA 1: LOGO */}
         <div className="flex-shrink-0">
           <a href="/" className="block">
             <img
@@ -19,7 +18,6 @@ export function Footer() {
           </a>
         </div>
 
-        {/* COLUNA 2: MENUS EM 2 COLUNAS */}
         <div className="flex gap-12 lg:gap-16 text-white">
           <div>
             <ul className="list-none m-0 p-0 space-y-1.5">
@@ -79,7 +77,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* COLUNA 3: CONTATOS */}
         <div className="text-white leading-relaxed text-[13px] lg:text-[14px]">
           <div className="flex items-start gap-2 mb-1.5">
             <Phone className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
@@ -106,7 +103,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* COLUNA 4: GPTW + REDES SOCIAIS */}
         <div className="flex flex-row items-center gap-4 lg:gap-6">
           <Image
             src={GPTWImg}
