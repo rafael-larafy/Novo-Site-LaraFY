@@ -47,7 +47,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <Image src={LogoImg} alt="LaraFy" width={80} height={81} sizes="(max-width: 1024px) 32px, 40px" className="h-8 w-auto lg:h-10" priority />
+            <Image src={LogoImg} alt="LaraFy" width={600} height={128} sizes="(max-width: 1024px) 150px, 188px" className="h-8 w-auto lg:h-10" priority />
           </a>
 
           {/* Desktop Nav */}
