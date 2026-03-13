@@ -11,3 +11,6 @@ node_modules/
 
 # Vídeos grandes (GitHub limita a 100 MB)
 public/Site Larafy animations.mov
+
+# Repositório aninhado (evitar adicionar por engano)
+Site-larafy/
