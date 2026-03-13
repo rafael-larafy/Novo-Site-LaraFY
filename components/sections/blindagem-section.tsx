@@ -39,7 +39,6 @@ const features = [
 export function BlindagemSection() {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden bg-[#e8f4f8]">
-      {/* Background network pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
           {[
@@ -63,7 +62,6 @@ export function BlindagemSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header with shield */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-10 mb-16 text-center sm:text-left"
           initial="hidden"
@@ -72,12 +70,10 @@ export function BlindagemSection() {
           variants={fadeUpVariants}
           transition={scrollTransition}
         >
-          {/* Shield icon */}
           <div className="relative flex-shrink-0 w-28 h-28 lg:w-36 lg:h-36 float-effect">
             <Image src="/security.png" alt="Segurança" width={144} height={144} sizes="(max-width: 1024px) 112px, 144px" className="w-full h-full object-contain drop-shadow-xl" loading="lazy" />
           </div>
 
-          {/* Text */}
           <div className="flex flex-col items-center sm:items-start">
             <h2 className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl">
             O seu negócio é blindado em todos os cenários possíveis.
@@ -85,7 +81,6 @@ export function BlindagemSection() {
           </div>
         </motion.div>
 
-        {/* Feature cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (
             <motion.div
@@ -97,7 +92,6 @@ export function BlindagemSection() {
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(i + 1) }}
             >
-              {/* Icon */}
               <div className="-mt-10 mb-4 flex justify-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#00e5ff] text-[#0a1628] shadow-lg transition-transform duration-300 group-hover:scale-110">
                   <feature.icon className="h-6 w-6" strokeWidth={2} />

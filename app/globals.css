@@ -74,7 +74,6 @@
   }
 }
 
-/* Scroll trigger animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -206,14 +205,11 @@
   animation: float 4s ease-in-out infinite;
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-
-/* CTA button hover */
 .cta-button {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

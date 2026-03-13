@@ -10,7 +10,6 @@ import {
 export function ReformaCardSection() {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden bg-[#00e5ff]/10">
-      {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00e5ff]/5 via-transparent to-[#0a1628]/10" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
@@ -22,9 +21,7 @@ export function ReformaCardSection() {
           variants={scaleVariants}
           transition={scrollTransition}
         >
-          {/* Left - Reforma Tributaria */}
           <div className="relative flex-1 bg-[#ffffff] p-10 lg:p-14 flex flex-col justify-center overflow-hidden">
-            {/* Network pattern background */}
             <div className="absolute inset-0 opacity-5">
               <svg className="w-full h-full" viewBox="0 0 400 300" fill="none">
                 {[
@@ -54,7 +51,6 @@ export function ReformaCardSection() {
             </div>
           </div>
 
-          {/* Right - Description */}
           <div className="flex-1 bg-[#0d1d33] p-10 lg:p-14 flex flex-col justify-center">
             <h3 className="text-2xl font-extrabold text-[#00e5ff] lg:text-3xl leading-tight text-balance">
             A Reforma Tributária não é um evento isolado, é um processo.

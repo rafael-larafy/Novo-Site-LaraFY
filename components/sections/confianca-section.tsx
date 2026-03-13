@@ -23,7 +23,6 @@ export function ConfiancaSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-20">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-          {/* Left headline */}
           <motion.div
             className="w-full lg:w-1/2"
             initial="hidden"
@@ -43,7 +42,6 @@ export function ConfiancaSection() {
             </h2>
           </motion.div>
 
-          {/* Right bullets */}
           <motion.div
             className="w-full lg:w-1/2 pt-1"
             initial="hidden"
@@ -65,7 +63,6 @@ export function ConfiancaSection() {
           </motion.div>
         </div>
 
-        {/* Bottom pill */}
         <motion.div
           className="mt-12 flex justify-center"
           initial="hidden"

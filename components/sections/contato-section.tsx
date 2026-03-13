@@ -14,7 +14,6 @@ export function ContatoSection() {
       id="contato"
       className="relative overflow-hidden min-h-[700px] pt-20 pb-20 lg:min-h-[620px] lg:pt-0 lg:pb-0"
     >
-      {/* Única imagem de background */}
       <div className="absolute inset-0">
         <Image
           src="/images/Empresario de Costas.jpg"
@@ -33,7 +32,6 @@ export function ContatoSection() {
           variants={fadeUpVariants}
           transition={scrollTransition}
         >
-          {/* CTA text */}
           <div className="flex-1 max-w-[340px] order-1 lg:order-1">
             <h2 className="text-xl lg:text-2xl font-black text-white leading-tight">
               Tenha acesso direto a um estrategista sênior.
@@ -45,7 +43,6 @@ export function ContatoSection() {
             </p>
           </div>
 
-          {/* Form */}
           <div className="flex-1 w-full max-w-[380px] order-2 lg:order-2">
             <form
               className="space-y-2.5"

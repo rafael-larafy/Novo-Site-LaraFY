@@ -8,3 +8,9 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+
+# Vídeos grandes (GitHub limita a 100 MB)
+public/Site Larafy animations.mov
+
+# Repositório aninhado (evitar adicionar por engano)
+Site-larafy/

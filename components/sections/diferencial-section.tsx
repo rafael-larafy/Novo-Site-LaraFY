@@ -10,7 +10,6 @@ import {
 export function DiferencialSection() {
   return (
     <section className="relative py-12 overflow-hidden bg-[#e8f4f8]">
-      {/* Background network pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1200 200" fill="none">
           {[
@@ -48,14 +47,12 @@ export function DiferencialSection() {
           variants={scaleVariants}
           transition={scrollTransition}
         >
-          {/* Left - Title */}
           <div className="bg-[#0d1d33] px-10 py-8 flex items-center justify-center lg:min-w-[280px]">
             <h2 className="text-3xl font-extrabold text-[#00e5ff] lg:text-4xl">
               O Diferencial
             </h2>
           </div>
 
-          {/* Right - Description */}
           <div className="bg-[#00e5ff] px-10 py-8 flex items-center flex-1">
             <p className="text-base text-[#0a1628] leading-relaxed lg:text-lg">
               Entregamos as oportunidades de recuperacao e de seguranca juridica a

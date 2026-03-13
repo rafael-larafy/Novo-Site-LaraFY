@@ -454,7 +454,6 @@
 @media (max-width: 900px) {
   .wrap { transform: scale(0.75); }
 }
-/* Mobile: lista de etapas */
 .mobileSteps {
   display: none;
   flex-direction: column;
@@ -503,7 +502,6 @@
   line-height: 1.35;
 }
 
-/* Mobile: popup */
 .mobilePopupOverlay {
   display: none;
   position: fixed;
