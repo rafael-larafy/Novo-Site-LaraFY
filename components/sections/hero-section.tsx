@@ -208,7 +208,7 @@ export function HeroSection() {
                   onEnded={handleVideoEnded}
                 >
                   {isIOS ? (
-                    <source src="/Site Larafy animations.mov" type="video/quicktime; codecs=hvc1" />
+                    <source src="/Site Larafy animations.mp4" type="video/mp4; codecs=hvc1" />
                   ) : (
                     <source src="/Site Larafy animations.webm" type="video/webm" />
                   )}
