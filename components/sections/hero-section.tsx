@@ -50,7 +50,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
 export function HeroSection() {
   const animationVideoRef = useRef<HTMLVideoElement>(null)
-  const backgroundVideoRef = useRef<HTMLVideoElement>(null)
   const [isVideoHovered, setIsVideoHovered] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
@@ -77,13 +76,6 @@ export function HeroSection() {
       animationVideoRef.current.play()
     }
   }, [isMobile, isIOS, mobileVideoEnded])
-
-  useEffect(() => {
-    const video = backgroundVideoRef.current
-    if (!video) return
-    const playPromise = video.play()
-    if (playPromise?.catch) playPromise.catch(() => {})
-  }, [])
 
   const handleVideoMouseEnter = () => {
     if (isIOS) return
@@ -116,24 +108,41 @@ export function HeroSection() {
     }
   }
 
-  // TENEBROSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-  const showVideo = isIOS ? false : (isMobile || isIOS ? !mobileVideoEnded : isVideoHovered)
-  const showImage = isIOS ? true : (isMobile || isIOS ? mobileVideoEnded : !isVideoHovered)
+  const showVideo = isIOS ? false : (isMobile ? !mobileVideoEnded : isVideoHovered)
+  const showImage = isIOS ? true : (isMobile ? mobileVideoEnded : !isVideoHovered)
+
+  const youtubeEmbedUrl = "https://www.youtube.com/embed/s9xk77X4m5c?autoplay=1&mute=1&loop=1&playlist=s9xk77X4m5c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+
+  // Ajuste a opacidade do vídeo (0 = invisível, 1 = total) e do overlay (0 = transparente, 1 = sólido)
+  const videoOpacity = 1
+  const overlayOpacity = 0.90
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#0a1628]">
-      <video
-        ref={backgroundVideoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        src="/Video LP (V2).mp4"
+    <section className="relative min-h-screen overflow-hidden bg-[#012e43]">
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        aria-hidden
+        style={{ opacity: videoOpacity }}
+      >
+        <iframe
+          src={youtubeEmbedUrl}
+          title="Background video"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{
+            width: "100vw",
+            height: "56.25vw",
+            minWidth: "177.78vh",
+            minHeight: "100vh",
+          }}
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
+      </div>
+      <div
+        className="absolute inset-0 z-[1]"
+        aria-hidden
+        style={{ backgroundColor: `rgba(1, 46, 67, ${overlayOpacity})` }}
       />
-      <div className="absolute inset-0 bg-[#0a1628]/80 z-[1]" aria-hidden />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-20 lg:px-2">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <motion.div

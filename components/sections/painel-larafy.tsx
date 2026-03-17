@@ -110,11 +110,11 @@ function organicSegment(
 }
 
 const LABELS = [
-  { step: 1, num: "ETAPA 1", title: "Diagnóstico\nTributário\nEstratégico" },
-  { step: 2, num: "ETAPA 2", title: "Apresentação das\nOportunidades" },
-  { step: 3, num: "ETAPA 3", title: "Execução\nOrientada\na Êxito" },
-  { step: 4, num: "ETAPA 4", title: "Estruturação\nContábil Estratégica*" },
-  { step: 5, num: "ETAPA 5", title: "Expansão e\nProteção\nPatrimonial*" },
+  { step: 1, num: "ETAPA 1", title: "Diagnóstico \n Tributário \n Estratégico" },
+  { step: 2, num: "ETAPA 2", title: "Apresentação das \n Oportunidades" },
+  { step: 3, num: "ETAPA 3", title: "Execução \n Orientada \n a Êxito" },
+  { step: 4, num: "ETAPA 4", title: "Estruturação \n Contábil Estratégica" },
+  { step: 5, num: "ETAPA 5", title: "Expansão e \n Proteção \n Patrimonial" },
 ] as const
 
 const TIP_CONTENT: Record<number, React.ReactNode> = {
@@ -353,7 +353,7 @@ export function PainelLarafy() {
             return (
               <div
                 key={lab.step}
-                className={styles.lbl}
+                className={`${styles.lbl} ${lab.step === 3 ? styles.lblStep3 : ""} ${isActive ? styles.lblActive : ""}`}
                 style={{
                   left: seg.labelLeft,
                   top: seg.labelTop,
@@ -757,7 +757,7 @@ export function PainelLarafy() {
 
           <div className={`${styles.tip} ${styles.tip1} ${activeStep === 1 ? styles.active : ""}`}>
             <p>
-            Receba um diagnóstico profundo da sua operação, sem custo e com método e tecnologia exclusivos.
+            Cruzamos dados em um motor com mais de 2,1 bilhões de cenários para gerar um diagnóstico prévio que orienta estrategicamente nossos especialistas.
             </p>
             <p>
               <strong>Diagnóstico profundo.<br />Custo zero.</strong>
