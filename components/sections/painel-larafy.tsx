@@ -353,7 +353,7 @@ export function PainelLarafy() {
             return (
               <div
                 key={lab.step}
-                className={styles.lbl}
+                className={`${styles.lbl} ${lab.step === 3 ? styles.lblStep3 : ""} ${isActive ? styles.lblActive : ""}`}
                 style={{
                   left: seg.labelLeft,
                   top: seg.labelTop,
