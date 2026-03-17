@@ -77,7 +77,7 @@ export function ReformaTributariaSection() {
                   transition={{ ...scrollTransition, delay: staggerDelay(2) }}
                 >
                   <p className="text-[#ffffff] leading-tight">
-                  Se o seu projeto tributário <br/> te entrega somente:
+                  Se o seu projeto tributário te entrega somente:
                   </p>
                   <p className="mt-4 text-[#ffffff] leading-tight hidden md:block">
                     Análises Pontuais • Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
