@@ -54,6 +54,7 @@ export function HeroSection() {
   const [isMobile, setIsMobile] = useState(false)
   const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
   const [isIOS, setIsIOS] = useState(false)
+  const [isSafari, setIsSafari] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1024px)")
@@ -68,17 +69,21 @@ export function HeroSection() {
       /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent))
     setIsIOS(isApple)
+    const safari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
+    setIsSafari(safari)
   }, [])
 
+  const noWebM = isIOS || isSafari
+
   useEffect(() => {
-    if ((isMobile || isIOS) && !mobileVideoEnded && animationVideoRef.current) {
+    if (isMobile && !mobileVideoEnded && animationVideoRef.current && !noWebM) {
       animationVideoRef.current.currentTime = 0
       animationVideoRef.current.play()
     }
-  }, [isMobile, isIOS, mobileVideoEnded])
+  }, [isMobile, mobileVideoEnded, noWebM])
 
   const handleVideoMouseEnter = () => {
-    if (isIOS) return
+    if (noWebM) return
     setIsVideoHovered(true)
     const video = animationVideoRef.current
     if (!video) return
@@ -95,11 +100,11 @@ export function HeroSection() {
   }
 
   const handleVideoEnded = () => {
-    if (isMobile || isIOS) setMobileVideoEnded(true)
+    if (isMobile) setMobileVideoEnded(true)
   }
 
   const handleMobileClick = () => {
-    if (!isMobile && !isIOS) return
+    if (!isMobile || noWebM) return
     setMobileVideoEnded(false)
     const video = animationVideoRef.current
     if (video) {
@@ -108,8 +113,8 @@ export function HeroSection() {
     }
   }
 
-  const showVideo = isIOS ? false : (isMobile ? !mobileVideoEnded : isVideoHovered)
-  const showImage = isIOS ? true : (isMobile ? mobileVideoEnded : !isVideoHovered)
+  const showVideo = noWebM ? false : (isMobile ? !mobileVideoEnded : isVideoHovered)
+  const showImage = noWebM ? true : (isMobile ? mobileVideoEnded : !isVideoHovered)
 
   const youtubeEmbedUrl = "https://www.youtube.com/embed/s9xk77X4m5c?autoplay=1&mute=1&loop=1&playlist=s9xk77X4m5c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
 
@@ -194,35 +199,28 @@ export function HeroSection() {
                 className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
                 style={{ opacity: showImage ? 1 : 0 }}
               />
-              <div
-                className="absolute inset-0 overflow-visible"
-                style={{
-                  mixBlendMode: "lighten",
-                  opacity: showVideo ? 1 : 0,
-                  transform: isIOS ? "translateZ(0)" : undefined,
-                  WebkitBackfaceVisibility: "hidden" as const,
-                }}
-              >
-                <video
-                  ref={animationVideoRef}
-                  className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
+              {!noWebM && (
+                <div
+                  className="absolute inset-0 overflow-visible"
                   style={{
-                    background: "transparent",
-                    transform: isIOS ? "translateZ(0)" : undefined,
+                    mixBlendMode: "lighten",
+                    opacity: showVideo ? 1 : 0,
                   }}
-                  autoPlay={isMobile || isIOS}
-                  loop={!(isMobile || isIOS)}
-                  muted
-                  playsInline
-                  onEnded={handleVideoEnded}
                 >
-                  {isIOS ? (
-                    <source src="/Site Larafy animations.mp4" type="video/mp4; codecs=hvc1" />
-                  ) : (
+                  <video
+                    ref={animationVideoRef}
+                    className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
+                    style={{ background: "transparent" }}
+                    autoPlay={isMobile}
+                    loop={!isMobile}
+                    muted
+                    playsInline
+                    onEnded={handleVideoEnded}
+                  >
                     <source src="/Site Larafy animations.webm" type="video/webm" />
-                  )}
-                </video>
-              </div>
+                  </video>
+                </div>
+              )}
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full" />
             </div>
           </motion.div>
