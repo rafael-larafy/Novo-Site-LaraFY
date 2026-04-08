@@ -11,7 +11,7 @@ const navLinks = [
   { label: "O Método", href: "/metodo" },
   { label: "Cases", href: "/cases" },
   { label: "O Grupo", href: "/grupo" },
-  { label: "Carreiras", href: "#carreiras" },
+  { label: "Carreiras", href: "/carreiras" },
   { label: "Blog", href: "#blog" },
   { label: "Contato", href: "#contato" },
 ]
