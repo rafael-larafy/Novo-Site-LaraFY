@@ -7,7 +7,7 @@ import LogoImg from "@/lib/Logo.png"
 
 const navLinks = [
   { label: "Sobre nós", href: "#sobre" },
-  { label: "Soluções", href: "#solucoes" },
+  { label: "Soluções", href: "/solucoes" },
   { label: "O Método", href: "#metodo" },
   { label: "Cases", href: "#cases" },
   { label: "O Grupo", href: "#grupo" },
