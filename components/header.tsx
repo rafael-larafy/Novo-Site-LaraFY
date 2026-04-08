@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Cases", href: "/cases" },
   { label: "O Grupo", href: "/grupo" },
   { label: "Carreiras", href: "/carreiras" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Contato", href: "#contato" },
 ]
 
