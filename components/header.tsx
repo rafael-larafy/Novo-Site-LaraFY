@@ -13,7 +13,7 @@ const navLinks = [
   { label: "O Grupo", href: "/grupo" },
   { label: "Carreiras", href: "/carreiras" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "/contato" },
 ]
 
 export function Header() {
