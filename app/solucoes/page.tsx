@@ -3,14 +3,7 @@
 import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Shield, Search, Scale, Brain, FileCheck, TrendingUp } from "lucide-react"
 
 const solucoes = [
@@ -96,34 +89,61 @@ export default function SolucoesPage() {
           </div>
         </section>
 
-        {/* Grid de Soluções */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {solucoes.map((solucao, index) => (
-                <motion.div
-                  key={solucao.titulo}
-                  className="group relative rounded-2xl border border-[#1e3a5f]/40 bg-[#0d1f3c]/60 p-8 transition-all duration-300 hover:border-[#00e5ff]/40 hover:bg-[#0d1f3c]"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={scrollViewport}
-                  variants={fadeUpVariants}
-                  transition={{
-                    ...scrollTransition,
-                    delay: staggerDelay(index),
-                  }}
-                >
-                  <div className="mb-5 inline-flex rounded-xl bg-[#00e5ff]/10 p-3">
-                    <solucao.icon className="h-7 w-7 text-[#00e5ff]" />
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-white">
-                    {solucao.titulo}
-                  </h3>
-                  <p className="text-[#8ba3c0] leading-relaxed">
-                    {solucao.descricao}
-                  </p>
-                </motion.div>
-              ))}
+        {/* Soluções - Timeline */}
+        <section className="relative bg-[#020c18] py-20 lg:py-32">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={scrollTransition}
+            >
+              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+                Nossas Soluções
+              </h2>
+              <p className="mt-4 text-[#8ba3c0]">
+                6 frentes integradas para proteger e potencializar seu negócio
+              </p>
+            </motion.div>
+
+            <div className="relative">
+              {/* Linha central */}
+              <div className="absolute left-6 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-[#1e3a5f]/60" />
+
+              <div className="space-y-10">
+                {solucoes.map((solucao, index) => (
+                  <motion.div
+                    key={solucao.titulo}
+                    className={`relative flex flex-col lg:flex-row items-start gap-6 ${
+                      index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    }`}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={scrollViewport}
+                    variants={index % 2 === 0 ? slideLeftVariants : slideRightVariants}
+                    transition={{ ...scrollTransition, delay: staggerDelay(index) }}
+                  >
+                    {/* Dot */}
+                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] ring-4 ring-[#020c18] z-10" />
+
+                    {/* Content */}
+                    <div className={`flex-1 pl-14 lg:pl-0 ${index % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16 lg:text-left"}`}>
+                      <div className={`inline-flex rounded-xl bg-[#00e5ff]/10 p-2.5 mb-3 ${index % 2 === 0 ? "lg:float-right lg:ml-3" : ""}`}>
+                        <solucao.icon className="h-6 w-6 text-[#00e5ff]" />
+                      </div>
+                      <div className={index % 2 === 0 ? "lg:clear-right" : ""}>
+                        <h3 className="text-lg font-bold text-white mt-1">{solucao.titulo}</h3>
+                        <p className="text-[#8ba3c0] text-sm mt-2 leading-relaxed">{solucao.descricao}</p>
+                      </div>
+                    </div>
+
+                    {/* Spacer para o lado oposto */}
+                    <div className="hidden lg:block flex-1" />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
