@@ -102,7 +102,7 @@ export function StatsSection() {
             variants={fadeUpVariants}
             transition={{ ...scrollTransition, delay: staggerDelay(3) }}
           >
-            <img src={BrasilImg.src || BrasilImg} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
+            <img src={BrasilImg.src} alt="Mapa do Brasil" className="w-30 h-auto lg:w-20" />
             <span className="text-sm font-medium text-[#ffffff]/80 text-left leading-tight">
               Atuação<br />Nacional
             </span>
