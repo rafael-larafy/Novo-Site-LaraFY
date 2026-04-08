@@ -19,7 +19,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'LaraFy - Reduzimos Impostos com Precisao Cirurgica',
   description: 'A decisao tributaria que seu negocio precisa, com resultados e ZERO riscos. Decisoes sustentadas por tecnologia exclusiva e execucao orientada a exito financeiro.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
