@@ -118,7 +118,6 @@ export function HeroSection() {
 
   const youtubeEmbedUrl = "https://www.youtube.com/embed/s9xk77X4m5c?autoplay=1&mute=1&loop=1&playlist=s9xk77X4m5c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
 
-  // Ajuste a opacidade do vídeo (0 = invisível, 1 = total) e do overlay (0 = transparente, 1 = sólido)
   const videoOpacity = 1
   const overlayOpacity = 0.90
 
