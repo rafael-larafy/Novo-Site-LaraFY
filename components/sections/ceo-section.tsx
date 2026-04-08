@@ -2,20 +2,51 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import {
-  scrollViewport,
-  scrollTransition,
-  slideLeftVariants,
-  slideRightVariants,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants, staggerDelay} from "@/lib/scroll-motion"
 import WaldirImg from "../../lib/Waldir.png"
+
 
 export function CeoSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a1628] pt-10 pb-16 lg:pt-16 lg:pb-32">
-      <div className="absolute inset-0 opacity-10">
+    <section className="relative overflow-hidden bg-[#0a1628] pt-8 pb-14 lg:pt-10 lg:pb-32">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/AdobeStock_699471030.jpeg"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
+          loading="lazy"
+        />
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0066ff]/20 to-transparent" />
       </div>
+
+              <div className="bg-[#0a1628] pt-16 pb-[0px]">
+          <div className="mb-12 mx-auto max-w-5xl px-6 text-center lg:px-8">
+            <motion.p
+              className="text-[#77e4ff] text-sm leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(4) }}
+            >
+             O mercado tradicional de consultoria limita o seu ganho
+            </motion.p>
+            <motion.h3
+              className="mt-4 text-1xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(5) }}
+            >
+             Com tecnologia e método exclusivo,
+              <br />
+              a LaraFy potencializa o seu lucro.
+            </motion.h3>
+          </div>
+        </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">

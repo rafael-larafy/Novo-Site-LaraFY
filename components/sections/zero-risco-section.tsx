@@ -122,7 +122,7 @@ export function ZeroRiscoSection() {
             href="#contato"
             className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
           >
-            Solicitar Diagnóstico Tributário Estratégico
+            Simule você mesmo os impactos da Reforma Tributária
           </a>
           <p className="mt-8 text-lg font-bold text-[#ffffff] lg:text-xl text-balance">
             Recuperar o passado é obrigação. Planejar o futuro é vantagem competitiva.

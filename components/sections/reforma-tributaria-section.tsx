@@ -123,33 +123,6 @@ export function ReformaTributariaSection() {
           </div>
         </div>
         </div>
-
-        <div className="bg-[#0a1628] pt-16 pb-[0px]">
-          <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
-            <motion.p
-              className="text-[#77e4ff] text-sm leading-relaxed"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(4) }}
-            >
-             O mercado tradicional de consultoria limita o seu ganho
-            </motion.p>
-            <motion.h3
-              className="mt-4 text-1xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(5) }}
-            >
-             Com tecnologia e método exclusivo,
-              <br />
-              a LaraFy potencializa o seu lucro.
-            </motion.h3>
-          </div>
-        </div>
     </section>
   )
 }

@@ -235,10 +235,10 @@ export function HeroSection() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-10">
             <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">
               <span className="text-5xl font-extrabold text-[#ffffff] md:text-4xl lg:text-5xl">
-                +<AnimatedCounter target={5} />
+                +<AnimatedCounter target={20} />
               </span>
               <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
-                Anos de<br />Mercado
+                Anos de<br />Experiência
               </span>
             </div>
             <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">

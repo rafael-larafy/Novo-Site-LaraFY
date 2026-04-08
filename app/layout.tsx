@@ -54,7 +54,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="font-sans antialiased bg-[#0a1628] text-[#ffffff]">
+      <body className="font-sans antialiased bg-[#0a1628] text-[#ffffff]" cz-shortcut-listen="true">
         {children}
         <Analytics />
       </body>
