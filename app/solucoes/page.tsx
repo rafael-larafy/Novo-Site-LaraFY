@@ -4,44 +4,79 @@ import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
-import { Shield, Search, Scale, Brain, FileCheck, TrendingUp } from "lucide-react"
+import { Star, Crown, Shield, Scale, Handshake, Users } from "lucide-react"
 
 const solucoes = [
   {
-    icon: Search,
-    titulo: "Diagnóstico Tributário",
-    descricao:
-      "Análise completa da sua operação fiscal para identificar oportunidades de economia e riscos ocultos.",
+    icon: Star,
+    tag: "Solução Principal",
+    tagColor: "bg-[#c8944a]",
+    titulo: "Consultoria Tributária Estratégica",
+    itens: [
+      "Recuperação de créditos tributários",
+      "Planejamento tributário",
+      "Estudo da reforma tributária (IBS/CBS)",
+      "Estratégias fiscais e operacionais avançadas",
+      "Diagnóstico com IA, RPA e machine learning",
+    ],
+  },
+  {
+    icon: Crown,
+    tag: "Exclusivo para Clientes",
+    tagColor: "bg-[#c8944a]/20 text-[#c8944a] border border-[#c8944a]/40",
+    titulo: "Contabilidade Premium",
+    itens: [
+      "Execução e sustentação do planejamento",
+      "Integração fiscal, contábil e financeira",
+      "Monitoramento contínuo contra perdas",
+    ],
   },
   {
     icon: Shield,
-    titulo: "Blindagem Fiscal",
-    descricao:
-      "Proteção jurídica e técnica para garantir que cada decisão tributária esteja fundamentada e segura.",
+    tag: "Proteção Patrimonial",
+    tagColor: "bg-[#c8944a]/20 text-[#c8944a] border border-[#c8944a]/40",
+    titulo: "Holding Patrimonial",
+    itens: [
+      "Proteção de patrimônio (CPF e CNPJ)",
+      "Eficiência tributária sobre lucros e bens",
+      "Estruturação patrimonial estratégica",
+    ],
   },
   {
     icon: Scale,
-    titulo: "Planejamento Tributário",
-    descricao:
-      "Estratégias personalizadas para reduzir a carga tributária de forma legal e sustentável.",
+    tag: "Estrutura Jurídica",
+    tagColor: "bg-[#c8944a]/20 text-[#c8944a] border border-[#c8944a]/40",
+    titulo: "Societário",
+    itens: [
+      "Reestruturações societárias",
+      "Modelagem empresarial",
+      "Ajustes estratégicos de estrutura",
+    ],
   },
   {
-    icon: Brain,
-    titulo: "Inteligência Fiscal",
-    descricao:
-      "Tecnologia exclusiva que cruza dados e identifica padrões para maximizar seu lucro.",
+    icon: Handshake,
+    tag: "Transações",
+    tagColor: "bg-[#c8944a]/20 text-[#c8944a] border border-[#c8944a]/40",
+    titulo: "M&A — Fusões e Aquisições",
+    itens: [
+      "Compra e venda de empresas",
+      "Due diligence tributária e financeira",
+      "Valuation estratégico",
+      "Estruturação de operações",
+    ],
   },
   {
-    icon: FileCheck,
-    titulo: "Compliance Tributário",
-    descricao:
-      "Adequação total às exigências fiscais, evitando multas e autuações.",
-  },
-  {
-    icon: TrendingUp,
-    titulo: "Recuperação de Créditos",
-    descricao:
-      "Identificação e recuperação de valores pagos indevidamente nos últimos 5 anos.",
+    icon: Users,
+    tag: "Networking",
+    tagColor: "bg-[#c8944a]/20 text-[#c8944a] border border-[#c8944a]/40",
+    titulo: "Business Club LaraFy",
+    itens: [
+      "Clube de negócios e networking estratégico",
+      "Conexão entre empresários e decisores",
+      "Geração de oportunidades e parcerias",
+      "Acesso incluso para clientes LaraFy",
+      "Acesso pago para não clientes",
+    ],
   },
 ]
 
@@ -51,7 +86,7 @@ export default function SolucoesPage() {
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero */}
-        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-8">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
@@ -90,7 +125,7 @@ export default function SolucoesPage() {
         </section>
 
         {/* Soluções - Timeline */}
-        <section className="relative bg-[#020c18] py-20 lg:py-32">
+        <section className="relative bg-[#0a1628] py-20 lg:py-10">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -134,8 +169,18 @@ export default function SolucoesPage() {
                         <solucao.icon className="h-6 w-6 text-[#00e5ff]" />
                       </div>
                       <div className={index % 2 === 0 ? "lg:clear-right" : ""}>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-[#00e5ff]">
+                          {solucao.tag}
+                        </span>
                         <h3 className="text-lg font-bold text-white mt-1">{solucao.titulo}</h3>
-                        <p className="text-[#8ba3c0] text-sm mt-2 leading-relaxed">{solucao.descricao}</p>
+                        <ul className={`mt-3 space-y-1.5 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
+                          {solucao.itens.map((item) => (
+                            <li key={item} className={`flex items-start gap-2 text-sm text-[#8ba3c0] ${index % 2 === 0 ? "lg:flex-row-reverse lg:gap-2" : ""}`}>
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00e5ff]" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
 
@@ -149,7 +194,7 @@ export default function SolucoesPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-28">
+        <section className="relative bg-[#0a1628] py-20 lg:pt-5 lg:pb-20">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
               className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"

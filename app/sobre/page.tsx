@@ -4,17 +4,11 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { useEffect, useState, useRef } from "react"
 import WaldirImg from "@/lib/Waldir.png"
 import BrasilImg from "@/lib/Brasil.png"
+import GPTWImg from "@/lib/GPTW.png"
 import { Award, Users, Cpu, Target } from "lucide-react"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -85,7 +79,7 @@ export default function SobrePage() {
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero */}
-        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-6">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
@@ -124,9 +118,9 @@ export default function SobrePage() {
         </section>
 
         {/* Números */}
-        <section className="relative py-16 overflow-hidden bg-[#020c18]">
+        <section className="relative py-16 overflow-hidden bg-[#0a1628]">
           <div className="absolute inset-0">
-            <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/10 blur-[150px] rounded-full" />
+            <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/0 blur-[150px] rounded-full" />
           </div>
           <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
@@ -170,9 +164,7 @@ export default function SobrePage() {
                 variants={fadeUpVariants}
                 transition={{ ...scrollTransition, delay: staggerDelay(3) }}
               >
-                <span className="text-4xl font-extrabold text-white lg:text-5xl">
-                  GPTW
-                </span>
+                <img src={GPTWImg.src} alt="Great Place to Work - Certificada 2025" className="h-20 w-auto" />
                 <span className="text-sm font-medium text-white/80 text-left leading-tight">
                   Great Place<br />to Work
                 </span>
@@ -262,7 +254,7 @@ export default function SobrePage() {
         </section>
 
         {/* Valores */}
-        <section className="relative bg-[#020c18] py-20 lg:py-32">
+        <section className="relative bg-[#0a1628] py-20 lg:py-10">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"

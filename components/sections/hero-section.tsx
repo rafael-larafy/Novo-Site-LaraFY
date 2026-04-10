@@ -147,7 +147,7 @@ export function HeroSection() {
         aria-hidden
         style={{ backgroundColor: `rgba(1, 46, 67, ${overlayOpacity})` }}
       />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-20 lg:px-2">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-8 lg:px-2">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <motion.div
             className="flex-1 space-y-4 order-2 lg:order-1"
