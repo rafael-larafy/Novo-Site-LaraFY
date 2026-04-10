@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
 import {
   scrollViewport,
   scrollTransition,
@@ -65,14 +65,6 @@ const cases = [
   },
 ]
 
-const parceiros = [
-  { src: "/1bhH4F5IOXDtWdgplmK3aYv7A.png", alt: "Hedge Tax Consultoria Tributária" },
-  { src: "/iju07z4UblNiFlAMY6nLEMkJTY.png", alt: "Planning" },
-  { src: "/V9JhK28b3pDvQ0CCGD6CORGho.png", alt: "evox FISCAL" },
-  { src: "/YCJlx2HqsRXmH9zcqvaanj9gU.png", alt: "IBPTOLA Business, Tax & Education" },
-  { src: "/22pK2BzqFG2aQ72TkcJr2gZl6OM.webp", alt: "Marins Bertoldi" },
-  { src: "/cShhepLkLpC5xavHlRoAeffEpDI.webp", alt: "AG tax" },
-]
 
 export default function CasesPage() {
   return (
@@ -179,45 +171,7 @@ export default function CasesPage() {
         </section>
 
         {/* Parceiros */}
-        <section className="relative bg-[#0a1628] py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.h2
-              className="text-center text-lg font-semibold text-[#c5d9f3] uppercase tracking-wider mb-12"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={scrollTransition}
-            >
-              Parceiros e clientes que confiam na LaraFy
-            </motion.h2>
-
-            <motion.div
-              className="flex flex-wrap items-center justify-center gap-8 lg:gap-14"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
-            >
-              {parceiros.map((logo) => (
-                <div
-                  key={logo.alt}
-                  className="grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={160}
-                    height={64}
-                    sizes="(max-width: 1024px) 80px, 160px"
-                    className="h-10 w-auto object-contain lg:h-14"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+        <LogosCarouselSection />
 
         {/* CTA */}
         <section className="relative bg-[#020c18] py-20 lg:py-28">

@@ -8,7 +8,7 @@ import WaldirImg from "../../lib/Waldir.png"
 
 export function CeoSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a1628] pt-8 pb-14 lg:pt-10 lg:pb-32">
+    <section className="relative overflow-hidden bg-[#0a1628] pt-8 pb-14 lg:pt-0 lg:pb-0">
       <div className="absolute inset-0">
         <Image
           src="/images/AdobeStock_699471030.jpeg"
@@ -49,7 +49,7 @@ export function CeoSection() {
         </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 pb-1">
           <motion.div
             className="flex-1 space-y-8"
             initial="hidden"
@@ -79,9 +79,9 @@ export function CeoSection() {
           >
             <div className="relative flex items-end justify-center">
               <div className="relative w-full max-w-[560px] aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent z-10" />
+                <div className="absolute inset-0  from-[#0a1628] via-transparent to-transparent z-10" />
                 <Image
-                  src={WaldirImg}
+              src={WaldirImg}
                   alt="Waldir de Lara - Founder e CEO da LaraFy"
                   width={560}
                   height={560}

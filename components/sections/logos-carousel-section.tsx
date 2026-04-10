@@ -11,24 +11,25 @@ import Image from "next/image"
 import styles from "./logos-carousel-section.module.css"
 
 const LOGOS = [
-  { src: "/1bhH4F5IOXDtWdgplmK3aYv7A.png", alt: "Hedge Tax Consultoria Tributária" },
-  { src: "/iju07z4UblNiFlAMY6nLEMkJTY.png", alt: "Planning" },
-  { src: "/V9JhK28b3pDvQ0CCGD6CORGho.png", alt: "evox FISCAL" },
-  { src: "/YCJlx2HqsRXmH9zcqvaanj9gU.png", alt: "IBPTOLA Business, Tax & Education" },
-  { src: "/22pK2BzqFG2aQ72TkcJr2gZl6OM.webp", alt: "Marins Bertoldi" },
-  { src: "/cShhepLkLpC5xavHlRoAeffEpDI.webp", alt: "AG tax" },
+  { src: "/Luson.png", alt: "Luson" },
+  { src: "/Pinfer.png", alt: "Pinfer" },
+  { src: "/Zanette.png", alt: "Zanette" },
+  { src: "/Calcario.png", alt: "Calcario" },
+  { src: "/Kapazi.png", alt: "Kapazi" },
+  { src: "/CargoSoft.png", alt: "Cargo Soft" },
 ]
 
 export function LogosCarouselSection() {
   const [tappedIndex, setTappedIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative py-14 lg:py-20 overflow-hidden bg-[#0a1628]">
+    <section className="relative py-10 lg:pb-10 pt-10 overflow-hidden bg-[#0a1628]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.h2
-          className="text-center text-lg sm:text-xl font-semibold text-[#c5d9f3] uppercase tracking-wider mb-10 lg:mb-14"
+          className="text-center text-3xl sm:text-4xl font-bold text-[#ffffff] tracking-wider mb-10 lg:mb-0 mt-10"
           initial="hidden"
           whileInView="visible"
+          style={{ '--font-montserrat': 'var(--font-montserrat)' } as React.CSSProperties}
           viewport={scrollViewport}
           variants={fadeUpVariants}
           transition={scrollTransition}
@@ -54,7 +55,7 @@ export function LogosCarouselSection() {
                 width={188}
                 height={80}
                 sizes="(max-width: 1024px) 80px, 160px"
-                className="h-8 w-auto object-contain lg:h-14"
+                className="h-8 w-auto object-contain lg:h-80 brightness-0 invert"
               />
             </button>
           ))}

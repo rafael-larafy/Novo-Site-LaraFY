@@ -9,7 +9,7 @@ import {
 
 export function ReformaCardSection() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#00e5ff]/10">
+    <section className="relative py-16 lg:py-10 overflow-hidden bg-[#00e5ff]/10">
       <div className="absolute inset-0 bg-gradient-to-br from-[#00e5ff]/5 via-transparent to-[#0a1628]/10" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">

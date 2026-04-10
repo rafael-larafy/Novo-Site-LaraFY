@@ -3,14 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import {
-  scrollViewport,
-  scrollTransition,
-  slideLeftVariants,
-  slideRightVariants,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
 import PessoaImg from "../../lib/Pessoa-preocupada.png"
 
 const tags = [
@@ -31,7 +24,7 @@ export function ReformaTributariaSection() {
             <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMEwwIDMwTDMwIDYwTDYwIDMwTDMwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGU1ZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9zdmc+')] bg-repeat" />
           </div>
 
-          <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-10">
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
               <motion.div
                 className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto"
@@ -41,7 +34,7 @@ export function ReformaTributariaSection() {
                 variants={slideLeftVariants}
                 transition={scrollTransition}
               >
-                <div className="relative w-64 h-80 lg:w-140 lg:h-98 rounded-xl overflow-hidden bg-[]">
+                <div className="relative w-64 h-80 lg:w-140 lg:h-140 rounded-xl overflow-hidden bg-[]">
                   <Image
                     src={PessoaImg}
                     alt="Pessoa preocupada"
