@@ -133,10 +133,10 @@ export default function SobrePage() {
                 transition={{ ...scrollTransition, delay: staggerDelay(1) }}
               >
                 <span className="text-4xl font-extrabold text-white lg:text-5xl">
-                  +<AnimatedCounter target={5} />
+                  +<AnimatedCounter target={20} />
                 </span>
                 <span className="text-sm font-medium text-white/80 text-left leading-tight">
-                  Anos de<br />Mercado
+                  Anos de<br />Experiência
                 </span>
               </motion.div>
 
