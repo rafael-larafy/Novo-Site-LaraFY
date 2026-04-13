@@ -10,6 +10,7 @@ import WaldirImg from "@/lib/Waldir.png"
 import BrasilImg from "@/lib/Brasil.png"
 import GPTWImg from "@/lib/GPTW.png"
 import { Award, Users, Cpu, Target } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -334,8 +335,10 @@ export default function SobrePage() {
             </motion.div>
           </div>
         </section>
+        <Analytics/>
       </main>
       <Footer />
     </>
   )
 }
+

@@ -4,15 +4,9 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Search, FileText, Scale, Users, ShieldCheck, BarChart3, ArrowRight } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const etapas = [
   {
@@ -295,6 +289,7 @@ export default function MetodoPage() {
             </motion.div>
           </div>
         </section>
+        <Analytics/>
       </main>
       <Footer />
     </>

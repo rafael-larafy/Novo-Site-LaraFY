@@ -4,15 +4,9 @@ import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { TrendingUp, ShieldCheck, Clock, Building2 } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const cases = [
   {
@@ -214,6 +208,7 @@ export default function CasesPage() {
           </div>
         </section>
       </main>
+      <Analytics/>
       <Footer />
     </>
   )

@@ -4,13 +4,9 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Clock, ArrowRight, Tag } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const destaque = {
   titulo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod",
@@ -276,6 +272,7 @@ export default function BlogPage() {
           </div>
         </section>
       </main>
+      <Analytics/>
       <Footer />
     </>
   )

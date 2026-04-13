@@ -4,12 +4,8 @@ import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContatoSection } from "@/components/sections/contato-section"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
+import { Analytics } from "@vercel/analytics/next"
 
 export default function ContatoPage() {
   return (
@@ -58,6 +54,7 @@ export default function ContatoPage() {
         {/* Formulário (mesmo da home) */}
         <ContatoSection />
       </main>
+      <Analytics/>
       <Footer />
     </>
   )

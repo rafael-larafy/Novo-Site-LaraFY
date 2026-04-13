@@ -4,25 +4,9 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
-import {
-  Award,
-  Heart,
-  TrendingUp,
-  Users,
-  Cpu,
-  MapPin,
-  Briefcase,
-  Clock,
-  ChevronRight,
-} from "lucide-react"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
+import {Award,Heart,TrendingUp,Users,Cpu,MapPin,Briefcase,Clock,ChevronRight,} from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const beneficios = [
   {
@@ -350,6 +334,7 @@ export default function CarreirasPage() {
           </div>
         </section>
       </main>
+      <Analytics/>
       <Footer />
     </>
   )

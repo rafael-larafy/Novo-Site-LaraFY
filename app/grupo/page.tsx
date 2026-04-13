@@ -4,16 +4,10 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-  slideLeftVariants,
-  slideRightVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import WaldirImg from "@/lib/Waldir.png"
 import { Building2, Cpu, Scale, BarChart3, Users, Award, Heart, Target } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const empresas = [
   {
@@ -394,6 +388,7 @@ export default function GrupoPage() {
             </motion.div>
           </div>
         </section>
+        <Analytics/>
       </main>
       <Footer />
     </>

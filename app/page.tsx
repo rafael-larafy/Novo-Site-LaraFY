@@ -4,6 +4,7 @@ import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
 import { Footer } from "@/components/footer"
+import { Analytics } from "@vercel/analytics/next"
 
 const SectionPlaceholder = () => <div className="min-h-[300px] bg-[#0a1628]" />
 
@@ -74,6 +75,7 @@ export default function Home() {
         <DiagnosticoSection />
         <ContatoSection />
       </main>
+      <Analytics/>
       <Footer />
     </>
   )

@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Star, Crown, Shield, Scale, Handshake, Users } from "lucide-react"
+import { Analytics } from "@vercel/analytics/next"
 
 const solucoes = [
   {
@@ -233,6 +234,7 @@ export default function SolucoesPage() {
             </motion.div>
           </div>
         </section>
+        <Analytics/>
       </main>
       <Footer />
     </>
