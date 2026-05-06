@@ -42,7 +42,10 @@ export function ReformaCardSection() {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl font-black uppercase text-[#0a1628] lg:text-6xl leading-tight">
+              <h2
+                data-gsap-title
+                className="text-4xl font-black uppercase text-[#0a1628] lg:text-6xl leading-tight"
+              >
                 Reforma<br />Tributaria
               </h2>
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#4a6080]">
@@ -52,8 +55,11 @@ export function ReformaCardSection() {
           </div>
 
           <div className="flex-1 bg-[#0d1d33] p-10 lg:p-14 flex flex-col justify-center">
-            <h3 className="text-2xl font-extrabold text-[#00e5ff] lg:text-3xl leading-tight text-balance">
-            A Reforma Tributária não é um evento isolado, é um processo.
+            <h3
+              data-gsap-title
+              className="text-2xl font-extrabold text-[#00e5ff] lg:text-3xl leading-tight text-balance"
+            >
+              A Reforma Tributária não é um evento isolado, é um processo.
             </h3>
             <div className="mt-6 space-y-4">
               <p className="text-[#ffffff] leading-relaxed">

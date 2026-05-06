@@ -56,8 +56,11 @@ export function ReformaTributariaSection() {
                   variants={slideRightVariants}
                   transition={scrollTransition}
                 >
-                  <h2 className="text-2xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance">
-                  Está com medo de perder dinheiro com a Reforma Tributária?
+                  <h2
+                    data-gsap-title
+                    className="text-2xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance"
+                  >
+                    Está com medo de perder dinheiro com a Reforma Tributária?
                   </h2>
                 </motion.div>
 

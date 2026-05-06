@@ -31,14 +31,11 @@ export function ConfiancaSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-black leading-[1.15] tracking-tight text-[#00e5ff] max-w-xl uppercase">
-              UMA DAS CONSULTORIAS
-              <br />
-              TRIBUTÁRIAS MAIS
-              <br />
-              TECNOLÓGICAS
-              <br />
-              (E HUMANAS) DO BRASIL.
+            <h2
+              data-gsap-title
+              className="text-2xl sm:text-3xl lg:text-[2.6rem] font-black leading-[1.15] tracking-tight text-[#00e5ff] max-w-xl uppercase"
+            >
+              UMA DAS CONSULTORIAS<br />TRIBUTÁRIAS MAIS<br />TECNOLÓGICAS<br />(E HUMANAS) DO BRASIL.
             </h2>
           </motion.div>
 

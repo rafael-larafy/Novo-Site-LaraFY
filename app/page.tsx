@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/sections/hero-section"
+import { HomeAnimations } from "@/components/sections/home-animations"
 import { Footer } from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 
@@ -62,6 +63,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <HomeAnimations />
       <main className="overflow-x-hidden">
         <HeroSection />
         <ReformaTributariaSection />

@@ -59,10 +59,11 @@ export function DiagnosticoSection() {
 
           <div className="relative z-10 flex flex-col lg:flex-row">
             <div className="flex-1 lg:flex-[1.2] p-10 lg:p-14 flex items-center">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.15] tracking-tight text-[#0a1628] uppercase">
-                Tributo não é despesa.
-                <br />
-                É estratégia.
+              <h2
+                data-gsap-title
+                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.15] tracking-tight text-[#0a1628] uppercase"
+              >
+                Tributo não é despesa.<br />É estratégia.
               </h2>
             </div>
 

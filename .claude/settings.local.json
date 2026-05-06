@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Rafa-Mont-ui/revnuyu_dev/main/components/Features.tsx\")"
     ]
   }
 }

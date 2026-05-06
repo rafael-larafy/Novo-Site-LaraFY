@@ -122,142 +122,29 @@ export function HeroSection() {
   const overlayOpacity = 0.90
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#012e43]">
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        aria-hidden
-        style={{ opacity: videoOpacity }}
-      >
-        <iframe
-          src={youtubeEmbedUrl}
-          title="Background video"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{
-            width: "100vw",
-            height: "56.25vw",
-            minWidth: "177.78vh",
-            minHeight: "100vh",
-          }}
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
-      </div>
-      <div
-        className="absolute inset-0 z-[1]"
-        aria-hidden
-        style={{ backgroundColor: `rgba(1, 46, 67, ${overlayOpacity})` }}
-      />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-42 pb-8 lg:px-2">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <motion.div
-            className="flex-1 space-y-4 order-2 lg:order-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={scrollViewport}
-            variants={slideLeftVariants}
-            transition={scrollTransition}
-          >
-            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance sm:text-5xl lg:text-7xl">
-              <span className="text-[#00e5ff]">REDUZA </span>
-              <span className="text-[#00e5ff]">IMPOSTOS </span>
-              <span className="text-[#00e5ff]">COM PRECISÃO</span>
-              <br />
-            </h1>
-            <p className="max-w-lg text-lg leading-justify text-[#ffffff]">
-            Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.
-            </p>
-            <a
-              href="#contato"
-              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
-            >
-              Quero receber um diagnóstico
-            </a>
-          </motion.div>
+    <section className="relative min-h-screen overflow-hidden bg-[#0a1628] pt-32 pb-20 lg:pt-40">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]"/>
 
-          <motion.div
-            className="flex-1 relative order-1 lg:order-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={scrollViewport}
-            variants={slideRightVariants}
-            transition={scrollTransition}
-          >
-            <div
-              className="relative w-full cursor-pointer overflow-visible"
-              style={{ isolation: "isolate" }}
-              onMouseEnter={handleVideoMouseEnter}
-              onMouseLeave={handleVideoMouseLeave}
-              onClick={handleMobileClick}
-            >
-              <Image
-                src="/Tablet-mockup.png"
-                alt="LaraTAX Dashboard"
-                width={1920}
-                height={1080}
-                sizes="(max-width: 1024px) 100vw, 1020px"
-                className="w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
-                style={{ opacity: showImage ? 1 : 0 }}
-              />
-              {!noWebM && (
-                <div
-                  className="absolute inset-0 overflow-visible"
-                  style={{
-                    mixBlendMode: "lighten",
-                    opacity: showVideo ? 1 : 0,
-                  }}
-                >
-                  <video
-                    ref={animationVideoRef}
-                    className="absolute inset-0 w-full h-auto scale-[1.50] lg:scale-[1.7] origin-center transition-opacity duration-300"
-                    style={{ background: "transparent" }}
-                    autoPlay={isMobile}
-                    loop={!isMobile}
-                    muted
-                    playsInline
-                    onEnded={handleVideoEnded}
-                  >
-                    <source src="/Site Larafy animations.webm" type="video/webm" />
-                  </video>
-                </div>
-              )}
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-[#0066ff]/40 blur-xl rounded-full" />
-            </div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden style={{opacity: videoOpacity}}>
+        <iframe src={youtubeEmbedUrl} title="Background Video" className=" absolute top1/2 left 1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" style={{width:"100vw", height:"56.25vw", minHeight:"177.78vh", minWidth:"100vh"}}
+        allow="autoplay; encrypted-media" allowFullScreen />
+      </div>
+      <div className="absolute inset-0 z-[1]" aria-hidden style={{backgroundColor: `rgba(10, 22, 40, ${overlayOpacity})`}} />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex  flex-col lg:flex-row items-center lg:gap-16">
+          <motion.div className="flex-1 space-y-6 order-2 lg:order-1 text-center lg:text-left" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={slideLeftVariants}
+          transition={scrollTransition}>
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"> LaraFy — Inteligência Tributária </p>
+            <h1 data-gsap-tittle className="text=3xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-7xl text-balance">Reduza impostos com{" "}</h1>
+            <p className="">Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.</p>
+            <a href=""> Quero receber um diagnóstico</a>
           </motion.div>
         </div>
-
-        <motion.div
-          className="relative z-10 mx-auto max-w-5xl px-4 pt-30 pb-12 lg:px-6 lg:pt-30 lg:pb-16"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={scrollViewport}
-          transition={scrollTransition}
-        >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-10">
-            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">
-              <span className="text-5xl font-extrabold text-[#ffffff] md:text-4xl lg:text-5xl">
-                +<AnimatedCounter target={20} />
-              </span>
-              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
-                Anos de<br />Experiência
-              </span>
-            </div>
-            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 border-b md:border-b-0 md:border-r border-[#ffffff]/20 w-full pb-6 md:pb-0 min-w-0">
-              <span className="text-5xl font-extrabold text-[#ffffff] md:text-4xl lg:text-5xl">
-                +<AnimatedCounter target={100} />
-              </span>
-              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
-                Especialistas
-              </span>
-            </div>
-            <div className="flex-1 flex items-center justify-center gap-2 md:gap-3 text-center px-3 md:px-6 pb-0 min-w-0 w-full">
-              <Image src={BrasilImg} alt="Mapa do Brasil" width={144} height={144} sizes="100px" className="w-25 h-auto md:w-20 lg:w-20" loading="lazy" />
-              <span className="text-3x1 font-medium text-[#ffffff]/80 text-left leading-tight">
-                Atuação<br />Nacional
-              </span>
-            </div>
-          </div>
-        </motion.div>
       </div>
-    </section>
-  )
-}
+      
+
+    </section>)}

@@ -33,7 +33,10 @@ export function ContatoSection() {
           transition={scrollTransition}
         >
           <div className="flex-1 max-w-[340px] order-1 lg:order-1">
-            <h2 className="text-xl lg:text-2xl font-black text-white leading-tight">
+            <h2
+              data-gsap-title
+              className="text-xl lg:text-2xl font-black text-white leading-tight"
+            >
               Tenha acesso direto a um estrategista sênior.
             </h2>
             <p className="text-sm lg:text-base text-white/90 leading-relaxed mt-3">
