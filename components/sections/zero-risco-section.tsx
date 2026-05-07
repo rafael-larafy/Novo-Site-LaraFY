@@ -86,13 +86,17 @@ export function ZeroRiscoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl tracking-tight">
+            <h2
+              data-gsap-title
+              className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl tracking-tight"
+            >
               ZERO
             </h2>
-            <p className="mt-4 text-2xl font-bold text-[#ffffff] lg:text-5xl leading-tight">
-              risco de investir
-              <br />
-              sem retorno
+            <p
+              data-gsap-title
+              className="mt-4 text-2xl font-bold text-[#ffffff] lg:text-5xl leading-tight"
+            >
+              risco de investir<br />sem retorno
             </p>
           </motion.div>
 

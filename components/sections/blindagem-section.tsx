@@ -75,8 +75,11 @@ export function BlindagemSection() {
           </div>
 
           <div className="flex flex-col items-center sm:items-start">
-            <h2 className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl">
-            O seu negócio é blindado em todos os cenários possíveis.
+            <h2
+              data-gsap-title
+              className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl"
+            >
+              O seu negócio é blindado em todos os cenários possíveis.
             </h2>
           </div>
         </motion.div>
@@ -85,25 +88,33 @@ export function BlindagemSection() {
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              className="group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#00e5ff]/10"
+              data-gsap-tilt
+              className="group relative rounded-2xl bg-[#ffffff] p-6 shadow-lg shadow-[#0a1628]/5 transition-all duration-500 hover:shadow-xl hover:shadow-[#00e5ff]/15"
+              style={{ perspective: "800px" }}
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(i + 1) }}
             >
-              <div className="-mt-10 mb-4 flex justify-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#00e5ff] text-[#0a1628] shadow-lg transition-transform duration-300 group-hover:scale-110">
-                  <feature.icon className="h-6 w-6" strokeWidth={2} />
+              <div
+                data-gsap-tilt-inner
+                className="relative"
+                style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+              >
+                <div className="-mt-10 mb-4 flex justify-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#00e5ff] text-[#0a1628] shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <feature.icon className="h-6 w-6" strokeWidth={2} />
+                  </div>
                 </div>
-              </div>
 
-              <h3 className="text-center text-lg font-bold text-[#0a1628] mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-center text-sm text-[#4a6080] leading-relaxed">
-                {feature.description}
-              </p>
+                <h3 className="text-center text-lg font-bold text-[#0a1628] mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-center text-sm text-[#4a6080] leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -9,11 +9,11 @@ const navLinks = [
   { label: "Sobre nós", href: "/sobre" },
   { label: "Soluções", href: "/solucoes" },
   { label: "O Método", href: "/metodo" },
-  { label: "Cases", href: "/cases" },
-  { label: "O Grupo", href: "/grupo" },
-  { label: "Carreiras", href: "/carreiras" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "/contato" },
+  {/* { label: "Cases", href: "/cases" }, */},
+  {/* { label: "O Grupo", href: "/grupo" }, */},
+  {/* { label: "Carreiras", href: "/carreiras" }, */},
+  {/* { label: "Blog", href: "/blog" }, */},
+  {/* { label: "Contato", href: "/contato" } */},
 ]
 
 export function Header() {

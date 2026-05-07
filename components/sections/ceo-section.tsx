@@ -58,8 +58,11 @@ export function CeoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2 className="text-2x1 text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance">
-            “A linha tênue entre o erro e o acerto está em como foi analisado.”
+            <h2
+              data-gsap-title
+              className="text-2x1 text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance"
+            >
+              “A linha tênue entre o erro e o acerto está em como foi analisado.”
             </h2>
             <a
               href="#contato"
@@ -78,17 +81,27 @@ export function CeoSection() {
             transition={scrollTransition}
           >
             <div className="relative flex items-end justify-center">
-              <div className="relative w-full max-w-[560px] aspect-square">
+              <div
+                data-gsap-tilt
+                className="relative w-full max-w-[560px] aspect-square"
+                style={{ perspective: "900px" }}
+              >
                 <div className="absolute inset-0  from-[#0a1628] via-transparent to-transparent z-10" />
-                <Image
-              src={WaldirImg}
-                  alt="Waldir de Lara - Founder e CEO da LaraFy"
-                  width={560}
-                  height={560}
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                />
+                <div
+                  data-gsap-tilt-inner
+                  className="w-full h-full"
+                  style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+                >
+                  <Image
+                    src={WaldirImg}
+                    alt="Waldir de Lara - Founder e CEO da LaraFy"
+                    width={560}
+                    height={560}
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
