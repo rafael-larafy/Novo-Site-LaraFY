@@ -1,19 +1,15 @@
 "use client"
 
 import Image from "next/image"
+import { SplitReveal } from "@/components/split-reveal"
 import Link from "next/link"
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react"
 import { ArrowUpRight, Play } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap } from "@/lib/gsap"
 import { HomeAnimations } from "@/components/sections/home-animations"
 import WaldirImg from "../../lib/Waldir.png"
 import PessoaImg from "../../lib/Pessoa-preocupada.png"
 import BrasilImg from "../../lib/Brasil.png"
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
 
 /* ----------------------- Tilt wrapper (revnuyu BentoTilt) ---------------------- */
 function BentoTilt({
@@ -265,12 +261,11 @@ export default function TesteAnimacoes() {
               tributo não é despesa
             </p>
 
-            <h2
-              data-gsap-title
+            <SplitReveal as="h2"
               className="rev-special-font text-5xl font-black uppercase leading-[0.85] text-black sm:text-7xl md:text-[6rem]"
             >
               Estr<b>a</b>tégia<br />tribut<b>á</b>ria
-            </h2>
+            </SplitReveal>
 
             <div className="mt-6 max-w-md text-base md:max-w-[34rem] md:text-lg">
               <p className="text-black">
@@ -429,12 +424,11 @@ export default function TesteAnimacoes() {
               founder & ceo
             </p>
 
-            <h2
-              data-gsap-title
+            <SplitReveal as="h2"
               className="rev-special-font relative z-20 mt-5 px-6 text-center text-5xl font-black uppercase leading-[0.85] text-white sm:px-16 md:text-[6rem]"
             >
               Wal<b>d</b>ir<br />de l<b>a</b>ra
-            </h2>
+            </SplitReveal>
 
             <div className="relative mt-12 grid w-full max-w-6xl grid-cols-1 gap-12 px-8 md:grid-cols-2 md:items-center">
               {/* Floating tilt image with diagonal clip */}
@@ -490,12 +484,11 @@ export default function TesteAnimacoes() {
                 fale com a larafy
               </p>
 
-              <h2
-                data-gsap-title
+              <SplitReveal as="h2"
                 className="rev-special-font w-full px-4 text-5xl font-black uppercase leading-[0.85] text-[#dfdff0] sm:text-6xl md:text-[6rem]"
               >
                 pront<b>o</b><br />para reduzir<br />imp<b>o</b>stos?
-              </h2>
+              </SplitReveal>
 
               <PillButton title="Diagnóstico gratuito" className="mt-10" />
             </div>

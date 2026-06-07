@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import {
   scrollViewport,
   scrollTransition,
@@ -31,12 +32,11 @@ export function ConfiancaSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2
-              data-gsap-title
+            <SplitReveal as="h2"
               className="text-2xl sm:text-3xl lg:text-[2.6rem] font-black leading-[1.15] tracking-tight text-[#00e5ff] max-w-xl uppercase"
             >
               UMA DAS CONSULTORIAS<br />TRIBUTÁRIAS MAIS<br />TECNOLÓGICAS<br />(E HUMANAS) DO BRASIL.
-            </h2>
+            </SplitReveal>
           </motion.div>
 
           <motion.div

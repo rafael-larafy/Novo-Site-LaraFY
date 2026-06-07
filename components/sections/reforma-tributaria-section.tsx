@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import Image from "next/image"
 import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
 import PessoaImg from "../../lib/Pessoa-preocupada.png"
@@ -56,12 +57,11 @@ export function ReformaTributariaSection() {
                   variants={slideRightVariants}
                   transition={scrollTransition}
                 >
-                  <h2
-                    data-gsap-title
+                  <SplitReveal as="h2"
                     className="text-2xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance"
                   >
                     Está com medo de perder dinheiro com a Reforma Tributária?
-                  </h2>
+                  </SplitReveal>
                 </motion.div>
 
                 <motion.div

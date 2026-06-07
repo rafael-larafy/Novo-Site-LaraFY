@@ -1,37 +1,11 @@
 "use client"
 
 import { useEffect } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
-
-function splitTitleIntoWords(el: HTMLElement) {
-  if (el.dataset.gsapSplit === "done") return
-  const html = el.innerHTML
-  const lines = html.split(/<br\s*\/?>/i)
-  el.innerHTML = ""
-  lines.forEach((line, lineIdx) => {
-    if (lineIdx > 0) {
-      el.appendChild(document.createElement("br"))
-    }
-    const words = line.split(/\s+/).filter(Boolean)
-    words.forEach((word, idx) => {
-      const span = document.createElement("span")
-      span.className = "gsap-word"
-      span.innerHTML = word
-      span.style.display = "inline-block"
-      span.style.willChange = "transform, opacity"
-      el.appendChild(span)
-      if (idx < words.length - 1) {
-        el.appendChild(document.createTextNode(" "))
-      }
-    })
-  })
-  el.dataset.gsapSplit = "done"
-}
+// Os títulos agora usam o componente <SplitReveal> (GSAP SplitText com máscara).
+// Este componente cuida só dos efeitos de scroll restantes (hero frame, parallax,
+// zoom, cards, tilt).
 
 export function HomeAnimations() {
   useEffect(() => {
@@ -43,33 +17,6 @@ export function HomeAnimations() {
     const tiltCleanups: Array<() => void> = []
 
     const ctx = gsap.context(() => {
-      const titles = gsap.utils.toArray<HTMLElement>("[data-gsap-title]")
-      titles.forEach((title) => {
-        splitTitleIntoWords(title)
-        const words = title.querySelectorAll<HTMLElement>(".gsap-word")
-        if (!words.length) return
-        gsap.set(words, {
-          opacity: 0,
-          y: 28,
-          rotateX: -45,
-          transformPerspective: 800,
-          transformOrigin: "50% 100% -40px",
-        })
-        gsap.to(words, {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          ease: "power3.out",
-          duration: 0.9,
-          stagger: 0.04,
-          scrollTrigger: {
-            trigger: title,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        })
-      })
-
       const heroFrame = document.querySelector<HTMLElement>(
         "[data-gsap-hero-frame]"
       )

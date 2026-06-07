@@ -4,16 +4,17 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import LogoImg from "@/lib/Logo.png"
+import { UnderlineLink } from "@/components/underline-link"
 
 const navLinks = [
   { label: "Sobre nós", href: "/sobre" },
   { label: "Soluções", href: "/solucoes" },
   { label: "O Método", href: "/metodo" },
-  {/* { label: "Cases", href: "/cases" }, */},
-  {/* { label: "O Grupo", href: "/grupo" }, */},
-  {/* { label: "Carreiras", href: "/carreiras" }, */},
-  {/* { label: "Blog", href: "/blog" }, */},
-  {/* { label: "Contato", href: "/contato" } */},
+  // { label: "Cases", href: "/cases" },
+  // { label: "O Grupo", href: "/grupo" },
+  // { label: "Carreiras", href: "/carreiras" },
+  // { label: "Blog", href: "/blog" },
+  // { label: "Contato", href: "/contato" },
 ]
 
 export function Header() {
@@ -51,13 +52,13 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
+              <UnderlineLink
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#8ba3c0] underline-offset-4 transition-colors duration-200 hover:text-[#012e43] hover:underline"
+                className="text-sm text-[#8ba3c0] transition-colors duration-200 hover:text-[#012e43]"
               >
                 {link.label}
-              </a>
+              </UnderlineLink>
             ))}
           </nav>
 

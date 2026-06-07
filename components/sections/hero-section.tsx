@@ -11,6 +11,7 @@ import {
   fadeUpVariants,
   staggerDelay,
 } from "@/lib/scroll-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import BrasilImg from "../../lib/Brasil.png"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -139,7 +140,7 @@ export function HeroSection() {
           variants={slideLeftVariants}
           transition={scrollTransition}>
             <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"> LaraFy — Inteligência Tributária </p>
-            <h1 data-gsap-tittle className="text=3xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-7xl text-balance">Reduza impostos com{" "}</h1>
+            <SplitReveal as="h1" type="words" className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-7xl text-balance">Reduza impostos com</SplitReveal>
             <p className="">Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.</p>
             <a href=""> Quero receber um diagnóstico</a>
           </motion.div>

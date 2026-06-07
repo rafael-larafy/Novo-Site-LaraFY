@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import Image from "next/image"
 import {
   scrollViewport,
@@ -75,12 +76,11 @@ export function BlindagemSection() {
           </div>
 
           <div className="flex flex-col items-center sm:items-start">
-            <h2
-              data-gsap-title
-              className="text-3x1 font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl"
+            <SplitReveal as="h2"
+              className="text-3xl font-extrabold text-[#0a1628] lg:text-5xl text-balance max-w-3xl"
             >
               O seu negócio é blindado em todos os cenários possíveis.
-            </h2>
+            </SplitReveal>
           </div>
         </motion.div>
 

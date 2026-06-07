@@ -8,7 +8,7 @@ import {
   fadeUpVariants,
 } from "@/lib/scroll-motion"
 import Image from "next/image"
-import styles from "./logos-carousel-section.module.css"
+import { Marquee } from "@/components/marquee"
 
 const LOGOS = [
   { src: "/Luson.png", alt: "Luson" },
@@ -20,7 +20,7 @@ const LOGOS = [
 ]
 
 export function LogosCarouselSection() {
-  const [tappedIndex, setTappedIndex] = useState<number | null>(null)
+  const [tappedAlt, setTappedAlt] = useState<string | null>(null)
 
   return (
     <section className="relative py-10 lg:pb-10 pt-10 overflow-hidden bg-[#0a1628]">
@@ -38,29 +38,27 @@ export function LogosCarouselSection() {
         </motion.h2>
       </div>
 
-      <div className="relative w-full overflow-hidden">
-        <div className={styles.marquee}>
-          {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
-            <button
-              key={`${logo.alt}-${i}`}
-              type="button"
-              onClick={() => setTappedIndex(tappedIndex === i ? null : i)}
-              className={`flex-shrink-0 mx-4 lg:mx-12 flex items-center justify-center transition-all duration-300 min-w-[80px] lg:min-w-[160px] cursor-pointer bg-transparent border-0 p-0 ${
-                tappedIndex === i ? "grayscale-0 opacity-100" : "grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
-              }`}
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={188}
-                height={80}
-                sizes="(max-width: 1024px) 80px, 160px"
-                className="h-8 w-auto object-contain lg:h-80 brightness-0 invert"
-              />
-            </button>
-          ))}
-        </div>
-      </div>
+      <Marquee className="w-full" speed={32}>
+        {[...LOGOS, ...LOGOS].map((logo, i) => (
+          <button
+            key={`${logo.alt}-${i}`}
+            type="button"
+            onClick={() => setTappedAlt(tappedAlt === logo.alt ? null : logo.alt)}
+            className={`flex-shrink-0 mx-4 lg:mx-12 flex items-center justify-center transition-all duration-300 min-w-[80px] lg:min-w-[160px] cursor-pointer bg-transparent border-0 p-0 ${
+              tappedAlt === logo.alt ? "grayscale-0 opacity-100" : "grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
+            }`}
+          >
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={188}
+              height={80}
+              sizes="(max-width: 1024px) 80px, 160px"
+              className="h-8 w-auto object-contain lg:h-20 brightness-0 invert"
+            />
+          </button>
+        ))}
+      </Marquee>
     </section>
   )
 }

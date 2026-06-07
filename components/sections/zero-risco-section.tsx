@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import {
   scrollViewport,
   scrollTransition,
@@ -86,18 +87,16 @@ export function ZeroRiscoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2
-              data-gsap-title
+            <SplitReveal as="h2" type="chars"
               className="text-7xl font-black uppercase text-[#ffffff] leading-none lg:text-9xl tracking-tight"
             >
               ZERO
-            </h2>
-            <p
-              data-gsap-title
+            </SplitReveal>
+            <SplitReveal as="p"
               className="mt-4 text-2xl font-bold text-[#ffffff] lg:text-5xl leading-tight"
             >
               risco de investir<br />sem retorno
-            </p>
+            </SplitReveal>
           </motion.div>
 
           <motion.div

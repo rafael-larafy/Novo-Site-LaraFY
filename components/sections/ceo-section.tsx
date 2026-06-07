@@ -1,15 +1,18 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { SplitReveal } from "@/components/split-reveal"
 import Image from "next/image"
 import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants, staggerDelay} from "@/lib/scroll-motion"
+import { Parallax } from "@/components/parallax"
+import { Magnetic } from "@/components/magnetic"
 import WaldirImg from "../../lib/Waldir.png"
 
 
 export function CeoSection() {
   return (
     <section className="relative overflow-hidden bg-[#0a1628] pt-8 pb-14 lg:pt-0 lg:pb-0">
-      <div className="absolute inset-0">
+      <Parallax className="absolute inset-0" amount={90}>
         <Image
           src="/images/AdobeStock_699471030.jpeg"
           alt=""
@@ -18,8 +21,8 @@ export function CeoSection() {
           sizes="100vw"
           loading="lazy"
         />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0066ff]/20 to-transparent" />
-      </div>
+      </Parallax>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0066ff]/20 to-transparent z-[1]" />
 
               <div className="bg-[#0a1628] pt-16 pb-[0px]">
           <div className="mb-12 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -34,7 +37,7 @@ export function CeoSection() {
              O mercado tradicional de consultoria limita o seu ganho
             </motion.p>
             <motion.h3
-              className="mt-4 text-1xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
+              className="mt-4 text-xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -58,18 +61,19 @@ export function CeoSection() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <h2
-              data-gsap-title
-              className="text-2x1 text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance"
+            <SplitReveal as="h2"
+              className="text-2xl text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance"
             >
               “A linha tênue entre o erro e o acerto está em como foi analisado.”
-            </h2>
-            <a
-              href="#contato"
-              className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
-            >
-              Solicitar Diagnóstico Tributário Estratégico
-            </a>
+            </SplitReveal>
+            <Magnetic strength={0.5}>
+              <a
+                href="#contato"
+                className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
+              >
+                Solicitar Diagnóstico Tributário Estratégico
+              </a>
+            </Magnetic>
           </motion.div>
 
           <motion.div
