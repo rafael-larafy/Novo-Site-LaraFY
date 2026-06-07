@@ -9,6 +9,9 @@ node_modules/
 .env*.local
 .DS_Store
 
+# TypeScript build cache (gerado pelo build, não versionar)
+*.tsbuildinfo
+
 # Vídeos grandes (GitHub limita a 100 MB)
 public/Site Larafy animations.mov
 
