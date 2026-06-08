@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Header } from "@/components/header"
+import { SplitReveal } from "@/components/split-reveal"
+import { Magnetic } from "@/components/magnetic"
 import { Footer } from "@/components/footer"
 import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Search, FileText, Scale, Users, ShieldCheck, BarChart3, ArrowRight } from "lucide-react"
@@ -87,17 +89,10 @@ export default function MetodoPage() {
             >
               O Método LaraFy
             </motion.p>
-            <motion.h1
-              className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
-            >
+            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
               Precisão cirúrgica em{" "}
               <span className="text-[#00e5ff]">cada etapa</span>
-            </motion.h1>
+            </SplitReveal>
             <motion.p
               className="mx-auto mt-6 max-w-2xl text-lg text-[#8ba3c0]"
               initial="hidden"
@@ -200,12 +195,12 @@ export default function MetodoPage() {
                   variants={fadeUpVariants}
                   transition={{ ...scrollTransition, delay: staggerDelay(2) }}
                 >
-                  <a
+                  <Magnetic><a
                     href="/#contato"
                     className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
                   >
                     Solicitar Diagnóstico Gratuito
-                  </a>
+                  </a></Magnetic>
                 </motion.div>
               </motion.div>
 
@@ -280,12 +275,12 @@ export default function MetodoPage() {
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(3) }}
             >
-              <a
+              <Magnetic><a
                 href="/#contato"
                 className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
               >
                 Simule os impactos da Reforma Tributária
-              </a>
+              </a></Magnetic>
             </motion.div>
           </div>
         </section>
