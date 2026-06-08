@@ -13,8 +13,7 @@ import {
 } from "@/lib/scroll-motion"
 import { SplitReveal } from "@/components/split-reveal"
 import { WaveLines } from "@/components/wave-lines"
-import { BrazilMap } from "@/components/brazil-map"
-import BrasilImg from "../../lib/Brasil.png"
+import { EarthGlobe } from "@/components/earth-globe"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -122,6 +121,10 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628] pt-32 pb-20 lg:pt-40">
       <WaveLines className="absolute inset-0 z-[2] pointer-events-none" />
+      <div
+        className="absolute inset-0 z-[5] pointer-events-none bg-[#061120]/65"
+        aria-hidden
+      />
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex  flex-col lg:flex-row items-center lg:gap-16">
           <motion.div className="flex-1 space-y-6 order-2 lg:order-1 text-center lg:text-left" 
@@ -144,7 +147,7 @@ export function HeroSection() {
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <BrazilMap className="h-[320px] w-full lg:h-[480px]" />
+            <EarthGlobe className="h-[320px] w-full lg:h-[480px]" />
           </motion.div>
         </div>
       </div>
