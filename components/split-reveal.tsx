@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { createElement, useRef } from "react"
 
 import { gsap, SplitText, useGSAP } from "@/lib/gsap"
 
@@ -84,9 +84,7 @@ export function SplitReveal({
     { scope: ref, dependencies: [] }
   )
 
-  return (
-    <Tag ref={ref as React.Ref<HTMLElement>} className={className}>
-      {children}
-    </Tag>
-  )
+  // Renderizado via createElement: a augmentação global de JSX do R3F
+  // (@react-three/fiber) quebra a inferência de tag polimórfica em JSX.
+  return createElement(Tag, { ref, className }, children)
 }

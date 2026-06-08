@@ -12,6 +12,8 @@ import {
   staggerDelay,
 } from "@/lib/scroll-motion"
 import { SplitReveal } from "@/components/split-reveal"
+import { WaveLines } from "@/components/wave-lines"
+import { BrazilMap } from "@/components/brazil-map"
 import BrasilImg from "../../lib/Brasil.png"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -117,20 +119,9 @@ export function HeroSection() {
   const showVideo = noWebM ? false : (isMobile ? !mobileVideoEnded : isVideoHovered)
   const showImage = noWebM ? true : (isMobile ? mobileVideoEnded : !isVideoHovered)
 
-  const youtubeEmbedUrl = "https://www.youtube.com/embed/s9xk77X4m5c?autoplay=1&mute=1&loop=1&playlist=s9xk77X4m5c&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-
-  const videoOpacity = 1
-  const overlayOpacity = 0.90
-
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a1628] pt-32 pb-20 lg:pt-40">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]"/>
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden style={{opacity: videoOpacity}}>
-        <iframe src={youtubeEmbedUrl} title="Background Video" className=" absolute top1/2 left 1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" style={{width:"100vw", height:"56.25vw", minHeight:"177.78vh", minWidth:"100vh"}}
-        allow="autoplay; encrypted-media" allowFullScreen />
-      </div>
-      <div className="absolute inset-0 z-[1]" aria-hidden style={{backgroundColor: `rgba(10, 22, 40, ${overlayOpacity})`}} />
+      <WaveLines className="absolute inset-0 z-[2] pointer-events-none" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex  flex-col lg:flex-row items-center lg:gap-16">
           <motion.div className="flex-1 space-y-6 order-2 lg:order-1 text-center lg:text-left" 
@@ -143,6 +134,17 @@ export function HeroSection() {
             <SplitReveal as="h1" type="words" className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-7xl text-balance">Reduza impostos com</SplitReveal>
             <p className="">Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.</p>
             <a href=""> Quero receber um diagnóstico</a>
+          </motion.div>
+
+          <motion.div
+            className="flex-1 order-1 lg:order-2 w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
+            <BrazilMap className="h-[320px] w-full lg:h-[480px]" />
           </motion.div>
         </div>
       </div>

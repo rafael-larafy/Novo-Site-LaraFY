@@ -66,13 +66,6 @@
   --color-larafy-light: var(--larafy-light);
 }
 
-/* ============================================================
-   Tokens estruturais inspirados no lumena-partners.com
-   (motion + tipografia fluida + ritmo). Cores permanecem a
-   identidade Larafy (navy/ciano) — só importamos a ESTRUTURA.
-   Geram utilitários Tailwind v4 (ease-default, text-h1, py-section…)
-   e ficam disponíveis como CSS vars em :root.
-   ============================================================ */
 @theme {
   /* ---- Motion: a curva ÚNICA do Lumena (158 usos no site original) ---- */
   --ease-default: cubic-bezier(0.55, 0, 0.1, 1);
@@ -359,9 +352,9 @@
 }
 
 html {
-  /* scroll-behavior controlado pelo Lenis (components/smooth-scroll.tsx).
-     Em prefers-reduced-motion o Lenis não monta e o scroll nativo assume. */
   overflow-x: hidden;
+  background-color: #0a1628;
+  color-scheme: dark;
 }
 
 .cta-button {

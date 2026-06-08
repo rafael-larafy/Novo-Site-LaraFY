@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Montserrat, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import SmoothScroll from '@/components/smooth-scroll'
+import { LoadingScreen } from '@/components/loading-screen'
 import './globals.css'
 
 const montserrat = Montserrat({ 
@@ -56,7 +57,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased bg-[#0a1628] text-[#ffffff]" cz-shortcut-listen="true">
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <LoadingScreen />
+          {children}
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>
