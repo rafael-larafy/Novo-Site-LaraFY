@@ -68,7 +68,12 @@
       "Bash(curl -s -o /dev/null -w \"home status: %{http_code}\\\\n\" http://localhost:3000/)",
       "Bash(curl -s -o /dev/null -w \"home\\(3003\\) status: %{http_code} in %{time_total}s\\\\n\" --max-time 90 http://localhost:3003/)",
       "Bash(echo \"exit: $?\")",
-      "Bash(curl -s -o /dev/null -w \"3002: %{http_code}\\\\n\" --max-time 60 http://localhost:3002/)"
+      "Bash(curl -s -o /dev/null -w \"3002: %{http_code}\\\\n\" --max-time 60 http://localhost:3002/)",
+      "Bash(lsof -nP -iTCP -sTCP:LISTEN)",
+      "Bash(awk '{print $1, $9}')",
+      "Bash(grep -o \"pathLength[^;]\\\\{0,80\\\\}\" node_modules/framer-motion/dist/framer-motion.js)",
+      "Bash(grep -o \"function [A-Za-z]*\\([^\\)]*\\){if[^}]*Mr\\(t,a,c\\)[^}]\\\\{0,400\\\\}\" node_modules/framer-motion/dist/framer-motion.js)",
+      "Bash(grep -o \"function Mr\\([^\\)]*\\){[^}]\\\\{0,600\\\\}\" node_modules/framer-motion/dist/framer-motion.js)"
     ]
   }
 }

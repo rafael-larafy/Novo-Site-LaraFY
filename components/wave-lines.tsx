@@ -30,11 +30,11 @@ declare module "@react-three/fiber" {
   }
 }
 
-const NUM_LINES = 70
-const NUM_POINTS = 280
+const NUM_LINES = 99
+const NUM_POINTS = 80
 const WIDTH = 90
 const WAVE_LENGTH = 0.010
-const AMPLITUDE = 10
+const AMPLITUDE = 5
 const SPEED = 10
 
 type Pointer = { x: number; y: number }

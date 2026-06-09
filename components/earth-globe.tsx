@@ -9,43 +9,39 @@ import {
   type PointerEvent as ReactPointerEvent,
   type RefObject,
 } from "react"
-import { Canvas, useFrame, useLoader } from "@react-three/fiber"
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber"
+import { motion } from "framer-motion"
 import * as THREE from "three"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { BrazilDetail } from "@/components/brazil-detail"
 
-// Centro aproximado do Brasil — o globo sempre repousa nesta orientação.
+// Centro aproximado do Brasil
 const BRAZIL_LAT = -14
 const BRAZIL_LON = -52
 
-// Converte lat/lon (graus) na rotação Euler (ordem XYZ) que deixa esse ponto
-// de frente para a câmera, assumindo uma SphereGeometry com mapa
-// equirretangular padrão (centro da textura = meridiano 0).
+// Converte lat/lon (graus) na rotação Euler (ordem XYZ) 
+// SphereGeometry com mapa (centro da textura = meridiano 0)
+
 function latLonToRotation(latDeg: number, lonDeg: number) {
   const theta = THREE.MathUtils.degToRad(90 - latDeg) // ângulo polar a partir do norte
   const phi = ((lonDeg + 180) / 360) * Math.PI * 2
   const x = -Math.cos(phi) * Math.sin(theta)
   const y = Math.cos(theta)
   const z = Math.sin(phi) * Math.sin(theta)
-  // rotação Y leva a longitude para a frente; rotação X centraliza a latitude
   return { x: Math.atan2(y, Math.hypot(x, z)), y: -Math.atan2(x, z) }
 }
 
 const TARGET = latLonToRotation(BRAZIL_LAT, BRAZIL_LON)
 
-// Só precisamos do mapa de cor (detalhe interno) e do mapa especular, que serve
-// de máscara terra/oceano (oceano = branco). Texturas de bobbyroe/threejs-earth.
+// (oceano = branco). 
+// Texturas de bobbyroe/threejs-earth.
+
 const TEXTURES = [
   "/textures/earth/00_earthmap1k.jpg",
   "/textures/earth/02_earthspec1k.jpg",
 ]
 
-// Brilho atmosférico (Fresnel) — porte do getFresnelMat.js do mesmo repositório.
+// Brilho atmosférico (Fresnel)
+
 function useFresnelMaterial(rimHex = 0x00e5ff, facingHex = 0x001725) {
   return useMemo(() => {
     const uniforms = {
@@ -86,9 +82,8 @@ function useFresnelMaterial(rimHex = 0x00e5ff, facingHex = 0x001725) {
   }, [rimHex, facingHex])
 }
 
-// Material holográfico: continentes brilhando em ciano, costas acesas e oceano
-// transparente. Usa o mapa especular como máscara terra/oceano (oceano = branco)
-// e o mapa de cor real só para dar variação interna sutil ("dots" de néon).
+// Material holográfico (oceano = branco) e o mapa de cor real ("dots" de néon)
+
 function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
   return useMemo(() => {
     return new THREE.ShaderMaterial({
@@ -159,15 +154,176 @@ function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
   }, [colorMap, specMap])
 }
 
+// Linhas sobre o PRANETA
+const NODE_COUNT = 45 // pontos na superfície
+const ARC_COUNT = 20 // arcos simultâneos
+const ARC_SEG = 150 // suavidade de cada arco
+const NODE_R = 1.001 // raio dos pontos
+
+type Arc = {
+  line: THREE.Line
+  geo: THREE.BufferGeometry
+  mat: THREE.LineBasicMaterial
+  positions: Float32Array
+  t: number
+  dur: number
+}
+
+// ponto aleatório uniforme sobre a esfera
+function randomSpherePoint(r: number) {
+  const theta = 2 * Math.PI * Math.random()
+  const phi = Math.acos(2 * Math.random() - 1)
+  return new THREE.Vector3(
+    r * Math.sin(phi) * Math.cos(theta),
+    r * Math.cos(phi),
+    r * Math.sin(phi) * Math.sin(theta)
+  )
+}
+
+// textura de "dot" com brilho radial para os nós
+function makeDotTexture() {
+  const size = 64
+  const canvas = document.createElement("canvas")
+  canvas.width = canvas.height = size
+  const ctx = canvas.getContext("2d")!
+  const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
+  g.addColorStop(0, "rgba(255,255,255,1)")
+  g.addColorStop(0.3, "rgba(154,242,255,0.9)")
+  g.addColorStop(1, "rgba(0,229,255,0)")
+  ctx.fillStyle = g
+  ctx.fillRect(0, 0, size, size)
+  const tex = new THREE.CanvasTexture(canvas)
+  tex.colorSpace = THREE.SRGBColorSpace
+  return tex
+}
+
+// (re)define um arco que sai da superfície, arqueia e volta
+function setArc(arc: Arc, nodes: THREE.Vector3[]) {
+  let ia = (Math.random() * nodes.length) | 0
+  let ib = (Math.random() * nodes.length) | 0
+  while (ib === ia) ib = (Math.random() * nodes.length) | 0
+  const a = nodes[ia]
+  const b = nodes[ib]
+  const dist = a.distanceTo(b)
+  // ponto de controle empurrado radialmente p fora
+  const mid = a
+    .clone()
+    .add(b)
+    .multiplyScalar(0.5)
+    .normalize()
+    .multiplyScalar(NODE_R + dist * 0.35)
+  const pts = new THREE.QuadraticBezierCurve3(a, mid, b).getPoints(ARC_SEG)
+  for (let i = 0; i < pts.length; i++) {
+    arc.positions[i * 3] = pts[i].x
+    arc.positions[i * 3 + 1] = pts[i].y
+    arc.positions[i * 3 + 2] = pts[i].z
+  }
+  arc.geo.attributes.position.needsUpdate = true
+  arc.geo.setDrawRange(0, 0)
+  arc.t = 0
+  arc.dur = 5 + Math.random() * 5
+}
+
+/*
+  Pontos brilhantes na superfície. Dentro do grupo do globo, então gira/contorna junto com o planeta.
+ */
+
+function Connections() {
+  const built = useMemo(() => {
+    const group = new THREE.Group()
+    const nodes = Array.from({ length: NODE_COUNT }, () => randomSpherePoint(NODE_R))
+
+    // nós (Points)
+    const npos = new Float32Array(NODE_COUNT * 3)
+    nodes.forEach((n, i) => {
+      npos[i * 3] = n.x
+      npos[i * 3 + 1] = n.y
+      npos[i * 3 + 2] = n.z
+    })
+    const nodeGeo = new THREE.BufferGeometry()
+    nodeGeo.setAttribute("position", new THREE.BufferAttribute(npos, 3))
+    const dotTex = makeDotTexture()
+    const nodeMat = new THREE.PointsMaterial({
+      size: 0.09,
+      map: dotTex,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      sizeAttenuation: true,
+    })
+    const points = new THREE.Points(nodeGeo, nodeMat)
+    points.frustumCulled = false
+    group.add(points)
+
+    // arcos
+    const arcs: Arc[] = []
+    for (let i = 0; i < ARC_COUNT; i++) {
+      const positions = new Float32Array((ARC_SEG + 1) * 3)
+      const geo = new THREE.BufferGeometry()
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3))
+      const mat = new THREE.LineBasicMaterial({
+        color: 0x00e5ff,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      })
+      const line = new THREE.Line(geo, mat)
+      line.frustumCulled = false
+      const arc: Arc = { line, geo, mat, positions, t: 0, dur: 1 }
+      setArc(arc, nodes)
+      arc.t = Math.random() // espalha as fases iniciais
+      arcs.push(arc)
+      group.add(line)
+    }
+
+    return { group, arcs, nodes, dotTex, nodeGeo, nodeMat }
+  }, [])
+
+  useFrame((_, delta) => {
+    for (const arc of built.arcs) {
+      arc.t += delta / arc.dur
+      if (arc.t >= 1) {
+        setArc(arc, built.nodes)
+        continue
+      }
+      const t = arc.t
+      const draw = Math.min(t / 0.35, 1) // desenha nos primeiros 35%
+      arc.geo.setDrawRange(0, Math.max(2, Math.floor(draw * ARC_SEG) + 1))
+      let op = 1
+      if (t < 0.1) op = t / 0.1
+      else if (t > 0.75) op = Math.max(0, 1 - (t - 0.75) / 0.25)
+      arc.mat.opacity = op
+    }
+  })
+
+  useEffect(() => {
+    return () => {
+      built.dotTex.dispose()
+      built.nodeGeo.dispose()
+      built.nodeMat.dispose()
+      built.arcs.forEach((a) => {
+        a.geo.dispose()
+        a.mat.dispose()
+      })
+    }
+  }, [built])
+
+  return <primitive object={built.group} />
+}
+
 function Earth({
   groupRef,
   draggingRef,
+  openRef,
 }: {
   groupRef: RefObject<THREE.Group | null>
   draggingRef: RefObject<boolean>
+  openRef: RefObject<boolean>
 }) {
   const [colorMap, specMap] = useLoader(THREE.TextureLoader, TEXTURES)
   const fresnelMat = useFresnelMaterial()
+  const camera = useThree((s) => s.camera)
+  const diveRef = useRef(0)
 
   // wrap horizontal para a amostragem de costa não cortar na emenda da textura
   useMemo(() => {
@@ -185,13 +341,18 @@ function Earth({
 
   useFrame((_, delta) => {
     const g = groupRef.current
-    if (!g || draggingRef.current) return
     // sem arrastar → retorna suavemente para o Brasil (caminho mais curto em Y)
-    const t = Math.min(1, delta * 3)
-    let dy = TARGET.y - g.rotation.y
-    dy = Math.atan2(Math.sin(dy), Math.cos(dy))
-    g.rotation.y += dy * t
-    g.rotation.x += (TARGET.x - g.rotation.x) * t
+    if (g && !draggingRef.current) {
+      const t = Math.min(1, delta * 3)
+      let dy = TARGET.y - g.rotation.y
+      dy = Math.atan2(Math.sin(dy), Math.cos(dy))
+      g.rotation.y += dy * t
+      g.rotation.x += (TARGET.x - g.rotation.x) * t
+    }
+    // mergulho da câmera em direção ao Brasil quando o overlay abre
+    const target = openRef.current ? 1 : 0
+    diveRef.current += (target - diveRef.current) * Math.min(1, delta * 3.5)
+    camera.position.z = 3.5 - diveRef.current * 2.4
   })
 
   return (
@@ -213,6 +374,8 @@ function Earth({
         <sphereGeometry args={[1, 96, 96]} />
         <primitive object={hologramMat} attach="material" />
       </mesh>
+      {/* rede de conexões (pontos + arcos animados) */}
+      <Connections />
       {/* atmosfera */}
       <mesh scale={1.015}>
         <sphereGeometry args={[1, 96, 96]} />
@@ -235,6 +398,12 @@ export function EarthGlobe({ className }: { className?: string }) {
   const downRef = useRef({ x: 0, y: 0 })
   const movedRef = useRef(false)
   const [open, setOpen] = useState(false)
+  const openRef = useRef(false)
+
+  // espelha `open` num ref para o loop de animação (mergulho da câmera) ler
+  useEffect(() => {
+    openRef.current = open
+  }, [open])
 
   const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
     draggingRef.current = true
@@ -287,41 +456,28 @@ export function EarthGlobe({ className }: { className?: string }) {
           }
         }}
       >
-        <Canvas
-          dpr={[1, 2]}
-          camera={{ position: [0, 0, 3.5], fov: 35 }}
-          gl={{ alpha: true, antialias: true }}
+        <motion.div
+          className="h-full w-full"
+          animate={{
+            opacity: open ? 0 : 1,
+            scale: open ? 1.25 : 1,
+            filter: open ? "blur(8px)" : "blur(0px)",
+          }}
+          transition={{ duration: 0.8, ease: "easeIn" }}
         >
-          <Suspense fallback={null}>
-            <Earth groupRef={groupRef} draggingRef={draggingRef} />
-          </Suspense>
-        </Canvas>
+          <Canvas
+            dpr={[1, 2]}
+            camera={{ position: [0, 0, 3.5], fov: 35 }}
+            gl={{ alpha: true, antialias: true }}
+          >
+            <Suspense fallback={null}>
+              <Earth groupRef={groupRef} draggingRef={draggingRef} openRef={openRef} />
+            </Suspense>
+          </Canvas>
+        </motion.div>
       </div>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="border-[#0e2942] bg-[#0a1628] text-white sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-black uppercase tracking-tight text-white">
-              A Larafy atende o Brasil inteiro
-            </DialogTitle>
-            <DialogDescription className="text-[#00e5ff]">
-              Inteligência tributária de norte a sul, sem fronteiras.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-3 text-sm leading-relaxed text-white/75">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia.
-            </p>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <BrazilDetail open={open} onClose={() => setOpen(false)} />
     </>
   )
 }
