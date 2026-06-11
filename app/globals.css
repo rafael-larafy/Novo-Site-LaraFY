@@ -592,3 +592,31 @@ html {
     transition: none;
   }
 }
+
+/* Slider do simulador da Reforma — thumb ciano com halo */
+.sim-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00e5ff;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.18);
+  transition: box-shadow var(--duration-base) var(--ease-default);
+}
+.sim-range::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 6px rgba(0, 229, 255, 0.26);
+}
+.sim-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #00e5ff;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.18);
+}
+.sim-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.18), 0 0 0 7px rgba(255, 255, 255, 0.5);
+}

@@ -8,11 +8,8 @@ import { UnderlineLink } from "@/components/underline-link"
 import { CtaButton } from "@/components/ui/cta-button"
 
 const navLinks = [
-  { label: "Soluções", href: "/#solucoes" },
-  { label: "Tecnologia", href: "/#tecnologia" },
-  { label: "Resultados", href: "/#impacto" },
   { label: "Sobre nós", href: "/sobre" },
-  { label: "O Método", href: "/metodo" },
+  { label: "Reforma Tributária", href: "/reforma-tributaria" },
 ]
 
 export function Header() {

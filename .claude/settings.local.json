@@ -73,7 +73,30 @@
       "Bash(awk '{print $1, $9}')",
       "Bash(grep -o \"pathLength[^;]\\\\{0,80\\\\}\" node_modules/framer-motion/dist/framer-motion.js)",
       "Bash(grep -o \"function [A-Za-z]*\\([^\\)]*\\){if[^}]*Mr\\(t,a,c\\)[^}]\\\\{0,400\\\\}\" node_modules/framer-motion/dist/framer-motion.js)",
-      "Bash(grep -o \"function Mr\\([^\\)]*\\){[^}]\\\\{0,600\\\\}\" node_modules/framer-motion/dist/framer-motion.js)"
+      "Bash(grep -o \"function Mr\\([^\\)]*\\){[^}]\\\\{0,600\\\\}\" node_modules/framer-motion/dist/framer-motion.js)",
+      "WebFetch(domain:www.joshwcomeau.com)",
+      "WebFetch(domain:emilkowal.ski)",
+      "WebFetch(domain:www.sarasoueidan.com)",
+      "WebFetch(domain:www.designmd.run)",
+      "Bash(node -e \"const l=require\\('lucide-react'\\); for \\(const n of ['CircleDollarSign','BarChart3','LineChart','FileSpreadsheet','Users','Building2','ArrowLeftRight','ArrowRight']\\) console.log\\(n, !!l[n]\\)\")",
+      "Bash(grep -rni \"07e0ff\" components/sections/funnel components/sections/flash/count-up.tsx app/page.tsx)",
+      "Bash(grep -rni \"montserrat\" components/sections/funnel components/sections/flash/count-up.tsx app/page.tsx)",
+      "Bash(grep -rniE \"bg-white|bg-\\\\[#f|bg-\\\\[#e|bg-gray-[0-2]|bg-slate-[0-2]|bg-neutral-[0-2]|text-black|text-\\\\[#0[0-2]\" components/sections/funnel components/sections/flash/count-up.tsx)",
+      "Bash(grep -rl \"CtaButton\" components/sections/funnel/)",
+      "Bash(grep -rn \"bg-\\\\[#00e5ff\\\\] px-8 py-4\" components/sections/funnel/)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('framer-motion:', \\(p.dependencies&&p.dependencies['framer-motion']\\)||\\(p.devDependencies&&p.devDependencies['framer-motion']\\)||'not in package.json'\\)\")",
+      "Bash(grep -n \"prefers-reduced-motion\" app/globals.css)",
+      "Bash(grep -rn \"prefers-reduced-motion\" app/*.css)",
+      "Bash(curl -s \"https://api.github.com/users/bobbyroe/repos?per_page=100&sort=pushed\" -H \"Accept: application/vnd.github+json\")",
+      "Bash(node -e ' *)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/noise-grid-r3f/main/src/App.jsx)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/orbit-trails-r3f/main/src/App.jsx)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/curl-particles/main/index.js)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/vertex-earth/main/index.js)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/fireflies/main/index.js)",
+      "Bash(curl -s https://raw.githubusercontent.com/bobbyroe/Simple-Particle-Effects/main/getParticleSystem.js)",
+      "Bash(echo \"TSC_EXIT=$?\")",
+      "Bash(npm run *)"
     ]
   }
 }
