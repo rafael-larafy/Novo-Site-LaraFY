@@ -88,7 +88,6 @@ export default function CarreirasPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
         <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -120,7 +119,6 @@ export default function CarreirasPage() {
           </div>
         </section>
 
-        {/* Cultura */}
         <section className="relative bg-[#020c18] py-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -193,7 +191,6 @@ export default function CarreirasPage() {
           </div>
         </section>
 
-        {/* Benefícios */}
         <section className="relative bg-[#0a1628] py-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <motion.div
@@ -231,7 +228,6 @@ export default function CarreirasPage() {
           </div>
         </section>
 
-        {/* Vagas */}
         <section className="relative bg-[#020c18] py-20 lg:py-32">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <motion.div
@@ -288,7 +284,6 @@ export default function CarreirasPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="relative bg-[#0a1628] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2

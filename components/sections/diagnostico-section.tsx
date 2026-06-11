@@ -1,85 +1,78 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SplitReveal } from "@/components/split-reveal"
 import {
   scrollViewport,
   scrollTransition,
+  fadeUpVariants,
   scaleVariants,
+  staggerDelay,
 } from "@/lib/scroll-motion"
-
-function HexPattern({ className = "" }: { className?: string }) {
-  const nodes = [
-    { x: 40, y: 50, lx: 150, ly: 120 },
-    { x: 120, y: 200, lx: 280, ly: 80 },
-    { x: 200, y: 30, lx: 100, ly: 250 },
-    { x: 300, y: 150, lx: 350, ly: 270 },
-    { x: 370, y: 80, lx: 200, ly: 180 },
-    { x: 60, y: 270, lx: 320, ly: 220 },
-    { x: 250, y: 250, lx: 80, ly: 100 },
-    { x: 180, y: 140, lx: 290, ly: 190 },
-  ]
-  return (
-    <svg className={className} viewBox="0 0 400 300" fill="none">
-      {nodes.map((p, i) => (
-        <g key={i}>
-          <circle cx={p.x} cy={p.y} r="2" fill="currentColor" />
-          <line
-            x1={p.x}
-            y1={p.y}
-            x2={p.lx}
-            y2={p.ly}
-            stroke="currentColor"
-            strokeWidth="0.3"
-          />
-        </g>
-      ))}
-    </svg>
-  )
-}
+import { SplitReveal } from "@/components/split-reveal"
+import { CtaButton } from "@/components/ui/cta-button"
+import { ConstellationField } from "@/components/constellation-field"
+import { MetaLabel, HudGrid, HudCorners } from "@/components/ui/editorial"
 
 export function DiagnosticoSection() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-[#0a1628]">
-      <div className="absolute inset-0 text-white/10">
-        <HexPattern className="w-full h-full" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#020a14] text-white">
+      <HudGrid />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-28 lg:px-10 lg:py-36">
         <motion.div
-          className="relative rounded-[28px] overflow-hidden bg-white shadow-xl"
+          className="relative mx-auto max-w-4xl border hairline bg-[#04101f]/60 p-8 text-center lg:p-16"
           initial="hidden"
           whileInView="visible"
           viewport={scrollViewport}
           variants={scaleVariants}
           transition={scrollTransition}
         >
-          <div className="absolute inset-0 text-[#0a1628]/[0.06] pointer-events-none">
-            <HexPattern className="w-full h-full" />
-          </div>
+          <HudCorners />
+          <ConstellationField
+            className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 opacity-20"
+            count={6}
+            radius={36}
+          />
 
-          <div className="relative z-10 flex flex-col lg:flex-row">
-            <div className="flex-1 lg:flex-[1.2] p-10 lg:p-14 flex items-center">
-              <SplitReveal as="h2"
-                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.15] tracking-tight text-[#0a1628] uppercase"
-              >
-                Tributo não é despesa.<br />É estratégia.
-              </SplitReveal>
-            </div>
+          <div className="relative z-10">
+            <MetaLabel className="text-[#00e5ff]">10 — Diagnóstico estratégico</MetaLabel>
 
-            <div className="flex-1 p-10 lg:p-14 flex flex-col justify-center gap-6 border-t lg:border-t-0 lg:border-l border-[#e5e7eb]">
-              <p className="text-base lg:text-lg text-[#333333] leading-relaxed">
-                Solicite um diagnóstico tributário estratégico e entenda, com
-                profundidade, como sua empresa pode operar com mais eficiência,
-                segurança e previsibilidade de caixa.
-              </p>
-              <a
-                href="#contato"
-                className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
-              >
+            <SplitReveal
+              as="h2"
+              type="words"
+              className="mx-auto mt-6 max-w-3xl font-display text-[clamp(2rem,5.5vw,5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+            >
+              Tributo não é despesa. É estratégia.
+            </SplitReveal>
+
+            <motion.p
+              className="mx-auto mt-6 max-w-xl text-white/60"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
+            >
+              Solicite um diagnóstico e entenda, com profundidade, como sua empresa
+              pode operar com mais eficiência, segurança e previsibilidade de caixa.
+            </motion.p>
+
+            {/* prompt de terminal */}
+            <motion.div
+              className="mt-10 inline-flex flex-col items-center gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+            >
+              <span className="font-mono text-sm text-[#5f86a6]">
+                <span className="text-[#00e5ff]">&gt;</span> solicitar_diagnostico
+                <span className="ml-1 inline-block h-4 w-2 translate-y-[3px] animate-pulse bg-[#00e5ff]" />
+              </span>
+              <CtaButton href="#contato" magneticStrength={0.4}>
                 Solicitar diagnóstico estratégico
-              </a>
-            </div>
+              </CtaButton>
+            </motion.div>
           </div>
         </motion.div>
       </div>

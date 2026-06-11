@@ -76,11 +76,11 @@ export default function MetodoPage() {
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero */}
-        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
+        <section className="relative bg-[#04101f] pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#04101f] via-[#061425] to-[#04101f]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
-              className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"
+              className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -89,7 +89,7 @@ export default function MetodoPage() {
             >
               O Método LaraFy
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 text-3xl font-display font-bold uppercase leading-tight text-white lg:text-6xl">
               Precisão cirúrgica em{" "}
               <span className="text-[#00e5ff]">cada etapa</span>
             </SplitReveal>
@@ -109,7 +109,7 @@ export default function MetodoPage() {
         </section>
 
         {/* Etapas */}
-        <section className="relative bg-[#020c18] py-20 lg:py-32">
+        <section className="relative bg-[#020a14] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -119,7 +119,7 @@ export default function MetodoPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="text-2xl font-display font-bold uppercase text-white lg:text-4xl">
                 Como funciona
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -131,7 +131,7 @@ export default function MetodoPage() {
               {etapas.map((etapa, index) => (
                 <motion.div
                   key={etapa.numero}
-                  className="group relative flex flex-col sm:flex-row items-start gap-6 rounded-2xl border border-[#1e3a5f]/40 bg-[#0d1f3c]/60 p-6 sm:p-8 transition-all duration-300 hover:border-[#00e5ff]/40 hover:bg-[#0d1f3c]"
+                  className="group relative flex flex-col sm:flex-row items-start gap-6 rounded-2xl border border-[#00e5ff]/15 bg-[#061425]/60 p-6 sm:p-8 transition-all duration-300 hover:border-[#00e5ff]/40 hover:bg-[#061425]"
                   initial="hidden"
                   whileInView="visible"
                   viewport={scrollViewport}
@@ -139,7 +139,7 @@ export default function MetodoPage() {
                   transition={{ ...scrollTransition, delay: staggerDelay(index) }}
                 >
                   <div className="flex items-center gap-4 sm:min-w-[140px]">
-                    <span className="text-4xl font-black text-[#00e5ff]/20 lg:text-5xl">
+                    <span className="text-4xl font-display font-bold text-[#00e5ff]/20 lg:text-5xl">
                       {etapa.numero}
                     </span>
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#00e5ff]/10">
@@ -166,7 +166,7 @@ export default function MetodoPage() {
         </section>
 
         {/* Diferenciais do Método */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-32">
+        <section className="relative bg-[#04101f] py-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
               <motion.div
@@ -177,10 +177,10 @@ export default function MetodoPage() {
                 variants={slideLeftVariants}
                 transition={scrollTransition}
               >
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
+                <p className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]">
                   Por que funciona
                 </p>
-                <h2 className="mt-4 text-2xl font-black uppercase text-white lg:text-4xl">
+                <h2 className="mt-4 text-2xl font-display font-bold uppercase text-white lg:text-4xl">
                   O diferencial está nos detalhes
                 </h2>
                 <p className="mt-6 text-[#8ba3c0] leading-relaxed">
@@ -197,7 +197,7 @@ export default function MetodoPage() {
                 >
                   <Magnetic><a
                     href="/#contato"
-                    className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+                    className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#04101f] glow-effect"
                   >
                     Solicitar Diagnóstico Gratuito
                   </a></Magnetic>
@@ -215,7 +215,7 @@ export default function MetodoPage() {
                 {diferenciais.map((item, index) => (
                   <motion.div
                     key={item.titulo}
-                    className="rounded-2xl border border-[#1e3a5f]/40 bg-[#0d1f3c]/60 p-6 transition-all duration-300 hover:border-[#00e5ff]/40"
+                    className="rounded-2xl border border-[#00e5ff]/15 bg-[#061425]/60 p-6 transition-all duration-300 hover:border-[#00e5ff]/40"
                     initial="hidden"
                     whileInView="visible"
                     viewport={scrollViewport}
@@ -236,10 +236,10 @@ export default function MetodoPage() {
         </section>
 
         {/* Zero Risco */}
-        <section className="relative py-20 lg:py-28 overflow-hidden bg-[#020c18]">
+        <section className="relative py-20 lg:py-28 overflow-hidden bg-[#020a14]">
           <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 text-center">
             <motion.h2
-              className="text-5xl font-black uppercase text-white lg:text-8xl tracking-tight"
+              className="text-5xl font-display font-bold uppercase text-white lg:text-8xl tracking-tight"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -277,7 +277,7 @@ export default function MetodoPage() {
             >
               <Magnetic><a
                 href="/#contato"
-                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#04101f] glow-effect"
               >
                 Simule os impactos da Reforma Tributária
               </a></Magnetic>

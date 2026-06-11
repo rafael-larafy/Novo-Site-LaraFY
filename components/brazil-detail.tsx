@@ -6,14 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft } from "lucide-react"
 import { EcosystemConstellation } from "@/components/ecosystem-constellation"
 
-/**
- * Overlay em tela cheia revelado ao clicar no globo: à esquerda o ecossistema
- * da Larafy (constelação núcleo + nós), à direita o texto. Fundo translúcido
- * com blur (glassmorphism). Fecha pelo botão Voltar, ESC ou clique no fundo.
- *
- * Renderizado num portal no <body> para que `fixed inset-0` seja sempre
- * relativo à viewport (imune a ancestrais com transform/filter).
- */
+
 export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [mounted, setMounted] = useState(false)
 
@@ -47,7 +40,6 @@ export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => 
           transition={{ duration: 0.4 }}
           onClick={onClose}
         >
-          {/* scrim radial (gradiente, sem blur) — garante contraste sobre o vidro */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(120%_120%_at_50%_42%,rgba(4,16,31,0.12)_0%,rgba(4,16,31,0.74)_72%)]"
@@ -57,7 +49,6 @@ export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => 
             className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ecossistema (substitui o mapa) */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -66,7 +57,6 @@ export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => 
               <EcosystemConstellation />
             </motion.div>
 
-            {/* texto — cartão de vidro sólido (sem blur próprio) */}
             <motion.div
               className="space-y-4 rounded-3xl bg-[#04101f]/60 p-6 text-center shadow-[0_8px_40px_rgba(0,0,0,0.35)] ring-1 ring-white/10 lg:p-8 lg:text-left"
               initial={{ opacity: 0, x: 40 }}
@@ -92,7 +82,6 @@ export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => 
             </motion.div>
           </div>
 
-          {/* botão Voltar — último filho + z alto: garantido por cima de tudo */}
           <button
             type="button"
             onClick={onClose}

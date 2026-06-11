@@ -9,6 +9,7 @@ import {
   slideRightVariants,
 } from "@/lib/scroll-motion"
 import styles from "./painel-larafy.module.css"
+import { LazyBgVideo } from "@/components/lazy-bg-video"
 
 const CX = 290
 const CY = 290
@@ -198,14 +199,7 @@ export function PainelLarafy() {
 
   return (
     <div className={styles.panel}>
-      <video
-        className={styles.bgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        src="/Video LP (V2).mp4"
-      />
+      <LazyBgVideo className={styles.bgVideo} src="/Video LP (V2).mp4" />
       <div className={styles.bgOverlay} />
 
       <div className={styles.header}>
@@ -218,6 +212,7 @@ export function PainelLarafy() {
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
+            <p className={styles.headerKicker}>05 — Transparência</p>
             <h2 className={styles.headerTitle}>
               Transparência e Método:
               um processo claro para ir

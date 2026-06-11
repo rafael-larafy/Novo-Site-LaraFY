@@ -1,113 +1,76 @@
 "use client"
 
 import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+  slideLeftVariants,
+  scaleVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import { SplitReveal } from "@/components/split-reveal"
-import Image from "next/image"
-import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants, staggerDelay} from "@/lib/scroll-motion"
-import { Parallax } from "@/components/parallax"
-import { Magnetic } from "@/components/magnetic"
-import WaldirImg from "../../lib/Waldir.png"
-
+import { CtaButton } from "@/components/ui/cta-button"
+import { CeoPortrait } from "@/components/ceo-portrait"
+import { MetaLabel, HudGrid } from "@/components/ui/editorial"
 
 export function CeoSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a1628] pt-8 pb-14 lg:pt-0 lg:pb-0">
-      <Parallax className="absolute inset-0" amount={90}>
-        <Image
-          src="/images/AdobeStock_699471030.jpeg"
-          alt=""
-          fill
-          className="object-cover opacity-20"
-          sizes="100vw"
-          loading="lazy"
-        />
-      </Parallax>
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0066ff]/20 to-transparent z-[1]" />
-
-              <div className="bg-[#0a1628] pt-16 pb-[0px]">
-          <div className="mb-12 mx-auto max-w-5xl px-6 text-center lg:px-8">
-            <motion.p
-              className="text-[#77e4ff] text-sm leading-relaxed"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(4) }}
-            >
-             O mercado tradicional de consultoria limita o seu ganho
-            </motion.p>
-            <motion.h3
-              className="mt-4 text-xl text-center font-extrabold text-[#00e5ff] lg:text-4xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(5) }}
-            >
-             Com tecnologia e método exclusivo,
-              <br />
-              a LaraFy potencializa o seu lucro.
-            </motion.h3>
-          </div>
+    <section className="relative overflow-hidden bg-[#050d18] text-white">
+      <HudGrid />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
+        <div className="flex items-center justify-between border-t hairline pt-6">
+          <MetaLabel className="text-[#00e5ff]">03 — Tecnologia + humanidade</MetaLabel>
+          <MetaLabel className="hidden sm:block">O diferencial</MetaLabel>
         </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 pb-1">
+        <div className="mt-14 grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          {/* retrato em moldura */}
           <motion.div
-            className="flex-1 space-y-8"
+            className="relative order-1 mx-auto w-full max-w-[360px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={scaleVariants}
+            transition={scrollTransition}
+          >
+            <CeoPortrait />
+          </motion.div>
+
+          {/* citação dominante */}
+          <motion.div
+            className="order-2"
             initial="hidden"
             whileInView="visible"
             viewport={scrollViewport}
             variants={slideLeftVariants}
             transition={scrollTransition}
           >
-            <SplitReveal as="h2"
-              className="text-2xl text-center lg:text-left font-black uppercase leading-tight text-[#00e5ff] lg:text-5xl text-balance"
+            <span className="font-display text-7xl leading-none text-[#00e5ff]/40">“</span>
+            <SplitReveal
+              as="h2"
+              type="words"
+              className="-mt-6 font-display text-[clamp(1.9rem,4vw,3.75rem)] font-bold uppercase leading-[1.02] tracking-[-0.01em] text-white text-balance"
             >
-              “A linha tênue entre o erro e o acerto está em como foi analisado.”
+              A linha tênue entre o erro e o acerto está em como foi analisado.
             </SplitReveal>
-            <Magnetic strength={0.5}>
-              <a
-                href="#contato"
-                className="cta-button inline-block rounded-full bg-[#00e5ff] px-8 py-4 text-base sm:text-sm font-bold uppercase tracking-wider text-[#0a1628] glow-effect text-center lg:text-left"
-              >
-                Solicitar Diagnóstico Tributário Estratégico
-              </a>
-            </Magnetic>
-          </motion.div>
 
-          <motion.div
-            className="flex-1 relative"
-            initial="hidden"
-            whileInView="visible"
-            viewport={scrollViewport}
-            variants={slideRightVariants}
-            transition={scrollTransition}
-          >
-            <div className="relative flex items-end justify-center">
-              <div
-                data-gsap-tilt
-                className="relative w-full max-w-[560px] aspect-square"
-                style={{ perspective: "900px" }}
-              >
-                <div className="absolute inset-0  from-[#0a1628] via-transparent to-transparent z-10" />
-                <div
-                  data-gsap-tilt-inner
-                  className="w-full h-full"
-                  style={{ transformStyle: "preserve-3d", willChange: "transform" }}
-                >
-                  <Image
-                    src={WaldirImg}
-                    alt="Waldir de Lara - Founder e CEO da LaraFy"
-                    width={560}
-                    height={560}
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
+            <motion.div
+              className="mt-9 flex flex-col gap-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+            >
+              <p className="max-w-lg text-white/60">
+                Com tecnologia e método exclusivos, a Larafy transforma dado em decisão
+                — e decisão em lucro.
+              </p>
+              <CtaButton href="#contato" wrapperClassName="self-start">
+                Solicitar diagnóstico estratégico
+              </CtaButton>
+            </motion.div>
           </motion.div>
         </div>
       </div>

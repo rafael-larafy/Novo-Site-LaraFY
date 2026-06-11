@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useLenis } from "lenis/react"
 
+import { EASE_SIGNATURE } from "@/lib/ease"
+import { markAppReady } from "@/lib/app-ready"
+
 /**
  * Tela de loading inicial (preloader). Cobre a viewport no primeiro carregamento,
  * mostra um slot central (onde entrará um elemento 3D depois), logo e progresso.
@@ -27,6 +30,7 @@ export function LoadingScreen() {
     } else {
       lenis?.start()
       document.documentElement.style.overflow = ""
+      markAppReady()
     }
   }, [visible, lenis])
 
@@ -44,7 +48,7 @@ export function LoadingScreen() {
     }, 6000)
 
     const start = performance.now()
-    const MIN_MS = 3400
+    const MIN_MS = 1500
     let cur = 0
     let raf = 0
 
@@ -78,7 +82,7 @@ export function LoadingScreen() {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a1628]"
           initial={{ opacity: 1 }}
           exit={reduce ? { opacity: 0 } : { y: "-100%" }}
-          transition={{ duration: reduce ? 0.4 : 0.9, ease: [0.55, 0, 0.1, 1] }}
+          transition={{ duration: reduce ? 0.4 : 0.9, ease: EASE_SIGNATURE }}
         >
           {/* logo (versão clara: branca + ciano, já visível no fundo escuro) */}
           <Image

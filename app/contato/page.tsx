@@ -12,7 +12,6 @@ export default function ContatoPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
         <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -51,7 +50,6 @@ export default function ContatoPage() {
           </div>
         </section>
 
-        {/* Formulário (mesmo da home) */}
         <ContatoSection />
       </main>
       <Analytics/>

@@ -67,7 +67,6 @@ export default function CasesPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
         <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -99,7 +98,6 @@ export default function CasesPage() {
           </div>
         </section>
 
-        {/* Cases */}
         <section className="relative bg-[#020c18] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8 space-y-12">
             {cases.map((caseItem, index) => (
@@ -113,7 +111,6 @@ export default function CasesPage() {
                 transition={{ ...scrollTransition, delay: staggerDelay(1) }}
               >
                 <div className="p-8 lg:p-10">
-                  {/* Setor tag */}
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="h-4 w-4 text-[#00e5ff]" />
                     <span className="text-xs font-semibold uppercase tracking-widest text-[#00e5ff]">
@@ -121,7 +118,6 @@ export default function CasesPage() {
                     </span>
                   </div>
 
-                  {/* Título e descrição */}
                   <h3 className="text-xl font-bold text-white mb-3 lg:text-2xl">
                     {caseItem.titulo}
                   </h3>
@@ -129,7 +125,6 @@ export default function CasesPage() {
                     {caseItem.descricao}
                   </p>
 
-                  {/* Resultados */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     {caseItem.resultados.map((resultado) => (
                       <div
@@ -146,7 +141,6 @@ export default function CasesPage() {
                     ))}
                   </div>
 
-                  {/* Destaque */}
                   <div className="flex items-start gap-3 rounded-xl bg-[#00e5ff]/5 border border-[#00e5ff]/20 p-4">
                     <ShieldCheck className="h-5 w-5 text-[#00e5ff] flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-[#c5d9f3] font-medium">
@@ -159,10 +153,8 @@ export default function CasesPage() {
           </div>
         </section>
 
-        {/* Parceiros */}
         <LogosCarouselSection />
 
-        {/* CTA */}
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2

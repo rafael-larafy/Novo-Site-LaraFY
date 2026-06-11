@@ -26,7 +26,7 @@ export function ContatoSection() {
 
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <motion.div
-          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 py-12 sm:px-6 sm:py-16 lg:p-16 bg-[#0a1628]/85 backdrop-blur-sm"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 px-4 py-12 sm:px-6 sm:py-16 lg:p-16 bg-[#04101f]/88 backdrop-blur-sm"
           initial="hidden"
           whileInView="visible"
           viewport={scrollViewport}
@@ -35,7 +35,7 @@ export function ContatoSection() {
         >
           <div className="flex-1 max-w-[340px] order-1 lg:order-1">
             <SplitReveal as="h2"
-              className="text-xl lg:text-2xl font-black text-white leading-tight"
+              className="font-display text-2xl lg:text-3xl font-bold text-white leading-tight tracking-tight"
             >
               Tenha acesso direto a um estrategista sênior.
             </SplitReveal>

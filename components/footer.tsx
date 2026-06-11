@@ -1,150 +1,155 @@
-"use client"
-
+// COPY: números e claims pendentes de validação com a Larafy.
 import Image from "next/image"
 import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
 import GPTWImg from "@/lib/GPTW.png"
 
+const solucoesLinks = [
+  { label: "Recuperação de Créditos", href: "/#solucoes" },
+  { label: "Planejamento Tributário", href: "/#solucoes" },
+  { label: "Reforma Tributária", href: "/#solucoes" },
+  { label: "Contabilidade · Folha · M&A", href: "/#solucoes" },
+]
+
+const empresaLinks = [
+  { label: "Tecnologia", href: "/#tecnologia" },
+  { label: "Resultados", href: "/#impacto" },
+  { label: "Sobre nós", href: "/sobre" },
+  { label: "O Método", href: "/metodo" },
+]
+
+const socialLinks = [
+  {
+    label: "LinkedIn da LaraFy",
+    href: "https://www.linkedin.com/company/laratax/",
+    Icon: Linkedin,
+  },
+  {
+    label: "Facebook da LaraFy",
+    href: "https://www.facebook.com/share/1BjiDNA8Nf/?mibextid=wwXIfr",
+    Icon: Facebook,
+  },
+  {
+    label: "Instagram da LaraFy",
+    href: "https://www.instagram.com/laratax/",
+    Icon: Instagram,
+  },
+]
+
+const selos = ["Apólice R$ 10 mi", "CRC-PR", "LGPD"]
+
 export function Footer() {
   return (
-    <footer className="w-full bg-[#0a1628] px-6 py-6 lg:px-12 lg:py-8 text-white font-sans">
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 flex-wrap">
-        <div className="flex-shrink-0">
-          <a href="/" className="block">
-            <img
-              src="/images/larafy-logo-light.svg"
-              alt="LaraFy"
-              className="max-h-[32px] lg:max-h-[40px] w-auto"
+    <footer className="bg-[#001b27] pt-16 pb-8 text-white/65 lg:pt-20">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-11">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div>
+            <a href="/" className="inline-block">
+              <img
+                src="/images/larafy-logo-light.svg"
+                alt="LaraFy"
+                className="h-9 w-auto"
+              />
+            </a>
+            <p className="mt-4 max-w-[32ch] text-sm leading-relaxed">
+              Consultoria tributária de alta performance, especialista em Lucro
+              Real e Presumido. Precisão de dados via tecnologia proprietária.
+            </p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {selos.map((selo) => (
+                <li
+                  key={selo}
+                  className="rounded-full border border-white/15 px-3 py-1.5 text-[11px] font-semibold text-white/80"
+                >
+                  {selo}
+                </li>
+              ))}
+            </ul>
+            <Image
+              src={GPTWImg}
+              alt="Great Place To Work — Certificada 2025"
+              className="mt-5 h-16 w-auto object-contain"
             />
-          </a>
-        </div>
+          </div>
 
-        <div className="flex gap-12 lg:gap-16 text-white">
+          <nav aria-label="Soluções">
+            <h5 className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white">
+              Soluções
+            </h5>
+            {solucoesLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="mb-2.5 block text-sm transition-colors duration-200 hover:text-[#07e0ff]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <nav aria-label="Empresa">
+            <h5 className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white">
+              Empresa
+            </h5>
+            {empresaLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="mb-2.5 block text-sm transition-colors duration-200 hover:text-[#07e0ff]"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
           <div>
-            <ul className="list-none m-0 p-0 space-y-1.5">
-              <li>
+            <h5 className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white">
+              Contato
+            </h5>
+            <p className="mb-2.5 flex items-start gap-2 text-sm">
+              <Phone className="mt-1 h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span>(41) 3146-5868</span>
+            </p>
+            <a
+              href="mailto:contato@larafy.com.br"
+              className="mb-2.5 flex items-start gap-2 text-sm transition-colors duration-200 hover:text-[#07e0ff]"
+            >
+              <Mail className="mt-1 h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span>contato@larafy.com.br</span>
+            </a>
+            <p className="mb-2.5 flex items-start gap-2 text-sm">
+              <MapPin className="mt-1 h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span>
+                Av. Rocha Pombo, 1977 — São Cristóvão · CEP 83005-280
+              </span>
+            </p>
+            <a
+              href="/#contato"
+              className="mb-2.5 block text-sm font-bold text-white transition-colors duration-200 hover:text-[#07e0ff]"
+            >
+              Agendar diagnóstico
+            </a>
+            <div className="mt-4 flex gap-3">
+              {socialLinks.map(({ label, href, Icon }) => (
                 <a
-                  href="#sobre"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="transition-colors duration-200 hover:text-[#07e0ff]"
                 >
-                  Sobre
+                  <Icon className="h-4 w-4" aria-hidden />
                 </a>
-              </li>
-              <li>
-                <a
-                  href="#solucoes"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
-                >
-                  Soluções
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#como-funciona"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
-                >
-                  Como funciona
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ul className="list-none m-0 p-0 space-y-1.5">
-              <li>
-                <a
-                  href="#cases"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
-                >
-                  Cases
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#grupo"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
-                >
-                  O Grupo
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contato"
-                  className="text-white no-underline text-[13px] lg:text-[14px] hover:text-[#77e4ff] transition-colors"
-                >
-                  Contato
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="text-white leading-relaxed text-[13px] lg:text-[14px]">
-          <div className="flex items-start gap-2 mb-1.5">
-            <Phone className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
-            <span>Telefone: (41) 3146-5868</span>
-          </div>
-          <div className="flex items-start gap-2 mb-1.5">
-            <Mail className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
-            <span>
-              <a
-                href="mailto:contato@larafy.com.br"
-                className="text-white no-underline hover:text-[#77e4ff] transition-colors"
-              >
-                contato@larafy.com.br
-              </a>
-            </span>
-          </div>
-          <div className="flex items-start gap-2">
-            <MapPin className="w-[14px] h-[14px] mt-0.5 flex-shrink-0 text-white" />
-            <span>
-              Av. Rocha Pombo, 1977 - São Cristovão
-              <br />
-              CEP: 83005-280
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center gap-4 lg:gap-6">
-          <Image
-            src={GPTWImg}
-            alt="Great Place To Work - Certificada 2025 Brasil"
-            width={188}
-            height={80}
-            sizes="(max-width: 1024px) 70px, 80px"
-            className="max-h-[70px] lg:max-h-[80px] w-auto object-contain"
-            loading="lazy"
-          />
-          <div className="flex flex-col gap-1">
-            <div className="flex gap-2">
-              <a
-                href="https://www.linkedin.com/company/laratax/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-white hover:text-[#77e4ff] transition-colors"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.facebook.com/share/1BjiDNA8Nf/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="text-white hover:text-[#77e4ff] transition-colors"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/laratax/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-white hover:text-[#77e4ff] transition-colors"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
+              ))}
             </div>
-            <p className="text-[11px] lg:text-xs text-white/90">Siga nossas redes sociais</p>
           </div>
+        </div>
+
+        <div className="mt-12 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/45">
+          <p>
+            © 2026 LaraFy Consultoria e Contabilidade · CNPJ 40.762.656/0001-66
+          </p>
+          <p>Política de Privacidade · LGPD</p>
         </div>
       </div>
     </footer>

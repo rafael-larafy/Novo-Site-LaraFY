@@ -1,124 +1,124 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
+import {
+  scrollViewport,
+  scrollTransition,
+  fadeUpVariants,
+  slideRightVariants,
+  scaleVariants,
+  staggerDelay,
+} from "@/lib/scroll-motion"
 import { SplitReveal } from "@/components/split-reveal"
-import Image from "next/image"
-import {scrollViewport,scrollTransition,slideLeftVariants,slideRightVariants,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
-import PessoaImg from "../../lib/Pessoa-preocupada.png"
+import { BrokenNetwork } from "@/components/broken-network"
+import { MetaLabel, HudGrid, HudCorners } from "@/components/ui/editorial"
 
-const tags = [
-  "ANALISES PONTUAIS",
-  "AMOSTRAGENS",
-  "CRUZAMENTOS MANUAIS",
-  "TESES GENERICAS",
-  "PLANILHAS",
+const ENTREGAVEIS = [
+  "Análises pontuais",
+  "Amostragens",
+  "Cruzamentos manuais",
+  "Teses genéricas",
+  "Planilhas",
 ]
 
 export function ReformaTributariaSection() {
-  const [tappedIndex, setTappedIndex] = useState<number | null>(null)
-
   return (
-    <section className="relative overflow-hidden bg-[#0d1d33]">
-        <div className="relative">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMEwwIDMwTDMwIDYwTDYwIDMwTDMwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGU1ZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9zdmc+')] bg-repeat" />
-          </div>
+    <section className="relative overflow-hidden bg-[#04101f] text-white">
+      <HudGrid />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
+        {/* cabeçalho com índice */}
+        <div className="flex items-center justify-between border-t hairline pt-6">
+          <MetaLabel className="text-[#00e5ff]">02 — O problema</MetaLabel>
+          <MetaLabel className="hidden sm:block">O jeito tradicional</MetaLabel>
+        </div>
 
-          <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-10">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
-              <motion.div
-                className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto"
-                initial="hidden"
-                whileInView="visible"
-                viewport={scrollViewport}
-                variants={slideLeftVariants}
-                transition={scrollTransition}
+        <div className="mt-12 grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          {/* ESQUERDA — headline + readout */}
+          <div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={slideRightVariants}
+              transition={scrollTransition}
+            >
+              <SplitReveal
+                as="h2"
+                className="font-display text-[clamp(2.25rem,5.5vw,5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
               >
-                <div className="relative w-64 h-80 lg:w-140 lg:h-140 rounded-xl overflow-hidden bg-[]">
-                  <Image
-                    src={PessoaImg}
-                    alt="Pessoa preocupada"
-                    width={560}
-                    height={392}
-                    sizes="(max-width: 1024px) 256px, 560px"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1d33] via-transparent to-transparent" />
-                </div>
-              </motion.div>
+                Medo de perder dinheiro com a Reforma Tributária?
+              </SplitReveal>
+            </motion.div>
 
-              <div className="flex-1 space-y-6 w-full text-center lg:text-left">
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={scrollViewport}
-                  variants={slideRightVariants}
-                  transition={scrollTransition}
+            <motion.p
+              className="mt-7 max-w-md text-white/55"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(1) }}
+            >
+              Se o seu projeto tributário ainda te entrega apenas isto:
+            </motion.p>
+
+            {/* readout estilo terminal dos entregáveis fracos */}
+            <motion.ol
+              className="mt-8 max-w-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(2) }}
+            >
+              {ENTREGAVEIS.map((item, i) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-4 border-t hairline py-4 last:border-b"
                 >
-                  <SplitReveal as="h2"
-                    className="text-2xl font-extrabold leading-tight text-[#ffffff] lg:text-5xl text-balance"
-                  >
-                    Está com medo de perder dinheiro com a Reforma Tributária?
-                  </SplitReveal>
-                </motion.div>
+                  <span className="font-mono text-xs text-[#00e5ff]/60">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-lg font-medium uppercase tracking-wide text-white/90">
+                    {item}
+                  </span>
+                  <span className="ml-auto flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5d5d]" />
+                    <MetaLabel className="text-[#ff8a8a]">Limitado</MetaLabel>
+                  </span>
+                </li>
+              ))}
+            </motion.ol>
 
-                <motion.div
-                  className="max-w-lg mx-auto lg:mx-0"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={scrollViewport}
-                  variants={fadeUpVariants}
-                  transition={{ ...scrollTransition, delay: staggerDelay(2) }}
-                >
-                  <p className="text-[#ffffff] leading-tight">
-                  Se o seu projeto tributário te entrega somente:
-                  </p>
-                  <p className="mt-4 text-[#ffffff] leading-tight hidden md:block">
-                    Análises Pontuais • Amostragens • Cruzamentos manuais • Teses genéricas • Planilhas.
-                  </p>
-                </motion.div>
-
-                <div className="flex flex-col">
-                  <motion.div
-                    className="mt-6 rounded-2xl border border-[#1e3a5f] bg-[#0a1628]/60 p-4 sm:p-5 shadow-[0_18px_40px_rgba(0,0,0,0.55)] order-1 lg:order-2"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={scrollViewport}
-                    variants={fadeUpVariants}
-                    transition={{ ...scrollTransition, delay: staggerDelay(3) }}
-                  >
-                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#ffffff]">
-                      Como geralmente funcionam os projetos tradicionais:
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      {tags.map((tag, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => setTappedIndex(tappedIndex === i ? null : i)}
-                          className={`flex items-center justify-center rounded-lg border px-4 py-2 sm:px-5 sm:py-3 text-center text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#ffffff] transition-all duration-300 hover:border-[#00e5ff]/60 hover:bg-[#132a45] hover:shadow-[0_0_18px_rgba(0,229,255,0.28)] ${
-                            tag === "PLANILHAS" ? "sm:col-span-2" : ""
-                          } ${
-                            tappedIndex === i
-                              ? "border-[#00e5ff]/60 bg-[#132a45] shadow-[0_0_18px_rgba(0,229,255,0.28)]"
-                              : "border-[#1e3a5f] bg-[#0d1d33]"
-                          }`}
-                        >
-                          {tag}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                  <p className="mt-4 text-[#ffffff] leading-tight order-2 lg:order-1 lg:mt-6">
-                    Esteja pronto para a Reforma Tributária engolir o seu negócio.
-                  </p>
-                </div>
-            </div>
+            <motion.p
+              className="mt-8 max-w-md text-lg font-semibold text-white"
+              initial="hidden"
+              whileInView="visible"
+              viewport={scrollViewport}
+              variants={fadeUpVariants}
+              transition={{ ...scrollTransition, delay: staggerDelay(3) }}
+            >
+              …prepare-se para a{" "}
+              <span className="text-[#00e5ff]">Reforma Tributária</span> engolir o seu
+              negócio.
+            </motion.p>
           </div>
+
+          {/* DIREITA — rede quebrada em moldura HUD */}
+          <motion.div
+            className="relative self-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={scaleVariants}
+            transition={scrollTransition}
+          >
+            <div className="relative mx-auto w-full max-w-[480px] border hairline p-5">
+              <HudCorners />
+              <BrokenNetwork />
+            </div>
+          </motion.div>
         </div>
-        </div>
+      </div>
     </section>
   )
 }

@@ -101,7 +101,6 @@ export default function GrupoPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
         <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -133,7 +132,6 @@ export default function GrupoPage() {
           </div>
         </section>
 
-        {/* Empresas do Grupo */}
         <section className="relative bg-[#020c18] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.div
@@ -182,7 +180,6 @@ export default function GrupoPage() {
           </div>
         </section>
 
-        {/* Liderança */}
         <section className="relative overflow-hidden bg-[#0a1628] py-20 lg:py-32">
           <div className="absolute inset-0">
             <Image
@@ -251,7 +248,6 @@ export default function GrupoPage() {
           </div>
         </section>
 
-        {/* Timeline */}
         <section className="relative bg-[#020c18] py-20 lg:py-32">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <motion.div
@@ -268,7 +264,6 @@ export default function GrupoPage() {
             </motion.div>
 
             <div className="relative">
-              {/* Linha central */}
               <div className="absolute left-6 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-[#1e3a5f]/60" />
 
               <div className="space-y-10">
@@ -284,17 +279,14 @@ export default function GrupoPage() {
                     variants={index % 2 === 0 ? slideLeftVariants : slideRightVariants}
                     transition={{ ...scrollTransition, delay: staggerDelay(index) }}
                   >
-                    {/* Dot */}
                     <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] ring-4 ring-[#020c18] z-10" />
 
-                    {/* Content */}
                     <div className={`flex-1 pl-14 lg:pl-0 ${index % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16 lg:text-left"}`}>
                       <span className="text-3xl font-black text-[#00e5ff]/30">{item.ano}</span>
                       <h3 className="text-lg font-bold text-white mt-1">{item.titulo}</h3>
                       <p className="text-[#8ba3c0] text-sm mt-2 leading-relaxed">{item.descricao}</p>
                     </div>
 
-                    {/* Spacer para o lado oposto */}
                     <div className="hidden lg:block flex-1" />
                   </motion.div>
                 ))}
@@ -303,7 +295,6 @@ export default function GrupoPage() {
           </div>
         </section>
 
-        {/* Cultura */}
         <section className="relative bg-[#0a1628] py-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <motion.div
@@ -344,7 +335,6 @@ export default function GrupoPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2

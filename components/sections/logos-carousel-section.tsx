@@ -1,14 +1,9 @@
 "use client"
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import {
-  scrollViewport,
-  scrollTransition,
-  fadeUpVariants,
-} from "@/lib/scroll-motion"
 import Image from "next/image"
 import { Marquee } from "@/components/marquee"
+import { SectionShell } from "@/components/ui/section-shell"
+import { SectionHeading } from "@/components/ui/section-heading"
 
 const LOGOS = [
   { src: "/Luson.png", alt: "Luson" },
@@ -20,45 +15,32 @@ const LOGOS = [
 ]
 
 export function LogosCarouselSection() {
-  const [tappedAlt, setTappedAlt] = useState<string | null>(null)
-
   return (
-    <section className="relative py-10 lg:pb-10 pt-10 overflow-hidden bg-[#0a1628]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.h2
-          className="text-center text-3xl sm:text-4xl font-bold text-[#ffffff] tracking-wider mb-10 lg:mb-0 mt-10"
-          initial="hidden"
-          whileInView="visible"
-          style={{ '--font-montserrat': 'var(--font-montserrat)' } as React.CSSProperties}
-          viewport={scrollViewport}
-          variants={fadeUpVariants}
-          transition={scrollTransition}
-        >
-          Parceiros e clientes
-        </motion.h2>
+    <SectionShell bg="dark" container={false} className="py-16 lg:py-20">
+      <div className="mx-auto mb-10 max-w-7xl px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Parceiros e clientes"
+          title="Empresas que confiam na Larafy"
+          align="center"
+        />
       </div>
 
       <Marquee className="w-full" speed={32}>
         {[...LOGOS, ...LOGOS].map((logo, i) => (
-          <button
-            key={`${logo.alt}-${i}`}
-            type="button"
-            onClick={() => setTappedAlt(tappedAlt === logo.alt ? null : logo.alt)}
-            className={`flex-shrink-0 mx-4 lg:mx-12 flex items-center justify-center transition-all duration-300 min-w-[80px] lg:min-w-[160px] cursor-pointer bg-transparent border-0 p-0 ${
-              tappedAlt === logo.alt ? "grayscale-0 opacity-100" : "grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
-            }`}
-          >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={188}
-              height={80}
-              sizes="(max-width: 1024px) 80px, 160px"
-              className="h-8 w-auto object-contain lg:h-20 brightness-0 invert"
-            />
-          </button>
+          <div key={`${logo.alt}-${i}`} className="mx-3 flex items-center lg:mx-5">
+            <div className="flex h-16 min-w-[150px] items-center justify-center rounded-2xl border border-[#1e3a5f] bg-[#071a2e]/70 px-6 ring-1 ring-[#00e5ff]/15 lg:h-24 lg:min-w-[200px]">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={188}
+                height={80}
+                sizes="(max-width: 1024px) 120px, 160px"
+                className="h-7 w-auto object-contain opacity-80 brightness-0 invert lg:h-10"
+              />
+            </div>
+          </div>
         ))}
       </Marquee>
-    </section>
+    </SectionShell>
   )
 }

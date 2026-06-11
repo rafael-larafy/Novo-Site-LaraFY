@@ -14,7 +14,6 @@ import {
 
 type EcoNode = { label: string; icon: LucideIcon }
 
-// Placeholders editáveis — trocar aqui recalcula todo o layout automaticamente.
 const NODES: EcoNode[] = [
   { label: "Diagnóstico Tributário", icon: ScanSearch },
   { label: "Recuperação de Créditos", icon: Recycle },
@@ -24,15 +23,13 @@ const NODES: EcoNode[] = [
   { label: "Monitoramento Contínuo", icon: Radar },
 ]
 
-// Geometria em espaço 0..100 (mesmas coords para o SVG e para os nós HTML, num
-// container quadrado → linha encaixa no nó sem medir o DOM).
 const CENTER = 50
-const RADIUS = 36 // distância núcleo → nó (% do lado)
-const START_DEG = -90 // topo
-const OFFSET_DEG = 20 // afasta os nós do canto sup. esq. (botão Voltar)
-const BEND = 7 // curvatura do arco
-const CORE_GAP = 11 // recuo da linha a partir do núcleo
-const NODE_GAP = 8 // recuo da linha a partir do nó
+const RADIUS = 36
+const START_DEG = -90
+const OFFSET_DEG = 20
+const BEND = 7
+const CORE_GAP = 11
+const NODE_GAP = 8
 
 type Placed = EcoNode & {
   x: number
@@ -51,12 +48,10 @@ function placeNodes(nodes: EcoNode[]): Placed[] {
     const uy = Math.sin(rad)
     const x = CENTER + RADIUS * ux
     const y = CENTER + RADIUS * uy
-    // âncoras recuadas ao longo do raio (a linha nasce/morre fora dos chips)
     const hx = CENTER + CORE_GAP * ux
     const hy = CENTER + CORE_GAP * uy
     const ax = CENTER + (RADIUS - NODE_GAP) * ux
     const ay = CENTER + (RADIUS - NODE_GAP) * uy
-    // ponto de controle do bézier = meio + normal * bend (sinal alterna por índice)
     const mx = (hx + ax) / 2
     const my = (hy + ay) / 2
     const sign = i % 2 === 0 ? 1 : -1
@@ -67,12 +62,7 @@ function placeNodes(nodes: EcoNode[]): Placed[] {
   })
 }
 
-/**
- * Ecossistema da Larafy como constelação: núcleo central + nós (módulos) em
- * anel, ligados por arcos ciano que se desenham, pulsam e têm um ponto de luz
- * viajando — mesma linguagem do globo. Desktop = órbita; mobile = lista. Tudo
- * por coordenadas calculadas (sem medir DOM). Respeita prefers-reduced-motion.
- */
+
 export function EcosystemConstellation({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion()
   const placed = useMemo(() => placeNodes(NODES), [])
@@ -80,9 +70,7 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
 
   return (
     <div className={`relative mx-auto w-full max-w-[460px] lg:max-w-[560px] ${className}`}>
-      {/* ===== DESKTOP: constelação orbital ===== */}
       <div className="relative hidden aspect-square w-full lg:block">
-        {/* conectores (decorativo, sob os chips, não captura clique) */}
         <svg
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
@@ -101,7 +89,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
 
           {placed.map((p, i) => (
             <g key={p.label}>
-              {/* trilho-base estático */}
               <path
                 d={p.d}
                 fill="none"
@@ -110,7 +97,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
                 strokeLinecap="round"
                 opacity={0.18}
               />
-              {/* arco que se desenha + pulsa */}
               <motion.path
                 d={p.d}
                 fill="none"
@@ -139,7 +125,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
                       }
                 }
               />
-              {/* ponto de dados viajando núcleo → nó */}
               {!reduce && (
                 <circle r={0.9} fill="#ffffff" filter="url(#lfyEcoGlow)">
                   <animateMotion
@@ -154,7 +139,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
           ))}
         </svg>
 
-        {/* núcleo — centramento por CSS (wrapper) / animação por framer (interno) */}
         <div className="absolute left-1/2 top-1/2 z-30 h-[clamp(84px,18%,108px)] w-[clamp(84px,18%,108px)] -translate-x-1/2 -translate-y-1/2">
           <motion.div
             className="flex h-full w-full flex-col items-center justify-center rounded-full bg-[#071a2e]/85 text-center shadow-[0_0_28px_rgba(0,229,255,0.35)] ring-1 ring-[#00e5ff]/40"
@@ -189,7 +173,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
           </motion.div>
         </div>
 
-        {/* nós — wrapper estático posiciona/centra; motion.div interno anima */}
         {placed.map((p, i) => {
           const Icon = p.icon
           return (
@@ -232,7 +215,6 @@ export function EcosystemConstellation({ className = "" }: { className?: string 
         })}
       </div>
 
-      {/* ===== MOBILE: fallback empilhado (sem SVG/órbita) ===== */}
       <ul className="flex flex-col gap-2.5 lg:hidden">
         <li className="flex items-center gap-3 rounded-2xl bg-[#071a2e]/85 px-4 py-3 ring-1 ring-[#00e5ff]/45">
           <span className="text-base font-black uppercase tracking-wide text-white">Larafy</span>

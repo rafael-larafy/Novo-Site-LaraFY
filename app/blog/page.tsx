@@ -76,7 +76,6 @@ export default function BlogPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
         <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -108,7 +107,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Post Destaque */}
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.div
@@ -164,7 +162,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Grid de Posts */}
         <section className="relative bg-[#0a1628] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.h2
@@ -189,7 +186,6 @@ export default function BlogPage() {
                   variants={fadeUpVariants}
                   transition={{ ...scrollTransition, delay: staggerDelay(index) }}
                 >
-                  {/* Placeholder de imagem */}
                   <div className="h-44 bg-gradient-to-br from-[#1e3a5f]/40 to-[#0a1628] flex items-center justify-center">
                     <span className="text-4xl font-black text-[#00e5ff]/10">
                       BLOG
@@ -226,7 +222,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* CTA Newsletter */}
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2

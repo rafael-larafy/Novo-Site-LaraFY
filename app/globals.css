@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0a1628;
+  --background: #04101f;
   --foreground: #ffffff;
   --card: #0d1d33;
   --card-foreground: #ffffff;
@@ -35,7 +35,8 @@
 @theme inline {
   --font-sans: var(--font-montserrat), 'Montserrat', sans-serif;
   --font-inter: var(--font-inter), 'Inter', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+  --font-display: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -353,17 +354,216 @@
 
 html {
   overflow-x: hidden;
-  background-color: #0a1628;
+  background-color: #04101f;
   color-scheme: dark;
 }
 
 .cta-button {
-  transition: all var(--duration-fast) var(--ease-default);
+  transition: transform var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+  transform: scale(1.04);
+  box-shadow: 0 0 34px rgba(0, 229, 255, 0.55);
+}
+
+/* feedback tátil no clique */
+.cta-button:active {
+  transform: scale(0.97);
+  transition-duration: 80ms;
+}
+
+/* seta que avança no hover */
+.cta-arrow {
+  transition: transform var(--duration-base) var(--ease-default);
+}
+.cta-button:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* brilho que varre a pílula no hover (sheen) */
+.cta-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+}
+.cta-button:hover .cta-sheen {
+  transform: translateX(130%);
+  transition: transform 0.7s var(--ease-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button:hover,
+  .cta-button:active {
+    transform: none;
+  }
+  .cta-button:hover .cta-arrow,
+  .cta-button:hover .cta-sheen {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   Cursor customizado  (components/cursor.tsx)
+   ============================================ */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 9999px;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--larafy-cyan);
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(0, 229, 255, 0.6);
+  transition: width 0.3s var(--ease-default), height 0.3s var(--ease-default),
+    background-color 0.3s var(--ease-default), border-color 0.3s var(--ease-default);
+}
+.cursor-ring.is-active {
+  width: 56px;
+  height: 56px;
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.9);
+}
+.cursor-ring.is-down {
+  width: 26px;
+  height: 26px;
+}
+
+@media (pointer: fine) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none;
+  }
+  /* preserva o I-beam nos campos do formulário (conversão importa) */
+  .has-custom-cursor input,
+  .has-custom-cursor textarea,
+  .has-custom-cursor [contenteditable="true"] {
+    cursor: text;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ============================================
+   Barra de progresso de scroll  (components/scroll-progress.tsx)
+   ============================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 100;
+  pointer-events: none;
+  background: transparent;
+}
+.scroll-progress__bar {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.2), #00e5ff);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+}
+
+/* ============================================
+   Transição de página — cortina  (app/template.tsx)
+   ============================================ */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+  background: #061120;
+  transform: translateY(0);
+  animation: curtain-up 0.7s var(--ease-default) forwards;
+}
+/* fio ciano que lidera a revelação */
+.page-curtain::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+}
+@keyframes curtain-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain {
+    display: none;
+    animation: none;
+  }
+}
+
+/* ============================================
+   Direção de arte "terminal de inteligência" (redesign ousado)
+   ============================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* rótulo de metadados — monospace, uppercase, tracking largo */
+.meta-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1;
+}
+
+/* grade fina de HUD ao fundo, esmaecida nas bordas por uma máscara radial */
+.hud-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, #000 45%, transparent 100%);
+}
+
+/* borda "fio de cabelo" ciano (molduras de visor, divisores) */
+.hairline {
+  border-color: rgba(0, 229, 255, 0.14);
+}
+
+/* tipografia display "vazada" (contorno) — para palavras secundárias gigantes */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+  color: transparent;
 }
 
 /* Sublinhado direcional (efeito .aPer do Lumena) — usado por <UnderlineLink>.

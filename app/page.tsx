@@ -7,55 +7,40 @@ import { HomeAnimations } from "@/components/sections/home-animations"
 import { Footer } from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 
-const SectionPlaceholder = () => <div className="min-h-[300px] bg-[#0a1628]" />
+const SectionPlaceholder = () => <div className="min-h-[300px] bg-[#04101f]" />
 
-const ReformaTributariaSection = dynamic(
-  () => import("@/components/sections/reforma-tributaria-section").then((mod) => ({ default: mod.ReformaTributariaSection })),
+// Funil de 7 partes (DARK HUD):
+// 1. Hero  2. Formulário (#contato — destino de todos os CTAs)
+// 3. Soluções  4. Tecnologia/Método  5. Diferenciais
+// 6. Clientes e Depoimentos  7. CTA de fechamento (volta pro #contato)
+
+const FunnelForm = dynamic(
+  () => import("@/components/sections/funnel/funnel-form").then((mod) => ({ default: mod.FunnelForm })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
-const CeoSection = dynamic(
-  () => import("@/components/sections/ceo-section").then((mod) => ({ default: mod.CeoSection })),
+const FunnelSolucoes = dynamic(
+  () => import("@/components/sections/funnel/funnel-solucoes").then((mod) => ({ default: mod.FunnelSolucoes })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
-const BlindagemSection = dynamic(
-  () => import("@/components/sections/blindagem-section").then((mod) => ({ default: mod.BlindagemSection })),
+const FunnelTecnologia = dynamic(
+  () => import("@/components/sections/funnel/funnel-tecnologia").then((mod) => ({ default: mod.FunnelTecnologia })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
-const TransparenciaSection = dynamic(
-  () => import("@/components/sections/transparencia-section").then((mod) => ({ default: mod.TransparenciaSection })),
+const FunnelDiferenciais = dynamic(
+  () => import("@/components/sections/funnel/funnel-diferenciais").then((mod) => ({ default: mod.FunnelDiferenciais })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
-const ZeroRiscoSection = dynamic(
-  () => import("@/components/sections/zero-risco-section").then((mod) => ({ default: mod.ZeroRiscoSection })),
+const FunnelClientes = dynamic(
+  () => import("@/components/sections/funnel/funnel-clientes").then((mod) => ({ default: mod.FunnelClientes })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
-const ReformaCardSection = dynamic(
-  () => import("@/components/sections/reforma-card-section").then((mod) => ({ default: mod.ReformaCardSection })),
-  { ssr: true, loading: SectionPlaceholder }
-)
-
-const ConfiancaSection = dynamic(
-  () => import("@/components/sections/confianca-section").then((mod) => ({ default: mod.ConfiancaSection })),
-  { ssr: true, loading: SectionPlaceholder }
-)
-
-const LogosCarouselSection = dynamic(
-  () => import("@/components/sections/logos-carousel-section").then((mod) => ({ default: mod.LogosCarouselSection })),
-  { ssr: true, loading: SectionPlaceholder }
-)
-
-const DiagnosticoSection = dynamic(
-  () => import("@/components/sections/diagnostico-section").then((mod) => ({ default: mod.DiagnosticoSection })),
-  { ssr: true, loading: SectionPlaceholder }
-)
-
-const ContatoSection = dynamic(
-  () => import("@/components/sections/contato-section").then((mod) => ({ default: mod.ContatoSection })),
+const FunnelCta = dynamic(
+  () => import("@/components/sections/funnel/funnel-cta").then((mod) => ({ default: mod.FunnelCta })),
   { ssr: true, loading: SectionPlaceholder }
 )
 
@@ -64,20 +49,16 @@ export default function Home() {
     <>
       <Header />
       <HomeAnimations />
-      <main className="overflow-x-hidden">
+      <main className="overflow-x-hidden bg-[#04101f] text-white">
         <HeroSection />
-        <ReformaTributariaSection />
-        <CeoSection />
-        <BlindagemSection />
-        <TransparenciaSection />
-        <ZeroRiscoSection />
-        <ReformaCardSection />
-        <ConfiancaSection />
-        <LogosCarouselSection />
-        <DiagnosticoSection />
-        <ContatoSection />
+        <FunnelForm />
+        <FunnelSolucoes />
+        <FunnelTecnologia />
+        <FunnelDiferenciais />
+        <FunnelClientes />
+        <FunnelCta />
       </main>
-      <Analytics/>
+      <Analytics />
       <Footer />
     </>
   )

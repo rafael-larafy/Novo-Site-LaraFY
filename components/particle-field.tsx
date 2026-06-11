@@ -22,7 +22,6 @@ function ParticleCloud({
 }) {
   const ref = useRef<THREE.Points>(null)
 
-  // Nuvem de pontos distribuída numa caixa achatada (mais larga que profunda).
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
@@ -38,13 +37,11 @@ function ParticleCloud({
     if (!pts || reduce) return
     const t = state.clock.elapsedTime
 
-    // parallax do mouse via posição (lerp suave) + leve subida ao rolar
     const targetX = pointer.current.x * 0.8
     const targetY = pointer.current.y * 0.5 - scroll.current.progress * 4
     pts.position.x += (targetX - pts.position.x) * 0.05
     pts.position.y += (targetY - pts.position.y) * 0.05
 
-    // balanço sutil que OSCILA (nunca dá a volta completa) + leve tilt pelo mouse
     const tiltX = Math.sin(t * 0.15) * 0.04 + pointer.current.y * 0.1
     const tiltY = Math.cos(t * 0.12) * 0.04 + pointer.current.x * 0.1
     pts.rotation.x += (tiltX - pts.rotation.x) * 0.04
@@ -66,14 +63,7 @@ function ParticleCloud({
   )
 }
 
-/**
- * Campo de partículas 3D (Three.js / React Three Fiber) para fundo do hero.
- * Reage ao mouse (parallax) e ao scroll (via Lenis). Transparente — sobrepõe
- * o fundo existente. Respeita prefers-reduced-motion (renderiza estático) e
- * pausa o render quando fora da viewport (economia de GPU).
- *
- * Use como fundo: <ParticleField className="absolute inset-0 z-[2] pointer-events-none" />
- */
+
 export function ParticleField({ className }: { className?: string }) {
   const pointer = useRef<Pointer>({ x: 0, y: 0 })
   const scroll = useRef<Scroll>({ progress: 0, velocity: 0 })

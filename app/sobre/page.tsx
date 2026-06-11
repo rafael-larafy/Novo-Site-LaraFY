@@ -82,11 +82,11 @@ export default function SobrePage() {
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero */}
-        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-6">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
+        <section className="relative bg-[#04101f] pt-32 pb-20 lg:pt-40 lg:pb-6">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#04101f] via-[#061425] to-[#04101f]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
-              className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"
+              className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -95,7 +95,7 @@ export default function SobrePage() {
             >
               Sobre Nós
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 text-3xl font-display font-bold uppercase leading-tight text-white lg:text-6xl">
               Uma das consultorias tributárias mais{" "}
               <span className="text-[#00e5ff]">tecnológicas e humanas</span> do Brasil
             </SplitReveal>
@@ -114,7 +114,7 @@ export default function SobrePage() {
         </section>
 
         {/* Números */}
-        <section className="relative py-16 overflow-hidden bg-[#0a1628]">
+        <section className="relative py-16 overflow-hidden bg-[#04101f]">
           <div className="absolute inset-0">
             <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0066ff]/0 blur-[150px] rounded-full" />
           </div>
@@ -184,7 +184,7 @@ export default function SobrePage() {
         </section>
 
         {/* CEO */}
-        <section className="relative overflow-hidden bg-[#0a1628] py-20 lg:py-32">
+        <section className="relative overflow-hidden bg-[#04101f] py-20 lg:py-32">
           <div className="absolute inset-0">
             <Image
               src="/images/AdobeStock_699471030.jpeg"
@@ -205,10 +205,10 @@ export default function SobrePage() {
                 variants={slideLeftVariants}
                 transition={scrollTransition}
               >
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
+                <p className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]">
                   Nosso Fundador
                 </p>
-                <h2 className="text-2xl font-black uppercase leading-tight text-white lg:text-4xl">
+                <h2 className="text-2xl font-display font-bold uppercase leading-tight text-white lg:text-4xl">
                   Waldir de Lara
                 </h2>
                 <blockquote className="border-l-4 border-[#00e5ff] pl-5">
@@ -233,7 +233,7 @@ export default function SobrePage() {
                 transition={scrollTransition}
               >
                 <div className="relative w-full max-w-[480px] mx-auto aspect-square">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#04101f] via-transparent to-transparent z-10" />
                   <Image
                     src={WaldirImg}
                     alt="Waldir de Lara - Founder e CEO da LaraFy"
@@ -250,7 +250,7 @@ export default function SobrePage() {
         </section>
 
         {/* Valores */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-10">
+        <section className="relative bg-[#04101f] py-20 lg:py-10">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -260,10 +260,10 @@ export default function SobrePage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
+              <p className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]">
                 O que nos guia
               </p>
-              <h2 className="mt-4 text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="mt-4 text-2xl font-display font-bold uppercase text-white lg:text-4xl">
                 Nossos Valores
               </h2>
             </motion.div>
@@ -272,7 +272,7 @@ export default function SobrePage() {
               {valores.map((valor, index) => (
                 <motion.div
                   key={valor.titulo}
-                  className="rounded-2xl border border-[#1e3a5f]/40 bg-[#0d1f3c]/60 p-8 text-center transition-all duration-300 hover:border-[#00e5ff]/40 hover:bg-[#0d1f3c]"
+                  className="rounded-2xl border border-[#00e5ff]/15 bg-[#061425]/60 p-8 text-center transition-all duration-300 hover:border-[#00e5ff]/40 hover:bg-[#061425]"
                   initial="hidden"
                   whileInView="visible"
                   viewport={scrollViewport}
@@ -291,10 +291,10 @@ export default function SobrePage() {
         </section>
 
         {/* CTA */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-28">
+        <section className="relative bg-[#04101f] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="text-2xl font-display font-bold uppercase text-[#00e5ff] lg:text-4xl"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -323,7 +323,7 @@ export default function SobrePage() {
             >
               <Magnetic><a
                 href="/#contato"
-                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#04101f] glow-effect"
               >
                 Fale com a LaraFy
               </a></Magnetic>

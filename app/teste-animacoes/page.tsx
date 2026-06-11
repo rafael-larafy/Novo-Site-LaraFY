@@ -11,7 +11,7 @@ import WaldirImg from "../../lib/Waldir.png"
 import PessoaImg from "../../lib/Pessoa-preocupada.png"
 import BrasilImg from "../../lib/Brasil.png"
 
-/* ----------------------- Tilt wrapper (revnuyu BentoTilt) ---------------------- */
+
 function BentoTilt({
   children,
   className = "",
@@ -47,7 +47,7 @@ function BentoTilt({
   )
 }
 
-/* ----------------------- Animated Pill Button (revnuyu Button) ---------------------- */
+
 function PillButton({
   title,
   leftIcon,
@@ -77,7 +77,7 @@ function PillButton({
   )
 }
 
-/* ----------------------- Floating image with mouse-tilt (Story) ---------------------- */
+
 function FloatingImage({ src, alt }: { src: any; alt: string }) {
   const frameRef = useRef<HTMLDivElement | null>(null)
 
@@ -131,14 +131,13 @@ function FloatingImage({ src, alt }: { src: any; alt: string }) {
   )
 }
 
-/* ============================================ PAGE ============================================ */
 
 export default function TesteAnimacoes() {
   const heroFrameRef = useRef<HTMLDivElement | null>(null)
   const aboutClipRef = useRef<HTMLDivElement | null>(null)
   const aboutImageRef = useRef<HTMLDivElement | null>(null)
 
-  /* Hero clip-path morph on scroll (revnuyu) */
+  
   useEffect(() => {
     const target = heroFrameRef.current
     if (!target) return
@@ -162,7 +161,7 @@ export default function TesteAnimacoes() {
     return () => ctx.revert()
   }, [])
 
-  /* About — grow image as user scrolls past it */
+  
   useEffect(() => {
     if (!aboutClipRef.current || !aboutImageRef.current) return
     const ctx = gsap.context(() => {
@@ -185,7 +184,6 @@ export default function TesteAnimacoes() {
     <>
       <HomeAnimations />
 
-      {/* Local nav (zentry-style) */}
       <nav className="fixed top-4 left-1/2 z-[120] -translate-x-1/2 rounded-2xl border border-black/10 bg-black/85 px-5 py-3 backdrop-blur-md">
         <div className="flex items-center gap-6 text-xs uppercase tracking-[0.18em] text-[#dfdff0]">
           <span className="font-black tracking-wider text-[#edff66]">LARAFY</span>
@@ -200,13 +198,11 @@ export default function TesteAnimacoes() {
       </nav>
 
       <main className="relative min-h-screen w-screen overflow-x-hidden rev-bg">
-        {/* ============================== HERO ============================== */}
         <section className="relative h-[100dvh] w-screen overflow-x-hidden">
           <div
             ref={heroFrameRef}
             className="relative z-10 h-[100dvh] w-screen overflow-hidden rounded-lg bg-[#012e43]"
           >
-            {/* Background "video" (here, looping site video as bg) */}
             <video
               src="/Site Larafy animations.webm"
               autoPlay
@@ -217,7 +213,6 @@ export default function TesteAnimacoes() {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-[#012e43] via-[#0a1628]/60 to-black/80" />
 
-            {/* Center preview card */}
             <div className="group absolute left-1/2 top-1/2 z-50 size-64 -translate-x-1/2 -translate-y-1/2 cursor-pointer overflow-hidden rounded-2xl border border-white/20 bg-black/40 backdrop-blur transition-transform duration-500 hover:scale-110">
               <div className="relative size-full">
                 <Image
@@ -254,7 +249,6 @@ export default function TesteAnimacoes() {
           </div>
         </section>
 
-        {/* ============================== ABOUT ============================== */}
         <section id="about" className="min-h-screen w-screen">
           <div className="mt-36 flex flex-col items-center gap-6 px-6 text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-black/60">
@@ -297,7 +291,6 @@ export default function TesteAnimacoes() {
           </div>
         </section>
 
-        {/* ============================== FEATURES (BENTO) ============================== */}
         <section id="features" className="bg-black pb-52">
           <div className="container mx-auto px-3 md:px-10">
             <div className="px-5 py-32">
@@ -308,7 +301,6 @@ export default function TesteAnimacoes() {
               </p>
             </div>
 
-            {/* Hero bento card */}
             <BentoTilt className="rev-bento-tilt-1 mb-7 h-96 w-full md:h-[65vh]">
               <div className="relative size-full">
                 <Image
@@ -417,7 +409,6 @@ export default function TesteAnimacoes() {
           </div>
         </section>
 
-        {/* ============================== STORY (FLOATING TILT) ============================== */}
         <section id="story" className="relative min-h-dvh w-screen overflow-hidden bg-black text-[#dfdff0]">
           <div className="flex size-full flex-col items-center py-20">
             <p className="text-[10px] font-semibold uppercase tracking-[0.32em]">
@@ -431,7 +422,6 @@ export default function TesteAnimacoes() {
             </SplitReveal>
 
             <div className="relative mt-12 grid w-full max-w-6xl grid-cols-1 gap-12 px-8 md:grid-cols-2 md:items-center">
-              {/* Floating tilt image with diagonal clip */}
               <div className="relative h-[60vh] w-full" style={{ perspective: "900px" }}>
                 <div
                   className="absolute inset-0 overflow-hidden bg-gradient-to-br from-[#012e43] to-black"
@@ -456,10 +446,8 @@ export default function TesteAnimacoes() {
           </div>
         </section>
 
-        {/* ============================== CONTACT (CLIP-PATH IMAGES) ============================== */}
         <section id="contact" className="my-20 w-screen px-4 sm:px-10">
           <div className="relative overflow-hidden rounded-2xl bg-black py-24 text-[#dfdff0]">
-            {/* left side image with diagonal clip */}
             <div className="pointer-events-none absolute -left-10 top-0 hidden h-full w-64 sm:block lg:left-10 lg:w-80">
               <div
                 className="relative h-full w-full"
@@ -469,7 +457,6 @@ export default function TesteAnimacoes() {
               </div>
             </div>
 
-            {/* right side image with different clip */}
             <div className="pointer-events-none absolute -right-10 top-10 hidden h-full w-64 sm:block lg:right-10 lg:w-80">
               <div
                 className="relative h-3/4 w-full"
@@ -495,7 +482,6 @@ export default function TesteAnimacoes() {
           </div>
         </section>
 
-        {/* tiny footer */}
         <footer className="border-t border-black/10 bg-[#dfdff0] py-10">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-xs uppercase tracking-[0.2em] text-black/60">
             <span>© LaraFy · Sandbox de Design</span>

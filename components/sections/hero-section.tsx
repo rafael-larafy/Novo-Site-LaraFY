@@ -2,155 +2,159 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
-import {
-  scrollViewport,
-  scrollTransition,
-  slideLeftVariants,
-  slideRightVariants,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/scroll-motion"
+import dynamic from "next/dynamic"
+
+import { fadeUpVariants, scrollTransition } from "@/lib/scroll-motion"
+import { onAppReady } from "@/lib/app-ready"
 import { SplitReveal } from "@/components/split-reveal"
-import { WaveLines } from "@/components/wave-lines"
-import { EarthGlobe } from "@/components/earth-globe"
+import { CtaButton } from "@/components/ui/cta-button"
+import { MetaLabel, HudGrid, HudCorners } from "@/components/ui/editorial"
+
+// Globo 3D (Three.js) sob demanda, fora do caminho crítico (LCP/TBT).
+const EarthGlobe = dynamic(
+  () => import("@/components/earth-globe").then((m) => ({ default: m.EarthGlobe })),
+  { ssr: false, loading: () => <div className="h-full w-full" aria-hidden /> }
+)
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0)
-  const [hasStarted, setHasStarted] = useState(false)
+  const [started, setStarted] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) setHasStarted(true)
-      },
+    const io = new IntersectionObserver(
+      ([e]) => e.isIntersecting && setStarted(true),
       { threshold: 0.5 }
     )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [hasStarted])
-
-  useEffect(() => {
-    if (!hasStarted) return
-    const duration = 2000
-    const steps = 60
-    const increment = target / steps
-    let current = 0
-    const timer = setInterval(() => {
-      current += increment
-      setCount(current >= target ? target : Math.floor(current))
-      if (current >= target) clearInterval(timer)
-    }, duration / steps)
-    return () => clearInterval(timer)
-  }, [hasStarted, target])
-
-  return <span ref={ref}>{count}{suffix}</span>
-}
-
-export function HeroSection() {
-  const animationVideoRef = useRef<HTMLVideoElement>(null)
-  const [isVideoHovered, setIsVideoHovered] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [mobileVideoEnded, setMobileVideoEnded] = useState(false)
-  const [isIOS, setIsIOS] = useState(false)
-  const [isSafari, setIsSafari] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 1024px)")
-    setIsMobile(mq.matches)
-    const handler = () => setIsMobile(mq.matches)
-    mq.addEventListener("change", handler)
-    return () => mq.removeEventListener("change", handler)
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   useEffect(() => {
-    const isApple =
-      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent))
-    setIsIOS(isApple)
-    const safari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
-    setIsSafari(safari)
-  }, [])
-
-  const noWebM = isIOS || isSafari
-
-  useEffect(() => {
-    if (isMobile && !mobileVideoEnded && animationVideoRef.current && !noWebM) {
-      animationVideoRef.current.currentTime = 0
-      animationVideoRef.current.play()
-    }
-  }, [isMobile, mobileVideoEnded, noWebM])
-
-  const handleVideoMouseEnter = () => {
-    if (noWebM) return
-    setIsVideoHovered(true)
-    const video = animationVideoRef.current
-    if (!video) return
-    video.currentTime = 0
-    video.play()
-  }
-
-  const handleVideoMouseLeave = () => {
-    setIsVideoHovered(false)
-    const video = animationVideoRef.current
-    if (!video) return
-    video.pause()
-    video.currentTime = 0
-  }
-
-  const handleVideoEnded = () => {
-    if (isMobile) setMobileVideoEnded(true)
-  }
-
-  const handleMobileClick = () => {
-    if (!isMobile || noWebM) return
-    setMobileVideoEnded(false)
-    const video = animationVideoRef.current
-    if (video) {
-      video.currentTime = 0
-      video.play()
-    }
-  }
-
-  const showVideo = noWebM ? false : (isMobile ? !mobileVideoEnded : isVideoHovered)
-  const showImage = noWebM ? true : (isMobile ? mobileVideoEnded : !isVideoHovered)
+    if (!started) return
+    const inc = target / 50
+    let cur = 0
+    const id = setInterval(() => {
+      cur += inc
+      setCount(cur >= target ? target : Math.floor(cur))
+      if (cur >= target) clearInterval(id)
+    }, 32)
+    return () => clearInterval(id)
+  }, [started, target])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#0a1628] pt-32 pb-20 lg:pt-40">
-      <WaveLines className="absolute inset-0 z-[2] pointer-events-none" />
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  )
+}
+
+const STATS = [
+  { value: 5, suffix: "+", label: "Anos de mercado" },
+  { value: 100, suffix: "+", label: "Especialistas" },
+  { display: "2,1 bi", label: "Cenários no motor" },
+] as const
+
+export function HeroSection() {
+  const [entered, setEntered] = useState(false)
+
+  // Handoff do preloader: entrada do hero dispara quando o loader sobe.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setEntered(true)
+      return
+    }
+    const off = onAppReady(() => setEntered(true))
+    const fallback = window.setTimeout(() => setEntered(true), 5000)
+    return () => {
+      off()
+      window.clearTimeout(fallback)
+    }
+  }, [])
+
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-[#04101f] text-white">
+      <HudGrid />
+
+      {/* Globo 3D — deslocado para a direita, sangrando a borda */}
+      <div className="pointer-events-none absolute inset-y-0 right-[-22%] z-0 flex items-center justify-center lg:right-[-6%] lg:pointer-events-auto">
+        <EarthGlobe className="h-[58vh] w-[58vh] max-h-[760px] max-w-[760px] opacity-60 lg:h-[80vh] lg:w-[80vh] lg:opacity-95" />
+      </div>
+
+      {/* Vinheta p/ legibilidade do texto à esquerda */}
       <div
-        className="absolute inset-0 z-[5] pointer-events-none bg-[#061120]/65"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_75%_70%_at_25%_50%,#04101f_35%,transparent_100%)]"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex  flex-col lg:flex-row items-center lg:gap-16">
-          <motion.div className="flex-1 space-y-6 order-2 lg:order-1 text-center lg:text-left" 
-          initial="hidden"
-          whileInView="visible"
-          viewport={scrollViewport}
-          variants={slideLeftVariants}
-          transition={scrollTransition}>
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"> LaraFy — Inteligência Tributária </p>
-            <SplitReveal as="h1" type="words" className="text-3xl font-black uppercase leading-tight text-white sm:text-5xl lg:text-7xl text-balance">Reduza impostos com</SplitReveal>
-            <p className="">Zero riscos e milhões em lucro. Tecnologia exclusiva orientada para decisão tributária estratégica.</p>
-            <a href=""> Quero receber um diagnóstico</a>
-          </motion.div>
 
-          <motion.div
-            className="flex-1 order-1 lg:order-2 w-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={scrollViewport}
-            variants={slideRightVariants}
-            transition={scrollTransition}
-          >
-            <EarthGlobe className="h-[320px] w-full lg:h-[480px]" />
-          </motion.div>
+      {/* Barra de metadados superior */}
+      <div className="relative z-10 mx-auto flex max-w-[1400px] items-center justify-between px-6 pt-28 lg:px-10 lg:pt-32">
+        <MetaLabel className="text-white/80">Larafy°</MetaLabel>
+        <MetaLabel className="hidden sm:block">Inteligência Tributária</MetaLabel>
+        <MetaLabel>[ BR — 2026 ]</MetaLabel>
+      </div>
+
+      {/* Conteúdo principal */}
+      <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-13rem)] max-w-[1400px] flex-col justify-center px-6 lg:px-10">
+        <motion.div
+          initial="hidden"
+          animate={entered ? "visible" : "hidden"}
+          variants={fadeUpVariants}
+          transition={scrollTransition}
+        >
+          <div className="flex items-center gap-3">
+            <span className="h-px w-12 bg-[#00e5ff]" />
+            <MetaLabel className="text-[#00e5ff]">01 — Decisão tributária estratégica</MetaLabel>
+          </div>
+
+          <h1 className="mt-7 font-display font-bold uppercase leading-[0.9] tracking-[-0.02em]">
+            <SplitReveal
+              as="span"
+              type="words"
+              className="block text-[clamp(2.75rem,9vw,9rem)] text-white"
+            >
+              Reduza impostos
+            </SplitReveal>
+            <span className="block text-[clamp(2.75rem,9vw,9rem)] text-[#00e5ff]">
+              com zero risco.
+            </span>
+          </h1>
+
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-white/65 lg:text-lg">
+            Milhões em lucro recuperado com precisão cirúrgica. Tecnologia exclusiva
+            orientada à decisão tributária — não ao achismo.
+          </p>
+
+          <div className="pointer-events-auto mt-10">
+            <CtaButton href="#contato" magneticStrength={0.4}>
+              Quero um diagnóstico
+            </CtaButton>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Faixa de métricas (rodapé do hero) */}
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-10 lg:px-10">
+        <div className="grid grid-cols-1 gap-6 border-t hairline pt-6 sm:grid-cols-3">
+          {STATS.map((s) => (
+            <div key={s.label} className="flex flex-col gap-1.5">
+              <span className="font-display text-3xl font-bold text-white lg:text-4xl">
+                {"value" in s ? (
+                  <AnimatedCounter target={s.value} suffix={s.suffix} />
+                ) : (
+                  s.display
+                )}
+              </span>
+              <MetaLabel>{s.label}</MetaLabel>
+            </div>
+          ))}
         </div>
       </div>
-      
 
-    </section>)}
+      <HudCorners className="hidden lg:block" />
+    </section>
+  )
+}

@@ -1,3 +1,5 @@
+import { EASE_SOFT } from "@/lib/ease"
+
 export const scrollViewport = {
   once: true,
   amount: 0.15,
@@ -6,7 +8,7 @@ export const scrollViewport = {
 
 export const scrollTransition = {
   duration: 0.8,
-  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+  ease: EASE_SOFT,
 } as const
 
 export const slideLeftVariants = {

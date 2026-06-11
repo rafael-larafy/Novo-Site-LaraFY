@@ -1,90 +1,122 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SplitReveal } from "@/components/split-reveal"
+import { Check } from "lucide-react"
 import {
   scrollViewport,
   scrollTransition,
-  scaleVariants,
+  fadeUpVariants,
+  slideLeftVariants,
+  slideRightVariants,
+  staggerDelay,
 } from "@/lib/scroll-motion"
+import { SplitReveal } from "@/components/split-reveal"
+import { CtaButton } from "@/components/ui/cta-button"
+import { MetaLabel, HudGrid } from "@/components/ui/editorial"
+
+const ENTREGAS = [
+  "Simulações constantes de impacto (IVA Dual)",
+  "Ajustes estratégicos em tempo real",
+  "Proteção da margem e dos contratos",
+]
+
+const PERDAS = [
+  "Observa a concorrência avançar",
+  "Reage tarde a cada mudança",
+  "Absorve o custo da Reforma",
+]
 
 export function ReformaCardSection() {
   return (
-    <section className="relative py-16 lg:py-10 overflow-hidden bg-[#00e5ff]/10">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#00e5ff]/5 via-transparent to-[#0a1628]/10" />
+    <section className="relative overflow-hidden bg-[#04101f] text-white">
+      <HudGrid />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
+        <div className="flex items-center justify-between border-t hairline pt-6">
+          <MetaLabel className="text-[#00e5ff]">07 — Autoridade de futuro</MetaLabel>
+          <MetaLabel className="hidden sm:block">Reforma Tributária</MetaLabel>
+        </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <motion.div
-          className="flex flex-col lg:flex-row items-stretch rounded-3xl overflow-hidden shadow-2xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={scrollViewport}
-          variants={scaleVariants}
-          transition={scrollTransition}
-        >
-          <div className="relative flex-1 bg-[#ffffff] p-10 lg:p-14 flex flex-col justify-center overflow-hidden">
-            <div className="absolute inset-0 opacity-5">
-              <svg className="w-full h-full" viewBox="0 0 400 300" fill="none">
-                {[
-                  { x: 40, y: 50, lx: 150, ly: 120 },
-                  { x: 120, y: 200, lx: 280, ly: 80 },
-                  { x: 200, y: 30, lx: 100, ly: 250 },
-                  { x: 300, y: 150, lx: 350, ly: 270 },
-                  { x: 370, y: 80, lx: 200, ly: 180 },
-                  { x: 60, y: 270, lx: 320, ly: 220 },
-                  { x: 250, y: 250, lx: 80, ly: 100 },
-                ].map((p, i) => (
-                  <g key={i}>
-                    <circle cx={p.x} cy={p.y} r="2" fill="#0a1628" />
-                    <line x1={p.x} y1={p.y} x2={p.lx} y2={p.ly} stroke="#0a1628" strokeWidth="0.3" />
-                  </g>
-                ))}
-              </svg>
-            </div>
+        <div className="mt-12 max-w-3xl">
+          <SplitReveal
+            as="h2"
+            type="words"
+            className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+          >
+            A Reforma não é um evento. É um processo.
+          </SplitReveal>
+          <motion.p
+            className="mt-6 max-w-xl text-lg text-white/60"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={fadeUpVariants}
+            transition={{ ...scrollTransition, delay: staggerDelay(1) }}
+          >
+            Há quem vai correr atrás do lucro e quem vai ficar observando. De qual
+            lado você quer estar?
+          </motion.p>
+        </div>
 
-            <div className="relative z-10">
-              <SplitReveal as="h2"
-                className="text-4xl font-black uppercase text-[#0a1628] lg:text-6xl leading-tight"
-              >
-                Reforma<br />Tributaria
-              </SplitReveal>
-              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#4a6080]">
-                Autoridade de Futuro
-              </p>
-            </div>
-          </div>
+        {/* a escolha binária */}
+        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden border hairline lg:grid-cols-2">
+          {/* lado que observa — apagado */}
+          <motion.div
+            className="bg-[#04101f] p-8 lg:p-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideLeftVariants}
+            transition={scrollTransition}
+          >
+            <MetaLabel className="text-[#5f86a6]">Sem método</MetaLabel>
+            <h3 className="text-outline mt-4 font-display text-3xl font-bold uppercase leading-none lg:text-5xl">
+              Quem observa
+            </h3>
+            <ul className="mt-8 space-y-4">
+              {PERDAS.map((p) => (
+                <li
+                  key={p}
+                  className="flex items-center gap-3 border-b border-white/5 pb-4 text-white/40"
+                >
+                  <span className="font-mono text-xs">✕</span>
+                  <span className="text-sm">{p}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-          <div className="flex-1 bg-[#0d1d33] p-10 lg:p-14 flex flex-col justify-center">
-            <SplitReveal as="h3"
-              className="text-2xl font-extrabold text-[#00e5ff] lg:text-3xl leading-tight text-balance"
-            >
-              A Reforma Tributária não é um evento isolado, é um processo.
-            </SplitReveal>
-            <div className="mt-6 space-y-4">
-              <p className="text-[#ffffff] leading-relaxed">
-              Há quem vai correr atrás do lucro e quem vai ficar observando a concorrência ganhar. De qual lado você quer estar?
-              </p>
-              <p><strong>Com a LaraFy, você recebe:</strong> </p>
-              <ul className="space-y-2 text-[#8ba3c0]">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Simulações constantes de impacto (IVA Dual).
+          {/* lado que lidera — ciano */}
+          <motion.div
+            className="relative bg-[#061b2e] p-8 lg:p-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={scrollViewport}
+            variants={slideRightVariants}
+            transition={scrollTransition}
+          >
+            <div className="absolute inset-x-0 top-0 h-px bg-[#00e5ff]" />
+            <MetaLabel className="text-[#00e5ff]">Com a Larafy</MetaLabel>
+            <h3 className="mt-4 font-display text-3xl font-bold uppercase leading-none text-white lg:text-5xl">
+              Quem lidera
+            </h3>
+            <ul className="mt-8 space-y-4">
+              {ENTREGAS.map((e) => (
+                <li
+                  key={e}
+                  className="flex items-center gap-3 border-b border-[#00e5ff]/15 pb-4"
+                >
+                  <Check className="h-4 w-4 shrink-0 text-[#00e5ff]" strokeWidth={3} />
+                  <span className="text-sm font-medium text-white/90">{e}</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Ajustes estratégicos em tempo real.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-[#00e5ff]">&#8226;</span>
-                  Proteção da margem e dos contratos.
-                </li>
-              </ul>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <CtaButton href="#contato" magneticStrength={0.3}>
+                Trabalhe com quem entende
+              </CtaButton>
             </div>
-            <p className="mt-8 text-xl font-bold uppercase text-[#00e5ff] tracking-wide leading-tight">
-              Trabalhe com quem entende do cenário.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

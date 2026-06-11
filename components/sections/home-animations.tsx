@@ -3,9 +3,6 @@
 import { useEffect } from "react"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 
-// Os títulos agora usam o componente <SplitReveal> (GSAP SplitText com máscara).
-// Este componente cuida só dos efeitos de scroll restantes (hero frame, parallax,
-// zoom, cards, tilt).
 
 export function HomeAnimations() {
   useEffect(() => {

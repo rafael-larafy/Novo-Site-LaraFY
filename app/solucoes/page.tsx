@@ -89,11 +89,11 @@ export default function SolucoesPage() {
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero */}
-        <section className="relative bg-[#0a1628] pt-32 pb-20 lg:pt-40 lg:pb-8">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0d1f3c] to-[#0a1628]" />
+        <section className="relative bg-[#04101f] pt-32 pb-20 lg:pt-40 lg:pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#04101f] via-[#061425] to-[#04101f]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
             <motion.p
-              className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]"
+              className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -102,7 +102,7 @@ export default function SolucoesPage() {
             >
               Nossas Soluções
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 text-3xl font-display font-bold uppercase leading-tight text-white lg:text-6xl">
               Precisão cirúrgica na{" "}
               <span className="text-[#00e5ff]">redução de impostos</span>
             </SplitReveal>
@@ -121,7 +121,7 @@ export default function SolucoesPage() {
         </section>
 
         {/* Soluções - Timeline */}
-        <section className="relative bg-[#0a1628] py-20 lg:py-10">
+        <section className="relative bg-[#04101f] py-20 lg:py-10">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -131,7 +131,7 @@ export default function SolucoesPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="text-2xl font-display font-bold uppercase text-white lg:text-4xl">
                 Nossas Soluções
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -157,7 +157,7 @@ export default function SolucoesPage() {
                     transition={{ ...scrollTransition, delay: staggerDelay(index) }}
                   >
                     {/* Dot */}
-                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] ring-4 ring-[#020c18] z-10" />
+                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] ring-4 ring-[#020a14] z-10" />
 
                     {/* Content */}
                     <div className={`flex-1 pl-14 lg:pl-0 ${index % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16 lg:text-left"}`}>
@@ -190,10 +190,10 @@ export default function SolucoesPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative bg-[#0a1628] py-20 lg:pt-5 lg:pb-20">
+        <section className="relative bg-[#04101f] py-20 lg:pt-5 lg:pb-20">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="text-2xl font-display font-bold uppercase text-[#00e5ff] lg:text-4xl"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -222,7 +222,7 @@ export default function SolucoesPage() {
             >
               <Magnetic><a
                 href="/#contato"
-                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#0a1628] glow-effect"
+                className="cta-button mt-8 inline-block rounded-full bg-[#00e5ff] px-10 py-4 text-base font-bold uppercase tracking-wider text-[#04101f] glow-effect"
               >
                 Solicitar Diagnóstico Gratuito
               </a></Magnetic>

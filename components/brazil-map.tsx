@@ -7,7 +7,6 @@ import { SVGLoader } from "three-stdlib"
 import * as THREE from "three"
 
 function Brazil({ reduce }: { reduce: boolean }) {
-  // Carrega a silhueta do Brasil e extruda em 3D.
   const data = useLoader(SVGLoader, "/brazil.svg")
 
   const { geometry, scale } = useMemo(() => {
@@ -38,11 +37,9 @@ function Brazil({ reduce }: { reduce: boolean }) {
   const ref = useRef<THREE.Mesh>(null)
   useFrame((state) => {
     if (!ref.current || reduce) return
-    // balanço sutil (oscila, sem dar a volta) — a interação principal é o drag
     ref.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.15
   })
 
-  // escala Y negativa: SVG é Y-down → vira de pé no espaço do Three (Y-up)
   return (
     <mesh ref={ref} geometry={geometry} scale={[scale, -scale, scale]}>
       <meshStandardMaterial
@@ -57,11 +54,7 @@ function Brazil({ reduce }: { reduce: boolean }) {
   )
 }
 
-/**
- * Mapa 3D interativo do Brasil (extrusão da silhueta via SVGLoader).
- * Arraste para girar (PresentationControls, com retorno elástico) + balanço
- * sutil. Respeita prefers-reduced-motion.
- */
+
 export function BrazilMap({ className }: { className?: string }) {
   const [reduce, setReduce] = useState(false)
   useEffect(() => {

@@ -7,20 +7,12 @@ import { cn } from "@/lib/utils"
 
 interface MagneticProps {
   children: React.ReactNode
-  /** Fração do deslocamento do cursor aplicada ao elemento. Default 0.4. */
+  
   strength?: number
   className?: string
 }
 
-/**
- * Wrapper "magnético": o filho é puxado suavemente em direção ao cursor
- * (padrão de award-site, presente no lumena-partners.com). Usa `gsap.quickTo`
- * para updates de alta frequência sem criar tweens a cada mousemove.
- *
- * Só ativa em ponteiro fino (mouse) e respeita `prefers-reduced-motion`.
- *
- *   <Magnetic><a className="cta-button">Quero diagnóstico</a></Magnetic>
- */
+
 export function Magnetic({ children, strength = 0.4, className }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null)
   const xTo = useRef<ReturnType<typeof gsap.quickTo> | null>(null)

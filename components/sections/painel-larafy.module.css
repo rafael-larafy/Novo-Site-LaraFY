@@ -2,7 +2,7 @@
 
 .panel {
   font-family: var(--font-inter), 'Inter', 'Segoe UI', sans-serif;
-  background: #0a1628;
+  background: #04101f;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -36,13 +36,25 @@
   flex: 1;
 }
 
+.headerKicker {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #00e5ff;
+  margin-bottom: 16px;
+}
+
 .headerTitle {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 800;
-  line-height: 1.2;
+  font-family: var(--font-display), 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   color: #00e5ff;
   text-wrap: balance;
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .headerDesc {
@@ -76,7 +88,7 @@
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background: #0a1628;
+  background: #04101f;
   opacity: 0.9;
   z-index: 1;
   pointer-events: none;
@@ -86,8 +98,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(34,184,201,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,184,201,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
 }
@@ -135,7 +147,7 @@
 
 .seg:hover,
 .seg.active {
-  filter: brightness(1.15) drop-shadow(0 0 15px rgba(34,184,201,0.25));
+  filter: brightness(1.15) drop-shadow(0 0 15px rgba(0,229,255,0.25));
 }
 
 .lbl {
@@ -265,7 +277,7 @@
   background: rgba(8,18,35,0.97);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 2.5px solid #22b8c9;
+  border: 2.5px solid #00e5ff;
   padding: 32px 34px;
   border-radius: 22px;
   font-size: 14.5px;
@@ -277,7 +289,7 @@
   pointer-events: none;
   min-width: 300px;
   max-width: 340px;
-  box-shadow: 0 0 25px rgba(34,184,201,0.10), 0 14px 45px rgba(0,0,0,0.45);
+  box-shadow: 0 0 25px rgba(0,229,255,0.10), 0 14px 45px rgba(0,0,0,0.45);
   font-family: var(--font-inter), 'Inter', sans-serif;
   text-align: center;
 }
@@ -289,7 +301,7 @@
 }
 
 .tip strong { color: #fff; font-weight: 700; }
-.tip em { font-style: normal; color: #22b8c9; font-weight: 600; }
+.tip em { font-style: normal; color: #00e5ff; font-weight: 600; }
 .tip p { margin-bottom: 12px; color: rgba(255,255,255,0.88); text-align: center; }
 .tip p:last-child { margin-bottom: 0; }
 
@@ -308,7 +320,7 @@
 
 .tip ul li::before {
   content: '\25CF';
-  color: #22b8c9;
+  color: #00e5ff;
   margin-right: 10px;
   font-size: 9px;
   vertical-align: middle;
@@ -359,7 +371,7 @@
 .conn.active { opacity: 1; }
 
 .cdot {
-  fill: #22b8c9;
+  fill: #00e5ff;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -391,7 +403,7 @@
 }
 
 .mtbl .hl td {
-  background: rgba(34,184,201,0.08);
+  background: rgba(0,229,255,0.08);
   color: #1a6b7c;
   font-weight: 600;
 }
@@ -430,7 +442,7 @@
   border-radius: 2px;
 }
 
-.mchk { color: #22b8c9; font-weight: 700; }
+.mchk { color: #00e5ff; font-weight: 700; }
 
 .mval {
   text-align: center;
@@ -494,7 +506,7 @@
 .mobileStepCard:hover,
 .mobileStepCard.mobileStepActive {
   background: rgba(34, 184, 201, 0.15);
-  border-color: #22b8c9;
+  border-color: #00e5ff;
   box-shadow: 0 0 20px rgba(34, 184, 201, 0.2);
 }
 
@@ -526,7 +538,7 @@
 .mobilePopup {
   position: relative;
   background: rgba(8, 18, 35, 0.98);
-  border: 2.5px solid #22b8c9;
+  border: 2.5px solid #00e5ff;
   border-radius: 20px;
   padding: 50px 30px 30px;
   max-width: 400px;

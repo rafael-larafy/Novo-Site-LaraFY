@@ -13,6 +13,7 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber"
 import { motion } from "framer-motion"
 import * as THREE from "three"
 import { BrazilDetail } from "@/components/brazil-detail"
+import { useInView } from "@/hooks/use-in-view"
 
 // Centro aproximado do Brasil
 const BRAZIL_LAT = -14
@@ -399,6 +400,7 @@ export function EarthGlobe({ className }: { className?: string }) {
   const movedRef = useRef(false)
   const [open, setOpen] = useState(false)
   const openRef = useRef(false)
+  const { ref: viewRef, inView } = useInView<HTMLDivElement>("150px")
 
   // espelha `open` num ref para o loop de animação (mergulho da câmera) ler
   useEffect(() => {
@@ -441,6 +443,7 @@ export function EarthGlobe({ className }: { className?: string }) {
   return (
     <>
       <div
+        ref={viewRef}
         className={`${className ?? ""} touch-none cursor-grab active:cursor-grabbing`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -466,6 +469,7 @@ export function EarthGlobe({ className }: { className?: string }) {
           transition={{ duration: 0.8, ease: "easeIn" }}
         >
           <Canvas
+            frameloop={inView ? "always" : "never"}
             dpr={[1, 2]}
             camera={{ position: [0, 0, 3.5], fov: 35 }}
             gl={{ alpha: true, antialias: true }}

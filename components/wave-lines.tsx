@@ -12,6 +12,8 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing"
 import { MeshLineGeometry, MeshLineMaterial } from "meshline"
 import * as THREE from "three"
 
+import { useInView } from "@/hooks/use-in-view"
+
 /**
  * "Wave lines" — réplica da técnica de Animated Line Art do bobbyroe
  * (github.com/bobbyroe/Animated-Line-Art), adaptada à marca Larafy:
@@ -30,11 +32,11 @@ declare module "@react-three/fiber" {
   }
 }
 
-const NUM_LINES = 99
-const NUM_POINTS = 80
-const WIDTH = 90
-const WAVE_LENGTH = 0.010
-const AMPLITUDE = 5
+const NUM_LINES = 40
+const NUM_POINTS = 20
+const WIDTH = 60
+const WAVE_LENGTH = 0.02
+const AMPLITUDE = 30
 const SPEED = 10
 
 type Pointer = { x: number; y: number }
@@ -122,6 +124,7 @@ function Lines({
 export function WaveLines({ className }: { className?: string }) {
   const pointer = useRef<Pointer>({ x: 0, y: 0 })
   const [reduce, setReduce] = useState(false)
+  const { ref, inView } = useInView<HTMLDivElement>("100px")
 
   useEffect(() => {
     setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
@@ -134,8 +137,9 @@ export function WaveLines({ className }: { className?: string }) {
   }, [])
 
   return (
-    <div className={className} aria-hidden>
+    <div ref={ref} className={className} aria-hidden>
       <Canvas
+        frameloop={inView ? (reduce ? "demand" : "always") : "never"}
         camera={{ position: [0, 0, 5], fov: 75 }}
         dpr={[1, 1.8]}
         gl={{ antialias: true }}
