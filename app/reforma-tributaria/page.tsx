@@ -287,7 +287,7 @@ export default function ReformaTributariaPage() {
                   viewport={scrollViewport}
                   variants={fadeUpVariants}
                   transition={scrollTransition}
-                  className="mt-5 font-display text-[clamp(2.4rem,6vw,4.2rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-balance text-white"
+                  className="mt-5 font-display text-[clamp(2rem,4.6vw,3.3rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-balance text-white"
                 >
                   A maior mudança tributária em 60 anos já começou. Você sabe o{" "}
                   <span className="text-[#00e5ff]">seu número</span>?
@@ -384,7 +384,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
               >
                 Os dados que vão redesenhar o seu caixa.
               </SplitReveal>
@@ -449,7 +449,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
               >
                 A transição, ano a ano.
               </SplitReveal>
@@ -526,7 +526,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
               >
                 O estudo da reforma sobre o que é seu — não sobre achismo.
               </SplitReveal>
@@ -614,7 +614,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
               >
                 O que você recebe no estudo da reforma LaraFy.
               </SplitReveal>
@@ -688,7 +688,7 @@ export default function ReformaTributariaPage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                  className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
                 >
                   Waldir de Lara Junior nos palcos do Brasil.
                 </SplitReveal>
@@ -749,7 +749,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
               >
                 O essencial, sem juridiquês.
               </SplitReveal>
@@ -792,7 +792,7 @@ export default function ReformaTributariaPage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-5 max-w-4xl font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+              className="mx-auto mt-5 max-w-4xl font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
             >
               Pare de decidir a reforma no escuro.
             </SplitReveal>

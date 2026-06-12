@@ -52,14 +52,25 @@ function flash(peak: number) {
   }
 }
 
-export function BrokenNetwork({ className = "" }: { className?: string }) {
+export function BrokenNetwork({
+  className = "",
+  fill = false,
+  footerLeft,
+  footerRight,
+}: {
+  className?: string
+  fill?: boolean
+  footerLeft?: string
+  footerRight?: string | null
+}) {
   const reduce = useReducedMotion()
   const ease: Transition["ease"] = "easeInOut"
+  const showRight = footerRight !== null
 
   return (
     <div
       aria-hidden="true"
-      className={`relative aspect-square w-full overflow-hidden rounded-2xl border border-[#1e3a5f] bg-[radial-gradient(circle_at_50%_50%,#0c2138_0%,#081627_62%,#060f1e_100%)] ${className}`}
+      className={`relative w-full overflow-hidden rounded-2xl border border-[#1e3a5f] bg-[radial-gradient(circle_at_50%_50%,#0c2138_0%,#081627_62%,#060f1e_100%)] ${fill ? "h-full" : "aspect-square"} ${className}`}
     >
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full">
         <defs>
@@ -176,20 +187,26 @@ export function BrokenNetwork({ className = "" }: { className?: string }) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_50%,transparent_55%,rgba(6,14,28,0.7)_100%)]" />
 
       <div className="pointer-events-none absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5f86a6]">
-        Sinal <span className="text-[#00e5ff]/70">18%</span>
-        {!reduce && (
-          <motion.span
-            className="ml-1 inline-block text-[#00e5ff]/70"
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
-          >
-            _
-          </motion.span>
+        {footerLeft ?? (
+          <>
+            Sinal <span className="text-[#00e5ff]/70">18%</span>
+            {!reduce && (
+              <motion.span
+                className="ml-1 inline-block text-[#00e5ff]/70"
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+              >
+                _
+              </motion.span>
+            )}
+          </>
         )}
       </div>
-      <div className="pointer-events-none absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5f86a6]">
-        Sem lock · 1/6
-      </div>
+      {showRight && (
+        <div className="pointer-events-none absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5f86a6]">
+          {footerRight ?? "Sem lock · 1/6"}
+        </div>
+      )}
     </div>
   )
 }

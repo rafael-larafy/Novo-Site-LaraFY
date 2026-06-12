@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react"
 import LogoImg from "@/lib/Logo.png"
 import { UnderlineLink } from "@/components/underline-link"
 import { CtaButton } from "@/components/ui/cta-button"
+import { cn } from "@/lib/utils"
 
 const navLinks = [
   { label: "Sobre nós", href: "/sobre" },
@@ -45,15 +46,30 @@ export function Header() {
     >
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-11">
         <div className="flex items-center justify-between gap-6">
-          <a href="/" className="flex shrink-0 items-center">
+          <a href="/" className="relative flex h-8 shrink-0 items-center lg:h-10">
+            <Image
+              src="/images/larafy-logo-light.svg"
+              alt="Larafy"
+              width={306}
+              height={66}
+              sizes="(max-width: 1024px) 150px, 188px"
+              className={cn(
+                "h-8 w-auto transition-opacity duration-300 lg:h-10",
+                isScrolled ? "pointer-events-none absolute opacity-0" : "opacity-100"
+              )}
+              priority
+            />
             <Image
               src={LogoImg}
-              alt="Larafy"
+              alt={isScrolled ? "Larafy" : ""}
+              aria-hidden={!isScrolled}
               width={600}
               height={128}
               sizes="(max-width: 1024px) 150px, 188px"
-              className="h-8 w-auto lg:h-10"
-              priority
+              className={cn(
+                "h-8 w-auto transition-opacity duration-300 lg:h-10",
+                isScrolled ? "opacity-100" : "pointer-events-none absolute opacity-0"
+              )}
             />
           </a>
 
@@ -62,7 +78,12 @@ export function Header() {
               <UnderlineLink
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-[#002e43]/75 hover:text-[#002e43] transition-colors duration-200"
+                className={cn(
+                  "text-sm font-semibold transition-colors duration-300",
+                  isScrolled
+                    ? "text-[#002e43]/75 hover:text-[#002e43]"
+                    : "text-white/85 hover:text-white"
+                )}
               >
                 {link.label}
               </UnderlineLink>
@@ -78,7 +99,10 @@ export function Header() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
-            className="lg:hidden p-2 text-[#002e43]"
+            className={cn(
+              "lg:hidden p-2 transition-colors duration-300",
+              isScrolled || isMobileMenuOpen ? "text-[#002e43]" : "text-white"
+            )}
             aria-label={isMobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="menu-mobile"

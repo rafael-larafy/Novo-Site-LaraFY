@@ -40,7 +40,7 @@ export function FunnelCta() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-6 text-balance font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white"
+              className="mt-6 text-balance font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white"
             >
               Tributo não é despesa. É estratégia.
             </SplitReveal>

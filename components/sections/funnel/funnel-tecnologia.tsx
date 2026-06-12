@@ -2,13 +2,13 @@
 
 // COPY: claims pendentes de validação com a Larafy.
 
-import { motion, useReducedMotion } from "framer-motion"
+import { motion } from "framer-motion"
 import { Crosshair, ShieldCheck, Zap } from "lucide-react"
 
 import { SplitReveal } from "@/components/split-reveal"
 import { CtaButton } from "@/components/ui/cta-button"
 import { MetaLabel, HudGrid } from "@/components/ui/editorial"
-import { GlassCard } from "@/components/ui/glass-card"
+import { BaixaAutomatica } from "@/components/sections/funnel/baixa-automatica"
 import {
   fadeUpVariants,
   scrollTransition,
@@ -35,19 +35,7 @@ const PILLARS = [
   },
 ] as const
 
-const BAR_HEIGHTS = [32, 50, 40, 84, 56, 72, 46, 94] as const
-const HIGHLIGHT_BARS = new Set([3, 5, 7])
-
-const DATA_ROWS = [
-  { label: "Créditos identificados", value: "R$ 2.480.910" },
-  { label: "Teses na camada legal", value: "12" },
-  { label: "Cenários avaliados", value: "1,04 bi" },
-  { label: "Tempo de processamento", value: "00:39:12" },
-] as const
-
 export function FunnelTecnologia() {
-  const reduce = useReducedMotion()
-
   return (
     <section
       id="tecnologia"
@@ -61,13 +49,13 @@ export function FunnelTecnologia() {
           <MetaLabel className="hidden sm:block">O motor Larafy</MetaLabel>
         </div>
 
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           {/* ESQUERDA — copy + pilares */}
           <div>
             <SplitReveal
               as="h2"
               type="words"
-              className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
             >
               O motor que faz em 40 minutos o que levaria semanas.
             </SplitReveal>
@@ -136,52 +124,7 @@ export function FunnelTecnologia() {
             variants={slideRightVariants}
             transition={scrollTransition}
           >
-            <GlassCard glow="md" className="p-6">
-              <div className="mb-5 flex items-center justify-between">
-                <MetaLabel>Motor de regras · Larafy</MetaLabel>
-                <div className="flex items-center gap-1.5" aria-hidden>
-                  <span className="h-2.5 w-2.5 rounded-full border border-white/20" />
-                  <span className="h-2.5 w-2.5 rounded-full border border-white/20" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#00e5ff]" />
-                </div>
-              </div>
-
-              <div className="mb-4 flex h-[130px] items-end gap-2" aria-hidden>
-                {BAR_HEIGHTS.map((height, i) => (
-                  <motion.div
-                    key={i}
-                    initial={reduce ? false : { scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: i * 0.06,
-                      ease: "easeOut",
-                    }}
-                    style={{ originY: 1, height: `${height}%` }}
-                    className={`flex-1 rounded-t-md ${
-                      HIGHLIGHT_BARS.has(i)
-                        ? "bg-gradient-to-t from-[#00e5ff] to-[#00e5ff]/40"
-                        : "bg-[#0d2a44]"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <dl>
-                {DATA_ROWS.map((row) => (
-                  <div
-                    key={row.label}
-                    className="flex items-center justify-between gap-4 border-b hairline py-2.5 text-sm last:border-b-0"
-                  >
-                    <dt className="text-white/55">{row.label}</dt>
-                    <dd className="font-bold tabular-nums text-white">
-                      {row.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </GlassCard>
+            <BaixaAutomatica className="w-full" />
           </motion.div>
         </div>
       </div>

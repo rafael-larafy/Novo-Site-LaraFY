@@ -44,7 +44,7 @@ export function FunnelForm() {
             <SplitReveal
               as="h2"
               type="words"
-              className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+              className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
             >
               Descubra quanto sua empresa está deixando na mesa.
             </SplitReveal>

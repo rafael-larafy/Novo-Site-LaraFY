@@ -81,7 +81,7 @@ export function HeroSection() {
 
       {/* Globo 3D — deslocado para a direita, sangrando a borda */}
       <div className="pointer-events-none absolute inset-y-0 right-[-22%] z-0 flex items-center justify-center lg:right-[-6%] lg:pointer-events-auto">
-        <EarthGlobe className="h-[58vh] w-[58vh] max-h-[760px] max-w-[760px] opacity-60 lg:h-[80vh] lg:w-[80vh] lg:opacity-95" />
+        <EarthGlobe className="h-[64vh] w-[64vh] max-h-[820px] max-w-[820px] opacity-60 lg:h-[88vh] lg:w-[88vh] lg:max-h-[900px] lg:max-w-[900px] lg:opacity-95" />
       </div>
 
       {/* Vinheta p/ legibilidade do texto à esquerda */}
@@ -91,14 +91,14 @@ export function HeroSection() {
       />
 
       {/* Barra de metadados superior */}
-      <div className="relative z-10 mx-auto flex max-w-[1400px] items-center justify-between px-6 pt-28 lg:px-10 lg:pt-32">
+      <div className="relative z-10 mx-auto flex max-w-[1400px] items-center justify-between px-8 pt-[120px] lg:px-12 lg:pt-[136px]">
         <MetaLabel className="text-white/80">Larafy°</MetaLabel>
         <MetaLabel className="hidden sm:block">Inteligência Tributária</MetaLabel>
         <MetaLabel>[ BR — 2026 ]</MetaLabel>
       </div>
 
       {/* Conteúdo principal */}
-      <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-13rem)] max-w-[1400px] flex-col justify-center px-6 lg:px-10">
+      <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-13rem)] max-w-[1400px] flex-col justify-center px-9 lg:px-12">
         <motion.div
           initial="hidden"
           animate={entered ? "visible" : "hidden"}
@@ -114,11 +114,11 @@ export function HeroSection() {
             <SplitReveal
               as="span"
               type="words"
-              className="block text-[clamp(2.75rem,9vw,9rem)] text-white"
+              className="block text-[clamp(2.4rem,6.5vw,5rem)] text-white"
             >
               Reduza impostos
             </SplitReveal>
-            <span className="block text-[clamp(2.75rem,9vw,9rem)] text-[#00e5ff]">
+            <span className="block text-[clamp(2.4rem,6.5vw,5rem)] text-[#00e5ff]">
               com zero risco.
             </span>
           </h1>
@@ -136,11 +136,11 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Faixa de métricas (rodapé do hero) */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-10 lg:px-10">
-        <div className="grid grid-cols-1 gap-6 border-t hairline pt-6 sm:grid-cols-3">
+      <div className="relative z-10 mx-auto -mt-12 max-w-[1400px] px-8 pb-8 lg:px-12">
+        <div className="h-px w-full max-w-2xl bg-[#00e5ff]/20" aria-hidden />
+        <div className="mt-4 flex flex-wrap gap-x-10 gap-y-4 sm:gap-x-14 lg:gap-x-20">
           {STATS.map((s) => (
-            <div key={s.label} className="flex flex-col gap-1.5">
+            <div key={s.label} className="flex flex-col gap-1">
               <span className="font-display text-3xl font-bold text-white lg:text-4xl">
                 {"value" in s ? (
                   <AnimatedCounter target={s.value} suffix={s.suffix} />

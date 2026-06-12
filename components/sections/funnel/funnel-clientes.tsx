@@ -6,6 +6,7 @@ import type { ReactNode } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
+import { Marquee } from "@/components/marquee"
 import { MetaLabel, HudGrid } from "@/components/ui/editorial"
 import { SplitReveal } from "@/components/split-reveal"
 import {
@@ -29,6 +30,10 @@ const LOGOS: Logo[] = [
   { src: "/Kapazi.png", alt: "Kapazi" },
   { src: "/CargoSoft.png", alt: "Cargo Soft" },
 ]
+
+// Duas linhas com empresas DISTINTAS (sem repetição entre as linhas).
+const ROW1: Logo[] = LOGOS.slice(0, 3)
+const ROW2: Logo[] = LOGOS.slice(3)
 
 const PARTNERS: { key: string; label: ReactNode }[] = [
   {
@@ -62,33 +67,45 @@ export function FunnelClientes() {
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
           >
             Empresas que confiam na nossa precisão.
           </SplitReveal>
         </div>
 
-        <ul className="mt-12 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:mt-14 lg:grid-cols-6">
-          {LOGOS.map((logo, i) => (
-            <motion.li
-              key={logo.src}
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollViewport}
-              variants={fadeUpVariants}
-              transition={{ ...scrollTransition, delay: staggerDelay(i) }}
-              className="group grid h-[78px] place-items-center rounded-2xl border hairline bg-[#04101f]/60 px-5 transition-[transform,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#00e5ff]/30"
-            >
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={scrollViewport}
+          variants={fadeUpVariants}
+          transition={scrollTransition}
+          className="mt-12 space-y-8 lg:mt-14"
+        >
+          <Marquee speed={36} direction="left" className="lfy-fade-x">
+            {[...ROW1, ...ROW1].map((logo, i) => (
               <Image
+                key={`r1-${logo.src}-${i}`}
                 src={logo.src}
-                alt={logo.alt}
-                width={120}
-                height={48}
-                className="h-8 w-auto object-contain opacity-50 brightness-0 invert transition-opacity duration-200 group-hover:opacity-90"
+                alt={i < ROW1.length ? logo.alt : ""}
+                width={300}
+                height={112}
+                className="mx-10 h-20 w-auto shrink-0 object-contain sm:mx-12 lg:h-28"
               />
-            </motion.li>
-          ))}
-        </ul>
+            ))}
+          </Marquee>
+          <Marquee speed={36} direction="right" className="lfy-fade-x">
+            {[...ROW2, ...ROW2].map((logo, i) => (
+              <Image
+                key={`r2-${logo.src}-${i}`}
+                src={logo.src}
+                alt={i < ROW2.length ? logo.alt : ""}
+                width={300}
+                height={112}
+                className="mx-10 h-20 w-auto shrink-0 object-contain sm:mx-12 lg:h-28"
+              />
+            ))}
+          </Marquee>
+        </motion.div>
 
         <motion.div
           initial="hidden"

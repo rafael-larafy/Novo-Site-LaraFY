@@ -20,6 +20,7 @@ import {
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SplitReveal } from "@/components/split-reveal"
+import { BrokenNetwork } from "@/components/broken-network"
 import { ConstellationField } from "@/components/constellation-field"
 import { CountUp } from "@/components/sections/flash/count-up"
 import { CtaButton } from "@/components/ui/cta-button"
@@ -34,8 +35,8 @@ import WaldirImg from "@/lib/Waldir.png"
 import GPTWImg from "@/lib/GPTW.png"
 import { Analytics } from "@vercel/analytics/next"
 
-const NoiseGrid = dynamic(
-  () => import("@/components/three/noise-grid").then((m) => ({ default: m.NoiseGrid })),
+const DataCorridor = dynamic(
+  () => import("@/components/three/data-corridor").then((m) => ({ default: m.DataCorridor })),
   { ssr: false, loading: () => null },
 )
 
@@ -87,6 +88,8 @@ const MEMBERS: MemberItem[] = [
   { name: "Sócio(a)-Fundador(a)", role: "Direção Tributária", tag: "Liderança" },
   { name: "Sócio(a)", role: "Direção de Tecnologia", tag: "Liderança" },
   { name: "Sócio(a)", role: "Direção de Operações", tag: "Liderança" },
+  { name: "Sócio(a)", role: "Direção Comercial", tag: "Liderança" },
+  { name: "Sócio(a)", role: "Direção Financeira", tag: "Liderança" },
 ]
 
 interface ValueItem {
@@ -134,9 +137,13 @@ export default function SobrePage() {
           id="topo"
           className="relative overflow-hidden bg-[#04101f] pt-32 pb-20 text-white lg:pt-40"
         >
-          <NoiseGrid className="absolute inset-0 opacity-80" />
+          <DataCorridor className="absolute inset-0 z-0" />
           <div
-            className="absolute left-1/2 top-1/3 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,229,255,0.18),transparent_65%)]"
+            className="pointer-events-none absolute inset-0 z-[1] bg-[#061120]/70"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-[#04101f]/55 via-transparent to-transparent"
             aria-hidden
           />
 
@@ -148,7 +155,7 @@ export default function SobrePage() {
               viewport={scrollViewport}
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(1) }}
-              className="mt-4 font-display text-[clamp(2.4rem,6vw,4.4rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-white text-balance"
+              className="mt-4 font-display text-[clamp(2rem,4.6vw,3.4rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-white text-balance"
             >
               20 anos de tributos. Uma obsessão por{" "}
               <span className="text-[#00e5ff]">precisão</span>.
@@ -221,7 +228,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
                 >
                   Precisão é o que nos move — e o que nos diferencia.
                 </SplitReveal>
@@ -255,17 +262,14 @@ export default function SobrePage() {
                 viewport={scrollViewport}
                 variants={fadeUpVariants}
                 transition={{ ...scrollTransition, delay: staggerDelay(2) }}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border hairline bg-gradient-to-br from-[#0a2740] to-[#020a14]"
+                className="relative aspect-[4/3]"
                 aria-hidden
               >
-                <ConstellationField
-                  className="absolute inset-0 h-full w-full p-8"
-                  count={7}
-                  radius={36}
+                <BrokenNetwork
+                  fill
+                  footerLeft="2,1 bi cenários · mapeados"
+                  footerRight={null}
                 />
-                <span className="absolute bottom-4 left-4 meta-label text-[#5f86a6]">
-                  2,1 bi cenários · mapeados
-                </span>
               </motion.div>
             </div>
           </div>
@@ -308,7 +312,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
                 >
                   Uma das maiores mentes tributárias do Brasil.
                 </SplitReveal>
@@ -389,7 +393,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-8 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mt-8 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
             >
               Tecnologia que vira precisão.
             </SplitReveal>
@@ -432,7 +436,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-8 font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mt-8 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
             >
               As pessoas por trás da precisão.
             </SplitReveal>
@@ -447,7 +451,7 @@ export default function SobrePage() {
               A liderança que une décadas de experiência tributária à visão de tecnologia.
             </motion.p>
 
-            <div className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {MEMBERS.map((member, i) => (
                 <motion.article
                   key={member.name + i}
@@ -462,7 +466,7 @@ export default function SobrePage() {
                       <Image
                         src={member.photo}
                         alt={`${member.name}, ${member.role} da LaraFy`}
-                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="h-full w-full object-cover object-top"
                       />
                     ) : (
@@ -499,7 +503,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
                 >
                   Mais de 100 especialistas, um só padrão: excelência.
                 </SplitReveal>
@@ -614,7 +618,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
                 >
                   Venha construir o futuro do tributário no Brasil.
                 </SplitReveal>
@@ -691,7 +695,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-8 max-w-3xl font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mx-auto mt-8 max-w-3xl font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
             >
               Conheça a precisão LaraFy na prática.
             </SplitReveal>

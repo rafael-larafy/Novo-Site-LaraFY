@@ -40,7 +40,7 @@ export function ReformaCardSection() {
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(2rem,5vw,4.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
           >
             A Reforma não é um evento. É um processo.
           </SplitReveal>

@@ -8,13 +8,15 @@ import { cn } from "@/lib/utils"
 
 interface MarqueeProps {
   children: React.ReactNode
-  
+
   speed?: number
+  /** Sentido da rolagem. "left" (padrão) move p/ a esquerda; "right" p/ a direita. */
+  direction?: "left" | "right"
   className?: string
 }
 
 
-export function Marquee({ children, speed = 30, className }: MarqueeProps) {
+export function Marquee({ children, speed = 30, direction = "left", className }: MarqueeProps) {
   const track = useRef<HTMLDivElement>(null)
   const tween = useRef<gsap.core.Tween | null>(null)
   const [reduce, setReduce] = useState(false)
@@ -27,8 +29,11 @@ export function Marquee({ children, speed = 30, className }: MarqueeProps) {
     () => {
       if (!track.current) return
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+      const start = direction === "right" ? -50 : 0
+      const end = direction === "right" ? 0 : -50
+      gsap.set(track.current, { xPercent: start })
       tween.current = gsap.to(track.current, {
-        xPercent: -50,
+        xPercent: end,
         ease: "none",
         duration: speed,
         repeat: -1,
@@ -38,7 +43,7 @@ export function Marquee({ children, speed = 30, className }: MarqueeProps) {
         tween.current = null
       }
     },
-    { scope: track, dependencies: [speed] }
+    { scope: track, dependencies: [speed, direction] }
   )
 
   useLenis((lenis) => {

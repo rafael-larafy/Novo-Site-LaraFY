@@ -63,7 +63,7 @@ export function SectionHeading({
         as={as}
         type="words"
         className={cn(
-          "font-display text-3xl font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance sm:text-5xl lg:text-6xl",
+          "font-display text-2xl font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance sm:text-4xl lg:text-5xl",
           titleClassName
         )}
       >
