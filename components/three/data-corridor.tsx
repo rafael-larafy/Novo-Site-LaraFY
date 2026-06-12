@@ -1,9 +1,5 @@
 "use client"
 
-// "Corredor de dados" — campo de painéis voando em direção à câmera (piso/teto),
-// com fog e Bloom. Adaptado de bobbyroe/scifi-flight p/ R3F + ciano via
-// InstancedMesh. Sob reduced-motion congela o campo. Pausa fora da viewport.
-
 import { useEffect, useMemo, useRef } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { Bloom, EffectComposer } from "@react-three/postprocessing"

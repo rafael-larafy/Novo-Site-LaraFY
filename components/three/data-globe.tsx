@@ -1,10 +1,5 @@
 "use client"
 
-// "Planeta de dados" — globo feito de pontos (icosaedro subdividido) deslocados
-// por ruído ao longo da normal, inspirado em bobbyroe/vertex-earth, mas SEM
-// texturas (relevo procedural). Gira devagar, reage ao ponteiro, núcleo wireframe
-// tênue. Pausa fora da viewport; estático sob reduced-motion.
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"

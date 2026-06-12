@@ -75,7 +75,7 @@ export default function MetodoPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
+        
         <section className="relative bg-[#04101f] pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="absolute inset-0 bg-gradient-to-b from-[#04101f] via-[#061425] to-[#04101f]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -89,7 +89,7 @@ export default function MetodoPage() {
             >
               O Método LaraFy
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-display font-bold uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Precisão cirúrgica em{" "}
               <span className="text-[#00e5ff]">cada etapa</span>
             </SplitReveal>
@@ -108,7 +108,7 @@ export default function MetodoPage() {
           </div>
         </section>
 
-        {/* Etapas */}
+        
         <section className="relative bg-[#020a14] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.div
@@ -119,7 +119,7 @@ export default function MetodoPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-display font-bold uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Como funciona
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -165,7 +165,7 @@ export default function MetodoPage() {
           </div>
         </section>
 
-        {/* Diferenciais do Método */}
+        
         <section className="relative bg-[#04101f] py-20 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
@@ -180,7 +180,7 @@ export default function MetodoPage() {
                 <p className="font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-[#00e5ff]">
                   Por que funciona
                 </p>
-                <h2 className="mt-4 text-2xl font-display font-bold uppercase text-white lg:text-4xl">
+                <h2 className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                   O diferencial está nos detalhes
                 </h2>
                 <p className="mt-6 text-[#8ba3c0] leading-relaxed">
@@ -235,11 +235,11 @@ export default function MetodoPage() {
           </div>
         </section>
 
-        {/* Zero Risco */}
+        
         <section className="relative py-20 lg:py-28 overflow-hidden bg-[#020a14]">
           <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 text-center">
             <motion.h2
-              className="text-5xl font-display font-bold uppercase text-white lg:text-8xl tracking-tight"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -249,7 +249,7 @@ export default function MetodoPage() {
               ZERO
             </motion.h2>
             <motion.p
-              className="mt-4 text-xl font-bold text-white lg:text-3xl"
+              className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

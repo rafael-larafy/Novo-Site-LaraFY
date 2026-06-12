@@ -1,11 +1,5 @@
 "use client"
 
-// Simulador da Reforma — porta a lógica do HTML (rates por setor, ramp ano a ano)
-// para estado React e renderiza as barras como um gráfico 3D R3F que reage, ao
-// vivo, aos controles. Padrão de performance do projeto: frameloop pausado fora
-// da viewport, idle/rotação gateados por prefers-reduced-motion.
-// COPY/claim: número é ilustrativo — o real vem da apuração do diagnóstico.
-
 import { useEffect, useMemo, useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"
@@ -95,7 +89,7 @@ function Bars({
         const x = (i - (YEARS.length - 1) / 2) * 1.5
         return (
           <group key={y} position={[x, 0, 0]}>
-            {/* mercado (achismo) — barra fosca */}
+            
             <mesh
               ref={(el) => {
                 if (el) marketRefs.current[i] = el
@@ -106,7 +100,7 @@ function Bars({
               <boxGeometry args={[0.5, 1, 0.5]} />
               <meshStandardMaterial color="#1f3a57" roughness={0.6} metalness={0.1} transparent opacity={0.85} />
             </mesh>
-            {/* LaraFy (dado real) — barra ciano com glow */}
+            
             <mesh
               ref={(el) => {
                 if (el) laraRefs.current[i] = el
@@ -120,7 +114,7 @@ function Bars({
           </group>
         )
       })}
-      {/* base */}
+      
       <mesh position={[0, Y0 - 0.06, 0]}>
         <boxGeometry args={[YEARS.length * 1.5 + 0.4, 0.05, 0.7]} />
         <meshStandardMaterial color="#0a1f33" roughness={0.8} />
@@ -222,7 +216,7 @@ export function ReformSimulator() {
 
   return (
     <div ref={inViewRef} className="grid items-stretch gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-      {/* Controles */}
+      
       <div className="rounded-2xl border hairline bg-[#061425]/70 p-6 lg:p-8">
         <div className="flex flex-col gap-6">
           <Segmented
@@ -276,7 +270,7 @@ export function ReformSimulator() {
         </div>
       </div>
 
-      {/* Saída + barras 3D */}
+      
       <div className="relative flex flex-col overflow-hidden rounded-2xl border hairline bg-gradient-to-b from-[#072032] to-[#04101f] p-6 lg:p-8">
         <div className="flex items-center justify-between">
           <MetaLabel>Ganho projetado com o estudo</MetaLabel>
@@ -308,7 +302,7 @@ export function ReformSimulator() {
           </Canvas>
         </div>
 
-        {/* eixo de anos */}
+        
         <div className="mt-1 flex justify-between px-1 font-mono text-[10px] text-white/40">
           {YEARS.map((y) => (
             <span key={y}>&apos;{y}</span>

@@ -132,7 +132,7 @@ export default function SobrePage() {
     <>
       <Header />
       <main className="overflow-x-hidden bg-[#04101f] text-white">
-        {/* 1 — HERO */}
+        
         <section
           id="topo"
           className="relative overflow-hidden bg-[#04101f] pt-32 pb-20 text-white lg:pt-40"
@@ -155,7 +155,7 @@ export default function SobrePage() {
               viewport={scrollViewport}
               variants={fadeUpVariants}
               transition={{ ...scrollTransition, delay: staggerDelay(1) }}
-              className="mt-4 font-display text-[clamp(2rem,4.6vw,3.4rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-white text-balance"
+              className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.03em] text-white text-balance"
             >
               20 anos de tributos. Uma obsessão por{" "}
               <span className="text-[#00e5ff]">precisão</span>.
@@ -188,7 +188,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 2 — STAT BAND */}
+        
         <section className="relative overflow-hidden bg-[#061425] text-white">
           <HudGrid />
           <div className="relative z-10 mx-auto max-w-[1200px] px-6 py-24 lg:px-10 lg:py-28">
@@ -215,7 +215,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 3 — HISTÓRIA */}
+        
         <section
           id="quem-somos"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -228,7 +228,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
                 >
                   Precisão é o que nos move — e o que nos diferencia.
                 </SplitReveal>
@@ -275,7 +275,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 4 — FUNDADOR */}
+        
         <section
           id="fundador"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -312,7 +312,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
                 >
                   Uma das maiores mentes tributárias do Brasil.
                 </SplitReveal>
@@ -382,7 +382,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 5 — DIFERENCIAL */}
+        
         <section
           id="diferencial"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -393,7 +393,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-8 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mt-8 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
             >
               Tecnologia que vira precisão.
             </SplitReveal>
@@ -425,7 +425,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 6 — SÓCIOS & FUNDADORES */}
+        
         <section
           id="socios"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -436,7 +436,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-8 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mt-8 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
             >
               As pessoas por trás da precisão.
             </SplitReveal>
@@ -490,7 +490,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 7 — NOSSA GENTE / CULTURA */}
+        
         <section
           id="cultura"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -503,7 +503,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
                 >
                   Mais de 100 especialistas, um só padrão: excelência.
                 </SplitReveal>
@@ -558,7 +558,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 8 — SEGURANÇA */}
+        
         <section
           id="seguranca"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -578,7 +578,7 @@ export default function SobrePage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="font-display text-[clamp(1.6rem,3.6vw,2.8rem)] font-bold uppercase leading-[1.02] tracking-[-0.02em] text-white text-balance"
+                className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
               >
                 Processos tão precisos que a apólice de R$10 milhões nunca foi usada.
               </SplitReveal>
@@ -605,7 +605,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 9 — TRABALHE CONOSCO */}
+        
         <section
           id="carreiras"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -618,7 +618,7 @@ export default function SobrePage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                  className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
                 >
                   Venha construir o futuro do tributário no Brasil.
                 </SplitReveal>
@@ -687,7 +687,7 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* 10 — CTA FINAL */}
+        
         <section className="relative overflow-hidden bg-[#020a14] text-white">
           <HudGrid />
           <div className="relative z-10 mx-auto max-w-[1200px] px-6 py-24 text-center lg:px-10 lg:py-28">
@@ -695,7 +695,7 @@ export default function SobrePage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-8 max-w-3xl font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mx-auto mt-8 max-w-3xl font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
             >
               Conheça a precisão LaraFy na prática.
             </SplitReveal>

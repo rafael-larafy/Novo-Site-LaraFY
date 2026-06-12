@@ -1,7 +1,6 @@
 
 export type Pt = { x: number; y: number }
 
-
 export function ringNodes(
   count: number,
   opts?: { cx?: number; cy?: number; r?: number; startDeg?: number }
@@ -13,7 +12,6 @@ export function ringNodes(
     return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) }
   })
 }
-
 
 export function arcPath(a: Pt, b: Pt, bend = 6): string {
   const mx = (a.x + b.x) / 2

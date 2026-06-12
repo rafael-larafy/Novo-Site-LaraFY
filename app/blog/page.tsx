@@ -89,7 +89,7 @@ export default function BlogPage() {
             >
               Blog
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Conteúdo que{" "}
               <span className="text-[#00e5ff]">transforma</span>
             </SplitReveal>
@@ -144,7 +144,7 @@ export default function BlogPage() {
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-bold text-white mb-4 lg:text-3xl leading-tight group-hover:text-[#00e5ff] transition-colors">
+                  <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance mb-4 group-hover:text-[#00e5ff] transition-colors">
                     {destaque.titulo}
                   </h2>
                   <p className="text-[#8ba3c0] leading-relaxed mb-6">
@@ -165,7 +165,7 @@ export default function BlogPage() {
         <section className="relative bg-[#0a1628] py-20 lg:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-white lg:text-3xl mb-12"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance mb-12"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -225,7 +225,7 @@ export default function BlogPage() {
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-[#00e5ff] text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

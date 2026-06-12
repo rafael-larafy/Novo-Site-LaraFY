@@ -1,9 +1,5 @@
 "use client"
 
-// Gauge 3D do IVA (hero da Reforma): um anel ciano que representa a fatia de
-// 26,5% sobre um anel de referência, com órbita de partículas. Reage ao ponteiro
-// e é pausado fora da viewport. O número em si é overlay HTML (fonte nítida).
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"
@@ -44,25 +40,25 @@ function Gauge({ pointer, reduce }: { pointer: React.RefObject<{ x: number; y: n
 
   return (
     <group ref={group}>
-      {/* anel de referência (100%) */}
+      
       <mesh rotation={[0, 0, Math.PI / 2]}>
         <torusGeometry args={[2.2, 0.06, 16, 120]} />
         <meshStandardMaterial color="#16314c" roughness={0.7} metalness={0.2} />
       </mesh>
 
-      {/* fatia 26,5% — começa no topo */}
+      
       <mesh ref={arc} rotation={[0, 0, Math.PI / 2]}>
         <torusGeometry args={[2.2, 0.13, 20, 120, Math.PI * 2 * FILL]} />
         <meshStandardMaterial color="#00e5ff" emissive="#00e5ff" emissiveIntensity={0.65} roughness={0.25} metalness={0.3} />
       </mesh>
 
-      {/* anel interno fino */}
+      
       <mesh rotation={[0, 0, Math.PI / 2]}>
         <torusGeometry args={[1.78, 0.012, 8, 100]} />
         <meshStandardMaterial color="#00e5ff" emissive="#00e5ff" emissiveIntensity={0.35} transparent opacity={0.5} />
       </mesh>
 
-      {/* pontos orbitando sobre a fatia */}
+      
       <group ref={orbit} rotation={[0, 0, Math.PI / 2]}>
         {dots.map((a, i) => (
           <mesh key={i} position={[Math.cos(a) * 2.2, Math.sin(a) * 2.2, 0]}>

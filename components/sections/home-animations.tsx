@@ -3,7 +3,6 @@
 import { useEffect } from "react"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 
-
 export function HomeAnimations() {
   useEffect(() => {
     const reduce =

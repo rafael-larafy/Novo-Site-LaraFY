@@ -13,9 +13,7 @@ import {
   slideRightVariants,
 } from "@/lib/scroll-motion"
 
-
 const DOC_WIDTHS = ["92%", "64%", "85%", "57%", "78%", "95%", "61%", "73%"] as const
-
 
 const HIT_SEQUENCE: ReadonlyArray<readonly [number, number, number]> = [
   [0, 3, 6],
@@ -35,7 +33,6 @@ export function FlashHero() {
   const reduce = useReducedMotion()
 
   // Entrada coreografada: espera o preloader (onAppReady) — com reduced-motion
-  // entra na hora; fallback de 5s caso o sinal nunca dispare.
   const [entered, setEntered] = useState(false)
   useEffect(() => {
     if (reduce) {
@@ -80,7 +77,7 @@ export function FlashHero() {
               Consultoria tributária de alta performance
             </p>
 
-            <h1 className="mt-5 text-[clamp(2.3rem,5.2vw,4.1rem)] font-black tracking-[-0.03em] leading-[1.07] text-[#002e43]">
+            <h1 className="mt-5 text-[2.75rem] font-black tracking-[-0.03em] leading-[1.07] text-[#002e43]">
               Menos imposto, mais caixa e{" "}
               <span className="relative whitespace-nowrap">
                 segurança fiscal

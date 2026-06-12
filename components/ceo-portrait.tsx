@@ -7,7 +7,6 @@ import { ringNodes, arcPath } from "@/lib/constellation"
 
 const NODES = ringNodes(7, { r: 41 })
 
-
 export function CeoPortrait({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion()
   const ease: Transition["ease"] = "easeInOut"

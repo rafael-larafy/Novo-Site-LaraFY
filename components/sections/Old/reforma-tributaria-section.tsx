@@ -26,14 +26,14 @@ export function ReformaTributariaSection() {
     <section className="relative overflow-hidden bg-[#04101f] text-white">
       <HudGrid />
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
-        {/* cabeçalho com índice */}
+        
         <div className="flex items-center justify-between border-t hairline pt-6">
           <MetaLabel className="text-[#00e5ff]">02 — O problema</MetaLabel>
           <MetaLabel className="hidden sm:block">O jeito tradicional</MetaLabel>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-          {/* ESQUERDA — headline + readout */}
+          
           <div>
             <motion.div
               initial="hidden"
@@ -44,7 +44,7 @@ export function ReformaTributariaSection() {
             >
               <SplitReveal
                 as="h2"
-                className="font-display text-[clamp(2.25rem,5.5vw,5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+                className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
               >
                 Medo de perder dinheiro com a Reforma Tributária?
               </SplitReveal>
@@ -61,7 +61,7 @@ export function ReformaTributariaSection() {
               Se o seu projeto tributário ainda te entrega apenas isto:
             </motion.p>
 
-            {/* readout estilo terminal dos entregáveis fracos */}
+            
             <motion.ol
               className="mt-8 max-w-md"
               initial="hidden"
@@ -103,7 +103,7 @@ export function ReformaTributariaSection() {
             </motion.p>
           </div>
 
-          {/* DIREITA — rede quebrada em moldura HUD */}
+          
           <motion.div
             className="relative self-center"
             initial="hidden"

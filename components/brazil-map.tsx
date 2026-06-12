@@ -54,7 +54,6 @@ function Brazil({ reduce }: { reduce: boolean }) {
   )
 }
 
-
 export function BrazilMap({ className }: { className?: string }) {
   const [reduce, setReduce] = useState(false)
   useEffect(() => {

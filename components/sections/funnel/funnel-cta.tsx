@@ -1,8 +1,6 @@
 "use client"
 
 // COPY: claims pendentes de validação com a Larafy (R$10mi, +300, 40min etc.).
-// Esta é a seção de FECHAMENTO do funil. O CTA aponta para #contato — ou seja,
-// leva o visitante DE VOLTA ao formulário (FunnelForm, que tem id="contato").
 
 import { motion } from "framer-motion"
 
@@ -40,9 +38,9 @@ export function FunnelCta() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-6 text-balance font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white"
+              className="mt-6 text-balance font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white"
             >
-              Tributo não é despesa. É estratégia.
+              Fique no passado ou avance para uma nova realidade tributária
             </SplitReveal>
 
             <p className="mx-auto mt-6 max-w-xl text-white/60">

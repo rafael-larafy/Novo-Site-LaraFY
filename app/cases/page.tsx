@@ -5,7 +5,6 @@ import { Header } from "@/components/header"
 import { SplitReveal } from "@/components/split-reveal"
 import { Magnetic } from "@/components/magnetic"
 import { Footer } from "@/components/footer"
-import { LogosCarouselSection } from "@/components/sections/logos-carousel-section"
 import {scrollViewport,scrollTransition,fadeUpVariants,slideLeftVariants,slideRightVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { TrendingUp, ShieldCheck, Clock, Building2 } from "lucide-react"
 import { Analytics } from "@vercel/analytics/next"
@@ -61,7 +60,6 @@ const cases = [
   },
 ]
 
-
 export default function CasesPage() {
   return (
     <>
@@ -80,7 +78,7 @@ export default function CasesPage() {
             >
               Cases de Sucesso
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Resultados que{" "}
               <span className="text-[#00e5ff]">falam por si</span>
             </SplitReveal>
@@ -153,12 +151,10 @@ export default function CasesPage() {
           </div>
         </section>
 
-        <LogosCarouselSection />
-
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-[#00e5ff] text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

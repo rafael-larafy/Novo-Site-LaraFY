@@ -23,7 +23,6 @@ interface SplitRevealProps {
   replay?: boolean
 }
 
-
 export function SplitReveal({
   children,
   as: Tag = "h2",

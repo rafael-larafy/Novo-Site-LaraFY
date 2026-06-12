@@ -1,10 +1,5 @@
 "use client"
 
-// "Cenários orbitando um núcleo" — adaptado de bobbyroe/orbit-trails-r3f:
-// N camadas de pontos em icosaedro girando em fase ligeiramente diferente, com
-// Bloom (glow). Recolorido p/ ciano, com deriva pelo ponteiro, pausa fora da
-// viewport e estático sob reduced-motion. Postprocessing já é dep do projeto.
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Bloom, EffectComposer } from "@react-three/postprocessing"

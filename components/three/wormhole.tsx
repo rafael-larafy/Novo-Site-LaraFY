@@ -1,10 +1,5 @@
 "use client"
 
-// "Túnel de dados" — voo por um tubo wireframe gerado de uma spline, com caixas
-// wireframe flutuando ao longo do caminho e Bloom. Adaptado de
-// bobbyroe/flythru-wireframe-wormhole p/ R3F + ciano. Câmera percorre a spline em
-// loop; sob reduced-motion congela num ponto. Pausa fora da viewport.
-
 import { useMemo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { Bloom, EffectComposer } from "@react-three/postprocessing"

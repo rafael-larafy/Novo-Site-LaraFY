@@ -63,7 +63,7 @@ export function FlashSeguranca() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-4 max-w-[20ch] text-[clamp(1.75rem,3.8vw,2.8rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
+              className="mx-auto mt-4 max-w-[20ch] text-[2.75rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
             >
               A única consultoria com apólice de{" "}
               <span className="text-[#07e0ff]">R$ 10 milhões</span>. Que nunca

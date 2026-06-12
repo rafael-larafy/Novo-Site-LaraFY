@@ -1,11 +1,5 @@
 "use client"
 
-// "Superfície viva de dados" — malha de pontos deslocada por ruído de Perlin,
-// colorida navy→ciano por altura. Técnica adaptada de bobbyroe/noise-grid-r3f,
-// re-implementada no nosso stack: cores/posições atualizadas IN-PLACE (sem
-// realocar arrays por frame), tilt pelo ponteiro, pausa fora da viewport e
-// estado estático sob prefers-reduced-motion. Usa o ImprovedNoise do próprio three.
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"
@@ -46,7 +40,6 @@ function Grid({ pointer, reduce }: { pointer: React.RefObject<{ x: number; y: nu
   const tmp = useMemo(() => new THREE.Color(), [])
   const sprite = useMemo(makeDotTexture, [])
 
-  // Geometria + coordenadas-base; já inicializa relevo/cor em t=0 (sem flash).
   const { geometry, base } = useMemo(() => {
     const geo = new THREE.PlaneGeometry(SIZE, SIZE, SEG, SEG)
     const count = geo.attributes.position.count

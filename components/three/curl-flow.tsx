@@ -1,11 +1,5 @@
 "use client"
 
-// "Inteligência em movimento" — partículas advectadas por um campo de ruído 3D
-// (porta a ideia do bobbyroe/curl-particles, que era 2D canvas, p/ pontos R3F).
-// Cada partícula segue uma direção derivada de Perlin, com envelope de vida
-// (fade in/out por brilho, ideal p/ blending aditivo) e respawn. Pausa fora da
-// viewport; sob reduced-motion congela num quadro estático.
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"

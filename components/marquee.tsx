@@ -15,7 +15,6 @@ interface MarqueeProps {
   className?: string
 }
 
-
 export function Marquee({ children, speed = 30, direction = "left", className }: MarqueeProps) {
   const track = useRef<HTMLDivElement>(null)
   const tween = useRef<gsap.core.Tween | null>(null)

@@ -62,7 +62,6 @@ function placeNodes(nodes: EcoNode[]): Placed[] {
   })
 }
 
-
 export function EcosystemConstellation({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion()
   const placed = useMemo(() => placeNodes(NODES), [])

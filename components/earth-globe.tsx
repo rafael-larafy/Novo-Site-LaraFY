@@ -15,12 +15,8 @@ import * as THREE from "three"
 import { BrazilDetail } from "@/components/brazil-detail"
 import { useInView } from "@/hooks/use-in-view"
 
-// Centro aproximado do Brasil
 const BRAZIL_LAT = -14
 const BRAZIL_LON = -52
-
-// Converte lat/lon (graus) na rotação Euler (ordem XYZ) 
-// SphereGeometry com mapa (centro da textura = meridiano 0)
 
 function latLonToRotation(latDeg: number, lonDeg: number) {
   const theta = THREE.MathUtils.degToRad(90 - latDeg) // ângulo polar a partir do norte
@@ -33,15 +29,10 @@ function latLonToRotation(latDeg: number, lonDeg: number) {
 
 const TARGET = latLonToRotation(BRAZIL_LAT, BRAZIL_LON)
 
-// (oceano = branco). 
-// Texturas de bobbyroe/threejs-earth.
-
 const TEXTURES = [
   "/textures/earth/00_earthmap1k.jpg",
   "/textures/earth/02_earthspec1k.jpg",
 ]
-
-// Brilho atmosférico (Fresnel)
 
 function useFresnelMaterial(rimHex = 0x00e5ff, facingHex = 0x001725) {
   return useMemo(() => {
@@ -83,8 +74,6 @@ function useFresnelMaterial(rimHex = 0x00e5ff, facingHex = 0x001725) {
   }, [rimHex, facingHex])
 }
 
-// Material holográfico (oceano = branco) e o mapa de cor real ("dots" de néon)
-
 function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
   return useMemo(() => {
     return new THREE.ShaderMaterial({
@@ -117,14 +106,12 @@ function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
         varying vec3 vNormal;
         varying vec3 vViewDir;
 
-        // oceano = branco no specMap → terra = 1.0
         float landAt(vec2 uv) { return 1.0 - texture2D(specMap, uv).r; }
 
         void main() {
           float land = landAt(vUv);
           float landMask = smoothstep(0.35, 0.55, land);
 
-          // detecção de costa (diferença com os 4 vizinhos)
           float e = 0.0;
           e += abs(landAt(vUv + vec2(texel, 0.0)) - land);
           e += abs(landAt(vUv - vec2(texel, 0.0)) - land);
@@ -132,11 +119,9 @@ function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
           e += abs(landAt(vUv - vec2(0.0, texel)) - land);
           float coast = clamp(e * 2.5, 0.0, 1.0);
 
-          // variação interna a partir do mapa real (luminância)
           vec3 cm = texture2D(colorMap, vUv).rgb;
           float detail = dot(cm, vec3(0.299, 0.587, 0.114));
 
-          // borda do globo (fresnel) reforça o contorno
           float fres = pow(1.0 - max(dot(normalize(vNormal), normalize(vViewDir)), 0.0), 2.0);
 
           vec3 col = mix(landColor * (0.45 + 0.75 * detail), coastColor, coast);
@@ -155,7 +140,6 @@ function useHologramMaterial(colorMap: THREE.Texture, specMap: THREE.Texture) {
   }, [colorMap, specMap])
 }
 
-// Linhas sobre o PRANETA
 const NODE_COUNT = 45 // pontos na superfície
 const ARC_COUNT = 20 // arcos simultâneos
 const ARC_SEG = 150 // suavidade de cada arco
@@ -170,7 +154,6 @@ type Arc = {
   dur: number
 }
 
-// ponto aleatório uniforme sobre a esfera
 function randomSpherePoint(r: number) {
   const theta = 2 * Math.PI * Math.random()
   const phi = Math.acos(2 * Math.random() - 1)
@@ -181,7 +164,6 @@ function randomSpherePoint(r: number) {
   )
 }
 
-// textura de "dot" com brilho radial para os nós
 function makeDotTexture() {
   const size = 64
   const canvas = document.createElement("canvas")
@@ -198,7 +180,6 @@ function makeDotTexture() {
   return tex
 }
 
-// (re)define um arco que sai da superfície, arqueia e volta
 function setArc(arc: Arc, nodes: THREE.Vector3[]) {
   let ia = (Math.random() * nodes.length) | 0
   let ib = (Math.random() * nodes.length) | 0
@@ -206,7 +187,6 @@ function setArc(arc: Arc, nodes: THREE.Vector3[]) {
   const a = nodes[ia]
   const b = nodes[ib]
   const dist = a.distanceTo(b)
-  // ponto de controle empurrado radialmente p fora
   const mid = a
     .clone()
     .add(b)
@@ -225,16 +205,11 @@ function setArc(arc: Arc, nodes: THREE.Vector3[]) {
   arc.dur = 5 + Math.random() * 5
 }
 
-/*
-  Pontos brilhantes na superfície. Dentro do grupo do globo, então gira/contorna junto com o planeta.
- */
-
 function Connections() {
   const built = useMemo(() => {
     const group = new THREE.Group()
     const nodes = Array.from({ length: NODE_COUNT }, () => randomSpherePoint(NODE_R))
 
-    // nós (Points)
     const npos = new Float32Array(NODE_COUNT * 3)
     nodes.forEach((n, i) => {
       npos[i * 3] = n.x
@@ -256,7 +231,6 @@ function Connections() {
     points.frustumCulled = false
     group.add(points)
 
-    // arcos
     const arcs: Arc[] = []
     for (let i = 0; i < ARC_COUNT; i++) {
       const positions = new Float32Array((ARC_SEG + 1) * 3)
@@ -335,14 +309,12 @@ function Earth({
 
   const hologramMat = useHologramMaterial(colorMap, specMap)
 
-  // Estado inicial: Brasil de frente.
   useEffect(() => {
     groupRef.current?.rotation.set(TARGET.x, TARGET.y, 0)
   }, [groupRef])
 
   useFrame((_, delta) => {
     const g = groupRef.current
-    // sem arrastar → retorna suavemente para o Brasil (caminho mais curto em Y)
     if (g && !draggingRef.current) {
       const t = Math.min(1, delta * 3)
       let dy = TARGET.y - g.rotation.y
@@ -358,7 +330,7 @@ function Earth({
 
   return (
     <group ref={groupRef}>
-      {/* grade digital sutil ao fundo */}
+      
       <mesh scale={0.997}>
         <sphereGeometry args={[1, 40, 24]} />
         <meshBasicMaterial
@@ -370,14 +342,14 @@ function Earth({
           depthWrite={false}
         />
       </mesh>
-      {/* continentes holográficos */}
+      
       <mesh>
         <sphereGeometry args={[1, 96, 96]} />
         <primitive object={hologramMat} attach="material" />
       </mesh>
-      {/* rede de conexões (pontos + arcos animados) */}
+      
       <Connections />
-      {/* atmosfera */}
+      
       <mesh scale={1.015}>
         <sphereGeometry args={[1, 96, 96]} />
         <primitive object={fresnelMat} attach="material" />

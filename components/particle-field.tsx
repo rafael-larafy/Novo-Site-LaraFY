@@ -63,7 +63,6 @@ function ParticleCloud({
   )
 }
 
-
 export function ParticleField({ className }: { className?: string }) {
   const pointer = useRef<Pointer>({ x: 0, y: 0 })
   const scroll = useRef<Scroll>({ progress: 0, velocity: 0 })

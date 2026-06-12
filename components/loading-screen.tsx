@@ -84,7 +84,7 @@ export function LoadingScreen() {
           exit={reduce ? { opacity: 0 } : { y: "-100%" }}
           transition={{ duration: reduce ? 0.4 : 0.9, ease: EASE_SIGNATURE }}
         >
-          {/* logo (versão clara: branca + ciano, já visível no fundo escuro) */}
+          
           <Image
             src="/images/larafy-logo-light.svg"
             alt="LaraFy"
@@ -94,7 +94,7 @@ export function LoadingScreen() {
             className="h-10 w-auto lg:h-12"
           />
 
-          {/* progresso */}
+          
           <div className="mt-12 w-56 lg:w-72">
             <div className="mb-2 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.25em] text-[#00e5ff]">
               <span>Carregando</span>

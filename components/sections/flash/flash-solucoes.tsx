@@ -101,7 +101,7 @@ export function FlashSolucoes() {
           <SplitReveal
             as="h2"
             type="words"
-            className="mt-4 text-[clamp(1.75rem,3.8vw,2.8rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#002e43]"
+            className="mt-4 text-[2.75rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#002e43]"
           >
             Blindagem completa, do crédito ao patrimônio.
           </SplitReveal>

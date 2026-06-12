@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "@/lib/gsap"
 
-
 const INTERACTIVE = "a, button , [data-cursor], input, textarea , select , label , [role='button']"
 
 export function Cursor() {

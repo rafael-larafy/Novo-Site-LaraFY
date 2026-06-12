@@ -1,5 +1,3 @@
-// Registro central de GSAP — importe sempre daqui, nunca registre plugins ad-hoc.
-
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"

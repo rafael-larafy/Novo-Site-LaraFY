@@ -9,11 +9,6 @@ import { Analytics } from "@vercel/analytics/next"
 
 const SectionPlaceholder = () => <div className="min-h-[300px] bg-[#04101f]" />
 
-// Funil de 7 partes (DARK HUD):
-// 1. Hero  2. Formulário (#contato — destino de todos os CTAs)
-// 3. Soluções  4. Tecnologia/Método  5. Diferenciais
-// 6. Clientes e Depoimentos  7. CTA de fechamento (volta pro #contato)
-
 const FunnelForm = dynamic(
   () => import("@/components/sections/funnel/funnel-form").then((mod) => ({ default: mod.FunnelForm })),
   { ssr: true, loading: SectionPlaceholder }

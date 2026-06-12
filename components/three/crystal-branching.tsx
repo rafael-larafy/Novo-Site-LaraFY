@@ -1,10 +1,5 @@
 "use client"
 
-// "Cristais ramificando" — caixas crescem do centro ao longo de trajetórias
-// aleatórias, pulsando de escala (sin). Adaptado de bobbyroe/crystal-branching p/
-// R3F + ciano, via InstancedMesh (1 draw call). Gira devagar + tilt pelo ponteiro;
-// sob reduced-motion fica estático. Pausa fora da viewport.
-
 import { useEffect, useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useReducedMotion } from "framer-motion"

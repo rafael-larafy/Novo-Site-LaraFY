@@ -40,9 +40,9 @@ export function ConfiancaSection() {
           <MetaLabel className="hidden sm:block">Track record</MetaLabel>
         </div>
 
-        {/* bento de credenciais */}
+        
         <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-4 lg:auto-rows-[minmax(150px,1fr)]">
-          {/* célula grande — título */}
+          
           <motion.div
             className="relative col-span-2 overflow-hidden border hairline bg-[#061425]/60 p-8 lg:row-span-2 lg:p-10"
             initial="hidden"
@@ -73,7 +73,7 @@ export function ConfiancaSection() {
           <Metric value="+5" label="Anos de mercado" delay={1} />
           <Metric value="+100" label="Especialistas" delay={2} />
 
-          {/* GPTW */}
+          
           <motion.div
             className="flex flex-col justify-between border hairline bg-[#061425]/50 p-6 lg:p-8"
             initial="hidden"
@@ -89,7 +89,7 @@ export function ConfiancaSection() {
             </div>
           </motion.div>
 
-          {/* tecnologia própria */}
+          
           <motion.div
             className="flex flex-col justify-center border hairline bg-[#061425]/50 p-6 lg:p-8"
             initial="hidden"
@@ -104,7 +104,7 @@ export function ConfiancaSection() {
             </p>
           </motion.div>
 
-          {/* valores */}
+          
           <motion.div
             className="col-span-2 flex flex-col justify-center border hairline bg-[#061425]/50 p-6 lg:p-8"
             initial="hidden"
@@ -123,7 +123,7 @@ export function ConfiancaSection() {
             </div>
           </motion.div>
 
-          {/* CTA */}
+          
           <motion.div
             className="col-span-2 flex flex-col items-start justify-center gap-5 border hairline bg-[#061b2e] p-6 lg:flex-row lg:items-center lg:justify-between lg:p-8"
             initial="hidden"

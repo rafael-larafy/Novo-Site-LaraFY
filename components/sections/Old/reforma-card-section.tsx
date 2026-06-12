@@ -40,7 +40,7 @@ export function ReformaCardSection() {
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+            className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
           >
             A Reforma não é um evento. É um processo.
           </SplitReveal>
@@ -57,9 +57,9 @@ export function ReformaCardSection() {
           </motion.p>
         </div>
 
-        {/* a escolha binária */}
+        
         <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden border hairline lg:grid-cols-2">
-          {/* lado que observa — apagado */}
+          
           <motion.div
             className="bg-[#04101f] p-8 lg:p-12"
             initial="hidden"
@@ -85,7 +85,7 @@ export function ReformaCardSection() {
             </ul>
           </motion.div>
 
-          {/* lado que lidera — ciano */}
+          
           <motion.div
             className="relative bg-[#061b2e] p-8 lg:p-12"
             initial="hidden"

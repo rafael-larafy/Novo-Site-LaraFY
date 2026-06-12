@@ -5,7 +5,6 @@ import { ringNodes, arcPath } from "@/lib/constellation"
 
 const NODES = ringNodes(4, { r: 36, startDeg: -90 })
 
-
 export function ShieldConstellation({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion()
   const ease: Transition["ease"] = "easeInOut"

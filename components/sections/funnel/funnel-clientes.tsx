@@ -27,23 +27,13 @@ const LOGOS: Logo[] = [
   { src: "/Pinfer.png", alt: "Pinfer" },
   { src: "/Zanette.png", alt: "Zanette" },
   { src: "/Calcario.png", alt: "Calcário" },
-  { src: "/Kapazi.png", alt: "Kapazi" },
   { src: "/CargoSoft.png", alt: "Cargo Soft" },
 ]
 
-// Duas linhas com empresas DISTINTAS (sem repetição entre as linhas).
 const ROW1: Logo[] = LOGOS.slice(0, 3)
 const ROW2: Logo[] = LOGOS.slice(3)
 
 const PARTNERS: { key: string; label: ReactNode }[] = [
-  {
-    key: "crc-pr",
-    label: (
-      <>
-        Parceiro <b className="text-white">CRC-PR</b>
-      </>
-    ),
-  },
   { key: "advocacia", label: "Escritórios de advocacia" },
   { key: "contadores", label: "Rede de contadores" },
 ]
@@ -67,7 +57,7 @@ export function FunnelClientes() {
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+            className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
           >
             Empresas que confiam na nossa precisão.
           </SplitReveal>
@@ -79,7 +69,7 @@ export function FunnelClientes() {
           viewport={scrollViewport}
           variants={fadeUpVariants}
           transition={scrollTransition}
-          className="mt-12 space-y-8 lg:mt-14"
+          className="mt-12 space-y-8 lg:mt-5"
         >
           <Marquee speed={36} direction="left" className="lfy-fade-x">
             {[...ROW1, ...ROW1].map((logo, i) => (
@@ -87,21 +77,21 @@ export function FunnelClientes() {
                 key={`r1-${logo.src}-${i}`}
                 src={logo.src}
                 alt={i < ROW1.length ? logo.alt : ""}
-                width={300}
-                height={112}
-                className="mx-10 h-20 w-auto shrink-0 object-contain sm:mx-12 lg:h-28"
+                width={380}
+                height={144}
+                className="mx-10 h-24 w-auto shrink-0 object-contain opacity-80 brightness-0 invert sm:mx-12 lg:h-56"
               />
             ))}
           </Marquee>
           <Marquee speed={36} direction="right" className="lfy-fade-x">
-            {[...ROW2, ...ROW2].map((logo, i) => (
+            {[...ROW2, ...ROW2, ...ROW2].map((logo, i) => (
               <Image
                 key={`r2-${logo.src}-${i}`}
                 src={logo.src}
                 alt={i < ROW2.length ? logo.alt : ""}
-                width={300}
-                height={112}
-                className="mx-10 h-20 w-auto shrink-0 object-contain sm:mx-12 lg:h-28"
+                width={380}
+                height={144}
+                className="mx-10 h-24 w-auto shrink-0 object-contain opacity-80 brightness-0 invert sm:mx-12 lg:h-56"
               />
             ))}
           </Marquee>

@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react"
 
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 
-
 export default function SmoothScroll({
   children,
 }: {

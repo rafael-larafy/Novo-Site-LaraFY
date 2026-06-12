@@ -13,7 +13,6 @@ interface ParallaxProps {
   className?: string
 }
 
-
 export function Parallax({ children, amount = 60, className }: ParallaxProps) {
   const ref = useScrollProgressVar<HTMLDivElement>()
   const [reduce, setReduce] = useState(false)

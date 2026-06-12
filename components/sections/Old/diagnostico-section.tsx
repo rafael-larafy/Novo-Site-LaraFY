@@ -39,7 +39,7 @@ export function DiagnosticoSection() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-6 max-w-3xl font-display text-[clamp(2rem,5.5vw,5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white text-balance"
+              className="mx-auto mt-6 max-w-3xl font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
             >
               Tributo não é despesa. É estratégia.
             </SplitReveal>
@@ -56,7 +56,7 @@ export function DiagnosticoSection() {
               pode operar com mais eficiência, segurança e previsibilidade de caixa.
             </motion.p>
 
-            {/* prompt de terminal */}
+            
             <motion.div
               className="mt-10 inline-flex flex-col items-center gap-6"
               initial="hidden"

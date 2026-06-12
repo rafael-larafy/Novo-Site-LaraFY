@@ -74,7 +74,6 @@ const ROWS: ComparativoRow[] = [
     larafy: "Apólice R$ 10 mi + CRC-PR",
   },
   {
-    // Reconhecimento honesto ao modelo tradicional — honestidade converte.
     criterio: "Depois da entrega",
     tradicional: "Relacionamento de longa data",
     larafy: "Contabilidade premium contínua + monitoramento",
@@ -90,7 +89,7 @@ export function FunnelDiferenciais() {
       <HudGrid />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
-        {/* índice editorial */}
+        
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -103,12 +102,12 @@ export function FunnelDiferenciais() {
           <MetaLabel className="hidden sm:block">o impacto da LaraFy</MetaLabel>
         </motion.div>
 
-        {/* PARTE A — Impacto */}
+        
         <div className="mt-10 max-w-3xl">
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+            className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
           >
             Quem confia na LaraFy, vê resultado no caixa.
           </SplitReveal>
@@ -173,7 +172,7 @@ export function FunnelDiferenciais() {
           Valores ilustrativos para demonstração.
         </motion.p>
 
-        {/* PARTE B — Comparativo */}
+        
         <div className="mt-16 lg:mt-20">
           <motion.div
             initial="hidden"
@@ -186,9 +185,9 @@ export function FunnelDiferenciais() {
             <SplitReveal
               as="h3"
               type="words"
-              className="mt-4 max-w-2xl font-display text-[clamp(1.5rem,3.2vw,2.6rem)] font-bold uppercase leading-[1] tracking-[-0.02em] text-balance text-white"
+              className="mt-4 max-w-5xl font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
             >
-              O que muda quando a análise nasce de dado.
+              Quantas oportunidades tributárias você perde sem olhar para os dados
             </SplitReveal>
           </motion.div>
 

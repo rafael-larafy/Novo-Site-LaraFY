@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion"
 import { ArrowLeft } from "lucide-react"
 import { EcosystemConstellation } from "@/components/ecosystem-constellation"
 
-
 export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [mounted, setMounted] = useState(false)
 
@@ -66,7 +65,7 @@ export function BrazilDetail({ open, onClose }: { open: boolean; onClose: () => 
               <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
                 Ecossistema Larafy
               </p>
-              <h2 className="text-3xl font-black uppercase leading-tight text-white sm:text-4xl [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]">
                 A Larafy atende o Brasil inteiro
               </h2>
               <p className="text-sm leading-relaxed text-white/75 sm:text-base">

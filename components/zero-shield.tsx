@@ -5,7 +5,6 @@ import { ringNodes, arcPath } from "@/lib/constellation"
 
 const SAT = ringNodes(6, { r: 40 })
 
-
 export function ZeroShield({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion()
   const ease: Transition["ease"] = "easeInOut"
@@ -95,7 +94,7 @@ export function ZeroShield({ className = "" }: { className?: string }) {
       </svg>
 
       <div className="absolute inset-[30%] flex flex-col items-center justify-center rounded-full bg-[#071a2e]/85 text-center shadow-[0_0_36px_rgba(0,229,255,0.3)] ring-1 ring-[#00e5ff]/40">
-        <span className="text-3xl font-black uppercase leading-none tracking-tight text-white lg:text-4xl">Zero</span>
+        <span className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white">Zero</span>
         <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#00e5ff]">Risco</span>
       </div>
     </div>

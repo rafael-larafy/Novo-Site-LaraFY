@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ContatoSection } from "@/components/sections/contato-section"
+import { FunnelForm } from "@/components/sections/funnel/funnel-form"
 import {scrollViewport,scrollTransition,fadeUpVariants,staggerDelay,} from "@/lib/scroll-motion"
 import { Analytics } from "@vercel/analytics/next"
 
@@ -26,7 +26,7 @@ export default function ContatoPage() {
               Contato
             </motion.p>
             <motion.h1
-              className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl"
+              className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}
@@ -50,7 +50,7 @@ export default function ContatoPage() {
           </div>
         </section>
 
-        <ContatoSection />
+        <FunnelForm />
       </main>
       <Analytics/>
       <Footer />

@@ -12,7 +12,6 @@ interface MagneticProps {
   className?: string
 }
 
-
 export function Magnetic({ children, strength = 0.4, className }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null)
   const xTo = useRef<ReturnType<typeof gsap.quickTo> | null>(null)

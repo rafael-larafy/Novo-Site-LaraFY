@@ -49,7 +49,7 @@ export function FlashCtaFinal() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-4 text-[clamp(1.75rem,3.8vw,2.8rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
+              className="mt-4 text-[2.75rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
             >
               Descubra quanto sua empresa está deixando na mesa.
             </SplitReveal>

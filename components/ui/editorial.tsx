@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils"
 
+export const TITLE_CLASS =
+  "font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance"
+
 /**
  * Primitivas da direção de arte "terminal de inteligência" (redesign):
  * metadados em monospace, grade de HUD e marcas de canto tipo visor.

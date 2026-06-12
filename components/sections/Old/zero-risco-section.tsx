@@ -28,7 +28,7 @@ export function ZeroRiscoSection() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-          {/* esquerda — ZERO gigante vazado + cláusula */}
+          
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -42,12 +42,12 @@ export function ZeroRiscoSection() {
             <SplitReveal
               as="h2"
               type="words"
-              className="font-display text-[clamp(1.4rem,3.5vw,2.75rem)] font-bold uppercase leading-[1] tracking-[-0.02em] text-white"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1] tracking-[-0.02em] text-white"
             >
               risco de investir sem retorno
             </SplitReveal>
 
-            {/* cláusula tipo contrato */}
+            
             <motion.div
               className="mt-10 max-w-lg border-l-2 border-[#00e5ff] bg-[#04101f]/60 p-6"
               initial="hidden"
@@ -81,7 +81,7 @@ export function ZeroRiscoSection() {
             </div>
           </motion.div>
 
-          {/* direita — escudo em moldura HUD */}
+          
           <motion.div
             className="relative"
             initial="hidden"

@@ -4,12 +4,13 @@
 
 import { motion } from "framer-motion"
 import {
-  ArrowLeftRight,
   ArrowRight,
   BarChart3,
   Building2,
   CircleDollarSign,
+  Combine,
   FileSpreadsheet,
+  Handshake,
   LineChart,
   Users,
   type LucideIcon,
@@ -40,23 +41,29 @@ interface MiniCard {
 
 const FEATURE_CARDS: FeatureCard[] = [
   {
-    icon: CircleDollarSign,
-    title: "Recuperação de Créditos",
-    text: "Auditamos 5 anos de apuração e transformamos créditos legítimos em caixa — só o que a lei e o dado garantem.",
+    icon: BarChart3,
+    title: "Planejamento Tributário",
+    text: "Redução da carga tributária e otimização da gestão fiscal da empresa.",
     linkLabel: "Conheça mais",
   },
   {
-    icon: BarChart3,
-    title: "Planejamento Tributário",
-    text: "Pague o justo, nem um real a mais. Reduzimos a carga sobre a operação real, com previsibilidade.",
+    icon: CircleDollarSign,
+    title: "Recuperação de Créditos",
+    text: "Identificação e restituição ou compensação de tributos pagos indevidamente ou a mais.",
     linkLabel: "Conheça mais",
   },
   {
     id: "reforma",
     icon: LineChart,
-    title: "Reforma Tributária",
-    text: "Simulador que projeta o impacto sobre os seus dados reais, ano a ano da transição. Estudo concreto, não achismo.",
+    title: "Estudo da Reforma Tributária",
+    text: "Impactos relevantes no seu caixa durante a transição.",
     linkLabel: "Simular impacto",
+  },
+  {
+    icon: Handshake,
+    title: "Transação Tributária",
+    text: "Negociação de dívida ativa na União.",
+    linkLabel: "Conheça mais",
   },
 ]
 
@@ -64,22 +71,22 @@ const MINI_CARDS: MiniCard[] = [
   {
     icon: FileSpreadsheet,
     title: "Contabilidade Premium",
-    text: "Especialista no Lucro Real.",
+    text: "Especialistas em operações complexas no Lucro Real e Presumido.",
   },
   {
-    icon: Users,
-    title: "Folha de Pagamento",
-    text: "Precisão rubrica a rubrica.",
+    icon: Combine,
+    title: "M&A (Mergers and Acquisitions)",
+    text: "Fusão, aquisição ou incorporação de empresas para expansão, reestruturação ou ganho de mercado.",
   },
   {
     icon: Building2,
     title: "Holding Patrimonial",
-    text: "Proteção e sucessão com dado.",
+    text: "Proteção do seu CNPJ e CPF.",
   },
   {
-    icon: ArrowLeftRight,
-    title: "M&A",
-    text: "Due diligence fiscal de precisão.",
+    icon: Users,
+    title: "Folha de Pagamento",
+    text: "Levantamento de informações e processamento da folha até a apuração de encargos e envio das obrigações legais.",
   },
 ]
 
@@ -103,9 +110,9 @@ export function FunnelSolucoes() {
           <SplitReveal
             as="h2"
             type="words"
-            className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+            className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
           >
-            Blindagem completa, do crédito ao patrimônio.
+            A revolução tributária que o seu negócio merece
           </SplitReveal>
           <motion.p
             initial="hidden"
@@ -120,7 +127,7 @@ export function FunnelSolucoes() {
           </motion.p>
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURE_CARDS.map((card, i) => {
             const Icon = card.icon
             return (

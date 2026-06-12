@@ -8,7 +8,6 @@ type UnderlineLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: React.ReactNode
 }
 
-
 export function UnderlineLink({ children, className, ...rest }: UnderlineLinkProps) {
   const ref = useRef<HTMLAnchorElement>(null)
 

@@ -3,7 +3,6 @@
 // COPY: claims pendentes de validação com a Larafy.
 
 import { useState } from "react"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { Check, ChevronDown } from "lucide-react"
 
@@ -19,12 +18,6 @@ const FIELD_CLASS =
 
 const LABEL_CLASS = "mb-1 block text-xs font-bold text-white/80"
 
-const LOGOS = [
-  { src: "/Luson.png", alt: "Logotipo da Luson" },
-  { src: "/Kapazi.png", alt: "Logotipo da Kapazi" },
-  { src: "/Zanette.png", alt: "Logotipo da Zanette" },
-]
-
 export function FunnelForm() {
   const [submitted, setSubmitted] = useState(false)
 
@@ -39,14 +32,14 @@ export function FunnelForm() {
         </div>
 
         <div className="mt-12 grid items-center gap-12 lg:mt-16 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
-          {/* ESQUERDA — texto */}
+          
           <div>
             <SplitReveal
               as="h2"
               type="words"
-              className="font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
             >
-              Descubra quanto sua empresa está deixando na mesa.
+              Preencha o formulário e conheça as melhores soluções tributárias para o seu negócio
             </SplitReveal>
 
             <p className="mt-6 max-w-xl leading-relaxed text-white/65">
@@ -74,25 +67,8 @@ export function FunnelForm() {
                 <p className="text-xs text-white/60">de apólice</p>
               </div>
             </div>
-
-            <p className="mt-10 text-[11px] uppercase tracking-[0.1em] text-white/45">
-              Empresas que já confiam
-            </p>
-            <div className="mt-3 flex items-center gap-5">
-              {LOGOS.map((logo) => (
-                <Image
-                  key={logo.src}
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={96}
-                  height={32}
-                  className="h-6 w-auto object-contain opacity-50 brightness-0 invert"
-                />
-              ))}
-            </div>
           </div>
 
-          {/* DIREITA — form card */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -218,7 +194,7 @@ export function FunnelForm() {
 
                     <p className="mt-3 text-center text-[11px] leading-relaxed text-white/60">
                       Usamos seus dados apenas para retornar seu contato. Sem spam.{" "}
-                      {/* TODO: apontar para a rota real da Política de Privacidade quando existir. */}
+                      
                       <a href="/politica-de-privacidade" className="underline">
                         Política de Privacidade
                       </a>{" "}

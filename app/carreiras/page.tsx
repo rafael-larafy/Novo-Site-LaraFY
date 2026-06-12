@@ -101,7 +101,7 @@ export default function CarreirasPage() {
             >
               Carreiras
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Construa o futuro da{" "}
               <span className="text-[#00e5ff]">inteligência tributária</span>
             </SplitReveal>
@@ -133,7 +133,7 @@ export default function CarreirasPage() {
                 <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
                   Nossa Cultura
                 </p>
-                <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+                <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                   Mais do que um lugar para trabalhar
                 </h2>
                 <p className="text-[#8ba3c0] leading-relaxed">
@@ -201,7 +201,7 @@ export default function CarreirasPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Por que trabalhar na LaraFy
               </h2>
             </motion.div>
@@ -238,7 +238,7 @@ export default function CarreirasPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Vagas Abertas
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -287,7 +287,7 @@ export default function CarreirasPage() {
         <section className="relative bg-[#0a1628] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-[#00e5ff] text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

@@ -84,7 +84,7 @@ export function StatementSection () {
             <MetaLabel className="text-[#5f86a6]"><span ref={progRef}>000</span> /100 </MetaLabel>
           </div>
 
-          <p className="font-display text-[clamp(1.75rem,5vw,5rem)] font-bold uppercase leading-[1.08] tracking-[-0.02em] text-white text-balance">
+          <p className="font-display text-[2.75rem] font-bold uppercase leading-[1.08] tracking-[-0.02em] text-white text-balance">
             {WORDS.map ((w,i) =>(
               <span key ={i} ref={(el) => {
                 wordsRef.current[i] = el}}

@@ -61,7 +61,7 @@ export function FlashLogos() {
           <SplitReveal
             as="h2"
             type="words"
-            className="mx-auto mt-4 max-w-2xl text-[clamp(1.75rem,3.8vw,2.8rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#002e43]"
+            className="mx-auto mt-4 max-w-2xl text-[2.75rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#002e43]"
           >
             Empresas que confiam na nossa precisão.
           </SplitReveal>

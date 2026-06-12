@@ -4,7 +4,6 @@ import { useMemo } from "react"
 import { motion, useReducedMotion, type Transition } from "framer-motion"
 import { ringNodes, arcPath } from "@/lib/constellation"
 
-
 export function ConstellationField({
   className = "",
   count = 6,

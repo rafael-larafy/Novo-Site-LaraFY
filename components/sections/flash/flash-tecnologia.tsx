@@ -70,7 +70,7 @@ export function FlashTecnologia() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mt-5 text-[clamp(1.75rem,3.8vw,2.8rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
+              className="mt-5 text-[2.75rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
             >
               O motor que faz em 40 minutos o que levaria semanas.
             </SplitReveal>

@@ -114,7 +114,7 @@ export default function GrupoPage() {
             >
               O Grupo
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-black uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Um ecossistema completo de{" "}
               <span className="text-[#00e5ff]">inteligência tributária</span>
             </SplitReveal>
@@ -142,7 +142,7 @@ export default function GrupoPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Nossas Empresas
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -226,7 +226,7 @@ export default function GrupoPage() {
                 <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
                   Liderança
                 </p>
-                <h2 className="text-2xl font-black uppercase leading-tight text-white lg:text-4xl">
+                <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                   Waldir de Lara
                 </h2>
                 <p className="text-sm text-[#00e5ff] font-semibold uppercase tracking-wide">
@@ -258,7 +258,7 @@ export default function GrupoPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Nossa Trajetória
               </h2>
             </motion.div>
@@ -308,7 +308,7 @@ export default function GrupoPage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-[#00e5ff]">
                 Selo Great Place to Work
               </p>
-              <h2 className="mt-4 text-2xl font-black uppercase text-white lg:text-4xl">
+              <h2 className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Nossa Cultura
               </h2>
             </motion.div>
@@ -338,7 +338,7 @@ export default function GrupoPage() {
         <section className="relative bg-[#020c18] py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-black uppercase text-[#00e5ff] lg:text-4xl"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-[#00e5ff] text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

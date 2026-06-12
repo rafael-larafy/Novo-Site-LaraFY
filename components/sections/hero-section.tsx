@@ -53,7 +53,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const STATS = [
-  { value: 5, suffix: "+", label: "Anos de mercado" },
+  { value: 20, suffix: "+", label: "Anos de experiência de mercado" },
   { value: 100, suffix: "+", label: "Especialistas" },
   { display: "2,1 bi", label: "Cenários no motor" },
 ] as const
@@ -79,25 +79,25 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden bg-[#04101f] text-white">
       <HudGrid />
 
-      {/* Globo 3D — deslocado para a direita, sangrando a borda */}
+      
       <div className="pointer-events-none absolute inset-y-0 right-[-22%] z-0 flex items-center justify-center lg:right-[-6%] lg:pointer-events-auto">
         <EarthGlobe className="h-[64vh] w-[64vh] max-h-[820px] max-w-[820px] opacity-60 lg:h-[88vh] lg:w-[88vh] lg:max-h-[900px] lg:max-w-[900px] lg:opacity-95" />
       </div>
 
-      {/* Vinheta p/ legibilidade do texto à esquerda */}
+      
       <div
         className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_75%_70%_at_25%_50%,#04101f_35%,transparent_100%)]"
         aria-hidden
       />
 
-      {/* Barra de metadados superior */}
+      
       <div className="relative z-10 mx-auto flex max-w-[1400px] items-center justify-between px-8 pt-[120px] lg:px-12 lg:pt-[136px]">
         <MetaLabel className="text-white/80">Larafy°</MetaLabel>
         <MetaLabel className="hidden sm:block">Inteligência Tributária</MetaLabel>
         <MetaLabel>[ BR — 2026 ]</MetaLabel>
       </div>
 
-      {/* Conteúdo principal */}
+      
       <div className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-13rem)] max-w-[1400px] flex-col justify-center px-9 lg:px-12">
         <motion.div
           initial="hidden"
@@ -110,16 +110,16 @@ export function HeroSection() {
             <MetaLabel className="text-[#00e5ff]">01 — Decisão tributária estratégica</MetaLabel>
           </div>
 
-          <h1 className="mt-7 font-display font-bold uppercase leading-[0.9] tracking-[-0.02em]">
+          <h1 className="mt-7 font-display font-bold uppercase leading-[1.12] tracking-[-0.02em]">
             <SplitReveal
               as="span"
               type="words"
-              className="block text-[clamp(2.4rem,6.5vw,5rem)] text-white"
+              className="block text-[2.75rem] text-white"
             >
-              Reduza impostos
+              Transforme riscos fiscais
             </SplitReveal>
-            <span className="block text-[clamp(2.4rem,6.5vw,5rem)] text-[#00e5ff]">
-              com zero risco.
+            <span className="block text-[2.75rem] text-[#00e5ff]">
+              em oportunidades tributárias.
             </span>
           </h1>
 

@@ -8,7 +8,6 @@ interface UseScrollProgressVarOptions {
   varName?: string
 }
 
-
 export function useScrollProgressVar<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollProgressVarOptions = {}
 ) {

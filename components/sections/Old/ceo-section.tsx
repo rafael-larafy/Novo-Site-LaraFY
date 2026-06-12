@@ -25,7 +25,7 @@ export function CeoSection() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 items-center gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          {/* retrato em moldura */}
+          
           <motion.div
             className="relative order-1 mx-auto w-full max-w-[360px]"
             initial="hidden"
@@ -37,7 +37,7 @@ export function CeoSection() {
             <CeoPortrait />
           </motion.div>
 
-          {/* citação dominante */}
+          
           <motion.div
             className="order-2"
             initial="hidden"
@@ -50,7 +50,7 @@ export function CeoSection() {
             <SplitReveal
               as="h2"
               type="words"
-              className="-mt-6 font-display text-[clamp(1.9rem,4vw,3.75rem)] font-bold uppercase leading-[1.02] tracking-[-0.01em] text-white text-balance"
+              className="-mt-6 font-display text-[2.75rem] font-bold uppercase leading-[1.02] tracking-[-0.01em] text-white text-balance"
             >
               A linha tênue entre o erro e o acerto está em como foi analisado.
             </SplitReveal>

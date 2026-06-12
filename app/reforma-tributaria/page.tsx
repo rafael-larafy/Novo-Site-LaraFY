@@ -49,8 +49,6 @@ const ReformSimulator = dynamic(
   }
 )
 
-/* ---------------------------------------------------------------- dados ---- */
-
 interface DataCard {
   value: string
   highlight?: boolean
@@ -260,14 +258,12 @@ const SPEAKER_TOPICS: string[] = [
   "O futuro do setor",
 ]
 
-/* --------------------------------------------------------------- página ---- */
-
 export default function ReformaTributariaPage() {
   return (
     <>
       <Header />
       <main className="overflow-x-hidden bg-[#04101f] text-white">
-        {/* 1) HERO -------------------------------------------------------- */}
+        
         <section
           id="topo"
           className="relative overflow-hidden bg-[#04101f] pt-32 pb-20 text-white lg:pt-40"
@@ -276,7 +272,7 @@ export default function ReformaTributariaPage() {
 
           <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-10">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-              {/* esquerda — copy */}
+              
               <div>
                 <MetaLabel className="text-[#00e5ff]">
                   Reforma Tributária · 2026–2033
@@ -287,7 +283,7 @@ export default function ReformaTributariaPage() {
                   viewport={scrollViewport}
                   variants={fadeUpVariants}
                   transition={scrollTransition}
-                  className="mt-5 font-display text-[clamp(2rem,4.6vw,3.3rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] text-balance text-white"
+                  className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.03em] text-balance text-white"
                 >
                   A maior mudança tributária em 60 anos já começou. Você sabe o{" "}
                   <span className="text-[#00e5ff]">seu número</span>?
@@ -322,7 +318,7 @@ export default function ReformaTributariaPage() {
                 </motion.div>
               </div>
 
-              {/* direita — gauge 3D + stats */}
+              
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -371,7 +367,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 2) DADOS ------------------------------------------------------- */}
+        
         <section
           id="dados"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -384,7 +380,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
               >
                 Os dados que vão redesenhar o seu caixa.
               </SplitReveal>
@@ -434,7 +430,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 3) LINHA DO TEMPO --------------------------------------------- */}
+        
         <section
           id="linha"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -449,7 +445,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
               >
                 A transição, ano a ano.
               </SplitReveal>
@@ -460,12 +456,12 @@ export default function ReformaTributariaPage() {
             </div>
 
             <ol className="relative mt-16 grid gap-10 lg:grid-cols-7 lg:gap-4">
-              {/* trilho luminoso (somente lg, atrás dos nós) */}
+              
               <span
                 className="pointer-events-none absolute left-[7px] top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-[#00e5ff]/60 via-[#00e5ff]/25 to-transparent lg:left-0 lg:right-0 lg:top-[7px] lg:h-px lg:w-full lg:bg-gradient-to-r"
                 aria-hidden
               />
-              {/* trilho vertical (mobile) */}
+              
               <span
                 className="pointer-events-none absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-[#00e5ff]/60 via-[#00e5ff]/25 to-transparent lg:hidden"
                 aria-hidden
@@ -481,7 +477,7 @@ export default function ReformaTributariaPage() {
                   transition={{ ...scrollTransition, delay: staggerDelay(i) }}
                   className="relative pl-8 lg:pl-0 lg:pt-8"
                 >
-                  {/* ponto */}
+                  
                   <span
                     className="absolute left-0 top-1 lg:left-0 lg:top-0"
                     aria-hidden
@@ -511,7 +507,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 4) SIMULADOR -------------------------------------------------- */}
+        
         <section
           id="simulador"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -526,7 +522,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
               >
                 O estudo da reforma sobre o que é seu — não sobre achismo.
               </SplitReveal>
@@ -542,7 +538,7 @@ export default function ReformaTributariaPage() {
             </div>
 
             <div className="mt-12 grid gap-5 sm:grid-cols-2">
-              {/* card A — mercado */}
+              
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -570,7 +566,7 @@ export default function ReformaTributariaPage() {
                 </ul>
               </motion.div>
 
-              {/* card B — LaraFy */}
+              
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -599,7 +595,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 5) ENTREGÁVEIS ------------------------------------------------ */}
+        
         <section
           id="entregaveis"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -614,7 +610,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
               >
                 O que você recebe no estudo da reforma LaraFy.
               </SplitReveal>
@@ -649,7 +645,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 6) AUTORIDADE / WALDIR ---------------------------------------- */}
+        
         <section
           id="autoridade"
           className="relative overflow-hidden bg-[#061425] text-white"
@@ -658,7 +654,7 @@ export default function ReformaTributariaPage() {
 
           <div className="relative z-10 mx-auto max-w-[1200px] px-6 py-24 lg:px-10 lg:py-28">
             <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-              {/* esquerda — retrato */}
+              
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -680,7 +676,7 @@ export default function ReformaTributariaPage() {
                 />
               </motion.div>
 
-              {/* direita — copy */}
+              
               <div>
                 <MetaLabel className="text-[#00e5ff]">
                   05 — Autoridade no tema
@@ -688,7 +684,7 @@ export default function ReformaTributariaPage() {
                 <SplitReveal
                   as="h2"
                   type="words"
-                  className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                  className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
                 >
                   Waldir de Lara Junior nos palcos do Brasil.
                 </SplitReveal>
@@ -734,7 +730,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 7) FAQ -------------------------------------------------------- */}
+        
         <section
           id="faq"
           className="relative overflow-hidden bg-[#04101f] text-white"
@@ -749,7 +745,7 @@ export default function ReformaTributariaPage() {
               <SplitReveal
                 as="h2"
                 type="words"
-                className="mt-5 font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+                className="mt-5 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
               >
                 O essencial, sem juridiquês.
               </SplitReveal>
@@ -783,7 +779,7 @@ export default function ReformaTributariaPage() {
           </div>
         </section>
 
-        {/* 8) CTA FINAL -------------------------------------------------- */}
+        
         <section className="relative overflow-hidden bg-[#020a14] text-white">
           <HudGrid />
 
@@ -792,7 +788,7 @@ export default function ReformaTributariaPage() {
             <SplitReveal
               as="h2"
               type="words"
-              className="mx-auto mt-5 max-w-4xl font-display text-[clamp(1.7rem,4vw,3.25rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance text-white"
+              className="mx-auto mt-5 max-w-4xl font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance text-white"
             >
               Pare de decidir a reforma no escuro.
             </SplitReveal>

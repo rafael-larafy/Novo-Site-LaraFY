@@ -88,7 +88,7 @@ export default function SolucoesPage() {
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero */}
+        
         <section className="relative bg-[#04101f] pt-32 pb-20 lg:pt-40 lg:pb-8">
           <div className="absolute inset-0 bg-gradient-to-b from-[#04101f] via-[#061425] to-[#04101f]" />
           <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
@@ -102,7 +102,7 @@ export default function SolucoesPage() {
             >
               Nossas Soluções
             </motion.p>
-            <SplitReveal as="h1" className="mt-4 text-3xl font-display font-bold uppercase leading-tight text-white lg:text-6xl">
+            <SplitReveal as="h1" className="mt-4 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
               Precisão cirúrgica na{" "}
               <span className="text-[#00e5ff]">redução de impostos</span>
             </SplitReveal>
@@ -120,7 +120,7 @@ export default function SolucoesPage() {
           </div>
         </section>
 
-        {/* Soluções - Timeline */}
+        
         <section className="relative bg-[#04101f] py-20 lg:py-10">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <motion.div
@@ -131,7 +131,7 @@ export default function SolucoesPage() {
               variants={fadeUpVariants}
               transition={scrollTransition}
             >
-              <h2 className="text-2xl font-display font-bold uppercase text-white lg:text-4xl">
+              <h2 className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                 Nossas Soluções
               </h2>
               <p className="mt-4 text-[#8ba3c0]">
@@ -140,7 +140,7 @@ export default function SolucoesPage() {
             </motion.div>
 
             <div className="relative">
-              {/* Linha central */}
+              
               <div className="absolute left-6 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-[#1e3a5f]/60" />
 
               <div className="space-y-10">
@@ -156,10 +156,10 @@ export default function SolucoesPage() {
                     variants={index % 2 === 0 ? slideLeftVariants : slideRightVariants}
                     transition={{ ...scrollTransition, delay: staggerDelay(index) }}
                   >
-                    {/* Dot */}
+                    
                     <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] ring-4 ring-[#020a14] z-10" />
 
-                    {/* Content */}
+                    
                     <div className={`flex-1 pl-14 lg:pl-0 ${index % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16 lg:text-left"}`}>
                       <div className={`inline-flex rounded-xl bg-[#00e5ff]/10 p-2.5 mb-3 ${index % 2 === 0 ? "lg:float-right lg:ml-3" : ""}`}>
                         <solucao.icon className="h-6 w-6 text-[#00e5ff]" />
@@ -180,7 +180,7 @@ export default function SolucoesPage() {
                       </div>
                     </div>
 
-                    {/* Spacer para o lado oposto */}
+                    
                     <div className="hidden lg:block flex-1" />
                   </motion.div>
                 ))}
@@ -189,11 +189,11 @@ export default function SolucoesPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        
         <section className="relative bg-[#04101f] py-20 lg:pt-5 lg:pb-20">
           <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
             <motion.h2
-              className="text-2xl font-display font-bold uppercase text-[#00e5ff] lg:text-4xl"
+              className="font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-[#00e5ff] text-balance"
               initial="hidden"
               whileInView="visible"
               viewport={scrollViewport}

@@ -68,22 +68,19 @@
 }
 
 @theme {
-  /* ---- Motion: a curva ÚNICA do Lumena (158 usos no site original) ---- */
   --ease-default: cubic-bezier(0.55, 0, 0.1, 1);
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 300ms;
   --duration-base: 400ms;
   --duration-slow: 600ms;
-
-  /* ---- Tipografia fluida (escala do Lumena traduzida p/ clamp) ---- */
-  --text-display: clamp(2.5rem, 6vw + 1rem, 6.25rem);
-  --text-display--line-height: 1.05;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.12;
   --text-display--letter-spacing: -0.02em;
-  --text-h1: clamp(2rem, 3vw + 1rem, 3.5rem);
-  --text-h1--line-height: 1.1;
+  --text-h1: 2.75rem;
+  --text-h1--line-height: 1.12;
   --text-h1--letter-spacing: -0.02em;
-  --text-h2: clamp(1.5rem, 3vw + 0.5rem, 3rem);
-  --text-h2--line-height: 1.15;
+  --text-h2: 2.75rem;
+  --text-h2--line-height: 1.12;
   --text-h2--letter-spacing: -0.01em;
   --text-h3: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   --text-h3--line-height: 1.2;
@@ -94,8 +91,6 @@
   --text-eyebrow: clamp(0.875rem, 0.3vw + 0.75rem, 1rem);
   --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.08em;
-
-  /* ---- Ritmo de seção / grid (modelo fluido do Lumena) ---- */
   --spacing-section: clamp(4rem, 8vw, 12rem);
   --spacing-gutter: 0.8rem;
   --spacing-margin: clamp(1rem, 3vw, 2.4rem);
@@ -109,11 +104,6 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 }
-
-/* ============================================
-   Revnuyu-style design utilities (sandbox-only)
-   Used by /teste-animacoes
-   ============================================ */
 .rev-flex-center { display: flex; align-items: center; justify-content: center; }
 .rev-mask-clip-path { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 .rev-about-image {
@@ -367,22 +357,16 @@ html {
   transform: scale(1.04);
   box-shadow: 0 0 34px rgba(0, 229, 255, 0.55);
 }
-
-/* feedback tátil no clique */
 .cta-button:active {
   transform: scale(0.97);
   transition-duration: 80ms;
 }
-
-/* seta que avança no hover */
 .cta-arrow {
   transition: transform var(--duration-base) var(--ease-default);
 }
 .cta-button:hover .cta-arrow {
   transform: translateX(4px);
 }
-
-/* brilho que varre a pílula no hover (sheen) */
 .cta-sheen {
   position: absolute;
   inset: 0;
@@ -412,10 +396,6 @@ html {
     transition: none;
   }
 }
-
-/* ============================================
-   Cursor customizado  (components/cursor.tsx)
-   ============================================ */
 .cursor-dot,
 .cursor-ring {
   position: fixed;
@@ -456,7 +436,6 @@ html {
   .has-custom-cursor * {
     cursor: none;
   }
-  /* preserva o I-beam nos campos do formulário (conversão importa) */
   .has-custom-cursor input,
   .has-custom-cursor textarea,
   .has-custom-cursor [contenteditable="true"] {
@@ -469,10 +448,6 @@ html {
     display: none;
   }
 }
-
-/* ============================================
-   Barra de progresso de scroll  (components/scroll-progress.tsx)
-   ============================================ */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -491,10 +466,6 @@ html {
   background: linear-gradient(90deg, rgba(0, 229, 255, 0.2), #00e5ff);
   box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
 }
-
-/* ============================================
-   Transição de página — cortina  (app/template.tsx)
-   ============================================ */
 .page-curtain {
   position: fixed;
   inset: 0;
@@ -504,7 +475,6 @@ html {
   transform: translateY(0);
   animation: curtain-up 0.7s var(--ease-default) forwards;
 }
-/* fio ciano que lidera a revelação */
 .page-curtain::after {
   content: "";
   position: absolute;
@@ -528,15 +498,9 @@ html {
     animation: none;
   }
 }
-
-/* ============================================
-   Direção de arte "terminal de inteligência" (redesign ousado)
-   ============================================ */
 .font-display {
   font-family: var(--font-display);
 }
-
-/* rótulo de metadados — monospace, uppercase, tracking largo */
 .meta-label {
   font-family: var(--font-mono);
   text-transform: uppercase;
@@ -544,8 +508,6 @@ html {
   font-size: 0.6875rem; /* 11px */
   line-height: 1;
 }
-
-/* grade fina de HUD ao fundo, esmaecida nas bordas por uma máscara radial */
 .hud-grid {
   background-image:
     linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
@@ -554,20 +516,13 @@ html {
   -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, #000 45%, transparent 100%);
   mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, #000 45%, transparent 100%);
 }
-
-/* borda "fio de cabelo" ciano (molduras de visor, divisores) */
 .hairline {
   border-color: rgba(0, 229, 255, 0.14);
 }
-
-/* tipografia display "vazada" (contorno) — para palavras secundárias gigantes */
 .text-outline {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
   color: transparent;
 }
-
-/* Sublinhado direcional (efeito .aPer do Lumena) — usado por <UnderlineLink>.
-   --ul-origin é setado por JS conforme o lado de entrada/saída do cursor. */
 .underline-link {
   position: relative;
 }
@@ -592,8 +547,6 @@ html {
     transition: none;
   }
 }
-
-/* Slider do simulador da Reforma — thumb ciano com halo */
 .sim-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -620,14 +573,10 @@ html {
 .sim-range:focus-visible::-webkit-slider-thumb {
   box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.18), 0 0 0 7px rgba(255, 255, 255, 0.5);
 }
-
-/* Fade nas bordas esquerda/direita (carrossel de logos) */
 .lfy-fade-x {
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
-
-/* ===== Efeito "scanner" — overlay sobre o painel da Baixa Automática ===== */
 .lfy-scan-overlay {
   position: absolute;
   inset: 0;
@@ -636,7 +585,6 @@ html {
   border-radius: inherit;
   pointer-events: none;
 }
-/* malha base (sempre presente, sutil) */
 .lfy-scan-overlay::before {
   content: "";
   position: absolute;
@@ -645,7 +593,6 @@ html {
     linear-gradient(rgba(6, 182, 212, 0.18) 1px, transparent 1px) 0 0 / 100% 26px,
     linear-gradient(90deg, rgba(6, 182, 212, 0.18) 1px, transparent 1px) 0 0 / 26px 100%;
 }
-/* onda: faixa de brilho ciano que percorre o painel, fazendo a grade "reagir" */
 .lfy-scan-wave {
   position: absolute;
   left: 0;
@@ -663,7 +610,6 @@ html {
   );
   animation: lfy-scan-wave 6.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
 }
-/* feixe de varredura */
 .lfy-scanline {
   position: absolute;
   left: 0;
@@ -674,7 +620,6 @@ html {
   box-shadow: 0 0 14px 2px rgba(0, 229, 255, 0.4);
   animation: lfy-scan-sweep 6.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
 }
-/* rastro luminoso acima do feixe */
 .lfy-scanline::after {
   content: "";
   position: absolute;

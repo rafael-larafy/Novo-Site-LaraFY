@@ -106,7 +106,6 @@ function Lines({
   useFrame(() => {
     const grp = group.current
     if (!grp) return
-    // inclinação base (mostra a profundidade) + parallax do mouse
     const tx = -0.5 + pointer.current.y * 0.12
     const ty = pointer.current.x * 0.18
     grp.rotation.x += (tx - grp.rotation.x) * 0.05
@@ -144,7 +143,7 @@ export function WaveLines({ className }: { className?: string }) {
         dpr={[1, 1.8]}
         gl={{ antialias: true }}
       >
-        {/* fundo navy opaco (combina com a seção; bloom funciona em cena opaca) */}
+        
         <color attach="background" args={["#0a1628"]} />
         <Lines pointer={pointer} reduce={reduce} />
         <EffectComposer>

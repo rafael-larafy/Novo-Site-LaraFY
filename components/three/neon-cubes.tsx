@@ -1,10 +1,5 @@
 "use client"
 
-// "Cubos neon" — cubos wireframe aninhados girando com sin, aditivo + Bloom.
-// Adaptado de bobbyroe/Spinning-Neon-Cubes p/ R3F + ciano (com EdgesGeometry +
-// lineBasicMaterial no lugar do Line2). Tilt pelo ponteiro; estático sob
-// reduced-motion. Pausa fora da viewport.
-
 import { useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Bloom, EffectComposer } from "@react-three/postprocessing"

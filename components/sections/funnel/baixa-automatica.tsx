@@ -1,9 +1,5 @@
 "use client"
 
-// Recriação fiel da interface "Baixa Automática Completa" (navegador de SPEDs do
-// produto Larafy), para substituir o mock de barras na seção de Tecnologia.
-// O scanner "detecta": realça algumas linhas por alguns segundos enquanto varre.
-
 import { useEffect, useState } from "react"
 import { Activity, Check, ChevronDown, Download, Search, X } from "lucide-react"
 
@@ -106,7 +102,7 @@ export function BaixaAutomatica({ className }: { className?: string }) {
       aria-label="Interface da Baixa Automática Completa da Larafy: navegador de arquivos fiscais (SPEDs) com download por período."
       className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-2xl shadow-black/50 ring-1 ring-[#00e5ff]/10 ${className ?? ""}`}
     >
-      {/* HEADER */}
+      
       <div className="flex items-start justify-between gap-3 px-4 py-3.5 sm:px-5">
         <div className="flex items-start gap-3">
           <span
@@ -127,7 +123,7 @@ export function BaixaAutomatica({ className }: { className?: string }) {
         <X className="h-4 w-4 shrink-0 text-slate-400" aria-hidden />
       </div>
 
-      {/* TABS */}
+      
       <div className="flex items-center gap-4 border-b border-slate-200 px-4 sm:gap-5 sm:px-5">
         {TABS.map((tab) => {
           const active = tab === "Arquivos"
@@ -146,9 +142,9 @@ export function BaixaAutomatica({ className }: { className?: string }) {
         })}
       </div>
 
-      {/* BODY */}
+      
       <div className="flex">
-        {/* SIDEBAR */}
+        
         <aside className="flex w-[34%] max-w-[210px] flex-col border-r border-slate-200">
           <div className="flex-1 overflow-y-auto px-3 py-3">
             <p className="px-2 text-[11px] font-bold uppercase tracking-wider text-slate-500">SPEDs</p>
@@ -186,9 +182,9 @@ export function BaixaAutomatica({ className }: { className?: string }) {
           </div>
         </aside>
 
-        {/* MAIN */}
+        
         <div className="flex min-w-0 flex-1 flex-col">
-          {/* TOOLBAR */}
+          
           <div className="flex items-center gap-3 px-4 py-3">
             <span className="flex items-center gap-2 text-[12.5px] text-slate-600">
               <CheckSquare />
@@ -204,13 +200,13 @@ export function BaixaAutomatica({ className }: { className?: string }) {
             </span>
           </div>
 
-          {/* HEADING */}
+          
           <div className="px-4 pb-2">
             <p className="text-[15px] font-bold text-slate-800">EFD CONTRIBUIÇÕES</p>
             <p className="text-[12px] font-medium text-cyan-600">118 arquivos</p>
           </div>
 
-          {/* TABLE */}
+          
           <div className="max-h-[208px] flex-1 overflow-y-auto">
             <table className="w-full border-collapse text-left">
               <thead className="sticky top-0 bg-slate-50">
@@ -277,7 +273,7 @@ export function BaixaAutomatica({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Efeito de scanner — grade reativa (onda) + feixe (puro CSS, respeita reduced-motion) */}
+      
       <div className="lfy-scan-overlay" aria-hidden>
         <div className="lfy-scan-wave" />
         <span className="lfy-scanline" />

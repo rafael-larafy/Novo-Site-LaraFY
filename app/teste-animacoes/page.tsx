@@ -1,9 +1,5 @@
 "use client"
 
-// Testbed de animações 3D (R3F) — galeria para comparar candidatas ao vivo.
-// Cada seção ocupa a tela; canvases fora da viewport pausam o render loop.
-// Adaptações de demos do github.com/bobbyroe para o nosso dark + ciano.
-
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
@@ -122,7 +118,7 @@ const ANIMS: Anim[] = [
 export default function TesteAnimacoes() {
   return (
     <main className="relative bg-[#04101f] text-white">
-      {/* top bar */}
+      
       <div className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#04101f]/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-3">
           <div className="flex items-center gap-3">
@@ -150,12 +146,12 @@ export default function TesteAnimacoes() {
         </div>
       </div>
 
-      {/* intro */}
+      
       <section className="relative flex min-h-[42vh] flex-col items-center justify-center px-6 pt-24 pb-10 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#00e5ff]">
           Comparar animações
         </p>
-        <h1 className="mt-4 max-w-3xl font-display text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[0.95] tracking-[-0.02em] text-balance">
+        <h1 className="mt-4 max-w-3xl font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-balance">
           Qual animação fica no site?
         </h1>
         <p className="mt-4 max-w-xl text-white/55">
@@ -164,7 +160,7 @@ export default function TesteAnimacoes() {
         </p>
       </section>
 
-      {/* galeria */}
+      
       {ANIMS.map((a) => {
         const Comp = a.Comp
         return (
@@ -174,7 +170,7 @@ export default function TesteAnimacoes() {
             className="relative h-[88vh] w-full overflow-hidden border-t border-white/10"
           >
             <Comp className="absolute inset-0" />
-            {/* vinheta p/ legibilidade do rótulo */}
+            
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#04101f] via-transparent to-transparent"
               aria-hidden
@@ -195,7 +191,7 @@ export default function TesteAnimacoes() {
                         </span>
                       )}
                     </div>
-                    <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-[-0.02em] text-white lg:text-5xl">
+                    <h2 className="mt-2 font-display text-[2.75rem] font-bold uppercase leading-[1.12] tracking-[-0.02em] text-white text-balance">
                       {a.name}
                     </h2>
                     <p className="mt-2 max-w-md text-sm text-white/60">{a.desc}</p>
